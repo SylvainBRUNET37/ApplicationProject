@@ -4,17 +4,17 @@ def identifierColonneJouer(iTabColonne, iNbLigne):
             return iBoucleL
     return None
 
-def placerJeton(iTabPlateauDeJeu, iJoueur, iNbColonne, iNbLigne):
+def placerJeton(iTabPlateauJeu, iJoueur, iNbColonne, iNbLigne):
     bColonneValide = True
     while bColonneValide == True :
         iColonneJouer = int(input("Saisissez le numero de la colonne ou vous voulez jouer :"))
         if iColonneJouer <= iNbColonne and iColonneJouer >= 0 :
-            iLigneJouer = identifierColonneJouer(iTabPlateauDeJeu[iColonneJouer], iNbLigne)
+            iLigneJouer = identifierColonneJouer(iTabPlateauJeu[iColonneJouer], iNbLigne)
             if iLigneJouer != None :
-                bColonneValide = 0
+                bColonneValide = False
 
-    iTabPlateauDeJeu[iColonneJouer][iLigneJouer] = iJoueur
-    return iTabPlateauDeJeu
+    iTabPlateauJeu[iColonneJouer][iLigneJouer] = iJoueur
+    return iTabPlateauJeu
 
     
     

@@ -1,2 +1,3 @@
 def afficherPlateau(iTabPlateauJeu) :
-    print(iTabPlateauJeu)
+    for i in range(len(iTabPlateauJeu)) :
+        print(i)
