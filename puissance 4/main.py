@@ -21,32 +21,30 @@ def main():
     sCouleurJetonJ2 = "red"
 
     tabStatutJeu = [[iTabPlateauDeJeu, True, True]]
-    tabStatutJeu.append([iTabPlateauDeJeu, True, True])
-
     iJoueurCourant = iJoueurCommence
-    iBoucleJeu = 1
+    iBoucleJeu = 0
     
     while iBoucleJeu < 10 :
         afficherPlateau(tabStatutJeu[iBoucleJeu][0], iNbColonne, iNbLigne)
-        tabStatutJeu.append(tabStatutJeu) # Met les données du tour précédent dans le tour actuelle
+        tabStatutJeu.append(tabStatutJeu[iBoucleJeu]) # Met les données du tour précédent dans le tour actuelle
 
         # Si le joueur courant a encore son coup spécial, lui demande si il veut l'utiliser
-        '''
-        if iBoucleJeu != 1 and tabStatutJeu[iBoucleJeu][iJoueurCourant] == True :
-            bRetirerJeton = bool(input("Saisissez si vous souhaitez utiliser votre coup special :")) # True = oui, False = non
-            if bRetirerJeton == True :
+        
+        if iBoucleJeu != 0 and tabStatutJeu[iBoucleJeu][iJoueurCourant] == True :
+            bRetirerJeton = int(input("Saisissez si vous 0 souhaitez utiliser votre coup special sinon 1 :")) # 0 = oui, 1 = non
+            if bRetirerJeton == 0 :
                 tabStatutJeu[iBoucleJeu][0] = retirerJeton(tabStatutJeu[iBoucleJeu][0], iJoueurCourant, iNbColonne, iNbLigne)
                 tabStatutJeu[iBoucleJeu][iJoueurCourant] = False # Enleve la posibilité d'utiliser l'atout du joueur qui l'a utilisé
             else :
                 tabStatutJeu[iBoucleJeu][0] = placerJeton(tabStatutJeu[iBoucleJeu][0], iJoueurCourant, iNbColonne, iNbLigne)
         else :
-            '''
-        tabStatutJeu[iBoucleJeu][0] = placerJeton(tabStatutJeu[iBoucleJeu][0], iJoueurCourant, iNbColonne, iNbLigne)
+            
+            tabStatutJeu[iBoucleJeu][0] = placerJeton(tabStatutJeu[iBoucleJeu][0], iJoueurCourant, iNbColonne, iNbLigne)
 
         if iJoueurCourant == 1 :
             iJoueurCourant = 2
         else :
             iJoueurCourant = 1
-        boucleJeu += 1
+        iBoucleJeu += 1
         cls()
 main()

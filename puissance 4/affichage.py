@@ -1,5 +1,4 @@
 def afficherPlateau(iTabPlateauJeu, iNbColonne, iNbLigne) :
-    #iTabPlateauJeu2 = [list(row) for row in zip(*reversed(iTabPlateauJeu))]
     iTabPlateauJeu2 = list(zip(*reversed(iTabPlateauJeu)))  # Pivoter le plateau de 90 degrés vers la gauche
     iTabPlateauJeu2 = list(zip(*reversed(iTabPlateauJeu2)))
     iTabPlateauJeu2 = list(zip(*reversed(iTabPlateauJeu2)))
