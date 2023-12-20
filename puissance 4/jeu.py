@@ -31,9 +31,12 @@ def retirerJeton(iTabPlateauJeu, iJoueur, iNbColonne, iNbLigne):
     iColonneChoisi, iLigneChoisi = demanderPositionPlateau(iTabPlateauJeu, iNbColonne, iNbLigne)
     iTabPlateauJeu[iColonneChoisi][iLigneChoisi] = 0
     iBoucleL = iLigneChoisi+1
-    for iBoucleL in range(iNbLigne) :
+    while iBoucleL < iNbLigne :
         if iTabPlateauJeu[iColonneChoisi][iBoucleL] == 0 :
             break
         else :
             iTabPlateauJeu[iColonneChoisi][iBoucleL-1] = iTabPlateauJeu[iColonneChoisi][iBoucleL]
+            iTabPlateauJeu[iColonneChoisi][iBoucleL] = 0
+        iBoucleL += 1
+
     return iTabPlateauJeu
