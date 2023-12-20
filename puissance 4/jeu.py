@@ -1,4 +1,4 @@
-def identifierColonneJouer(iTabColonne, iNbLigne):
+def identifierColonneChoisi(iTabColonne, iNbLigne):
     for iBoucleL in range(iNbLigne) :
         if iTabColonne[iBoucleL] == 0 :
             return iBoucleL
@@ -7,14 +7,33 @@ def identifierColonneJouer(iTabColonne, iNbLigne):
 def placerJeton(iTabPlateauJeu, iJoueur, iNbColonne, iNbLigne):
     bColonneValide = True
     while bColonneValide == True :
-        iColonneJouer = int(input("Saisissez le numero de la colonne ou vous voulez jouer :"))
-        if iColonneJouer <= iNbColonne and iColonneJouer >= 0 :
-            iLigneJouer = identifierColonneJouer(iTabPlateauJeu[iColonneJouer], iNbLigne)
+        iColonneChoisi = int(input("Saisissez le numero de la colonne ou vous voulez jouer :"))
+        if iColonneChoisi <= iNbColonne and iColonneChoisi >= 0 :
+            iLigneJouer = identifierColonneChoisi(iTabPlateauJeu[iColonneChoisi], iNbLigne)
             if iLigneJouer != None :
                 bColonneValide = False
 
-    iTabPlateauJeu[iColonneJouer][iLigneJouer] = iJoueur
+    iTabPlateauJeu[iColonneChoisi][iLigneJouer] = iJoueur
     return iTabPlateauJeu
 
-    
-    
+def demanderPositionPlateau(iTabPlateauJeu, iNbColonne, iNbLigne):
+    bPostionValide = True
+    while bPostionValide == True :
+        iColonneChoisi = int(input("Saisissez le numero de la colonne ou vous voulez retirer le jeton :"))
+        if iColonneChoisi <= iNbColonne and iColonneChoisi >= 0 :
+            iLigneChoisi = int(input("Saisissez le numero de la ligne ou vous voulez retirer le jeton :"))
+            if iLigneChoisi <= iNbLigne and iLigneChoisi >= 0 :
+                if (iTabPlateauJeu[iColonneChoisi][iLigneChoisi] != 0) :
+                    bPostionValide = False
+    return iColonneChoisi, iLigneChoisi
+
+def retirerJeton(iTabPlateauJeu, iJoueur, iNbColonne, iNbLigne):
+    iColonneChoisi, iLigneChoisi = demanderPositionPlateau(iTabPlateauJeu, iNbColonne, iNbLigne)
+    iTabPlateauJeu[iColonneChoisi][iLigneChoisi] = 0
+    iBoucleL = iLigneChoisi+1
+    for iBoucleL in range(iNbLigne) :
+        if iTabPlateauJeu[iColonneChoisi][iBoucleL] == 0 :
+            break
+        else :
+            iTabPlateauJeu[iColonneChoisi][iBoucleL-1] = iTabPlateauJeu[iColonneChoisi][iBoucleL]
+    return iTabPlateauJeu
