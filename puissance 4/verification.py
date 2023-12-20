@@ -26,8 +26,12 @@ def verifLigne(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire):
 
 def verifDiagonaleGauche(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire):
     for iBoucleC in range(iNbColonne - iNbJetonVictoire + 1):
+        print("i : ",iBoucleC)
         for iBoucleL in range(iNbLigne - iNbJetonVictoire + 1):
-            iJeton = iTabPlateauDeJeu[iBoucleC][iBoucleL]
+            print(iBoucleL)
+            """for iBoucle in range(iNbJetonVictoire -2):
+                iJeton = iTabPlateauDeJeu[iBoucleC + iBoucle][iBoucleL + iBoucle]
+            print(iJeton)"""
             
     return 0
 
@@ -39,4 +43,8 @@ def verifRemplie(iTabPlateauDeJeu, iNbColonne, iNbLigne):
                 return(0)
     return(3)
 
-a = [[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]
+a = [[1,0,0,0,0,0],[0,1,0,0,0,0],[0,0,1,0,0,0],[0,0,0,1,0,0]]
+b = 6
+c = 6
+d = 4
+#verifDiagonaleGauche(a,b,c,d)

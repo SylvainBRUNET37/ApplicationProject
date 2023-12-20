@@ -12,24 +12,20 @@ def main():
     iNbJetonVictoire = 4
     iJoueurCommence = 1
 
-    iTabPlateauDeJeu = [[0]*iNbLigne]*iNbColonne
+    iTabPlateauDeJeu = [[0 for i in range(iNbLigne)] for i in range(iNbColonne)]
     sCouleurJetonJ1 = "yellow"
     sCouleurJetonJ2 = "red"
     bStatutCoupSpecialJ1 = True
     bStatutCoupSpecialJ2 = True
 
-    
-    iTabPlateauDeJeu[0][0] = 1
-    print(iTabPlateauDeJeu[2][0])
+
     tabStatutJeu = [[iTabPlateauDeJeu, bStatutCoupSpecialJ1, bStatutCoupSpecialJ2]]
     tabStatutJeu.append([iTabPlateauDeJeu, bStatutCoupSpecialJ1, bStatutCoupSpecialJ2])
     iJoueurCourant = iJoueurCommence
     boucleJeu = 0
-
-    #print(tabStatutJeu[boucleJeu][0])
-    while boucleJeu < 3 :
-        afficherPlateau(tabStatutJeu[boucleJeu][0])
-        #tabStatutJeu[boucleJeu+1] = (placerJeton(tabStatutJeu[boucleJeu][0], iJoueurCourant, iNbColonne, iNbLigne), True, True)
+    while boucleJeu < 10 :
+        afficherPlateau(tabStatutJeu[boucleJeu][0], iNbColonne, iNbLigne)
+        tabStatutJeu.append([placerJeton(tabStatutJeu[boucleJeu][0], iJoueurCourant, iNbColonne, iNbLigne), True, True])
 
         if iJoueurCourant == 1 :
             iJoueurCourant = 2
