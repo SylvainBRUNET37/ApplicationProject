@@ -27,7 +27,7 @@ def demanderPositionPlateau(iTabPlateauJeu, iNbColonne, iNbLigne):
                     bPostionValide = False
     return iColonneChoisi, iLigneChoisi
 
-def retirerJeton(iTabPlateauJeu, iJoueur, iNbColonne, iNbLigne):
+def retirerJeton(iTabPlateauJeu, iNbColonne, iNbLigne):
     iColonneChoisi, iLigneChoisi = demanderPositionPlateau(iTabPlateauJeu, iNbColonne, iNbLigne)
     iTabPlateauJeu[iColonneChoisi][iLigneChoisi] = 0
     iBoucleL = iLigneChoisi+1

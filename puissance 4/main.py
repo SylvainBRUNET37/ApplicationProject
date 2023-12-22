@@ -22,7 +22,7 @@ def main():
         if tabStatutJeu[iBoucleJeu][3] != 0 and tabStatutJeu[iBoucleJeu][iJoueurCourant] == True :
             bRetirerJeton = int(input("Saisissez si vous 0 souhaitez utiliser votre coup special sinon 1 :")) # 0 = oui, 1 = non
             if bRetirerJeton == 0 :
-                tabStatutJeu[iBoucleJeu][0] = retirerJeton(tabStatutJeu[iBoucleJeu][0], iJoueurCourant, iNbColonne, iNbLigne)
+                tabStatutJeu[iBoucleJeu][0] = retirerJeton(tabStatutJeu[iBoucleJeu][0], iNbColonne, iNbLigne)
                 tabStatutJeu[iBoucleJeu][iJoueurCourant] = False # Enleve la posibilité d'utiliser l'atout du joueur qui l'a utilisé
                 tabStatutJeu[iBoucleJeu][3] -= 1
             else :
