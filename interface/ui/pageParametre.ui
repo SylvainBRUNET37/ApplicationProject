@@ -1,0 +1,305 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.3">
+  <object class="tk.Toplevel" id="pageParametre" named="True">
+    <property name="geometry">384x288</property>
+    <property name="height">200</property>
+    <property name="width">200</property>
+    <child>
+      <object class="tk.Frame" id="frame_haut" named="True">
+        <property name="height">50</property>
+        <property name="width">365</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="x">10</property>
+          <property name="y">5</property>
+        </layout>
+        <child>
+          <object class="tk.Button" id="button_quitter" named="True">
+            <property name="cursor">hand2</property>
+            <property name="font">{Arial} 16 {}</property>
+            <property name="text" translatable="yes">Quitter</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.78</property>
+              <property name="rely">0.04</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="label_nomJeu" named="True">
+            <property name="font">{Arial} 20 {bold underline}</property>
+            <property name="text" translatable="yes">Puissance N</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.23</property>
+              <property name="rely">0.04</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="label_logo" named="True">
+            <property name="cursor">coffee_mug</property>
+            <property name="height">50</property>
+            <property name="image">logo.png</property>
+            <property name="width">50</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frame_couleurJ1" named="True">
+        <property name="height">50</property>
+        <property name="width">350</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="rely">0.20</property>
+          <property name="x">17</property>
+          <property name="y">0</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="label_couleurJ1" named="True">
+            <property name="font">{Arial} 16 {underline}</property>
+            <property name="text" translatable="yes">Couleur de jeton J1 :</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.08</property>
+              <property name="rely">0.27</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Canvas" id="canva_couleurJ1" named="True">
+            <property name="background">#8000ff</property>
+            <property name="closeenough">0</property>
+            <property name="confine">false</property>
+            <property name="cursor">pencil</property>
+            <property name="height">35</property>
+            <property name="highlightcolor">#ffff80</property>
+            <property name="width">35</property>
+            <layout manager="place">
+              <property name="relx">0.75</property>
+              <property name="rely">0.13</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frame_couleurJ2" named="True">
+        <property name="height">50</property>
+        <property name="width">350</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="rely">0.35</property>
+          <property name="x">17</property>
+          <property name="y">0</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="label_couleurJ2" named="True">
+            <property name="font">{Arial} 16 {underline}</property>
+            <property name="text" translatable="yes">Couleur de jeton J2 :</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.08</property>
+              <property name="rely">0.27</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Canvas" id="canva_couleurJ2" named="True">
+            <property name="background">#8000ff</property>
+            <property name="closeenough">0</property>
+            <property name="confine">false</property>
+            <property name="cursor">pencil</property>
+            <property name="height">35</property>
+            <property name="width">35</property>
+            <layout manager="place">
+              <property name="relx">0.75</property>
+              <property name="rely">0.13</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frame_nombreCoupSpecial" named="True">
+        <property name="height">50</property>
+        <property name="width">350</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="rely">0.52</property>
+          <property name="x">17</property>
+          <property name="y">0</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="label15" named="True">
+            <property name="font">{Arial} 16 {underline}</property>
+            <property name="text" translatable="yes">Nombre de coup 
+spécial :</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.08</property>
+              <property name="rely">0.0</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Scale" id="scale_nombreCoupSpecial" named="True">
+            <property name="cursor">sb_h_double_arrow</property>
+            <property name="from_">0</property>
+            <property name="orient">horizontal</property>
+            <property name="to">5</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.68</property>
+              <property name="rely">0.1</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frame_commence" named="True">
+        <property name="height">50</property>
+        <property name="width">350</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="rely">0.72</property>
+          <property name="x">17</property>
+          <property name="y">0</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="label_commence" named="True">
+            <property name="font">{Arial} 16 {underline}</property>
+            <property name="text" translatable="yes">Joueur qui commence :</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.07</property>
+              <property name="rely">0.0</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="button_commenceJ1" named="True">
+            <property name="background">#ffffff</property>
+            <property name="cursor">hand2</property>
+            <property name="text" translatable="yes">J1</property>
+            <property name="width">3</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.76</property>
+              <property name="rely">0.0</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="button_commenceJ2" named="True">
+            <property name="background">#c0c0c0</property>
+            <property name="cursor">hand2</property>
+            <property name="text" translatable="yes">J2</property>
+            <property name="width">3</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.90</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="tk.Frame" id="frame_diffculte" named="True">
+        <property name="height">50</property>
+        <property name="width">350</property>
+        <layout manager="place">
+          <property name="anchor">nw</property>
+          <property name="rely">0.85</property>
+          <property name="x">17</property>
+          <property name="y">0</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="label_difficulte" named="True">
+            <property name="cursor">pirate</property>
+            <property name="font">{Arial} 16 {underline}</property>
+            <property name="text" translatable="yes">Difficulté de l'IA :</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.07</property>
+              <property name="rely">0.0</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="button_difficulte1" named="True">
+            <property name="background">#ffffff</property>
+            <property name="cursor">hand2</property>
+            <property name="text" translatable="yes">1</property>
+            <property name="width">3</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.6</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="button_difficulte2" named="True">
+            <property name="background">#c0c0c0</property>
+            <property name="cursor">hand2</property>
+            <property name="text" translatable="yes">2</property>
+            <property name="width">3</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.75</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Button" id="button_difficulte3" named="True">
+            <property name="background">#c0c0c0</property>
+            <property name="cursor">hand2</property>
+            <property name="text" translatable="yes">3</property>
+            <property name="width">3</property>
+            <layout manager="place">
+              <property name="anchor">nw</property>
+              <property name="relx">0.90</property>
+              <property name="x">0</property>
+              <property name="y">0</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
