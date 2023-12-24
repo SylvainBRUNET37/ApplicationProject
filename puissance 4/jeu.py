@@ -49,7 +49,7 @@ def placerJeton(iTabPlateauJeu: int, iJoueur: int, iNbColonne: int, iNbLigne: in
     @return indice de la colonne où doit être posé le jeton
             indice de la ligne où doit être posé le jeton
 """
-def demanderPositionPlateau(iTabPlateauJeu: int, iNbColonne: int, iNbLigne: int) -> int & int:
+def demanderPositionPlateau(iTabPlateauJeu: int, iNbColonne: int, iNbLigne: int) -> int: # int et int
     bPostionValide: bool = False
     while bPostionValide == False :
         iColonneChoisi = int(input("Saisissez le numero de la colonne ou vous voulez retirer le jeton :"))
