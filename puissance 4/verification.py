@@ -29,9 +29,9 @@ def verifDiagonaleGauche(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoir
         print("i : ",iBoucleC)
         for iBoucleL in range(iNbLigne - iNbJetonVictoire + 1):
             print(iBoucleL)
-            """for iBoucle in range(iNbJetonVictoire -2):
+            for iBoucle in range(iNbJetonVictoire -2):
                 iJeton = iTabPlateauDeJeu[iBoucleC + iBoucle][iBoucleL + iBoucle]
-            print(iJeton)"""
+            print(iJeton)
             
     return 0
 
@@ -47,4 +47,4 @@ a = [[1,0,0,0,0,0],[0,1,0,0,0,0],[0,0,1,0,0,0],[0,0,0,1,0,0]]
 b = 6
 c = 6
 d = 4
-#verifDiagonaleGauche(a,b,c,d)
+verifDiagonaleGauche(a,b,c,d)

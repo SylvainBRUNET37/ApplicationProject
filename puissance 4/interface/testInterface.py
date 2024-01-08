@@ -33,7 +33,7 @@ class PagejeuApp:
             text='Puissance N')
         self.label_nomJeu.place(anchor="nw", relx=0.23, rely=0.04, x=0, y=0)
         self.label_logo = tk.Label(self.frame_haut)
-        self.img_logo = tk.PhotoImage(file="logo.png")
+        self.img_logo = tk.PhotoImage(file="interface/logo.png")
         self.label_logo.configure(
             cursor="coffee_mug",
             height=50,
