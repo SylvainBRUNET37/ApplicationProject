@@ -47,7 +47,7 @@ def placerJeton(iTabPlateauJeu: int, iJoueur: int, iNbColonne: int, iNbLigne: in
     @param  iNbColonne     nombre de colonne du plateau de jeu
     @param  iNbLigne       nombre de ligne du plateau de jeu
     @return indice de la colonne où doit être posé le jeton
-            indice de la ligne où doit être posé le jeton
+    @return indice de la ligne où doit être posé le jeton
 """
 def demanderPositionPlateau(iTabPlateauJeu: int, iNbColonne: int, iNbLigne: int) -> int: # int et int
     bPostionValide: bool = False
