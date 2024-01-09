@@ -40,73 +40,113 @@ def creerFrameHaut(toplevelFenetre : tk):
     labelLogo = tk.Label(frameHaut)
     imageLogo = tk.PhotoImage(file="interface/logo.png")
     labelLogo.configure(image=imageLogo, height=85, width=85, background="yellow")
-    labelLogo.place(anchor="nw", relx=0.05, rely=0.15)
+    labelLogo.place(anchor="nw", relx=0.08, rely=0.15)
 
     labelNomJeu = tk.Label(frameHaut)
     labelNomJeu.configure(font="{Arial} 36 {bold underline}", text='Puissance N')
-    labelNomJeu.place(anchor="nw", relx=0.25, rely=0.20)
+    labelNomJeu.place(anchor="nw", relx=0.3, rely=0.20)
 
     buttonQuitter = tk.Button(frameHaut)
-    buttonQuitter.configure(cursor="hand2", font="{Arial} 26 {}", width=10, text='Quitter', command=toplevelFenetre.destroy)
-    buttonQuitter.place(anchor="nw", relx=0.70, rely=0.20)
+    buttonQuitter.configure(cursor="hand2", font="{Arial} 26 {}", width=6, text='Quitter', command=toplevelFenetre.destroy)
+    buttonQuitter.place(anchor="nw", relx=0.75, rely=0.21)
 
+"""
+    @brief  Créé les boutons pour le choix d'aversaire (Joueur vs IA / Joueur vs Joueur)
+    @param  toplevelFenetre la fenêtre où placer les boutons
+"""
+def creerFrameChoixAdversaire(toplevelFenetre : tk):
+    frame_choixAdversaire = tk.Frame(toplevelFenetre)
+    frame_choixAdversaire.configure(height=200, width=750)
+    frame_choixAdversaire.place(anchor="nw", rely=0.23, x=10, y=5)
 
-def main():
-    toplevelPagePrincipale = creerToplevelFenetre(768, 576, False, "Page principale")    
-    creerFrameHaut(toplevelPagePrincipale)
-
-
-    frame_choixAdversaire = tk.Frame(toplevelPagePrincipale)
-    frame_choixAdversaire.configure(height=90, width=365)
     button_JvsIA = tk.Button(frame_choixAdversaire)
-    button_JvsIA.configure(cursor="hand2", font="{Arial} 16 {}", text='Joueur \nVS \nIA', width=8)
+    button_JvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8)
     button_JvsIA.place(anchor="nw", relx=0.6, rely=0.0, x=0, y=0)
+
     button_JvsJ = tk.Button(frame_choixAdversaire)
-    button_JvsJ.configure(cursor="hand2", font="{Arial} 16 {}", text='Joueur \nVS \nJoueur', width=8)
+    button_JvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8)
     button_JvsJ.place(anchor="nw", relx=0.1, rely=0.0, x=0, y=0)
 
-    frame_choixAdversaire.place(anchor="nw", rely=0.23, x=10, y=5)
-    frame_hauteur = tk.Frame(toplevelPagePrincipale)
-    frame_hauteur.configure(height=75, width=200)
-    scale_hauteur = tk.Scale(frame_hauteur)
-    scale_hauteur.configure(cursor="sb_h_double_arrow", from_=3,orient="horizontal", relief="flat", to=10)
-    scale_hauteur.place(anchor="nw", relx=0.18, rely=0.0, x=0, y=0)
-    label_hauteur = tk.Label(frame_hauteur)
-    label_hauteur.configure(text='Hauteur du plateau')
-    label_hauteur.place(anchor="nw", relx=0.17, rely=0.52, x=0, y=0)
+"""
+    @brief  Créé le widget permettant de choisir la hauteur (nombre de ligne) du plateau
+    @param  toplevelFenetre la fenêtre où placer les boutons
+"""
+def creerFrameHauteur(toplevelFenetre : tk):
+    frame_hauteur = tk.Frame(toplevelFenetre)
+    frame_hauteur.configure(height=150, width=400)
     frame_hauteur.place(anchor="nw", rely=0.55, x=10, y=5)
-    
-    frame_largeur = tk.Frame(toplevelPagePrincipale)
-    frame_largeur.configure(height=75, width=200)
-    scale_largeur = tk.Scale(frame_largeur)
-    scale_largeur.configure(cursor="sb_h_double_arrow", from_=3, orient="horizontal", relief="flat", to=10)
-    scale_largeur.place(anchor="nw", relx=0.135, rely=0.0, x=0, y=0)
-    label_largeur = tk.Label(frame_largeur)
-    label_largeur.configure(text='Largeur du plateau')
-    label_largeur.place(anchor="nw", relx=0.135, rely=0.52, x=0, y=0)
+
+    scale_hauteur = tk.Scale(frame_hauteur)
+    scale_hauteur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20)
+    scale_hauteur.place(anchor="nw", relx=0.2, rely=0.0, x=0, y=0)
+
+    label_hauteur = tk.Label(frame_hauteur)
+    label_hauteur.configure(text='Hauteur du plateau', font=20)
+    label_hauteur.place(anchor="nw", relx=0.25, rely=0.4, x=0, y=0)
+
+"""
+    @brief  Créé le widget permettant de choisir la largeur (nombre de colonne) du plateau
+    @param  toplevelFenetre la fenêtre où placer les boutons
+"""
+def creerFrameLargeur(toplevelFenetre : tk):
+    frame_largeur = tk.Frame(toplevelFenetre)
+    frame_largeur.configure(height=150, width=400)
     frame_largeur.place(anchor="nw", relx=0.5, rely=0.55, x=10, y=5)
-    
-    frame_nombreJeton = tk.Frame(toplevelPagePrincipale)
-    frame_nombreJeton.configure(height=75, width=200)
-    scale_nombreJeton = tk.Scale(frame_nombreJeton)
-    scale_nombreJeton.configure(cursor="sb_h_double_arrow",from_=3,orient="horizontal",relief="flat",to=6)
-    scale_nombreJeton.place(anchor="nw", relx=0.18, rely=0.0, x=0, y=0)
-    label_nombreJeton = tk.Label(frame_nombreJeton)
-    label_nombreJeton.configure(text='Nombre de jeton à alligner')
-    label_nombreJeton.place(anchor="nw", relx=0.1, rely=0.52, x=0, y=0)
+
+    scale_largeur = tk.Scale(frame_largeur)
+    scale_largeur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20)
+    scale_largeur.place(anchor="nw", relx=0.18, rely=0, x=0, y=0)
+
+    label_largeur = tk.Label(frame_largeur)
+    label_largeur.configure(text='Largeur du plateau', font=20)
+    label_largeur.place(anchor="nw", relx=0.23, rely=0.4, x=0, y=0) 
+
+"""
+    @brief  Créé le widget permettant de choisir le nombre de jeton à alligner pour gagner
+    @param  toplevelFenetre la fenêtre où placer les boutons
+"""
+def creerFrameNombreJeton(toplevelFenetre : tk):
+    frame_nombreJeton = tk.Frame(toplevelFenetre)
+    frame_nombreJeton.configure(height=150, width=400)
     frame_nombreJeton.place(anchor="nw", relx=0.0, rely=0.75, x=10, y=5)
-    
-    frame_checkbutton = tk.Frame(toplevelPagePrincipale)
-    frame_checkbutton.configure(height=75, width=200)
-    checkbutton_undoRedo = tk.Checkbutton(frame_checkbutton)
-    checkbutton_undoRedo.configure(cursor="hand2", text='Undo / Redo')
-    checkbutton_undoRedo.place(anchor="nw", relx=0.14, rely=0.43, x=0, y=0)
-    checkbutton_coupSpecial = tk.Checkbutton(frame_checkbutton)
-    checkbutton_coupSpecial.configure(cursor="hand2", text='Coup special')
-    checkbutton_coupSpecial.place(anchor="nw", relx=0.14, rely=0.15, x=0, y=0)
+
+    scale_nombreJeton = tk.Scale(frame_nombreJeton)
+    scale_nombreJeton.configure(cursor="sb_h_double_arrow",from_=3,orient="horizontal",relief="flat", to=5, length=200, width=20)
+    scale_nombreJeton.place(anchor="nw", relx=0.2, rely=0.0, x=0, y=0)
+
+    label_nombreJeton = tk.Label(frame_nombreJeton)
+    label_nombreJeton.configure(text='Nombre de jeton à alligner', font=20)
+    label_nombreJeton.place(anchor="nw", relx=0.18, rely=0.37, x=0, y=0)
+     
+"""
+    @brief  Créé les checkbutton pour undo/redo et coup spécial
+    @param  toplevelFenetre la fenêtre où placer les boutons
+"""
+def creerFrameCheckButton(toplevelFenetre : tk):
+    frame_checkbutton = tk.Frame(toplevelFenetre)
+    frame_checkbutton.configure(height=150, width=400)
     frame_checkbutton.place(anchor="nw", relx=0.5, rely=0.75, x=10, y=5)
+
+    checkbutton_coupSpecial = tk.Checkbutton(frame_checkbutton)
+    checkbutton_coupSpecial.configure(cursor="hand2", text='Coup special', font=14)
+    checkbutton_coupSpecial.place(anchor="nw", relx=0.14, rely=0.1, x=0, y=0)
+
+    checkbutton_undoRedo = tk.Checkbutton(frame_checkbutton)
+    checkbutton_undoRedo.configure(cursor="hand2", text='Undo / Redo', font=14)
+    checkbutton_undoRedo.place(anchor="nw", relx=0.14, rely=0.35, x=0, y=0)
+
+def gererInterfacePrincipale():
+    toplevelPagePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
+
+    creerFrameHaut(toplevelPagePrincipale)
+    creerFrameChoixAdversaire(toplevelPagePrincipale)
+    creerFrameHauteur(toplevelPagePrincipale)
+    creerFrameLargeur(toplevelPagePrincipale)
+    creerFrameNombreJeton(toplevelPagePrincipale)
+    creerFrameCheckButton(toplevelPagePrincipale)
+
     toplevelPagePrincipale.mainloop()
 
 
-main()
+gererInterfacePrincipale()
 
