@@ -6,7 +6,7 @@ from typing import *
 #                 VARIABLES GLOABALES                    #
 ##########################################################
 
-bAdversaire : bool = 1 # 0 pour joueur contre joueur, 1 pour joueur contre IA
+bAdversaire : bool = True # False pour joueur contre joueur, True pour joueur contre IA
 iHauteurPlateau : int = 6
 iLargeurPlateau : int = 7
 iNbJetonVictoire : int = 4
@@ -63,10 +63,54 @@ def getUndoRedo():
 #           FONCTIONS LIEES AUX BOUTONS                  #
 ##########################################################
 
-def update_variable(checkbutton_var):
+"""
+    @brief Met à jour la variable global qui défini l'adversaire (True pour IA, False pour joueur)
+    @param bTkAdversaire variable tkinter qui contient qui est l'adversaire
+"""
+def lancerPartie(bTkAdversaire):
+    global bAdversaire
+    bAdversaire = bTkAdversaire
+    # LANCER LA DEUXIEME FENETRE
+
+"""
+    @brief Met à jour la variable global qui défini la hauteur du plateau
+    @param iTkHauteurPlateau variable tkinter qui contient la hauteur du plateau
+"""
+def updateHauteurPlateau(iTkHauteurPlateau):
+    global iHauteurPlateau
+    iHauteurPlateau = iTkHauteurPlateau
+
+"""
+    @brief Met à jour la variable global qui défini la lageur du plateau
+    @param iTkLargeurPlateau variable tkinter qui contient la lageur du plateau
+"""
+def updateLargeurPlateau(iTkLargeurPlateau):
+    global iLargeurPlateau
+    iLargeurPlateau = iTkLargeurPlateau
+
+"""
+    @brief Met à jour la variable global qui défini le nombre de jeton à alligner pour gagner
+    @param iTkNbJetonVictoire variable tkinter qui contient le nombre de jeton à alligner pour gagner
+"""
+def updateNbJetonVicoire(iTkNbJetonVictoire):
+    global iNbJetonVictoire
+    iNbJetonVictoire = iTkNbJetonVictoire
+
+"""
+    @brief Met à jour la variable global qui défini si le coup spécial est activé en fonction de l'état de son checkbutton associé
+    @param bTkCoupSpecial variable tkinter qui contient l'état du checkbutton coup spécial
+"""
+def updateCoupSpecial(bTkCoupSpecial):
+    global bCoupSpecial
+    bCoupSpecial = bTkCoupSpecial
+
+"""
+    @brief Met à jour la variable global qui défini si l'undo redo est activé en fonction de l'état de son checkbutton associé
+    @param bTkUndoRedo variable tkinter qui contient l'état du checkbutton undo/redo
+"""
+def updateUndoRedo(bTkUndoRedo):
     global bUndoRedo
-    bUndoRedo = checkbutton_var.get()
-    print(f"La variable globale est maintenant : {bUndoRedo}")
+    bUndoRedo = bTkUndoRedo
 
 ###########################################################
 #           FONCTIONS LIEES A L'AFFICHAGE                #
@@ -130,11 +174,11 @@ def creerFrameChoixAdversaire(toplevelFenetre : tk):
     frameChoixAdversaire.place(anchor="nw", rely=0.23, x=10, y=5)
 
     buttonJvsIA = tk.Button(frameChoixAdversaire)
-    buttonJvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8)
+    buttonJvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8, command=lancerPartie(True))
     buttonJvsIA.place(anchor="nw", relx=0.6, rely=0.0, x=0, y=0)
 
     buttonJvsJ = tk.Button(frameChoixAdversaire)
-    buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8)
+    buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8, command=lancerPartie(False))
     buttonJvsJ.place(anchor="nw", relx=0.1, rely=0.0, x=0, y=0)
 
 """
@@ -142,12 +186,16 @@ def creerFrameChoixAdversaire(toplevelFenetre : tk):
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
 def creerFrameHauteur(toplevelFenetre : tk):
+    iTkHauteurPlateau : int = tk.IntVar()
+    iTkHauteurPlateau.set(6)
+
     frameHauteur = tk.Frame(toplevelFenetre)
     frameHauteur.configure(height=150, width=400)
     frameHauteur.place(anchor="nw", rely=0.55, x=10, y=5)
 
     scaleHauteur = tk.Scale(frameHauteur)
-    scaleHauteur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20, variable=iHauteurPlateau, )
+    scaleHauteur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20,
+                            variable=iTkHauteurPlateau, command=updateHauteurPlateau(iTkHauteurPlateau))
     scaleHauteur.place(anchor="nw", relx=0.2, rely=0.0, x=0, y=0)
 
     labelHauteur = tk.Label(frameHauteur)
@@ -159,12 +207,16 @@ def creerFrameHauteur(toplevelFenetre : tk):
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
 def creerFrameLargeur(toplevelFenetre : tk):
+    iTkLargeurPlateau : int = tk.IntVar()
+    iTkLargeurPlateau.set(7)
+
     frameLargeur = tk.Frame(toplevelFenetre)
     frameLargeur.configure(height=150, width=400)
     frameLargeur.place(anchor="nw", relx=0.5, rely=0.55, x=10, y=5)
 
     scaleLargeur = tk.Scale(frameLargeur)
-    scaleLargeur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20, variable=iLargeurPlateau)
+    scaleLargeur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20,
+                            variable=iTkLargeurPlateau, command=updateLargeurPlateau(iTkLargeurPlateau))
     scaleLargeur.place(anchor="nw", relx=0.18, rely=0, x=0, y=0)
 
     labelLargeur = tk.Label(frameLargeur)
@@ -176,12 +228,16 @@ def creerFrameLargeur(toplevelFenetre : tk):
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
 def creerFrameNombreJetonVictoire(toplevelFenetre : tk):
+    iTkNbJetonVictoire : int = tk.IntVar()
+    iTkNbJetonVictoire.set(4)
+
     frameNombreJetonVictoire = tk.Frame(toplevelFenetre)
     frameNombreJetonVictoire.configure(height=150, width=400)
     frameNombreJetonVictoire.place(anchor="nw", relx=0.0, rely=0.75, x=10, y=5)
 
     scaleNombreJetonVictoire = tk.Scale(frameNombreJetonVictoire)
-    scaleNombreJetonVictoire.configure(cursor="sb_h_double_arrow",from_=3,orient="horizontal",relief="flat", to=5, length=200, width=20, variable=iNbJetonVictoire)
+    scaleNombreJetonVictoire.configure(cursor="sb_h_double_arrow", from_=3, orient="horizontal", relief="flat", to=5, length=200, width=20, 
+                                       variable=iNbJetonVictoire, command=updateNbJetonVicoire(iTkNbJetonVictoire))
     scaleNombreJetonVictoire.place(anchor="nw", relx=0.2, rely=0.0, x=0, y=0)
 
     labelNombreJetonVictoire = tk.Label(frameNombreJetonVictoire)
@@ -193,6 +249,9 @@ def creerFrameNombreJetonVictoire(toplevelFenetre : tk):
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
 def creerFrameCheckButton(toplevelFenetre : tk):
+    bTkUndoRedo : bool = tk.BooleanVar()
+    bTkUndoRedo.set(True)
+
     frameCheckButton = tk.Frame(toplevelFenetre)
     frameCheckButton.configure(height=150, width=400)
     frameCheckButton.place(anchor="nw", relx=0.5, rely=0.75, x=10, y=5)
@@ -202,7 +261,7 @@ def creerFrameCheckButton(toplevelFenetre : tk):
     checkbuttonCoupSpecial.place(anchor="nw", relx=0.2, rely=0.1, x=0, y=0)
 
     checkbuttonUndoRedo = tk.Checkbutton(frameCheckButton)
-    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14)
+    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command=updateUndoRedo(bTkUndoRedo))
     checkbuttonUndoRedo.place(anchor="nw", relx=0.2, rely=0.35, x=0, y=0)
 
 """
@@ -210,7 +269,6 @@ def creerFrameCheckButton(toplevelFenetre : tk):
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
 def gererInterfacePrincipale():
-    global bUndoRedo
     toplevelPagePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
 
     creerFrameHaut(toplevelPagePrincipale)
@@ -222,5 +280,6 @@ def gererInterfacePrincipale():
 
     toplevelPagePrincipale.mainloop()
 
-gererInterfacePrincipale()
 
+
+gererInterfacePrincipale()
