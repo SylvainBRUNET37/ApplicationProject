@@ -1,6 +1,14 @@
 #!/usr/bin/python3
-import tkinter as tk
-from typing import *
+"""
+    @file    interfacePrincipale.py
+    @brief   Contient l'interface qui permet au joueur de lancer la partie
+    @author  Sylvain BRUNET & Matthieu CHARTON
+    @version 0.1
+    @date    2023-2024
+"""
+
+from fonctionGeneralInterface import *
+from interfaceParametre import gestionPageParametre
 
 ###########################################################
 #                 VARIABLES GLOABALES                    #
@@ -14,69 +22,34 @@ bCoupSpecial : bool = True
 bUndoRedo : bool = True
 
 ###########################################################
-#                        GETERS                          #
-##########################################################
-
-"""
-    @brief  Renvoie le booléen définissant l'adversaire (joueur ou IA)
-    @return le booléen définissant l'adversaire (joueur ou IA)
-"""
-def getAdversaire():
-    return bAdversaire
-
-"""
-    @brief  Renvoie la hauteur du plateau
-    @return la hauteur du plateau
-"""
-def getHauteurPlateau():
-    return iHauteurPlateau
-
-"""
-    @brief  Renvoie la largeur du plateau
-    @return la largeur du plateau
-"""
-def getLargeurPlateau():
-    return iLargeurPlateau
-
-"""
-    @brief  Renvoie le nombre de jeton à aligner pour gagner
-    @return le nombre de jeton à aligner pour gagner
-"""
-def getNbJetonVictoire():
-    return iNbJetonVictoire
-
-"""
-    @brief  Renvoie le booléen définissant si le joueur veut que le coup spécial soit utilisable
-    @return le booléen définissant si le joueur veut que le coup spécial soit utilisable
-"""
-def getCoupSpecial():
-    return bCoupSpecial
-
-"""
-    @brief  Renvoie le booléen définissant si le joueur veut que la fonction d'undo/redo soit utilisable
-    @return le booléen définissant si le joueur veut que la fonction d'undo/redo soit utilisable
-"""
-def getUndoRedo():
-    return bUndoRedo
-
-###########################################################
 #           FONCTIONS LIEES AUX BOUTONS                  #
 ##########################################################
 
 """
-    @brief Met à jour la variable global qui défini l'adversaire (True pour IA, False pour joueur)
+    @brief Met à jour la variable global qui défini l'adversaire (True pour IA, False pour joueur) et lance la fenêtre de paramètre
     @param bTkAdversaire variable tkinter qui contient qui est l'adversaire
+    @param bAdversaireChoisi adversaire choisi par l'utilisateur (True pour IA, False pour joueur)
 """
-def lancerPartie(bTkAdversaire):
+def lancerPartie(toplevelFenetre : tk.Toplevel, bAdversaireChoisi : bool):
     global bAdversaire
-    bAdversaire = bTkAdversaire
-    # LANCER LA DEUXIEME FENETRE
+    global iHauteurPlateau
+    global iLargeurPlateau
+    global iNbJetonVictoire
+    global bCoupSpecial
+    global bUndoRedo
+    bAdversaire = bAdversaireChoisi
+    dictParametres : dict = {"adversaire": bAdversaire, "hauteurPlateau": iHauteurPlateau,
+                             "largeurPlateau": iLargeurPlateau, "nombreJetonVicoire": iNbJetonVictoire,
+                             "coupSpecial": bCoupSpecial, "undoRedo": bUndoRedo}
+    
+    toplevelFenetre.destroy() # Ferme la fenêtre pricipale
+    gestionPageParametre(dictParametres) # Lance la fenêtre de paramètere en donnant les paramètres déjà choisis
 
 """
     @brief Met à jour la variable global qui défini la hauteur du plateau
     @param iTkHauteurPlateau variable tkinter qui contient la hauteur du plateau
 """
-def updateHauteurPlateau(iTkHauteurPlateau):
+def updateHauteurPlateau(iTkHauteurPlateau : int):
     global iHauteurPlateau
     iHauteurPlateau = iTkHauteurPlateau
 
@@ -84,108 +57,60 @@ def updateHauteurPlateau(iTkHauteurPlateau):
     @brief Met à jour la variable global qui défini la lageur du plateau
     @param iTkLargeurPlateau variable tkinter qui contient la lageur du plateau
 """
-def updateLargeurPlateau(iTkLargeurPlateau):
+def updateLargeurPlateau(iTkLargeurPlateau : int):
     global iLargeurPlateau
-    iLargeurPlateau = iTkLargeurPlateau
+    iLargeurPlateau = iTkLargeurPlateau.get()
 
 """
     @brief Met à jour la variable global qui défini le nombre de jeton à alligner pour gagner
     @param iTkNbJetonVictoire variable tkinter qui contient le nombre de jeton à alligner pour gagner
 """
-def updateNbJetonVicoire(iTkNbJetonVictoire):
+def updateNbJetonVicoire(iTkNbJetonVictoire : int):
     global iNbJetonVictoire
-    iNbJetonVictoire = iTkNbJetonVictoire
+    iNbJetonVictoire = iTkNbJetonVictoire.get()
 
 """
     @brief Met à jour la variable global qui défini si le coup spécial est activé en fonction de l'état de son checkbutton associé
     @param bTkCoupSpecial variable tkinter qui contient l'état du checkbutton coup spécial
 """
-def updateCoupSpecial(bTkCoupSpecial):
+def updateCoupSpecial(bTkCoupSpecial : bool):
     global bCoupSpecial
-    bCoupSpecial = bTkCoupSpecial
+    bCoupSpecial = bTkCoupSpecial.get()
 
 """
     @brief Met à jour la variable global qui défini si l'undo redo est activé en fonction de l'état de son checkbutton associé
     @param bTkUndoRedo variable tkinter qui contient l'état du checkbutton undo/redo
 """
-def updateUndoRedo(bTkUndoRedo):
+def updateUndoRedo(bTkUndoRedo : bool):
     global bUndoRedo
-    bUndoRedo = bTkUndoRedo
+    bUndoRedo = bTkUndoRedo.get()
 
 ###########################################################
 #           FONCTIONS LIEES A L'AFFICHAGE                #
 ##########################################################
 
 """
-    @brief  Créé une fenêtre
-    @param  iLargeurFenetre   largeur de la fenêtre
-    @param  iHauteurFenetre   hauteur de la fenêtre
-    @param  bRedimensionnable si égal a True, la fenêtre sera redimensionnable (et inversement pour False)
-    @param  sNomFenetre       nom de la fenêtre
-    @return la fenêtre créée
-"""
-def creerToplevelFenetre(iLargeurFenetre : int, iHauteurFenetre : int, bRedimensionnable : bool, sNomFenetre : str) -> tk:
-    toplevelFenetre = tk.Tk()
-
-    # Recupère les dimensions (largeur et hauteur) de l'écran de l'utilisateur
-    iLargeurEcran : int = toplevelFenetre.winfo_screenwidth()
-    iHauteurEcran : int = toplevelFenetre.winfo_screenheight()
- 
-    # Calcule des coodonnées où devra être placer la fenêtre pour être au centre de l'écran
-    iCoordonneeFenetreX : int = int((iLargeurEcran/2) - (iLargeurFenetre/2))
-    iCoordonneeFenetreY : int = int((iHauteurEcran/2) - (iHauteurFenetre/2))
- 
-    # Applique les dimensions à la fenêtre et la place aux coodonnées calculées précédement
-    toplevelFenetre.geometry("{}x{}+{}+{}".format(iLargeurFenetre, iHauteurFenetre, iCoordonneeFenetreX, iCoordonneeFenetreY))
-    toplevelFenetre.resizable(bRedimensionnable, bRedimensionnable)
-    toplevelFenetre.title(sNomFenetre)
-
-    return toplevelFenetre
-
-"""
-    @brief  Créé la haut des pages : le logo du jeu, le titre et le bouton quitter
-    @param  toplevelFenetre la fenêtre où placer le haut de page
-"""    
-def creerFrameHaut(toplevelFenetre : tk):
-    frameHaut = tk.Frame(toplevelFenetre)
-    frameHaut.configure(height=100, width=750)
-    frameHaut.place(anchor="nw", x=10, y=5)
-
-    labelLogo = tk.Label(frameHaut)
-    imageLogo = tk.PhotoImage(file="./interface/logo.png")
-    labelLogo.configure(image=imageLogo, height=85, width=85, background="yellow")
-    labelLogo.place(anchor="nw", relx=0.08, rely=0.15)
-
-    labelNomJeu = tk.Label(frameHaut)
-    labelNomJeu.configure(font="{Arial} 36 {bold underline}", text='Puissance N')
-    labelNomJeu.place(anchor="nw", relx=0.3, rely=0.20)
-
-    buttonQuitter = tk.Button(frameHaut)
-    buttonQuitter.configure(cursor="hand2", font="{Arial} 26 {}", width=6, text='Quitter', command=toplevelFenetre.destroy)
-    buttonQuitter.place(anchor="nw", relx=0.75, rely=0.21)
-
-"""
     @brief  Créé les boutons pour le choix d'aversaire (Joueur vs IA / Joueur vs Joueur)
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
-def creerFrameChoixAdversaire(toplevelFenetre : tk):
+def creerFrameChoixAdversaire(toplevelFenetre : tk.Toplevel):
     frameChoixAdversaire = tk.Frame(toplevelFenetre)
     frameChoixAdversaire.configure(height=200, width=750)
     frameChoixAdversaire.place(anchor="nw", rely=0.23, x=10, y=5)
 
     buttonJvsIA = tk.Button(frameChoixAdversaire)
-    buttonJvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8, command=lancerPartie(True))
+    buttonJvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8, command=lambda: lancerPartie(toplevelFenetre, True))
     buttonJvsIA.place(anchor="nw", relx=0.6, rely=0.0, x=0, y=0)
 
     buttonJvsJ = tk.Button(frameChoixAdversaire)
-    buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8, command=lancerPartie(False))
+    buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8, command=lambda: lancerPartie(toplevelFenetre, False))
     buttonJvsJ.place(anchor="nw", relx=0.1, rely=0.0, x=0, y=0)
 
 """
     @brief  Créé le widget permettant de choisir la hauteur (nombre de ligne) du plateau
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
-def creerFrameHauteur(toplevelFenetre : tk):
+def creerFrameHauteur(toplevelFenetre : tk.Toplevel):
     iTkHauteurPlateau : int = tk.IntVar()
     iTkHauteurPlateau.set(6)
 
@@ -195,7 +120,7 @@ def creerFrameHauteur(toplevelFenetre : tk):
 
     scaleHauteur = tk.Scale(frameHauteur)
     scaleHauteur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20,
-                            variable=iTkHauteurPlateau, command=updateHauteurPlateau(iTkHauteurPlateau))
+                            variable=iTkHauteurPlateau, command=updateHauteurPlateau)
     scaleHauteur.place(anchor="nw", relx=0.2, rely=0.0, x=0, y=0)
 
     labelHauteur = tk.Label(frameHauteur)
@@ -206,7 +131,7 @@ def creerFrameHauteur(toplevelFenetre : tk):
     @brief  Créé le widget permettant de choisir la largeur (nombre de colonne) du plateau
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
-def creerFrameLargeur(toplevelFenetre : tk):
+def creerFrameLargeur(toplevelFenetre : tk.Toplevel):
     iTkLargeurPlateau : int = tk.IntVar()
     iTkLargeurPlateau.set(7)
 
@@ -216,7 +141,7 @@ def creerFrameLargeur(toplevelFenetre : tk):
 
     scaleLargeur = tk.Scale(frameLargeur)
     scaleLargeur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20,
-                            variable=iTkLargeurPlateau, command=updateLargeurPlateau(iTkLargeurPlateau))
+                            variable=iTkLargeurPlateau, command=updateLargeurPlateau)
     scaleLargeur.place(anchor="nw", relx=0.18, rely=0, x=0, y=0)
 
     labelLargeur = tk.Label(frameLargeur)
@@ -227,7 +152,7 @@ def creerFrameLargeur(toplevelFenetre : tk):
     @brief  Créé le widget permettant de choisir le nombre de jeton à alligner pour gagner
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
-def creerFrameNombreJetonVictoire(toplevelFenetre : tk):
+def creerFrameNombreJetonVictoire(toplevelFenetre : tk.Toplevel):
     iTkNbJetonVictoire : int = tk.IntVar()
     iTkNbJetonVictoire.set(4)
 
@@ -248,25 +173,26 @@ def creerFrameNombreJetonVictoire(toplevelFenetre : tk):
     @brief  Créé les checkbutton pour undo/redo et coup spécial
     @param  toplevelFenetre la fenêtre où placer les boutons
 """
-def creerFrameCheckButton(toplevelFenetre : tk):
+def creerFrameCheckButton(toplevelFenetre : tk.Toplevel):
     bTkUndoRedo : bool = tk.BooleanVar()
+    bTkCoupSpecial : bool = tk.BooleanVar()
     bTkUndoRedo.set(True)
+    bTkCoupSpecial.set(True)
 
     frameCheckButton = tk.Frame(toplevelFenetre)
     frameCheckButton.configure(height=150, width=400)
     frameCheckButton.place(anchor="nw", relx=0.5, rely=0.75, x=10, y=5)
 
     checkbuttonCoupSpecial = tk.Checkbutton(frameCheckButton)
-    checkbuttonCoupSpecial.configure(cursor="hand2", text='Coup special', font=14)
+    checkbuttonCoupSpecial.configure(cursor="hand2", text='Coup special', font=14, variable=bTkCoupSpecial, command=updateCoupSpecial)
     checkbuttonCoupSpecial.place(anchor="nw", relx=0.2, rely=0.1, x=0, y=0)
 
     checkbuttonUndoRedo = tk.Checkbutton(frameCheckButton)
-    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command=updateUndoRedo(bTkUndoRedo))
+    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command=updateUndoRedo)
     checkbuttonUndoRedo.place(anchor="nw", relx=0.2, rely=0.35, x=0, y=0)
 
 """
     @brief  Gère l'affichage de la page principale
-    @param  toplevelFenetre la fenêtre où placer les boutons
 """
 def gererInterfacePrincipale():
     toplevelPagePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
@@ -279,7 +205,5 @@ def gererInterfacePrincipale():
     creerFrameCheckButton(toplevelPagePrincipale)
 
     toplevelPagePrincipale.mainloop()
-
-
 
 gererInterfacePrincipale()
