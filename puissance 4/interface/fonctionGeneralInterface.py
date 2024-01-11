@@ -3,12 +3,11 @@
     @file    fonctionGeneralInterface.py
     @brief   Contient les fonctions utilisées par toutes les interfaces
     @author  Sylvain BRUNET & Matthieu CHARTON
-    @version 0.1
+    @version 0.2
     @date    2023-2024
 """
 import tkinter as tk
 from typing import *
-
 
 """
     @brief  Créé une fenêtre

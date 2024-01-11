@@ -3,7 +3,7 @@
     @file    interfacePrincipale.py
     @brief   Contient l'interface qui permet au joueur de lancer la partie
     @author  Sylvain BRUNET & Matthieu CHARTON
-    @version 0.1
+    @version 0.2
     @date    2023-2024
 """
 
@@ -47,43 +47,43 @@ def lancerPartie(toplevelFenetre : tk.Toplevel, bAdversaireChoisi : bool):
 
 """
     @brief Met à jour la variable global qui défini la hauteur du plateau
-    @param iTkHauteurPlateau variable tkinter qui contient la hauteur du plateau
+    @param iHauteurChoisi variable tkinter qui contient la hauteur du plateau
 """
-def updateHauteurPlateau(iTkHauteurPlateau : int):
+def updateHauteurPlateau(iHauteurChoisi : int):
     global iHauteurPlateau
-    iHauteurPlateau = iTkHauteurPlateau
+    iHauteurPlateau = iHauteurChoisi
 
 """
     @brief Met à jour la variable global qui défini la lageur du plateau
-    @param iTkLargeurPlateau variable tkinter qui contient la lageur du plateau
+    @param iLargeurChoisi variable tkinter qui contient la lageur du plateau
 """
-def updateLargeurPlateau(iTkLargeurPlateau : int):
+def updateLargeurPlateau(iLargeurChoisi : int):
     global iLargeurPlateau
-    iLargeurPlateau = iTkLargeurPlateau.get()
+    iLargeurPlateau = iLargeurChoisi
 
 """
     @brief Met à jour la variable global qui défini le nombre de jeton à alligner pour gagner
-    @param iTkNbJetonVictoire variable tkinter qui contient le nombre de jeton à alligner pour gagner
+    @param iNbJetonVictoireChoisi variable tkinter qui contient le nombre de jeton à alligner pour gagner
 """
-def updateNbJetonVicoire(iTkNbJetonVictoire : int):
+def updateNbJetonVicoire(iNbJetonVictoireChoisi : int):
     global iNbJetonVictoire
-    iNbJetonVictoire = iTkNbJetonVictoire.get()
+    iNbJetonVictoire = iNbJetonVictoireChoisi
 
 """
     @brief Met à jour la variable global qui défini si le coup spécial est activé en fonction de l'état de son checkbutton associé
-    @param bTkCoupSpecial variable tkinter qui contient l'état du checkbutton coup spécial
+    @param bCoupSpecialChoisi variable tkinter qui contient l'état du checkbutton coup spécial
 """
-def updateCoupSpecial(bTkCoupSpecial : bool):
+def updateCoupSpecial(bCoupSpecialChoisi : bool):
     global bCoupSpecial
-    bCoupSpecial = bTkCoupSpecial.get()
+    bCoupSpecial = bCoupSpecialChoisi
 
 """
     @brief Met à jour la variable global qui défini si l'undo redo est activé en fonction de l'état de son checkbutton associé
-    @param bTkUndoRedo variable tkinter qui contient l'état du checkbutton undo/redo
+    @param bUndoRedoChoisi variable tkinter qui contient l'état du checkbutton undo/redo
 """
-def updateUndoRedo(bTkUndoRedo : bool):
+def updateUndoRedo(bUndoRedoChoisi : bool):
     global bUndoRedo
-    bUndoRedo = bTkUndoRedo.get()
+    bUndoRedo = bUndoRedoChoisi
 
 ###########################################################
 #           FONCTIONS LIEES A L'AFFICHAGE                #
@@ -184,26 +184,26 @@ def creerFrameCheckButton(toplevelFenetre : tk.Toplevel):
     frameCheckButton.place(anchor="nw", relx=0.5, rely=0.75, x=10, y=5)
 
     checkbuttonCoupSpecial = tk.Checkbutton(frameCheckButton)
-    checkbuttonCoupSpecial.configure(cursor="hand2", text='Coup special', font=14, variable=bTkCoupSpecial, command=updateCoupSpecial)
+    checkbuttonCoupSpecial.configure(cursor="hand2", text='Coup special', font=14, variable=bTkCoupSpecial, command=lambda:updateCoupSpecial(bTkCoupSpecial.get()))
     checkbuttonCoupSpecial.place(anchor="nw", relx=0.2, rely=0.1, x=0, y=0)
 
     checkbuttonUndoRedo = tk.Checkbutton(frameCheckButton)
-    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command=updateUndoRedo)
+    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command=lambda:updateUndoRedo(bTkUndoRedo.get()))
     checkbuttonUndoRedo.place(anchor="nw", relx=0.2, rely=0.35, x=0, y=0)
 
 """
     @brief  Gère l'affichage de la page principale
 """
 def gererInterfacePrincipale():
-    toplevelPagePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
+    toplevelFenetrePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
 
-    creerFrameHaut(toplevelPagePrincipale)
-    creerFrameChoixAdversaire(toplevelPagePrincipale)
-    creerFrameHauteur(toplevelPagePrincipale)
-    creerFrameLargeur(toplevelPagePrincipale)
-    creerFrameNombreJetonVictoire(toplevelPagePrincipale)
-    creerFrameCheckButton(toplevelPagePrincipale)
+    creerFrameHaut(toplevelFenetrePrincipale)
+    creerFrameChoixAdversaire(toplevelFenetrePrincipale)
+    creerFrameHauteur(toplevelFenetrePrincipale)
+    creerFrameLargeur(toplevelFenetrePrincipale)
+    creerFrameNombreJetonVictoire(toplevelFenetrePrincipale)
+    creerFrameCheckButton(toplevelFenetrePrincipale)
 
-    toplevelPagePrincipale.mainloop()
+    toplevelFenetrePrincipale.mainloop()
 
 gererInterfacePrincipale()
