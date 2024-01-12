@@ -251,7 +251,7 @@ def creerBoutonLancer(toplevelFenetre : tk.Toplevel, dictParametre : dict):
 
 """
     @brief  Gère l'affichage de la page de paramètre
-    @param diectParametre contient les paramètres déjà choisis par le joueur
+    @param dictParametre contient les paramètres déjà choisis par le joueur
 """
 def gestionPageParametre(dictParametre : dict):
     toplevelFenetreParametre = creerToplevelFenetre(768, 563, False, "Paramètres")
