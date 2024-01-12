@@ -16,6 +16,7 @@ from fonctionGeneralInterface import *
 iJoueurCourant: int = 1
 iNbColonnePlateau: int = 7
 iNbLignePlateau: int = 6
+iNbJetonVictoire: int = 4
 strCouleurJetonJ1: str = "yellow"
 strCouleurJetonJ2: str = "red"
 TplateauDeJeu : list = []
@@ -28,84 +29,107 @@ TstatutJeu: list = []
 """
     @brief  Identifie la ligne où devra être posé le jeton à partir de la colonne que le joueur a choisi
     @param  iTabColonne colonne où le joueur veut placer son jeton
-    @param  iNbLigne    nombre de ligne du plateau de jeu
-    @return 'None' si la colonne est pleine, l'indice de la ligne où le jeton doit être posé si ce n'est pas le cas
+    @return "-1" si la colonne est pleine, l'indice de la ligne où le jeton doit être posé si ce n'est pas le cas
 """
-def identifierColonneChoisi(iTabColonne: list) -> int:
+def identifierLigne(iTabColonne: list) -> int:
     global iNbLignePlateau
-    # Parcours la colonne de bas en haut
-    for iBoucleL in range(iNbLignePlateau) :
-        # Si une ligne vide est trouvée, renvoie son indice
-        if iTabColonne[iBoucleL] == 0 :
-            return iBoucleL
-    return None
+
+    iBoucleLigne: int = 0
+    bCaseVideTrouve: bool = False
+
+    # Parcours la colonne de bas en haut et s'arrête
+    while (iBoucleLigne != iNbLignePlateau and bCaseVideTrouve != True):
+        # Si une case vide est trouvée, renvoie met fin à la boucle
+        if iTabColonne[iBoucleLigne] == 0 :
+            bCaseVideTrouve = True
+        iBoucleLigne += 1
+
+    # Si une case vide a été trouvée, renvoie l'indice le ligne de celle-ci
+    if (bCaseVideTrouve == True):
+        return iBoucleLigne-1 # -1 car la variable est ittéré avant de sortir de la boucle
+    # Sinon, la colonne est pleine et renvoie donc -1
+    else:
+        return -1
 
 """
     @brief  Demande au joueur la colonne où il veut placer son jeton puis le place
-    @param  iTabPlateauJeu plateau de jeu dans lequel le jeton doit être placé
-    @param  iJoueur        joueur qui veut placer le jeton
-    @param  iNbColonne     nombre de colonne du plateau de jeu
-    @param  iNbLigne       nombre de ligne du plateau de jeu
+    @param  iColonneChoisi plateau de jeu dans lequel le jeton doit être placé
+    @param  canvasFond     plateau de jeu dans lequel le jeton doit être placé
 """
-def placerJeton(iColonneChoisi: int, test: int):
-    global iNbLignePlateau
-    global TplateauDeJeu
-    bColonneValide: bool = True
-    print(iColonneChoisi)
-    print(test)
-    while bColonneValide == True :
-        # Si l'indice de colonne saisi correspond bien a une ligne bien dans le plateau, verifie si la colonne associée est pleine
-        iLigneJouer = identifierColonneChoisi(TplateauDeJeu[iColonneChoisi])
-        # Si la colonne n'est pas pleine, sort de la boucle (sinon, repart au début)
-        if iLigneJouer != None :
-            bColonneValide = False
+def placerJeton(iColonneChoisi: int, canvasFond: tk.Canvas):
+    global iJoueurCourant
+    global strCouleurJetonJ1
+    global strCouleurJetonJ2
 
-    TplateauDeJeu[iColonneChoisi][iLigneJouer] = iJoueurCourant
+    # Récupère la ligne où le jeton va tomber, ou "-1" si la colonne est pleine
+    iLigneJouer: int = identifierLigne(TplateauDeJeu[iColonneChoisi])
+
+    # Si la colonne n'était pas pleine, place le jeton 
+    if (iLigneJouer != -1):
+        # Place le jeton dans le tableau de jeu
+        TplateauDeJeu[iColonneChoisi][iLigneJouer] = iJoueurCourant
+
+        # iX1 et iY1 définissent les coordonnées du coin supérieur gauche du rectangle et du oval
+        iX1: int = iColonneChoisi * 60
+        iY1: int = (iNbLignePlateau-iLigneJouer-1) * 60
+        # iX2 et iY2 définissent les coordonnées du coin inférieur droit du rectangle et du oval
+        iX2: int = iX1 + 60
+        iY2: int = iY1 + 60
+
+        # Met la couleur du joueur courant à l'emplacement du jeton
+        if (iJoueurCourant == 1):
+            iCasePlateau : int = canvasFond.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill=strCouleurJetonJ1)
+            iJoueurCourant = 2
+        else:
+            iCasePlateau : int = canvasFond.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill=strCouleurJetonJ2)
+            iJoueurCourant = 1
+        
+        # Relie la fonction qui permet de placer un pion au canva, elle s'activera quand le joueur cliquera sur une case
+        # Passe à la fonction la numéro de la colonne de la case cliqué ainsi que le canva qui affiche le fond du plateau
+        # pour pouvoir ensuite actualiser le couleur du jeton
+        canvasFond.tag_bind(iCasePlateau, '<Button-1>', lambda event,
+                                   iColonneChoisi=iColonneChoisi, canvasFond=canvasFond: placerJeton(iColonneChoisi, canvasFond))
         
 ###########################################################
 #           FONCTIONS LIEES A L'AFFICHAGE                #
 ##########################################################
 
 """
-    @brief  Gère l'affichage du plateau de jeu
-    @param dictParametre contient les paramètres déjà choisis par le joueur
-    @return le plateau de jeu initialisé à 0
+    @brief Initilaise le plateau de jeu et l'affiche
+    @param toplevelFenetre fenêtre où afficher le plateau de jeu
 """
-def afficherPlateau(toplevelFenetre: tk.Toplevel) -> list:
+def initialiserPlateau(toplevelFenetre: tk.Toplevel):
+    global iNbColonnePlateau
+    global iNbLignePlateau
+
     framePlateau = tk.Frame(toplevelFenetre)
     framePlateau.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=iNbColonnePlateau*60, height=iNbLignePlateau*60)
     
-    # Créé le fond du plateau
-    canvaFondPlateau : tk.Canvas = tk.Canvas(framePlateau, width=iNbColonnePlateau*60, height=iNbLignePlateau*60, background="blue", cursor="hand2")
-    canvaFondPlateau.pack()
+    # Créé et affiche le fond du plateau
+    canvasFondPlateau : tk.Canvas = tk.Canvas(framePlateau, width=iNbColonnePlateau*60, height=iNbLignePlateau*60, background="blue", cursor="hand2")
+    canvasFondPlateau.pack()
 
-    global strCouleurJetonJ1
-    global strCouleurJetonJ2
-    strCouleur:str = "white"
-    # Boucle autant de fois qu'il y a de case dans le plateau pour créer chaque case graphiquement
-    for iBoucleI in range(iNbLignePlateau-1, -1, -1):
+    # Boucle autant de fois qu'il y a de case dans le plateau pour créer chaque case
+    for iBoucleI in range(iNbLignePlateau-1, -1, -1): # Part de la fin du plateau pour ne pas afficher le plateau à l'envers
         for iBoucleJ in range(iNbColonnePlateau):
-            # Si il n'y a pas de jeton dans la case, défini la couleur du jeton à afficher à blanc
-            if(TplateauDeJeu[iBoucleJ][iBoucleI] == 0):
-                strCouleur = "white"
-            # Si il n'y a pas de jeton dans la case, défini la couleur du jeton à celle du joueur 1
-            elif(TplateauDeJeu[iBoucleJ][iBoucleI] == 1):
-                strCouleur = strCouleurJetonJ1
-            # Sinon, défini la couleur du jeton à afficher à celle du joueur 2
-            else:
-                strCouleur = strCouleurJetonJ2
-
-            # Défini les coordonnées où placer la case
-            x1, y1 = iBoucleJ * 60, (iNbLignePlateau - 1 - iBoucleI) * 60
-            x2, y2 = x1 + 60, y1 + 60
+            # iX1 et iY1 définissent les coordonnées du coin supérieur gauche du rectangle et du oval
+            iX1: int = iBoucleJ * 60
+            iY1: int = (iNbLignePlateau-iBoucleI-1) * 60
+            # iX2 et iY2 définissent les coordonnées du coin inférieur droit du rectangle et du oval
+            iX2: int = iX1 + 60
+            iY2: int = iY1 + 60
             
             # Créé un rectangle pour faire une case de la grille
-            canvaFondPlateau.create_rectangle(x1, y1, x2, y2, outline="black", fill="blue")
-            # Créé le cercle qui sert a afficher les emplacement pour les jetons dans les cases de la grille
-            iCasePlateau : int = canvaFondPlateau.create_oval(x1 + 5, y1 + 5, x2 - 5, y2 - 5, fill=strCouleur)
-            # Lorsque le joueur cliquera sur une case, la position de la case sera envoyé à la fonction pour placer le pion
-            canvaFondPlateau.tag_bind(iCasePlateau, '<Button-1>', lambda event,
-                                       iColonneChoisi=iBoucleJ, test=iBoucleI: placerJeton(iColonneChoisi, test))
+            canvasFondPlateau.create_rectangle(iX1, iY1, iX2, iY2, outline="black", fill="blue")
+
+            # Créé le cercle pour l'emplacement du jeton (les trous de la grille)
+            iCasePlateau : int = canvasFondPlateau.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill="white")
+
+            # Lie la fonction qui permet de placer un pion au canva, elle s'activera quand le joueur cliquera sur une case
+            # Passe à la fonction la numéro de la colonne de la case cliqué ainsi que le canva qui affiche le fond du plateau
+            # pour pouvoir ensuite actualiser le couleur du jeton
+            canvasFondPlateau.tag_bind(iCasePlateau, '<Button-1>', lambda event,
+                                       iColonneChoisi=iBoucleJ, canvasFond=canvasFondPlateau: placerJeton(iColonneChoisi, canvasFond))
 
 """
     @brief  Gère l'affichage de la page de jeu
@@ -118,16 +142,17 @@ def gererInterfaceJeu(dictParametre: dict):
     global iJoueurCourant
     global iNbColonnePlateau
     global iNbLignePlateau
-    global strCouleurJetonJ1
-    global strCouleurJetonJ2
+    global strCouleurJeton
     global TplateauDeJeu
     global TstatutJeu
+    global iNbJetonVictoire
 
     strCouleurJetonJ1 = dictParametre["couleurJetonJ1"]
     strCouleurJetonJ2 = dictParametre["couleurJetonJ2"]
     iJoueurCourant = dictParametre["joueurCommence"]
     iNbColonnePlateau = dictParametre["nbColonnePlateau"]
     iNbLignePlateau = dictParametre["nbLignePlateau"]
+    iNbJetonVictoire = dictParametre["nombreJetonVicoire"]
 
     # Initialise la plateau avec des cases vides
     for iBoucleI in range(iNbColonnePlateau):
@@ -135,13 +160,10 @@ def gererInterfaceJeu(dictParametre: dict):
         for iBoucleJ in range(iNbLignePlateau):
             TplateauDeJeu[iBoucleI].append(0)
 
-    TplateauDeJeu[0][0] = 1
     # Liste qui contient : plateau de jeu, nombre d'atouts restant pour le J1, nombre d'atouts restant pour le J2, nombre de jeton dans la grille
     TstatutJeu.append([TplateauDeJeu, dictParametre["nombreCoupSpecial"], dictParametre["nombreCoupSpecial"], 0])
 
-    print(TplateauDeJeu)
-
-    afficherPlateau(toplevelInterfaceJeu)
+    initialiserPlateau(toplevelInterfaceJeu)
 
     toplevelInterfaceJeu.mainloop()
 

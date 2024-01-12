@@ -1,5 +1,3 @@
-from affichage import *
-
 def verifColonne(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire):
     tabVerif = [0]
     for iBoucleC in range(iNbColonne):
