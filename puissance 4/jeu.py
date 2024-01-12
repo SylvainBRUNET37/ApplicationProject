@@ -28,7 +28,7 @@ def identifierColonneChoisi(iTabColonne: int, iNbLigne: int) -> int:
     @param  iNbLigne       nombre de ligne du plateau de jeu
     @return le plateau de jeu avec le jeton posé
 """
-def placerJeton(iTabPlateauJeu: int, iJoueur: int, iNbColonne: int, iNbLigne: int) -> int:
+def placerJeton(iTabPlateauJeu: int, iJoueur: int, iNbColonne: int, iNbLigne: int) -> list:
     bColonneValide: bool = True
     while bColonneValide == True :
         iColonneChoisi = int(input("Saisissez le numero de la colonne ou vous voulez jouer :"))
