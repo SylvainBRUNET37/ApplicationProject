@@ -7,12 +7,15 @@
     @date    2023-2024
 """
 
-from fonctionGeneralInterface import *
+from interfaceGeneral import *
+from jeu import identifierLigne
+from verification import *
 
 ###########################################################
 #                 VARIABLES GLOABALES                    #
 ##########################################################
 
+iTourCourant: int = 1
 iJoueurCourant: int = 1
 iNbColonnePlateau: int = 7
 iNbLignePlateau: int = 6
@@ -27,72 +30,122 @@ TstatutJeu: list = []
 ##########################################################
 
 """
-    @brief  Identifie la ligne où devra être posé le jeton à partir de la colonne que le joueur a choisi
-    @param  iTabColonne colonne où le joueur veut placer son jeton
-    @return "-1" si la colonne est pleine, l'indice de la ligne où le jeton doit être posé si ce n'est pas le cas
+    @brief  Reviens en arrière dans la partie
+    @param  toplevelFenetre fenêtre
 """
-def identifierLigne(iTabColonne: list) -> int:
-    global iNbLignePlateau
-
-    iBoucleLigne: int = 0
-    bCaseVideTrouve: bool = False
-
-    # Parcours la colonne de bas en haut et s'arrête
-    while (iBoucleLigne != iNbLignePlateau and bCaseVideTrouve != True):
-        # Si une case vide est trouvée, renvoie met fin à la boucle
-        if iTabColonne[iBoucleLigne] == 0 :
-            bCaseVideTrouve = True
-        iBoucleLigne += 1
-
-    # Si une case vide a été trouvée, renvoie l'indice le ligne de celle-ci
-    if (bCaseVideTrouve == True):
-        return iBoucleLigne-1 # -1 car la variable est ittéré avant de sortir de la boucle
-    # Sinon, la colonne est pleine et renvoie donc -1
-    else:
-        return -1
-
+def undo(toplevelFenetre: tk.Toplevel):
+    return None
+        
 """
-    @brief  Demande au joueur la colonne où il veut placer son jeton puis le place
+    @brief  Place le jeton dans la colonne choisi si elle n'est pas pleine
     @param  iColonneChoisi plateau de jeu dans lequel le jeton doit être placé
-    @param  canvasFond     plateau de jeu dans lequel le jeton doit être placé
+    @param  canvasFondPlateau     plateau de jeu dans lequel le jeton doit être placé
 """
-def placerJeton(iColonneChoisi: int, canvasFond: tk.Canvas):
+def gererJeu(iColonneChoisi: int, canvasFondPlateau: tk.Canvas):
+    global TplateauDeJeu
+    global iTourCourant
     global iJoueurCourant
+    global iNbLignePlateau
+    global iNbColonnePlateau
+    global iNbJetonVictoire
     global strCouleurJetonJ1
     global strCouleurJetonJ2
 
     # Récupère la ligne où le jeton va tomber, ou "-1" si la colonne est pleine
-    iLigneJouer: int = identifierLigne(TplateauDeJeu[iColonneChoisi])
+    iLigneJouer: int = identifierLigne(TplateauDeJeu[iColonneChoisi], iNbLignePlateau)
 
     # Si la colonne n'était pas pleine, place le jeton 
     if (iLigneJouer != -1):
-        # Place le jeton dans le tableau de jeu
+        # Place le jeton dans le tableau de jeu 
         TplateauDeJeu[iColonneChoisi][iLigneJouer] = iJoueurCourant
 
-        # iX1 et iY1 définissent les coordonnées du coin supérieur gauche du rectangle et du oval
-        iX1: int = iColonneChoisi * 60
-        iY1: int = (iNbLignePlateau-iLigneJouer-1) * 60
-        # iX2 et iY2 définissent les coordonnées du coin inférieur droit du rectangle et du oval
-        iX2: int = iX1 + 60
-        iY2: int = iY1 + 60
-
-        # Met la couleur du joueur courant à l'emplacement du jeton
+        # Met la couleur du joueur courant à l'emplacement du jeton et passe le tour à l'autre joueur
         if (iJoueurCourant == 1):
-            iCasePlateau : int = canvasFond.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill=strCouleurJetonJ1)
+            afficherJeton(canvasFondPlateau, iColonneChoisi, iLigneJouer, strCouleurJetonJ1)
             iJoueurCourant = 2
         else:
-            iCasePlateau : int = canvasFond.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill=strCouleurJetonJ2)
+            afficherJeton(canvasFondPlateau, iColonneChoisi, iLigneJouer, strCouleurJetonJ2)
             iJoueurCourant = 1
+
+        # Copie le plateau acutel pour le sauvegarder sinon le plateau est acutalisé à chaque fois que la variable global change
+        plateauCopie = [ligne.copy() for ligne in TplateauDeJeu]
+        # Sauvegarde le tour actuel pour le undo/redo 
+        # (plateau de jeu / nombre de coup spécial restant J1 / nombre de coup spécial restant J2 / nombre de pions dans la grille)
+        TstatutJeu[iTourCourant][0] = plateauCopie
         
-        # Relie la fonction qui permet de placer un pion au canva, elle s'activera quand le joueur cliquera sur une case
-        # Passe à la fonction la numéro de la colonne de la case cliqué ainsi que le canva qui affiche le fond du plateau
-        # pour pouvoir ensuite actualiser le couleur du jeton
-        canvasFond.tag_bind(iCasePlateau, '<Button-1>', lambda event,
-                                   iColonneChoisi=iColonneChoisi, canvasFond=canvasFond: placerJeton(iColonneChoisi, canvasFond))
+        # Vérifie si un joueur a gagné
+        bVerifGagner: bool = Verif(TplateauDeJeu, iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire)
+        
+        # Affiche le message de victoire si un joueur a gagné
+        if (bVerifGagner == 1):
+            toplevelFenetrePrincipale = creerToplevelFenetre(300, 300, False, "GAGNEE")
+            test = tk.Label(toplevelFenetrePrincipale, text="J1 GAGNE")
+            test.pack()
+        elif (bVerifGagner == 2):
+            toplevelFenetrePrincipale = creerToplevelFenetre(300, 300, False, "GAGNEE")
+            test = tk.Label(toplevelFenetrePrincipale, text="J2 GAGNE")
+            test.pack()
+        elif (bVerifGagner == 3):
+            toplevelFenetrePrincipale = creerToplevelFenetre(300, 300, False, "GAGNEE")
+            test = tk.Label(toplevelFenetrePrincipale, text="EGALITEE")
+            test.pack()
+        # Si aucun joueur n'a gagné, passe au tour suivant
+        else:
+            TstatutJeu.append(TstatutJeu[iTourCourant])
+            iTourCourant += 1
+            
         
 ###########################################################
 #           FONCTIONS LIEES A L'AFFICHAGE                #
 ##########################################################
+
+"""
+    @brief  Place le jeton dans la colonne choisi si elle n'est pas pleine
+    @param  iColonneChoisi plateau de jeu dans lequel le jeton doit être placé
+    @param  canvasFondPlateau     plateau de jeu dans lequel le jeton doit être placé
+"""
+def creerBoutonUndoRedo(toplevelFenetre: tk.Toplevel):
+    framUndoRedo: tk.Frame = tk.Frame(toplevelFenetre)
+    framUndoRedo.place(relx=0.04, rely=0.83, width=125, height=125)
+    
+    # Créé le bouton undo
+    buttonUndo : tk.Button = tk.Button(framUndoRedo)
+    buttonUndo.configure(cursor="hand2", font="{Arial} 18", width=5, text='Undo', command= lambda: undo(toplevelFenetre))
+    buttonUndo.place(anchor="nw", relx=0, rely=0)
+
+    # Créé le bouton redo
+    buttonRedo : tk.Button = tk.Button(framUndoRedo)
+    buttonRedo.configure(cursor="hand2", font="{Arial} 18", width=5, text='Redo', state="disabled")
+    buttonRedo.place(anchor="nw", relx=0, rely=0.5)
+
+"""
+    @brief  Affiche le jeton placé par le joueur
+    @param  canvasFondPlateau      fond du plateau de jeu (pour pouvoir afficher le jeton dedans)
+    @param  iColonneChoisi  colonne dans laquel le jeton doit être placé
+    @param  iLigneJouer     ligne dans laquel le jeton doit être placé
+    @param  strCouleurJeton couleur du jeton à placer
+"""
+def afficherJeton(canvasFondPlateau: tk.Canvas, iColonneChoisi: int, iLigneJouer: int, strCouleurJeton: str):
+    global iNbLignePlateau
+
+    # iX1 et iY1 définissent les coordonnées du coin supérieur gauche du rectangle et du oval
+    iX1: int = iColonneChoisi * 60
+    iY1: int = (iNbLignePlateau-iLigneJouer-1) * 60
+    # iX2 et iY2 définissent les coordonnées du coin inférieur droit du rectangle et du oval
+    iX2: int = iX1 + 60
+    iY2: int = iY1 + 60
+
+    # Créé un rectangle pour faire une case de la grille
+    canvasFondPlateau.create_rectangle(iX1, iY1, iX2, iY2, outline="black", fill="blue")
+
+    # Met la couleur du joueur courant à l'emplacement du jeton
+    iCasePlateau : int = canvasFondPlateau.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill=strCouleurJeton)
+        
+    # Relie la fonction qui permet de placer un pion au canva, elle s'activera quand le joueur cliquera sur une case
+    # Passe à la fonction la numéro de la colonne de la case cliqué ainsi que le canva qui affiche le fond du plateau
+    # pour pouvoir ensuite actualiser le couleur du jeton
+    canvasFondPlateau.tag_bind(iCasePlateau, '<Button-1>', lambda event,
+                        iColonneChoisi=iColonneChoisi, canvasFondPlateau=canvasFondPlateau: gererJeu(iColonneChoisi, canvasFondPlateau))
 
 """
     @brief Initilaise le plateau de jeu et l'affiche
@@ -110,26 +163,10 @@ def initialiserPlateau(toplevelFenetre: tk.Toplevel):
     canvasFondPlateau.pack()
 
     # Boucle autant de fois qu'il y a de case dans le plateau pour créer chaque case
-    for iBoucleI in range(iNbLignePlateau-1, -1, -1): # Part de la fin du plateau pour ne pas afficher le plateau à l'envers
-        for iBoucleJ in range(iNbColonnePlateau):
-            # iX1 et iY1 définissent les coordonnées du coin supérieur gauche du rectangle et du oval
-            iX1: int = iBoucleJ * 60
-            iY1: int = (iNbLignePlateau-iBoucleI-1) * 60
-            # iX2 et iY2 définissent les coordonnées du coin inférieur droit du rectangle et du oval
-            iX2: int = iX1 + 60
-            iY2: int = iY1 + 60
-            
-            # Créé un rectangle pour faire une case de la grille
-            canvasFondPlateau.create_rectangle(iX1, iY1, iX2, iY2, outline="black", fill="blue")
-
-            # Créé le cercle pour l'emplacement du jeton (les trous de la grille)
-            iCasePlateau : int = canvasFondPlateau.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill="white")
-
-            # Lie la fonction qui permet de placer un pion au canva, elle s'activera quand le joueur cliquera sur une case
-            # Passe à la fonction la numéro de la colonne de la case cliqué ainsi que le canva qui affiche le fond du plateau
-            # pour pouvoir ensuite actualiser le couleur du jeton
-            canvasFondPlateau.tag_bind(iCasePlateau, '<Button-1>', lambda event,
-                                       iColonneChoisi=iBoucleJ, canvasFond=canvasFondPlateau: placerJeton(iColonneChoisi, canvasFond))
+    for iLigne in range(iNbLignePlateau-1, -1, -1): # Part de la fin du plateau pour ne pas afficher le plateau à l'envers
+        for iColonne in range(iNbColonnePlateau):
+            # Créé et affiche les emplacements du plateau
+            afficherJeton(canvasFondPlateau, iColonne, iLigne, "white")
 
 """
     @brief  Gère l'affichage de la page de jeu
@@ -142,7 +179,8 @@ def gererInterfaceJeu(dictParametre: dict):
     global iJoueurCourant
     global iNbColonnePlateau
     global iNbLignePlateau
-    global strCouleurJeton
+    global strCouleurJetonJ1
+    global strCouleurJetonJ2
     global TplateauDeJeu
     global TstatutJeu
     global iNbJetonVictoire
@@ -155,15 +193,19 @@ def gererInterfaceJeu(dictParametre: dict):
     iNbJetonVictoire = dictParametre["nombreJetonVicoire"]
 
     # Initialise la plateau avec des cases vides
-    for iBoucleI in range(iNbColonnePlateau):
+    for iColonne in range(iNbColonnePlateau):
         TplateauDeJeu.append([])
-        for iBoucleJ in range(iNbLignePlateau):
-            TplateauDeJeu[iBoucleI].append(0)
+        for iLigne in range(iNbLignePlateau):
+            TplateauDeJeu[iColonne].append(0)
+
+    plateauCopie = [ligne.copy() for ligne in TplateauDeJeu]
 
     # Liste qui contient : plateau de jeu, nombre d'atouts restant pour le J1, nombre d'atouts restant pour le J2, nombre de jeton dans la grille
-    TstatutJeu.append([TplateauDeJeu, dictParametre["nombreCoupSpecial"], dictParametre["nombreCoupSpecial"], 0])
+    TstatutJeu.append([plateauCopie, dictParametre["nombreCoupSpecial"], dictParametre["nombreCoupSpecial"], 0])
+    TstatutJeu.append([plateauCopie, dictParametre["nombreCoupSpecial"], dictParametre["nombreCoupSpecial"], 0])
 
     initialiserPlateau(toplevelInterfaceJeu)
+    creerBoutonUndoRedo(toplevelInterfaceJeu)
 
     toplevelInterfaceJeu.mainloop()
 
@@ -174,6 +216,6 @@ def gererInterfaceJeu(dictParametre: dict):
 
 dictTest  : dict = {"adversaire": True, "nbLignePlateau": 6,
                     "nbColonnePlateau": 7, "nombreJetonVicoire": 4,
-                    "coupSpecial": True, "undoRedo": False, "nombreCoupSpecial": 3, "joueurCommence": 1,
+                    "coupSpecial": True, "undoRedo": False, "nombreCoupSpecial": 25, "joueurCommence": 1,
                     "couleurJetonJ1": "yellow", "couleurJetonJ2": "red"}
 gererInterfaceJeu(dictTest)

@@ -7,7 +7,7 @@
     @date    2023-2024
 """
 
-from fonctionGeneralInterface import *
+from interfaceGeneral import *
 from interfaceJeu import gererInterfaceJeu
 
 ###########################################################
