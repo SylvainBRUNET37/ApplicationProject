@@ -24,7 +24,7 @@ iNbJetonVictoire: int = 4
 strCouleurJetonJ1: str = "yellow"
 strCouleurJetonJ2: str = "red"
 TstatutJeu: list = []
-iNbUndo: int = 0
+iCptUndo: int = 0
 canvasFondPlateau: tk.Canvas = None
 
 ###########################################################
@@ -38,13 +38,13 @@ canvasFondPlateau: tk.Canvas = None
 """
 def gererUndoRedo(toplevelFenetre: tk.Toplevel, bUndoRedo: bool):
     global iTourCourant
-    global iNbUndo
+    global iCptUndo
 
     # Si ce n'est pas le premier tour et que le joueur veut UNDO
     if (bUndoRedo == True and iTourCourant != 0):
         undoRedo(toplevelFenetre, 1)
     # Si ce n'est pas le dernier tour joué et que le joueur veut REDO
-    elif (bUndoRedo == False and iTourCourant < iTourCourant+iNbUndo):
+    elif (bUndoRedo == False and iTourCourant < iTourCourant+iCptUndo):
         undoRedo(toplevelFenetre, -1)
 
 
@@ -55,13 +55,13 @@ def gererUndoRedo(toplevelFenetre: tk.Toplevel, bUndoRedo: bool):
 """
 def undoRedo(toplevelFenetre: tk.Toplevel, iUndoRedo: int):
     global iTourCourant
-    global iNbUndo
+    global iCptUndo
     global iJoueurCourant
 
     # Si UNDO, retire 1 au tour courant, si REDO ajoute 1 au tour courant (car iUndoRedo == -1)
     iTourCourant -= iUndoRedo
     # Si UNDO, ajoute 1 au nombre de undo, si REDO retire 1 au tour courant (car iUndoRedo == -1)
-    iNbUndo += iUndoRedo
+    iCptUndo += iUndoRedo
     
     # Change le joueur qui joue
     if (iJoueurCourant == 1):
@@ -100,7 +100,7 @@ def gererJeu(iColonneChoisi: int):
     global strCouleurJetonJ1
     global strCouleurJetonJ2
     global canvasFondPlateau
-    global iNbUndo
+    global iCptUndo
 
     # Récupère la ligne où le jeton va tomber, ou "-1" si la colonne est pleine
     iLigneJouer: int = identifierLigne(TstatutJeu[iTourCourant][0][iColonneChoisi], iNbLignePlateau)
@@ -108,14 +108,13 @@ def gererJeu(iColonneChoisi: int):
     # Si la colonne n'était pas pleine, place le jeton 
     if (iLigneJouer != -1):
         
-        for i in range(iNbUndo):
+        for i in range(iCptUndo):
             TstatutJeu.pop()
 
-        iNbUndo = 0
+        # Passe au tour suivant et remet le compteur de undo à 0
+        iCptUndo = 0
         iTourCourant += 1
-        # Met la couleur du joueur courant à l'emplacement du jeton et passe le tour à l'autre joueur
 
-        
         # Crée une copie du plateau de jeu actuel
         plateauCopie = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
         
@@ -125,6 +124,7 @@ def gererJeu(iColonneChoisi: int):
         # Sauvegarde la copie dans TstatutJeu (pour l'undo/redo)
         TstatutJeu.append([plateauCopie, 0, 0])
         
+        # Met la couleur du joueur courant à l'emplacement du jeton et passe le tour à l'autre joueur
         if (iJoueurCourant == 1):
             afficherJeton(iColonneChoisi, iLigneJouer, strCouleurJetonJ1)
             iJoueurCourant = 2
@@ -148,9 +148,6 @@ def gererJeu(iColonneChoisi: int):
             toplevelFenetrePrincipale = creerToplevelFenetre(300, 300, False, "GAGNEE")
             test = tk.Label(toplevelFenetrePrincipale, text="EGALITEE")
             test.pack()
-        # Si aucun joueur n'a gagné, passe au tour suivant
-        else:
-            print(TstatutJeu[iTourCourant-1][0])
             
         
 ###########################################################
