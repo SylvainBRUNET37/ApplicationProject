@@ -2,8 +2,8 @@
 """
     @file    interfacePrincipale.py
     @brief   Contient l'interface qui permet au joueur de lancer la partie
-    @author  Sylvain BRUNET & Matthieu CHARTON
-    @version 0.2
+    @author  Sylvain BRUNET
+    @version 0.3
     @date    2023-2024
 """
 
@@ -38,9 +38,9 @@ def lancerPartie(toplevelFenetre : tk.Toplevel, bAdversaireChoisi : bool):
     global bCoupSpecial
     global bUndoRedo
     bAdversaire = bAdversaireChoisi
-    dictParametres : dict = {"adversaire": bAdversaire, "hauteurPlateau": iHauteurPlateau,
-                             "largeurPlateau": iLargeurPlateau, "nombreJetonVicoire": iNbJetonVictoire,
-                             "coupSpecial": bCoupSpecial, "undoRedo": bUndoRedo}
+    dictParametres : dict = {"adversaire": bAdversaire, "nbColonnePlateau": iHauteurPlateau,
+                             "nbLignePlateau": iLargeurPlateau, "nombreJetonVicoire": iNbJetonVictoire,
+                             "coupSpecial": bCoupSpecial, "stateUndoRedo": bUndoRedo}
     
     toplevelFenetre.destroy() # Ferme la fenêtre pricipale
     gestionPageParametre(dictParametres) # Lance la fenêtre de paramètere en donnant les paramètres déjà choisis

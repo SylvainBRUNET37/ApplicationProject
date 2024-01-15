@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-    @file    fonctionGeneralInterface.py
+    @file    interfaceGeneral.py
     @brief   Contient les fonctions utilisées par toutes les interfaces
-    @author  Sylvain BRUNET & Matthieu CHARTON
-    @version 0.2
+    @author  Sylvain BRUNET
+    @version 0.3
     @date    2023-2024
 """
 import tkinter as tk

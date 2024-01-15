@@ -2,7 +2,7 @@
     @file jeu.py
     @brief   Contient les fonctions permettant de jouer au jeu
     @author  Sylvain BRUNET & Matthieu CHARTON
-    @version 0.2
+    @version 0.3
     @date    2023-2024
 """
 

@@ -2,8 +2,8 @@
 """
     @file    interfaceParametre.py
     @brief   Contient l'interface de paramètrage de la partie
-    @author  Sylvain BRUNET & Matthieu CHARTON
-    @version 0.2
+    @author  Sylvain BRUNET
+    @version 0.3
     @date    2023-2024
 """
 
