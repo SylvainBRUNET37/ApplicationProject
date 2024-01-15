@@ -16,7 +16,7 @@ from verification import *
 ##########################################################
 
 canvasFondPlateau: tk.Canvas = None # Fond du plateau de jeu
-toplevelFenetrePrincipale: tk.Toplevel = None # Fenêtre de jeu
+toplevelFenetreJeu: tk.Toplevel = None # Fenêtre de jeu
 
 iNbColonnePlateau: int = 0
 iNbLignePlateau: int = 0
@@ -140,10 +140,7 @@ def gererJeu(iColonneChoisi: int):
 
         # Vérifie si c'est la fin du jeu (plateau plein ou joueur qui gagne) et affiche l'écran de fin de partie
         afficherFinJeu(Verif(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire))
-        
-
-            
-        
+           
 ###########################################################
 #           FONCTIONS LIEES A L'AFFICHAGE                #
 ##########################################################
@@ -157,18 +154,18 @@ def afficherFinJeu(bVerifGagner: bool):
     if (bVerifGagner != 0):
         # Affiche la fenêtre de victoire du joueur 2
         if (bVerifGagner == 1):
-            toplevelFenetrePrincipale = creerToplevelFenetre(300, 300, False, "GAGNEE")
-            test = tk.Label(toplevelFenetrePrincipale, text="J1 GAGNE")
+            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "GAGNEE")
+            test = tk.Label(toplevelFenetreJeu, text="J1 GAGNE")
             test.pack()
         # Affiche la fenêtre de victoire du joueur 2
         elif (bVerifGagner == 2):
-            toplevelFenetrePrincipale = creerToplevelFenetre(300, 300, False, "GAGNEE")
-            test = tk.Label(toplevelFenetrePrincipale, text="J2 GAGNE")
+            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "GAGNEE")
+            test = tk.Label(toplevelFenetreJeu, text="J2 GAGNE")
             test.pack()
         # Affiche la fenêtre d'égalité
         elif (bVerifGagner == 3):
-            toplevelFenetrePrincipale = creerToplevelFenetre(300, 300, False, "GAGNEE")
-            test = tk.Label(toplevelFenetrePrincipale, text="EGALITEE")
+            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "GAGNEE")
+            test = tk.Label(toplevelFenetreJeu, text="EGALITEE")
             test.pack()
 
 """
@@ -177,9 +174,9 @@ def afficherFinJeu(bVerifGagner: bool):
 def creerBoutonUndoRedo():
     global iCptUndo
     global iTourCourant
-    global toplevelFenetrePrincipale
+    global toplevelFenetreJeu
 
-    frameUndoRedo: tk.Frame = tk.Frame(toplevelFenetrePrincipale)
+    frameUndoRedo: tk.Frame = tk.Frame(toplevelFenetreJeu)
     frameUndoRedo.place(relx=0.04, rely=0.83, width=125, height=125)
 
     # Si le joueur à désactivé l'undo/redo, bloque les boutons liés à cette fonction (sinon gère les boutons)
@@ -220,7 +217,7 @@ def creerBoutonUndoRedo():
 def afficherJeton(iColonneChoisi: int, iLigneJouer: int, strCouleurJeton: str):
     global iNbLignePlateau
     global canvasFondPlateau
-    global toplevelFenetrePrincipale
+    global toplevelFenetreJeu
 
     # iX1 et iY1 définissent les coordonnées du coin supérieur gauche du rectangle et du oval
     iX1: int = iColonneChoisi * 60
@@ -247,9 +244,9 @@ def initialiserPlateau():
     global iNbColonnePlateau
     global iNbLignePlateau
     global canvasFondPlateau
-    global toplevelFenetrePrincipale
+    global toplevelFenetreJeu
 
-    framePlateau = tk.Frame(toplevelFenetrePrincipale)
+    framePlateau = tk.Frame(toplevelFenetreJeu)
     framePlateau.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=iNbColonnePlateau*60, height=iNbLignePlateau*60)
     
     # Créé et affiche le fond du plateau
@@ -264,7 +261,7 @@ def initialiserPlateau():
     @param dictParametre contient les paramètres choisis par le joueur
 """
 def gererInterfaceJeu(dictParametre: dict):
-    global toplevelFenetrePrincipale
+    global toplevelFenetreJeu
     global iJoueurCourant
     global iNbColonnePlateau
     global iNbLignePlateau
@@ -276,8 +273,8 @@ def gererInterfaceJeu(dictParametre: dict):
     global TstatutJeu
 
     # Créé la fenêtre et le haut de la fenêtre
-    toplevelFenetrePrincipale = creerToplevelFenetre(768, 768, False, "Puissance N") 
-    creerFrameHaut(toplevelFenetrePrincipale)
+    toplevelFenetreJeu = creerToplevelFenetre(768, 768, False, "Puissance N") 
+    creerFrameHaut(toplevelFenetreJeu)
 
     # Met les paramèteres chosis par l'utilisateur dans des variables globales
     strCouleurJetonJ1 = dictParametre["couleurJetonJ1"]
@@ -304,12 +301,12 @@ def gererInterfaceJeu(dictParametre: dict):
     creerBoutonUndoRedo()
 
     # Affiche la page créée
-    toplevelFenetrePrincipale.mainloop()
+    toplevelFenetreJeu.mainloop()
 
 
 
 dictTest  : dict = {"adversaire": True, "nbLignePlateau": 6,
                     "nbColonnePlateau": 7, "nombreJetonVicoire": 4,
-                    "coupSpecial": True, "undoRedo": False, "nombreCoupSpecial": 25, "joueurCommence": 2,
+                    "stateCoupSpecial": True, "nombreCoupSpecial": 25, "joueurCommence": 2,
                     "couleurJetonJ1": "yellow", "couleurJetonJ2": "red", "difficulteIA": 0, "stateUndoRedo": True}
 gererInterfaceJeu(dictTest)
