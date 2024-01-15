@@ -140,7 +140,7 @@ def creerFrameLargeur(toplevelFenetre : tk.Toplevel):
     frameLargeur.place(anchor="nw", relx=0.5, rely=0.55, x=10, y=5)
 
     scaleLargeur = tk.Scale(frameLargeur)
-    scaleLargeur.configure(cursor="sb_h_double_arrow", from_=6, orient="horizontal", relief="flat", to=12, length=200, width=20,
+    scaleLargeur.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20,
                             variable=iTkLargeurPlateau, command=updateLargeurPlateau)
     scaleLargeur.place(anchor="nw", relx=0.18, rely=0, x=0, y=0)
 

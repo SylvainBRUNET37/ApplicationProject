@@ -214,8 +214,8 @@ def gererInterfaceJeu(dictParametre: dict):
 
 
 
-dictTest  : dict = {"adversaire": True, "nbLignePlateau": 6,
-                    "nbColonnePlateau": 7, "nombreJetonVicoire": 4,
+dictTest  : dict = {"adversaire": True, "nbLignePlateau": 8,
+                    "nbColonnePlateau": 10, "nombreJetonVicoire": 4,
                     "coupSpecial": True, "undoRedo": False, "nombreCoupSpecial": 25, "joueurCommence": 1,
                     "couleurJetonJ1": "yellow", "couleurJetonJ2": "red"}
 gererInterfaceJeu(dictTest)
