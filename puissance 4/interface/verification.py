@@ -1,6 +1,6 @@
 def verifColonne(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire):
-    tabVerif = [0]
     for iBoucleC in range(iNbColonne):
+        tabVerif = [0]
         for iBoucleL in range(iNbLigne):
             iJeton = iTabPlateauDeJeu[iBoucleC][iBoucleL]
             if len(tabVerif) == iNbJetonVictoire:
@@ -12,8 +12,8 @@ def verifColonne(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire):
     return(0)
 
 def verifLigne(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire):
-    tabVerif = [0]
     for iBoucleL in range(iNbLigne):
+        tabVerif = [0]
         for iBoucleC in range(iNbColonne):
             iJeton = iTabPlateauDeJeu[iBoucleC][iBoucleL]
             if len(tabVerif) == iNbJetonVictoire:

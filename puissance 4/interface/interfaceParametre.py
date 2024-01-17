@@ -279,7 +279,7 @@ def creerBoutonLancer(dictParametre : dict):
     @brief Gère l'affichage de la page de paramètre
     @param dictParametre contient les paramètres déjà choisis par le joueur
 """
-def gestionPageParametre(dictParametre : dict):
+def gererInterfaceParametre(dictParametre : dict):
     global toplevelFenetreParametre
 
     # Créé la fenêtre et le haut de la fenêtre

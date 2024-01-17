@@ -6,6 +6,11 @@
     @date    2023-2024
 """
 
+import random
+import copy
+
+from verification import *
+
 """
     @brief  Identifie la ligne où devra être posé le jeton à partir de la colonne que le joueur a choisi
     @param  iTabColonne colonne où le joueur veut placer son jeton
@@ -98,3 +103,75 @@ def retirerJeton(iTabPlateauJeu: int, iNbColonne: int, iNbLigne: int) -> int:
         iBoucleL += 1
 
     return iTabPlateauJeu
+
+def est_colonne_valide(iTabPlateauDeJeu, colonne, iNbLigne):
+    for iBoucleL in range(iNbLigne) :
+        if iTabPlateauDeJeu[colonne][iBoucleL] == 0 :
+            return True
+    return False
+
+def jouer_coup(iTabPlateauDeJeu, colonne, joueur):
+    for i in range(len(iTabPlateauDeJeu[0])):
+        if iTabPlateauDeJeu[colonne][i] == 0:
+            iTabPlateauDeJeu[colonne][i] = joueur
+            return True
+    return False
+
+def minimax(iTabPlateauDeJeu, profondeur, maximisant, iNbColonne, iNbLigne, iNbJetonVictoire):
+    iVerif = Verif(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire)
+    if profondeur == 0 or iVerif !=0:
+        if iVerif == 1:
+            score = -1000
+        elif iVerif == 2:
+            score = 1000
+        elif iVerif == 3:
+            score = 0
+        elif iVerif == 0:
+            score = 0
+        return score
+    
+    if maximisant:
+        max_eval = float('-inf')
+        for colonne in range(len(iTabPlateauDeJeu)):
+            if est_colonne_valide(iTabPlateauDeJeu, colonne, iNbLigne):
+                grille_temp = copy.deepcopy(iTabPlateauDeJeu)
+                jouer_coup(grille_temp, colonne, 2)
+                evaluation = minimax(grille_temp, profondeur - 1, False, iNbColonne, iNbLigne, iNbJetonVictoire)
+                max_eval = max(max_eval, evaluation)
+        return max_eval
+    else:
+        min_eval = float('inf')
+        for colonne in range(len(iTabPlateauDeJeu)):
+            if est_colonne_valide(iTabPlateauDeJeu, colonne, iNbLigne):
+                grille_temp = copy.deepcopy(iTabPlateauDeJeu)
+                jouer_coup(grille_temp, colonne, 1)
+                evaluation = minimax(grille_temp, profondeur - 1, True, iNbColonne, iNbLigne, iNbJetonVictoire)
+                min_eval = min(min_eval, evaluation)
+        return min_eval
+
+def meilleur_coup(iTabPlateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire, profondeur):
+    max_eval = float('-inf')
+    meilleur_colonne = 0
+    L = []
+    for i in range(iNbColonne):
+        L.append(i)
+    random.shuffle(L)
+    for colonne in L:
+        if est_colonne_valide(iTabPlateauDeJeu, colonne, iNbLigne):
+            grille_temp = copy.deepcopy(iTabPlateauDeJeu)
+            jouer_coup(grille_temp, colonne, 2)
+            evaluation = minimax(grille_temp, profondeur, False, iNbColonne, iNbLigne, iNbJetonVictoire)
+            if evaluation > max_eval:
+                max_eval = evaluation
+                meilleur_colonne = colonne
+    return meilleur_colonne
+
+def atout(iTabPlateauDeJeu, iNbColonne, iNbLigne):
+    iTabModifie = copy.deepcopy(iTabPlateauDeJeu)
+    for iColonne in range(iNbColonne):
+        for iLigne in range(iNbLigne):
+            if iTabPlateauDeJeu[iColonne][iLigne] == 1:
+                iTabModifie[iColonne][iLigne] = 2
+            elif iTabPlateauDeJeu[iColonne][iLigne] == 2:
+                iTabModifie[iColonne][iLigne] = 1
+    return(iTabModifie)

@@ -8,7 +8,7 @@
 """
 
 from interfaceGeneral import *
-from interfaceParametre import gestionPageParametre
+from interfaceParametre import gererInterfaceParametre
 
 ###########################################################
 #                 VARIABLES GLOABALES                    #
@@ -44,7 +44,7 @@ def lancerPartie(iAdversaireChoisi : int):
 
     # Ferme la fenêtre de principal et lance la fenêtre de paramètre en donnant les paramètres déjà choisis
     toplevelFenetrePrincipale.destroy()
-    gestionPageParametre(dictParametres)
+    gererInterfaceParametre(dictParametres)
 
 """
     @brief Met à jour la variable global qui défini le nombre de ligne du plateau
@@ -52,7 +52,8 @@ def lancerPartie(iAdversaireChoisi : int):
 """
 def updateNbLignePlateau(iNbLigneChoisi: int):
     global iNbLignePlateau
-    iNbLignePlateau = iNbLigneChoisi
+    iNbLignePlateau = int(iNbLigneChoisi)
+    
 
 """
     @brief Met à jour la variable global qui défini le nombre de colonne du plateau
@@ -60,7 +61,7 @@ def updateNbLignePlateau(iNbLigneChoisi: int):
 """
 def updateNbColonnePlateau(iNbColonneChoisi: int):
     global iNbColonnePlateau
-    iNbColonnePlateau = iNbColonneChoisi
+    iNbColonnePlateau = int(iNbColonneChoisi)
 
 """
     @brief Met à jour la variable global qui défini le nombre de jeton à alligner pour gagner
@@ -68,7 +69,7 @@ def updateNbColonnePlateau(iNbColonneChoisi: int):
 """
 def updateNbJetonVicoire(iNbJetonVictoireChoisi: int):
     global iNbJetonVictoire
-    iNbJetonVictoire = iNbJetonVictoireChoisi
+    iNbJetonVictoire = int(iNbJetonVictoireChoisi)
 
 """
     @brief Met à jour la variable global qui défini si le coup spécial est activé en fonction de l'état de son checkbutton associé
@@ -102,12 +103,12 @@ def creerFrameChoixAdversaire():
 
     # Créé et configure le bouton JvsJ, active la fonction qui lance la partie en lui envoyant 1 pour indiquer que le bouton JvsIA à été cliqué
     buttonJvsIA: tk.Button = tk.Button(frameChoixAdversaire)
-    buttonJvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8, command=lambda: lancerPartie(1))
+    buttonJvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8, command = lambda: lancerPartie(1))
     buttonJvsIA.place(anchor="nw", relx=0.6, rely=0.0, x=0, y=0)
 
     # Créé et configure le bouton JvsJ, active la fonction qui lance la partie en lui envoyant 0 pour indiquer que le bouton JvsJ à été cliqué
     buttonJvsJ: tk.Button = tk.Button(frameChoixAdversaire)
-    buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8, command=lambda: lancerPartie(0))
+    buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8, command = lambda: lancerPartie(0))
     buttonJvsJ.place(anchor="nw", relx=0.1, rely=0.0, x=0, y=0)
 
 """
@@ -127,7 +128,7 @@ def creerFrameNbLigne():
     # Créé et configure le slider
     scaleNbLigne: tk.Scale = tk.Scale(frameNbLigne)
     scaleNbLigne.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=8, length=200, width=20,
-                            variable=iTkNbLignePlateau, command=updateNbColonnePlateau)
+                            variable=iTkNbLignePlateau, command = updateNbLignePlateau)
     scaleNbLigne.place(anchor="nw", relx=0.2, rely=0.0, x=0, y=0)
 
     labelNbLigne: tk.Label = tk.Label(frameNbLigne)
@@ -151,7 +152,7 @@ def creerFrameNbColonne():
     # Créé et configure le slider
     scaleNbColonne: tk.Scale = tk.Scale(frameNbColonne)
     scaleNbColonne.configure(cursor="sb_h_double_arrow", from_=5, orient="horizontal", relief="flat", to=10, length=200, width=20,
-                            variable=iTkNbColonnePlateau, command=updateNbColonnePlateau)
+                             variable=iTkNbColonnePlateau, command = updateNbColonnePlateau)
     scaleNbColonne.place(anchor="nw", relx=0.18, rely=0, x=0, y=0)
 
     labelNbColonne: tk.Label = tk.Label(frameNbColonne)
@@ -175,7 +176,7 @@ def creerFrameNombreJetonVictoire():
     # Créé et configure le slider
     scaleNombreJetonVictoire: tk.Scale = tk.Scale(frameNombreJetonVictoire)
     scaleNombreJetonVictoire.configure(cursor="sb_h_double_arrow", from_=3, orient="horizontal", relief="flat", to=5, length=200, width=20, 
-                                       variable=iTkNbJetonVictoire, command=updateNbJetonVicoire)
+                                       variable=iTkNbJetonVictoire, command = updateNbJetonVicoire)
     scaleNombreJetonVictoire.place(anchor="nw", relx=0.2, rely=0.0, x=0, y=0)
 
     labelNombreJetonVictoire: tk.Label = tk.Label(frameNombreJetonVictoire)
@@ -200,12 +201,12 @@ def creerFrameCheckButton():
 
     # Créé et configure le bouton lié à l'activation/désactivation du coup spécial
     checkbuttonCoupSpecial: tk.Checkbutton = tk.Checkbutton(frameCheckButton)
-    checkbuttonCoupSpecial.configure(cursor="hand2", text='Coup special', font=14, variable=bTkCoupSpecial, command=lambda:updateCoupSpecial(bTkCoupSpecial.get()))
+    checkbuttonCoupSpecial.configure(cursor="hand2", text='Coup special', font=14, variable=bTkCoupSpecial, command = lambda:updateCoupSpecial(bTkCoupSpecial.get()))
     checkbuttonCoupSpecial.place(anchor="nw", relx=0.2, rely=0.1, x=0, y=0)
 
     # Créé et configure le bouton lié à l'activation/désactivation de l'UNDO/REDO
     checkbuttonUndoRedo: tk.Checkbutton = tk.Checkbutton(frameCheckButton)
-    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command=lambda:updateUndoRedo(bTkUndoRedo.get()))
+    checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command = lambda:updateUndoRedo(bTkUndoRedo.get()))
     checkbuttonUndoRedo.place(anchor="nw", relx=0.2, rely=0.35, x=0, y=0)
 
 """

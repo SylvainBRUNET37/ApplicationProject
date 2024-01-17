@@ -8,8 +8,7 @@
 """
 
 from interfaceGeneral import *
-from jeu import identifierLigne
-from verification import *
+from jeu import *
 
 ###########################################################
 #                 VARIABLES GLOABALES                    #
@@ -26,6 +25,7 @@ strCouleurJetonJ2: str = ""
 iDifficulteIA: int = 0 # 0 si en JvsJ, 1 pour niveau 1, 2 pour niveau 2 et 4 pour niveau 3 (correspond à la profondeur de l'algorithme)
 bStateUndoRedo: bool = False # False si l'UNDO/REDO est désactivé, True si activé
 
+bFinJeu: bool = False # Indique si la partie est terminée ou non
 iTourCourant: int = 0 # Tour en cours
 iJoueurCourant: int = 0 # Joueur qui joue pour le tour en cours
 iCptUndo: int = 0 # Nombre de fois que le joueur à utilisé le bouton UNDO avant d'avoir rejoué
@@ -45,19 +45,25 @@ def gererUndoRedo(bUndoOrRedo: bool):
     global iCptUndo
     global iJoueurCourant
 
+    # Si c'est du joueur vs IA, ajoute un poid qui doublera le nombre de tours où revenir en arrière/avant
+    if (iDifficulteIA == 0):
+        intStateJvsIA: int = 1
+    else:
+        intStateJvsIA: int = 2
+
     # Si le joueur à cliqué sur UNDO, reviens au tour d'avant, incrémente le nombre de UNDO utilisé d'affilé et met à jour le plateau
     if (bUndoOrRedo == True):
-        iTourCourant -= 1
-        iCptUndo += 1
+        iTourCourant -= 1 * intStateJvsIA
+        iCptUndo += 1 * intStateJvsIA
         updateAffichagePlateau()
     # Si le joueur à cliqué sur REDO, reviens au tour d'après, décrémente le nombre de UNDO utilisé d'affilé et met à jour le plateau
     elif (bUndoOrRedo == False):
-        iTourCourant += 1
-        iCptUndo -= 1
+        iTourCourant += 1 * intStateJvsIA
+        iCptUndo -= 1 * intStateJvsIA
         updateAffichagePlateau()
 
     # Met à jour le joueur qui doit jouer
-    if (iJoueurCourant == 1):
+    if (iJoueurCourant == 1 and iDifficulteIA == 0):
         iJoueurCourant = 2
     else:
         iJoueurCourant = 1
@@ -103,43 +109,52 @@ def gererJeu(iColonneChoisi: int):
     global strCouleurJetonJ1
     global strCouleurJetonJ2
     global iCptUndo
+    global bFinJeu
 
-    # Récupère la ligne où le jeton va tomber, ou "-1" si la colonne est pleine
-    iLigneJouer: int = identifierLigne(TstatutJeu[iTourCourant][0][iColonneChoisi], iNbLignePlateau)
+    # Si la partie n'est pas terminée, autorise le joueur à jouer
+    if (bFinJeu == False):
+        # Récupère la ligne où le jeton va tomber, ou "-1" si la colonne est pleine
+        iLigneJouer: int = identifierLigne(TstatutJeu[iTourCourant][0][iColonneChoisi], iNbLignePlateau)
 
-    # Si la colonne n'était pas pleine, 
-    if (iLigneJouer != -1):
-        
-        # Supprime autant de plateau sauvegarder que de fois où le joueur à utilisé l'UNDO 
-        for i in range(iCptUndo):
-            TstatutJeu.pop()
+        # Si la colonne n'était pas pleine, 
+        if (iLigneJouer != -1):
+            
+            # Supprime autant de plateau sauvegarder que de fois où le joueur à utilisé l'UNDO 
+            for i in range(iCptUndo):
+                TstatutJeu.pop()
 
-        # Passe au tour suivant et remet le compteur de UNDO à 0
-        iCptUndo = 0
-        iTourCourant += 1
-        
-        # Active le bouton UNDO si le premier tour est passé
-        creerBoutonUndoRedo()
+            # Passe au tour suivant et remet le compteur de UNDO à 0
+            iCptUndo = 0
+            iTourCourant += 1
+            
+            # Actualise les boutons UNDO et REDO
+            creerBoutonUndoRedo()
 
-        # Crée une copie du plateau de jeu actuel
-        plateauCopie = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
-        
-        # Ajoute le jeton joué au plateau à la copie
-        plateauCopie[iColonneChoisi][iLigneJouer] = iJoueurCourant
-        
-        # Sauvegarde la copie (pour l'UNDO/REDO)
-        TstatutJeu.append([plateauCopie, 0, 0])
-        
-        # Affiche le jeton et met à jour le joueur qui doit jouer
-        if (iJoueurCourant == 1):
-            afficherJeton(iColonneChoisi, iLigneJouer, strCouleurJetonJ1)
-            iJoueurCourant = 2
-        else:
-            afficherJeton(iColonneChoisi, iLigneJouer, strCouleurJetonJ2)
-            iJoueurCourant = 1
+            # Crée une copie du plateau de jeu actuel
+            TplateauCopie: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
+            
+            # Ajoute le jeton joué à la copie
+            TplateauCopie[iColonneChoisi][iLigneJouer] = iJoueurCourant
+            
+            # Sauvegarde la copie
+            TstatutJeu.append([TplateauCopie, 0, 0])
+            
+            # Affiche le jeton et met à jour le joueur qui doit jouer
+            if (iJoueurCourant == 1):
+                afficherJeton(iColonneChoisi, iLigneJouer, strCouleurJetonJ1)
+                iJoueurCourant = 2
+            else:
+                afficherJeton(iColonneChoisi, iLigneJouer, strCouleurJetonJ2)
+                iJoueurCourant = 1
 
-        # Vérifie si c'est la fin du jeu (plateau plein ou joueur qui gagne) et affiche l'écran de fin de partie
-        afficherFinJeu(Verif(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire))
+            # Vérifie si c'est la fin du jeu (plateau plein ou joueur qui gagne) et affiche l'écran de fin de partie
+            afficherFinJeu(Verif(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire))
+
+            # Si le mode de jeu est JvsIA et que c'est au tour de l'IA,
+            # relance la fonction en donnant en paramètre le coup qu'elle estime être le meilleur pour gagner
+            if (iDifficulteIA != 0 and iJoueurCourant == 2):
+                gererJeu(meilleur_coup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
+
            
 ###########################################################
 #           FONCTIONS LIEES A L'AFFICHAGE                #
@@ -150,8 +165,11 @@ def gererJeu(iColonneChoisi: int):
     @param bVerifGagner 0 si ce n'est pas la fin de la partie, 1 si J1 a gagné, 2 si J2 a gagné 3 si plateau plein
 """
 def afficherFinJeu(bVerifGagner: bool):
+    global bFinJeu
+
     # Si c'est la fin de la partie
     if (bVerifGagner != 0):
+        bFinJeu = True
         # Affiche la fenêtre de victoire du joueur 2
         if (bVerifGagner == 1):
             toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "GAGNEE")
@@ -175,35 +193,40 @@ def creerBoutonUndoRedo():
     global iCptUndo
     global iTourCourant
     global toplevelFenetreJeu
+    global iDifficulteIA
+    global iJoueurCourant
 
     frameUndoRedo: tk.Frame = tk.Frame(toplevelFenetreJeu)
     frameUndoRedo.place(relx=0.04, rely=0.83, width=125, height=125)
 
-    # Si le joueur à désactivé l'undo/redo, bloque les boutons liés à cette fonction (sinon gère les boutons)
+    strStateUndo: str = ""
+    strStateRedo: str = ""
+    # Si le joueur à désactivé l'undo/redo, bloque les boutons liés à cette fonction (sinon active/désactive les boutons)
     if (bStateUndoRedo == False):
         strStateUndo = "disabled"
         strStateRedo = "disabled"
     else:
+        # Si c'est le premier tour, bloque le bouton UNDO (sinon l'active)
+        # Si l'IA joue en premier, le premier tour du joueur est le 1. Dans ce cas désactive aussi l'UNDO
+        if (iTourCourant == 0 or (iTourCourant == 1 and iDifficulteIA != 0)):
+            strStateUndo = "disabled"
+        else:
+            strStateUndo = "active"
+
         # Si l'UNDO n'a pas été utilisé, bloque le bouton de REDO (sinon l'active)
         if (iCptUndo == 0):
             strStateRedo = "disabled"
         else:
             strStateRedo = "active"
-        
-        # Si c'est le premier tour, bloque le bouton UNDO (sinon l'active)
-        if (iTourCourant == 0):
-            strStateUndo = "disabled"
-        else:
-            strStateUndo = "active"
 
     # Créé le bouton UNDO et le lie à la fonction qui gère l'UNDO/REDO
-    buttonUndo : tk.Button = tk.Button(frameUndoRedo)
+    buttonUndo: tk.Button = tk.Button(frameUndoRedo)
     buttonUndo.configure(cursor="hand2", font="{Arial} 18", width=5, text='Undo', state=strStateUndo,
                          command= lambda: gererUndoRedo(True))
     buttonUndo.place(anchor="nw", relx=0, rely=0)
 
     # Créé le bouton REDO et le lie à la fonction qui gère l'UNDO/REDO
-    buttonRedo : tk.Button = tk.Button(frameUndoRedo)
+    buttonRedo: tk.Button = tk.Button(frameUndoRedo)
     buttonRedo.configure(cursor="hand2", font="{Arial} 18", width=5, text='Redo', state=strStateRedo,
                          command= lambda: gererUndoRedo(False))
     buttonRedo.place(anchor="nw", relx=0, rely=0.5)
@@ -300,13 +323,16 @@ def gererInterfaceJeu(dictParametre: dict):
     initialiserPlateau()
     creerBoutonUndoRedo()
 
+    # Si c'est l'IA qui joue le premier tour, joue son tour
+    if (iDifficulteIA != 0 and iJoueurCourant == 2):
+        gererJeu(meilleur_coup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
+
     # Affiche la page créée
     toplevelFenetreJeu.mainloop()
 
 
-
 dictTest  : dict = {"adversaire": True, "nbLignePlateau": 6,
                     "nbColonnePlateau": 7, "nombreJetonVicoire": 4,
-                    "stateCoupSpecial": True, "nombreCoupSpecial": 25, "joueurCommence": 2,
-                    "couleurJetonJ1": "yellow", "couleurJetonJ2": "red", "difficulteIA": 0, "stateUndoRedo": True}
+                    "stateCoupSpecial": True, "nombreCoupSpecial": 25, "joueurCommence": 1,
+                    "couleurJetonJ1": "yellow", "couleurJetonJ2": "red", "difficulteIA": 1, "stateUndoRedo": True}
 gererInterfaceJeu(dictTest)
