@@ -330,9 +330,10 @@ def gererInterfaceJeu(dictParametre: dict):
     # Affiche la page créée
     toplevelFenetreJeu.mainloop()
 
-
+'''
 dictTest  : dict = {"adversaire": True, "nbLignePlateau": 6,
                     "nbColonnePlateau": 7, "nombreJetonVicoire": 4,
                     "stateCoupSpecial": True, "nombreCoupSpecial": 25, "joueurCommence": 1,
                     "couleurJetonJ1": "yellow", "couleurJetonJ2": "red", "difficulteIA": 1, "stateUndoRedo": True}
 gererInterfaceJeu(dictTest)
+'''

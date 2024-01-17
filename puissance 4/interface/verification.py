@@ -1,5 +1,3 @@
-from affichage import *
-
 """
     Vérifie s'il y a une victoire dans une colonne.
 

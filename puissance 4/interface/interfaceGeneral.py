@@ -39,23 +39,44 @@ def creerToplevelFenetre(iLargeurFenetre: int, iHauteurFenetre: int, bRedimensio
     @brief  Créé la haut des pages : le bouton pour revenir en arrière, le nom du jeu et le bouton quitter
     @param  toplevelFenetre la fenêtre où placer le haut de page
 """    
-def creerFrameHaut(toplevelFenetre: tk.Tk) -> None:
+def creerFrameHaut(toplevelFenetre: tk.Tk):
     frameHaut: tk.Frame = tk.Frame(toplevelFenetre)
     frameHaut.configure(height=100, width=750)
-    frameHaut.place(anchor="nw", x=10, y=5)
+    frameHaut.place(anchor="nw", x=150, y=5)
 
-    #buttonRevenirArriere: tk.Button = tk.Button(frameHaut)
-    #buttonRevenirArriere.configure(cursor="hand2", font="{Arial} 26 {}", width=6, text='Quitter', command=toplevelFenetre.destroy)
-    #buttonRevenirArriere.place(anchor="nw", relx=0.08, rely=0.15)
-
-    labelNomJeu: tk.Label = tk.Label(frameHaut)
+    labelNomJeu = tk.Label(frameHaut)
     labelNomJeu.configure(font="{Arial} 36 {bold underline}", text='Puissance N')
-    labelNomJeu.place(anchor="nw", relx=0.3, rely=0.20)
+    labelNomJeu.place(anchor="nw", relx=0.12, rely=0.20)
 
     buttonQuitter: tk.Button = tk.Button(frameHaut)
     buttonQuitter.configure(cursor="hand2", font="{Arial} 26 {}", width=6, text='Quitter', command=toplevelFenetre.destroy)
-    buttonQuitter.place(anchor="nw", relx=0.75, rely=0.21)
+    buttonQuitter.place(anchor="nw", relx=0.6, rely=0.21)
 
+"""
+    @brief Créé la page principale
+"""
+def initInterfacePrincipale() -> tk.Tk:
+    # Créé la fenêtre et le haut de la fenêtre
+    # Donne "None" à la fonction qui créé le bouton de retour car on ne peut pas retourner en arriere sur cette page et qu'elle ne nécessite aucun paramètres
+    toplevelFenetrePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
+    creerFrameHaut(toplevelFenetrePrincipale)
+    creerBoutonRetour(None, None, toplevelFenetrePrincipale)
+    return toplevelFenetrePrincipale
 
-
-
+"""
+    @brief Gère l'affichage de la page principale
+"""
+def creerBoutonRetour(fonctionRetour, dictParametre: dict, toplevelFenetre: tk.Tk):
+    frameBoutonRetour: tk.Frame = tk.Frame(toplevelFenetre)
+    frameBoutonRetour.configure(height=150, width=150)
+    frameBoutonRetour.place(anchor="nw", x=10, y=5)
+    
+    buttonRetour: tk.Button = tk.Button()
+    # Si il c'est la page principale, désactive le bouton de retour en arrière (puisqu'il n'y a rien avant)
+    if (fonctionRetour == None):
+        buttonRetour.configure(cursor="hand2", font="{Arial} 26 {}", width=6, text='Retour', state="disabled")
+    # Sinon, active le bouton et lie la fonction passée en paramètre avec le bouton
+    else:
+        buttonRetour.configure(cursor="hand2", font="{Arial} 26 {}", width=6, text='Retour',
+                           command=fonctionRetour(dictParametre))
+    buttonRetour.place(anchor="nw", relx=0.05, rely=0.05)

@@ -215,9 +215,8 @@ def creerFrameCheckButton():
 def gererInterfacePrincipale():
     global toplevelFenetrePrincipale
 
-    # Créé la fenêtre et le haut de la fenêtre
-    toplevelFenetrePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
-    creerFrameHaut(toplevelFenetrePrincipale)
+    # Créé la fenêtre et le haut de la page
+    toplevelFenetrePrincipale = initInterfacePrincipale()
 
     # Créé tous les widgets qui permettent de changer les paramètres
     creerFrameChoixAdversaire()
