@@ -1,21 +1,23 @@
 #!/usr/bin/python3
 """
     @file    interfaceJeu.py
-    @brief   Contient les éléments de l'interface de jeu et les fonctions pour gérer celui-ci
+    @brief   Contient les éléments de l'interface de jeu et les fonctions pour gérer celle-ci
     @author  Sylvain BRUNET
     @version 0.3
     @date    2023-2024
 """
 
-from interfaceGeneral import *
+import tkinter as tk
+
 from jeu import *
+from interfaceGeneral import creerToplevelFenetre
 
 ###########################################################
-#                 VARIABLES GLOABALES                    #
-##########################################################
+#                  VARIABLES GLOABALES                    #
+###########################################################
 
 canvasFondPlateau: tk.Canvas = None # Fond du plateau de jeu
-toplevelFenetreJeu: tk.Toplevel = None # Fenêtre de jeu
+toplevelFenetreJeu: tk.Tk = None # Fenêtre de jeu
 
 iNbColonnePlateau: int = 0
 iNbLignePlateau: int = 0
@@ -33,8 +35,8 @@ TstatutJeu: list = [] # Contient le statut du jeu pour chaque tour (pour le UNDO
                       # le plateau de jeu et le nombre de coup spécial restant de chaque joueur pour chaque tour
 
 ###########################################################
-#           FONCTIONS LIEES AUX BOUTONS                  #
-##########################################################
+#             FONCTIONS LIEES AUX BOUTONS                 #
+###########################################################
 
 """
     @brief  Lance la fonction UNDO ou REDO (dépend de la valeur de bUndoOrRedo) et met à jour les boutons liés à cette fonction 
@@ -157,8 +159,8 @@ def gererJeu(iColonneChoisi: int):
 
            
 ###########################################################
-#           FONCTIONS LIEES A L'AFFICHAGE                #
-##########################################################
+#            FONCTIONS LIEES A L'AFFICHAGE                #
+###########################################################
 
 """
     @brief Affiche l'écran de fin de partie
@@ -172,19 +174,19 @@ def afficherFinJeu(bVerifGagner: bool):
         bFinJeu = True
         # Affiche la fenêtre de victoire du joueur 2
         if (bVerifGagner == 1):
-            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "GAGNEE")
-            test = tk.Label(toplevelFenetreJeu, text="J1 GAGNE")
-            test.pack()
+            toplevelFenetreJeu = creerToplevelFenetre(300, 200, False, "Victoire J1")
+            telabelVictoireJ1: tk.Label = tk.Label(toplevelFenetreJeu, text="Le joueur 1 a gagné !", font=("Helvetica", 16))
+            telabelVictoireJ1.pack(pady=60)
         # Affiche la fenêtre de victoire du joueur 2
         elif (bVerifGagner == 2):
-            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "GAGNEE")
-            test = tk.Label(toplevelFenetreJeu, text="J2 GAGNE")
-            test.pack()
+            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "Victoire J2")
+            labelVictoireJ2: tk.Label = tk.Label(toplevelFenetreJeu, text="Le joueur 2 a gagné !", font=("Helvetica", 16))
+            labelVictoireJ2.pack(pady=60)
         # Affiche la fenêtre d'égalité
         elif (bVerifGagner == 3):
-            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "GAGNEE")
-            test = tk.Label(toplevelFenetreJeu, text="EGALITEE")
-            test.pack()
+            toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "Égalité")
+            labelEgalite: tk.Label = tk.Label(toplevelFenetreJeu, text="Égalité !", font=("Helvetica", 16))
+            labelEgalite.pack(pady=60)
 
 """
     @brief Créé les boutons d'UNDO/REDO
@@ -279,11 +281,15 @@ def initialiserPlateau():
     # Affiche le plateau
     updateAffichagePlateau()
 
+###########################################################
+#                 GESTION DE LA FENETRE                   #
+###########################################################
+
 """
-    @brief Gère l'affichage de la page de jeu
+    @brief Gère l'initialisation des variables globales
     @param dictParametre contient les paramètres choisis par le joueur
 """
-def gererInterfaceJeu(dictParametre: dict):
+def initVarGlobal(dictParametre: dict):
     global toplevelFenetreJeu
     global iJoueurCourant
     global iNbColonnePlateau
@@ -293,11 +299,12 @@ def gererInterfaceJeu(dictParametre: dict):
     global iNbJetonVictoire
     global iDifficulteIA
     global bStateUndoRedo
+    
     global TstatutJeu
-
-    # Créé la fenêtre et le haut de la fenêtre
-    toplevelFenetreJeu = creerToplevelFenetre(768, 768, False, "Puissance N") 
-    creerFrameHaut(toplevelFenetreJeu)
+    global bFinJeu
+    global iTourCourant
+    global iCptUndo
+    global TstatutJeu
 
     # Met les paramèteres chosis par l'utilisateur dans des variables globales
     strCouleurJetonJ1 = dictParametre["couleurJetonJ1"]
@@ -309,8 +316,14 @@ def gererInterfaceJeu(dictParametre: dict):
     iDifficulteIA = dictParametre["difficulteIA"]
     bStateUndoRedo = dictParametre["stateUndoRedo"]
 
+    # Réinitialise les variables globales pour que le jeu se relance bien quand le joueur reviens de la page de paramètre
+    TstatutJeu = []
+    bFinJeu = False
+    iTourCourant = 0
+    iCptUndo = 0
+
     TplateauDeJeu: list = []
-    # Initialise la plateau avec des cases vides
+    # Initialise la plateau avec des 0
     for iColonne in range(iNbColonnePlateau):
         TplateauDeJeu.append([])
         for iLigne in range(iNbLignePlateau):
@@ -320,6 +333,21 @@ def gererInterfaceJeu(dictParametre: dict):
     # Contient : plateau de jeu, nombre d'atouts restant pour le J1, nombre d'atouts restant pour le J2
     TstatutJeu.append([TplateauDeJeu, dictParametre["nombreCoupSpecial"], dictParametre["nombreCoupSpecial"]])
 
+"""
+    @brief Gère l'affichage de la page de jeu
+    @param toplevelFenetre Fenêtre de jeu
+    @param dictParametre contient les paramètres choisis par le joueur
+"""
+def gererInterfaceJeu(toplevelFenetre: tk.Tk, dictParametre: dict):
+    global iDifficulteIA
+    global iJoueurCourant
+
+    toplevelFenetreJeu = toplevelFenetre
+
+    # Initialise les variables globales
+    initVarGlobal(dictParametre)
+
+    # Créé les widgets qui permettent de jouer
     initialiserPlateau()
     creerBoutonUndoRedo()
 
@@ -329,11 +357,3 @@ def gererInterfaceJeu(dictParametre: dict):
 
     # Affiche la page créée
     toplevelFenetreJeu.mainloop()
-
-'''
-dictTest  : dict = {"adversaire": True, "nbLignePlateau": 6,
-                    "nbColonnePlateau": 7, "nombreJetonVicoire": 4,
-                    "stateCoupSpecial": True, "nombreCoupSpecial": 25, "joueurCommence": 1,
-                    "couleurJetonJ1": "yellow", "couleurJetonJ2": "red", "difficulteIA": 1, "stateUndoRedo": True}
-gererInterfaceJeu(dictTest)
-'''

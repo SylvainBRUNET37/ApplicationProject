@@ -1,20 +1,19 @@
 #!/usr/bin/python3
 """
     @file    interfaceParametre.py
-    @brief   Contient l'interface de paramètrage
+    @brief   Contient les éléments de l'interface de paramètre et les fonctions pour gérer celle-ci
     @author  Sylvain BRUNET
     @version 0.3
     @date    2023-2024
 """
 
-from interfaceGeneral import *
-from interfaceJeu import gererInterfaceJeu
+import tkinter as tk
 
 ###########################################################
-#                 VARIABLES GLOABALES                    #
-##########################################################
+#                  VARIABLES GLOABALES                    #
+###########################################################
 
-toplevelFenetreParametre: tk.Toplevel = None # Fenêtre de paramètre
+toplevelFenetreParametre: tk.Tk = None # Fenêtre de paramètre
 
 sCouleurJetonJ1 : str = "yellow"
 sCouleurJetonJ2 : str = "red"
@@ -23,28 +22,52 @@ iJoueurCommence : int = 1
 iDifficulteIA : int = 1 # 0 si en JvsJ, 1 pour niveau 1, 2 pour niveau 2 et 4 pour niveau 3 (correspond à la profondeur de l'algorithme)
 
 ###########################################################
-#           FONCTIONS LIEES AUX BOUTONS                  #
-##########################################################
+#                         GETERS                          #
+###########################################################
 
 """
-    @brief Met à jour les paramètres et lance la fenêtre de jeu
-    @param dictParametre paramètres déjà choisis par le joueur
+    @brief Renvoie la couleur du jeton du joueur 1
+    @return la couleur du jeton du joueur 1
 """
-def lancerPartie(dictParametre: dict):
-    global toplevelFenetreParametre
+def getCouleurJetonJ1():
     global sCouleurJetonJ1
-    global sCouleurJetonJ2
-    global iNombreCoupSpecial
-    global iJoueurCommence
-    global iDifficulteIA
+    return sCouleurJetonJ1
 
-    # Ajoute et met à jour les paramètres dans le dictionnaire
-    dictParametre.update({"couleurJetonJ1": sCouleurJetonJ1, "couleurJetonJ2": sCouleurJetonJ2, "nombreCoupSpecial": iNombreCoupSpecial,
-                          "joueurCommence": iJoueurCommence, "difficulteIA": iDifficulteIA})
-    
-    # Ferme la fenêtre de parametre et lance la fenêtre de jeu en donnant les paramètres
-    toplevelFenetreParametre.destroy()
-    gererInterfaceJeu(dictParametre)
+"""
+    @brief Renvoie la couleur du jeton du joueur 2
+    @return la couleur du jeton du joueur 2
+"""
+def getCouleurJetonJ2():
+    global sCouleurJetonJ2
+    return sCouleurJetonJ2
+
+"""
+    @brief Renvoie le nombre de coup spécial choisi par le joueur
+    @return le nombre de coup spécial choisi par le joueur
+"""
+def getNombreCoupSpecial():
+    global iNombreCoupSpecial
+    return iNombreCoupSpecial
+
+"""
+    @brief Renvoie le joueur qui commencera la partie
+    @return le joueur qui commencera la partie
+"""
+def getJoueurCommence():
+    global iJoueurCommence
+    return iJoueurCommence
+
+"""
+    @brief Renvoie la difficulté de l'IA ou 0 pour joueur contre joueur
+    @return la difficulté de l'IA ou 0 pour joueur contre joueur
+"""
+def getDificulte():
+    global iDifficulteIA
+    return iDifficulteIA
+
+###########################################################
+#             FONCTIONS LIEES AUX BOUTONS                 #
+###########################################################
 
 """
     @brief Met à jour la variable global qui défini le nombre de fois que les joueurs pourront utiliser le coup spécial
@@ -85,12 +108,16 @@ def updateChoixJoueurCommence(buttonCommenceJ1: tk.Button, buttonCommenceJ2: tk.
     iJoueurCommence = iJoueur
     # Si c'est bouton lié au joueur 1 qui a été cliqué, le dégrise et grise celui du joueur 2
     if (iJoueur == 1):
-        buttonCommenceJ1.configure(background="#ffffff", cursor="hand2", text='J1', width=3, command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 1))
-        buttonCommenceJ2.configure(background="#c0c0c0", cursor="hand2", text='J2', width=3, command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 2))
+        buttonCommenceJ1.configure(background="#ffffff", cursor="hand2", text='J1', width=3,
+                                   command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 1))
+        buttonCommenceJ2.configure(background="#c0c0c0", cursor="hand2", text='J2', width=3,
+                                   command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 2))
     # Si c'est celui du joueur 2, fait la même chose mais pour lui
     else:
-        buttonCommenceJ1.configure(background="#c0c0c0", cursor="hand2", text='J1', width=3, command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 1))
-        buttonCommenceJ2.configure(background="#ffffff", cursor="hand2", text='J2', width=3, command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 2))
+        buttonCommenceJ1.configure(background="#c0c0c0", cursor="hand2", text='J1', width=3,
+                                   command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 1))
+        buttonCommenceJ2.configure(background="#ffffff", cursor="hand2", text='J2', width=3,
+                                   command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 2))
 
 """
     @brief  Met à jour la difficulté de l'IA
@@ -105,24 +132,35 @@ def updateChoixDifficulteIA(buttonDifficulte1: tk.Button, buttonDifficulte2: tk.
     iDifficulteIA = iDifficulteChoisi
     # Si c'est bouton lié à la difficulté 1 qui a été cliqué, le dégrise et grise les autres
     if (iDifficulteChoisi == 1):
-        buttonDifficulte1.configure(background="#ffffff", cursor="hand2", text='1', width=3)
-        buttonDifficulte2.configure(background="#c0c0c0", cursor="hand2", text='2', width=3)
-        buttonDifficulte3.configure(background="#c0c0c0", cursor="hand2", text='3', width=3)
+        buttonDifficulte1.configure(background="#ffffff", cursor="hand2", text='1', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 1))
+        buttonDifficulte2.configure(background="#c0c0c0", cursor="hand2", text='2', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 2))
+        buttonDifficulte3.configure(background="#c0c0c0", cursor="hand2", text='3', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 4))
     # Si c'est celui de la difficulté 2, fait la même chose mais pour lui
     elif (iDifficulteChoisi == 2):
-        buttonDifficulte1.configure(background="#c0c0c0", cursor="hand2", text='1', width=3)
-        buttonDifficulte2.configure(background="#ffffff", cursor="hand2", text='2', width=3)
-        buttonDifficulte3.configure(background="#c0c0c0", cursor="hand2", text='3', width=3)
+        buttonDifficulte1.configure(background="#c0c0c0", cursor="hand2", text='1', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 1))
+        buttonDifficulte2.configure(background="#ffffff", cursor="hand2", text='2', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 2))
+        buttonDifficulte3.configure(background="#c0c0c0", cursor="hand2", text='3', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 4))
     # Si c'est celui de la difficulté 3, fait la même chose mais pour lui
     else:
-        buttonDifficulte1.configure(background="#c0c0c0", cursor="hand2", text='1', width=3)
-        buttonDifficulte2.configure(background="#c0c0c0", cursor="hand2", text='2', width=3)
-        buttonDifficulte3.configure(background="#ffffff", cursor="hand2", text='3', width=3)
+        buttonDifficulte1.configure(background="#c0c0c0", cursor="hand2", text='1', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 1))
+        buttonDifficulte2.configure(background="#c0c0c0", cursor="hand2", text='2', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 2))
+        buttonDifficulte3.configure(background="#ffffff", cursor="hand2", text='3', width=3,
+                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 4))
+    
+    # Lie cette fonction avec les boutons
 
 
 ###########################################################
-#           FONCTIONS LIEES A L'AFFICHAGE                #
-##########################################################
+#             FONCTIONS LIEES A L'AFFICHAGE               #
+###########################################################
 
 """
     @brief  Créé le widget permettants de choisir une couleur et de l'afficher
@@ -168,6 +206,7 @@ def creerFrameNombreCoupSpecial(bCoupSpecial : bool):
 
     # Créé la variable tkinter lié au slider
     iTkNombreCoupSpecial: tk.IntVar = tk.IntVar()
+    iTkNombreCoupSpecial.set(iNombreCoupSpecial)
 
     frameNombreCoupSpecial: tk.Frame = tk.Frame(toplevelFenetreParametre)
     frameNombreCoupSpecial.configure(height=150, width=600)
@@ -199,54 +238,44 @@ def creerFrameNombreCoupSpecial(bCoupSpecial : bool):
 """
 def creerFrameJoueurCommence():
     global toplevelFenetreParametre
+    global iJoueurCommence
 
     frameCommence = tk.Frame(toplevelFenetreParametre)
-    frameCommence.configure(height=150, width=600)
+    frameCommence.configure(height=100, width=600)
     frameCommence.place(anchor="nw", relx=0.2, rely=0.55, x=0, y=0)
 
     labelCommence = tk.Label(frameCommence)
     labelCommence.configure(font="{Arial} 16 {underline}", text='Joueur qui commence :')
     labelCommence.place(anchor="nw", relx=0.03, rely=0.0, x=0, y=0)
     
-    # Configure le bouton du J1 et le lie avec la fonction qui met à jour la variable global contenant le joueur qui commence
+    # Créé puis configure les boutons
     buttonCommenceJ1 = tk.Button(frameCommence)
-    buttonCommenceJ1.configure(background="#ffffff", cursor="hand2", text='J1', width=3,
-                               command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 1))
-    
-    # Configure le bouton du J2 et le lie avec la fonction qui met à jour la variable global contenant le joueur qui commence
     buttonCommenceJ2 = tk.Button(frameCommence)
-    buttonCommenceJ2.configure(background="#c0c0c0", cursor="hand2", text='J2', width=3,
-                               command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 2))
-    
+    updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, iJoueurCommence)
+   
     buttonCommenceJ1.place(anchor="nw", relx=0.5, rely=0.0, x=0, y=0)
     buttonCommenceJ2.place(anchor="nw", relx=0.65, x=0, y=0)
 
 """
     @brief  Créé les boutons qui permettent de choisir la difficulté de l'IA
-    @param  iDifficulteIA adversaire choisi par le joueur (1 : IA, 0 : joueur)
 """
-def creerFrameDifficulteIA(iDifficulteIA : int):
+def creerFrameDifficulteIA():
     global toplevelFenetreParametre
+    global iDifficulteIA
 
-    frameDiffculte = tk.Frame(toplevelFenetreParametre)
-    frameDiffculte.configure(height=150, width=600)
-    frameDiffculte.place(anchor="nw", relx=0.2, rely=0.7, x=0, y=0)
+    frameDifficulte = tk.Frame(toplevelFenetreParametre)
+    frameDifficulte.configure(height=30, width=600)
+    frameDifficulte.place(anchor="nw", relx=0.2, rely=0.7, x=0, y=0)
 
-    labelDifficulte = tk.Label(frameDiffculte)
-    buttonDifficulte1 = tk.Button(frameDiffculte)
-    buttonDifficulte2 = tk.Button(frameDiffculte)
-    buttonDifficulte3 = tk.Button(frameDiffculte)
+    labelDifficulte = tk.Label(frameDifficulte)
+    buttonDifficulte1 = tk.Button(frameDifficulte)
+    buttonDifficulte2 = tk.Button(frameDifficulte)
+    buttonDifficulte3 = tk.Button(frameDifficulte)
 
     # Si le joueur veut jouer contre l'IA, active les boutons liés à la difficulté de celle-ci
     if (iDifficulteIA != 0):
-        labelDifficulte.configure(font="{Arial} 16 {underline}", text='Diffcultée de l\'IA :')
-
-        buttonDifficulte1.configure(background="#ffffff", cursor="hand2", text='1', width=3,
-                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 1))
-        buttonDifficulte2.configure(background="#c0c0c0", cursor="hand2", text='2', width=3,
-                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 2))
-        buttonDifficulte3.configure(background="#c0c0c0", cursor="hand2", text='3', width=3,
-                                    command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 3))
+        labelDifficulte.configure(font="{Arial} 16 {underline}", text='Difficultée de l\'IA :')
+        updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, iDifficulteIA)
     # Si le joueur veut faire du JvsJ, désactive et grise les boutons liés à la diffuculté
     else:
         labelDifficulte.configure(font="{Arial} 16 {underline}", text='Diffcultée de l\'IA :', background="grey")
@@ -259,40 +288,31 @@ def creerFrameDifficulteIA(iDifficulteIA : int):
     buttonDifficulte2.place(anchor="nw", relx=0.52, x=0, y=0)
     buttonDifficulte3.place(anchor="nw", relx=0.67, x=0, y=0)
 
-"""
-    @brief  Créé le bouton pour lancer la partie
-    @param  dictParametre dictionnaire contenant les paramètres déjà choisis
-"""
-def creerBoutonLancer(dictParametre : dict):
-    global toplevelFenetreParametre
-    
-    frameBoutonLancer = tk.Frame(toplevelFenetreParametre)
-    frameBoutonLancer.configure(height=250, width=600)
-    frameBoutonLancer.place(anchor="nw", relx=0.3, rely=0.81, x=0, y=0)
-
-    # Créé et configure le bouton pour lancer la partie
-    buttonLancer = tk.Button(frameBoutonLancer)
-    buttonLancer.configure(cursor="hand2", font="{Arial} 26 {}", width=15, text='Lancer la partie', command= lambda: lancerPartie(dictParametre))
-    buttonLancer.place(anchor="nw", relx=0, x=0, y=0)
+###########################################################
+#                 GESTION DE LA FENETRE                   #
+###########################################################
 
 """
     @brief Gère l'affichage de la page de paramètre
-    @param dictParametre contient les paramètres déjà choisis par le joueur
+    @param toplevelFenetre Fenêtre de paramètre
+    @param dictParametre contient les paramètres déjà choisis par le joueur sur la page principale
 """
-def gererInterfaceParametre(dictParametre : dict):
+def gererInterfaceParametre(toplevelFenetre: tk.Tk, dictParametre: dict):
     global toplevelFenetreParametre
+    global iDifficulteIA
 
-    # Créé la fenêtre et le haut de la fenêtre
-    toplevelFenetreParametre = creerToplevelFenetre(768, 563, False, "Paramètres")
-    creerFrameHaut(toplevelFenetreParametre)
+    toplevelFenetreParametre = toplevelFenetre
+
+    # Initialise la difficulté de l'IA en fonction du choisis précédement fait par le joueur sur la page principale
+    iDifficulteIA = dictParametre["difficulteIA"]
 
     # Créé tous les widgets qui permettent de changer les paramètres
     creerChoixCouleur(0.25, 0.02, "Couleur de jeton du joueur 1 :", 1)
     creerChoixCouleur(0.25, 0.48, "Couleur de jeton du joueur 2 :", 2)
     creerFrameNombreCoupSpecial(dictParametre["stateCoupSpecial"])
     creerFrameJoueurCommence()
-    creerFrameDifficulteIA(dictParametre["difficulteIA"])
-    creerBoutonLancer(dictParametre)
+    creerFrameDifficulteIA()
+
 
     # Affiche la page créée
     toplevelFenetreParametre.mainloop()

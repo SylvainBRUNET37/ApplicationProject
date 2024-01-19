@@ -7,6 +7,7 @@
     @date    2023-2024
 """
 
+from interfaceGeneral import *
 import tkinter as tk
 
 """
@@ -53,18 +54,7 @@ def creerFrameHaut(toplevelFenetre: tk.Tk):
     buttonQuitter.place(anchor="nw", relx=0.6, rely=0.21)
 
 """
-    @brief Créé la page principale
-"""
-def initInterfacePrincipale() -> tk.Tk:
-    # Créé la fenêtre et le haut de la fenêtre
-    # Donne "None" à la fonction qui créé le bouton de retour car on ne peut pas retourner en arriere sur cette page et qu'elle ne nécessite aucun paramètres
-    toplevelFenetrePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
-    creerFrameHaut(toplevelFenetrePrincipale)
-    creerBoutonRetour(None, None, toplevelFenetrePrincipale)
-    return toplevelFenetrePrincipale
-
-"""
-    @brief Gère l'affichage de la page principale
+    @brief Gère la création du bouton de retour ; lorsque le bouton est cliqué, détruit la fenêtre actuelle et reviens à l'interface d'avant
 """
 def creerBoutonRetour(fonctionRetour, dictParametre: dict, toplevelFenetre: tk.Tk):
     frameBoutonRetour: tk.Frame = tk.Frame(toplevelFenetre)
@@ -78,5 +68,5 @@ def creerBoutonRetour(fonctionRetour, dictParametre: dict, toplevelFenetre: tk.T
     # Sinon, active le bouton et lie la fonction passée en paramètre avec le bouton
     else:
         buttonRetour.configure(cursor="hand2", font="{Arial} 26 {}", width=6, text='Retour',
-                           command=fonctionRetour(dictParametre))
+                           command= lambda: [toplevelFenetre.destroy(), fonctionRetour(dictParametre)])
     buttonRetour.place(anchor="nw", relx=0.05, rely=0.05)

@@ -1,20 +1,19 @@
 #!/usr/bin/python3
 """
     @file    interfacePrincipale.py
-    @brief   Contient la première interface affichée au joueur 
+    @brief   Contient les éléments de l'interface principale et les fonctions pour gérer celle-ci
     @author  Sylvain BRUNET
     @version 0.3
     @date    2023-2024
 """
 
-from interfaceGeneral import *
-from interfaceParametre import gererInterfaceParametre
+import tkinter as tk
 
 ###########################################################
 #                 VARIABLES GLOABALES                    #
 ##########################################################
 
-toplevelFenetrePrincipale: tk.Toplevel = None # Fenêtre principale
+toplevelFenetrePrincipale: tk.Tk = None # Fenêtre principale
 
 iNbLignePlateau : int = 6
 iNbColonnePlateau : int = 7
@@ -23,28 +22,52 @@ bStateCoupSpecial : bool = True
 bStateUndoRedo : bool = True
 
 ###########################################################
-#           FONCTIONS LIEES AUX BOUTONS                  #
+#                        GETERS                          #
 ##########################################################
 
 """
-    @brief Met à jour la variable global qui défini l'adversaire (1 pour IA, 0 pour joueur) et lance la fenêtre de paramètre
-    @param iAdversaireChoisi adversaire choisi par l'utilisateur (1 pour IA, 0 pour joueur)
+    @brief Renvoie le nombre de ligne du plateau choisi par le joueur
+    @return le nombre de ligne du plateau choisi par le joueur
 """
-def lancerPartie(iAdversaireChoisi : int):
-    global toplevelFenetrePrincipale
+def getNbLigne():
     global iNbLignePlateau
+    return iNbLignePlateau
+
+"""
+    @brief Renvoie le nombre de colonne du plateau choisi par le joueur
+    @return le nombre de colonne du plateau choisi par le joueur
+"""
+def getNbColonne():
     global iNbColonnePlateau
+    return iNbColonnePlateau
+
+"""
+    @brief Renvoie le nombre de jeton à alligner pour gagner
+    @return le nombre de jeton à alligner pour gagner
+"""
+def getNbJetonVictoire():
     global iNbJetonVictoire
+    return iNbJetonVictoire
+
+"""
+    @brief Renvoie le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
+    @return le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
+"""
+def getStateCoupSpecial():
     global bStateCoupSpecial
+    return bStateCoupSpecial
+
+"""
+    @brief Renvoie le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
+    @return le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
+"""
+def getStateUndoRedo():
     global bStateUndoRedo
+    return bStateUndoRedo
 
-    dictParametres : dict = {"difficulteIA": iAdversaireChoisi, "nbColonnePlateau": iNbColonnePlateau,
-                             "nbLignePlateau": iNbLignePlateau, "nombreJetonVicoire": iNbJetonVictoire,
-                             "stateCoupSpecial": bStateCoupSpecial, "stateUndoRedo": bStateUndoRedo}
-
-    # Ferme la fenêtre de principal et lance la fenêtre de paramètre en donnant les paramètres déjà choisis
-    toplevelFenetrePrincipale.destroy()
-    gererInterfaceParametre(dictParametres)
+###########################################################
+#           FONCTIONS LIEES AUX BOUTONS                  #
+##########################################################
 
 """
     @brief Met à jour la variable global qui défini le nombre de ligne du plateau
@@ -54,7 +77,6 @@ def updateNbLignePlateau(iNbLigneChoisi: int):
     global iNbLignePlateau
     iNbLignePlateau = int(iNbLigneChoisi)
     
-
 """
     @brief Met à jour la variable global qui défini le nombre de colonne du plateau
     @param iNbColonneChoisi variable tkinter qui contient le nombre de colonne du plateau
@@ -92,34 +114,15 @@ def updateUndoRedo(bUndoRedoChoisi: bool):
 ##########################################################
 
 """
-    @brief  Créé les boutons pour le choix d'aversaire (Joueur vs IA / Joueur vs Joueur)
-"""
-def creerFrameChoixAdversaire():
-    global toplevelFenetrePrincipale
-
-    frameChoixAdversaire: tk.Frame = tk.Frame(toplevelFenetrePrincipale)
-    frameChoixAdversaire.configure(height=200, width=750)
-    frameChoixAdversaire.place(anchor="nw", rely=0.23, x=10, y=5)
-
-    # Créé et configure le bouton JvsJ, active la fonction qui lance la partie en lui envoyant 1 pour indiquer que le bouton JvsIA à été cliqué
-    buttonJvsIA: tk.Button = tk.Button(frameChoixAdversaire)
-    buttonJvsIA.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nIA', width=8, command = lambda: lancerPartie(1))
-    buttonJvsIA.place(anchor="nw", relx=0.6, rely=0.0, x=0, y=0)
-
-    # Créé et configure le bouton JvsJ, active la fonction qui lance la partie en lui envoyant 0 pour indiquer que le bouton JvsJ à été cliqué
-    buttonJvsJ: tk.Button = tk.Button(frameChoixAdversaire)
-    buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8, command = lambda: lancerPartie(0))
-    buttonJvsJ.place(anchor="nw", relx=0.1, rely=0.0, x=0, y=0)
-
-"""
     @brief Créé le widget permettant de choisir la nombre de ligne du plateau
 """
 def creerFrameNbLigne():
     global toplevelFenetrePrincipale
+    global iNbLignePlateau
 
     # Créé la variable tkinter liée au slider et l'initialise à 6
     iTkNbLignePlateau: tk.IntVar = tk.IntVar()
-    iTkNbLignePlateau.set(6)
+    iTkNbLignePlateau.set(iNbLignePlateau)
 
     frameNbLigne: tk.Frame = tk.Frame(toplevelFenetrePrincipale)
     frameNbLigne.configure(height=150, width=400)
@@ -140,10 +143,11 @@ def creerFrameNbLigne():
 """
 def creerFrameNbColonne():
     global toplevelFenetrePrincipale
+    global iNbColonnePlateau
 
     # Créé la variable tkinter liée au slider et l'initialise à 7
     iTkNbColonnePlateau: tk.IntVar = tk.IntVar()
-    iTkNbColonnePlateau.set(7)
+    iTkNbColonnePlateau.set(iNbColonnePlateau)
 
     frameNbColonne: tk.Frame = tk.Frame(toplevelFenetrePrincipale)
     frameNbColonne.configure(height=150, width=400)
@@ -164,10 +168,11 @@ def creerFrameNbColonne():
 """
 def creerFrameNombreJetonVictoire():
     global toplevelFenetrePrincipale
+    global iNbJetonVictoire
 
     # Créé la variable tkinter liée au slider et l'initialise à 4
     iTkNbJetonVictoire: tk.IntVar = tk.IntVar()
-    iTkNbJetonVictoire.set(4)
+    iTkNbJetonVictoire.set(iNbJetonVictoire)
 
     frameNombreJetonVictoire: tk.Frame = tk.Frame(toplevelFenetrePrincipale)
     frameNombreJetonVictoire.configure(height=150, width=400)
@@ -188,12 +193,14 @@ def creerFrameNombreJetonVictoire():
 """
 def creerFrameCheckButton():
     global toplevelFenetrePrincipale
+    global bStateCoupSpecial
+    global bStateUndoRedo
 
     # Créé les variables tkinter liées aux checkbuttons
     bTkUndoRedo: tk.BooleanVar = tk.BooleanVar()
     bTkCoupSpecial: tk.BooleanVar = tk.BooleanVar()
-    bTkUndoRedo.set(True)
-    bTkCoupSpecial.set(True)
+    bTkUndoRedo.set(bStateUndoRedo)
+    bTkCoupSpecial.set(bStateCoupSpecial)
 
     frameCheckButton: tk.Frame = tk.Frame(toplevelFenetrePrincipale)
     frameCheckButton.configure(height=150, width=400)
@@ -209,17 +216,21 @@ def creerFrameCheckButton():
     checkbuttonUndoRedo.configure(cursor="hand2", text='Undo / Redo', font=14, variable=bTkUndoRedo, command = lambda:updateUndoRedo(bTkUndoRedo.get()))
     checkbuttonUndoRedo.place(anchor="nw", relx=0.2, rely=0.35, x=0, y=0)
 
+
+###########################################################
+#                 GESTION DE LA FENETRE                   #
+###########################################################
+
 """
     @brief Gère l'affichage de la page principale
+    @param toplevelFenetre Fenêtre principale
 """
-def gererInterfacePrincipale():
+def gererInterfacePrincipale(toplevelFenetre: tk.Tk):
     global toplevelFenetrePrincipale
 
-    # Créé la fenêtre et le haut de la page
-    toplevelFenetrePrincipale = initInterfacePrincipale()
+    toplevelFenetrePrincipale = toplevelFenetre
 
     # Créé tous les widgets qui permettent de changer les paramètres
-    creerFrameChoixAdversaire()
     creerFrameNbLigne()
     creerFrameNbColonne()
     creerFrameNombreJetonVictoire()
@@ -227,5 +238,3 @@ def gererInterfacePrincipale():
 
     # Affiche la page créée
     toplevelFenetrePrincipale.mainloop()
-
-gererInterfacePrincipale()
