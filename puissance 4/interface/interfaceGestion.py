@@ -3,8 +3,8 @@
     @file    interfaceGestion.py
     @brief   Contient les fonctions qui gère la création des interfaces et des passages entre elles
              Les fonctions misent dans ce fichier sont là pour éviter les importations circulaires
-    @author  Sylvain BRUNET
-    @version 0.3
+    @author  Sylvain BRUNET & Matthieu CHARTON
+    @version 1.0
     @date    2023-2024
 """
 
@@ -55,13 +55,13 @@ def creerFrameChoixAdversaire(toplevelFenetre: tk.Tk):
     @param iAdversaireChoisi adversaire choisi par l'utilisateur (1 pour IA, 0 pour joueur)
 """
 def lancerPageParametre(toplevelFenetre: tk.Tk, iAdversaireChoisi: int):
-    dictParametres : dict = {"difficulteIA": iAdversaireChoisi, "nbColonnePlateau": getNbColonne(),
+    dictParametre : dict = {"difficulteIA": iAdversaireChoisi, "nbColonnePlateau": getNbColonne(),
                              "nbLignePlateau": getNbLigne(), "nombreJetonVicoire": getNbJetonVictoire(),
                              "stateCoupSpecial": getStateCoupSpecial(), "stateUndoRedo": getStateUndoRedo()}
 
     # Ferme la fenêtre principale et lance la fenêtre de paramètre en donnant les paramètres déjà choisis
     toplevelFenetre.destroy()
-    initInterfaceParametre(dictParametres)
+    initInterfaceParametre(dictParametre)
 
 ###########################################################
 #             FONCTIONS INTERFACE PARAMETRES              #

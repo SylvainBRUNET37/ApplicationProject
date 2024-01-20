@@ -2,8 +2,8 @@
 """
     @file    interfaceParametre.py
     @brief   Contient les éléments de l'interface de paramètre et les fonctions pour gérer celle-ci
-    @author  Sylvain BRUNET
-    @version 0.3
+    @author  Sylvain BRUNET & Matthieu CHARTON
+    @version 1.0
     @date    2023-2024
 """
 
@@ -75,7 +75,7 @@ def getDificulte():
 """
 def updateNombreCoupSpecial(iNombreCoupSpecialChoisi: int):
     global iNombreCoupSpecial
-    iNombreCoupSpecial = iNombreCoupSpecialChoisi
+    iNombreCoupSpecial = int(iNombreCoupSpecialChoisi)
 
 """
     @brief Ouvre la palette de couleur et stocke la couleur choisi dans la variable du joueur
@@ -227,7 +227,7 @@ def creerFrameNombreCoupSpecial(bCoupSpecial : bool):
         iTkNombreCoupSpecial.set(1)
         iNombreCoupSpecial = 1
         labelCoupSpecial.configure(text='Nombre de coup spécial :', font="{Arial} 16 {underline}")
-        scaleNombreCoupSpecial.configure(cursor="sb_h_double_arrow", from_=0, orient="horizontal", to=5, length=200, width=20,
+        scaleNombreCoupSpecial.configure(cursor="sb_h_double_arrow", from_=1, orient="horizontal", to=5, length=200, width=20,
                                          variable=iTkNombreCoupSpecial, command=updateNombreCoupSpecial)
 
     labelCoupSpecial.place(anchor="nw", relx=0, rely=0.1, x=0, y=0) 

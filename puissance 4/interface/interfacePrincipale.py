@@ -2,8 +2,8 @@
 """
     @file    interfacePrincipale.py
     @brief   Contient les éléments de l'interface principale et les fonctions pour gérer celle-ci
-    @author  Sylvain BRUNET
-    @version 0.3
+    @author  Sylvain BRUNET & Matthieu CHARTON
+    @version 1.0
     @date    2023-2024
 """
 

@@ -2,8 +2,8 @@
 """
     @file    interfaceGeneral.py
     @brief   Contient les fonctions utilisées par toutes les interfaces
-    @author  Sylvain BRUNET
-    @version 0.3
+    @author  Sylvain BRUNET & Matthieu CHARTON
+    @version 1.0
     @date    2023-2024
 """
 

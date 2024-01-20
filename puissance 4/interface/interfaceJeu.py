@@ -2,13 +2,14 @@
 """
     @file    interfaceJeu.py
     @brief   Contient les éléments de l'interface de jeu et les fonctions pour gérer celle-ci
-    @author  Sylvain BRUNET
-    @version 0.3
+    @author  Sylvain BRUNET & Matthieu CHARTON
+    @version 1.0
     @date    2023-2024
 """
 
 import tkinter as tk
 
+import copy
 from jeu import *
 from interfaceGeneral import creerToplevelFenetre
 
@@ -70,8 +71,10 @@ def gererUndoRedo(bUndoOrRedo: bool):
     else:
         iJoueurCourant = 1
 
-    # Met à jour les boutons d'UNDO/REDO
+    # Met à jour les boutons
     creerBoutonUndoRedo()
+    afficherInfoJeu()
+    creerBoutonCoupSpecial()
 
 """
     @brief Met à jour le plateau en mettant les bons jetons aux bons endroits
@@ -108,46 +111,32 @@ def gererJeu(iColonneChoisi: int):
     global iNbLignePlateau
     global iNbColonnePlateau
     global iNbJetonVictoire
-    global strCouleurJetonJ1
-    global strCouleurJetonJ2
-    global iCptUndo
     global bFinJeu
 
-    # Si la partie n'est pas terminée, autorise le joueur à jouer
+    bCoupJouer: bool = False
+    # Si la partie n'est pas terminée, fait jouer le joueur courant
     if (bFinJeu == False):
-        # Récupère la ligne où le jeton va tomber, ou "-1" si la colonne est pleine
-        iLigneJouer: int = identifierLigne(TstatutJeu[iTourCourant][0][iColonneChoisi], iNbLignePlateau)
+        # Si iColonneChoisi est NULL, joue le coup spécial
+        if (iColonneChoisi == None):
+            bCoupJouer = jouerCoupSpecial()
+        # Sinon, place le pion dans la colonne choisi
+        else: 
+            bCoupJouer = placerJeton(iColonneChoisi)
+        
+        # Si le coup/l'atout a bien été joué, met à jour le jeu et l'affichage
+        if (bCoupJouer == True):
 
-        # Si la colonne n'était pas pleine, 
-        if (iLigneJouer != -1):
-            
-            # Supprime autant de plateau sauvegarder que de fois où le joueur à utilisé l'UNDO 
-            for i in range(iCptUndo):
-                TstatutJeu.pop()
-
-            # Passe au tour suivant et remet le compteur de UNDO à 0
-            iCptUndo = 0
-            iTourCourant += 1
-            
-            # Actualise les boutons UNDO et REDO
-            creerBoutonUndoRedo()
-
-            # Crée une copie du plateau de jeu actuel
-            TplateauCopie: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
-            
-            # Ajoute le jeton joué à la copie
-            TplateauCopie[iColonneChoisi][iLigneJouer] = iJoueurCourant
-            
-            # Sauvegarde la copie
-            TstatutJeu.append([TplateauCopie, 0, 0])
-            
-            # Affiche le jeton et met à jour le joueur qui doit jouer
+            # Met à jour le joueur qui doit jouer
             if (iJoueurCourant == 1):
-                afficherJeton(iColonneChoisi, iLigneJouer, strCouleurJetonJ1)
                 iJoueurCourant = 2
             else:
-                afficherJeton(iColonneChoisi, iLigneJouer, strCouleurJetonJ2)
                 iJoueurCourant = 1
+                
+            # Met à jour l'affichage du plateau et actualise les boutons
+            updateAffichagePlateau()
+            creerBoutonUndoRedo()
+            afficherInfoJeu()
+            creerBoutonCoupSpecial()
 
             # Vérifie si c'est la fin du jeu (plateau plein ou joueur qui gagne) et affiche l'écran de fin de partie
             afficherFinJeu(Verif(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire))
@@ -157,10 +146,144 @@ def gererJeu(iColonneChoisi: int):
             if (iDifficulteIA != 0 and iJoueurCourant == 2):
                 gererJeu(meilleur_coup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
 
-           
+"""
+    @brief  Place le jeton dans la colonne choisi par le joueur
+    @return False si la colonne est pleine, True si le jeton a été joué
+"""
+def placerJeton(iColonneChoisi: int) -> bool:
+    global iCptUndo
+    global iTourCourant
+    global TstatutJeu
+
+    # Récupère la ligne où le jeton va tomber, ou "-1" si la colonne est pleine. Si c'est -1, renvoie False
+    iLigneJouer: int = identifierLigne(TstatutJeu[iTourCourant][0][iColonneChoisi], iNbLignePlateau)
+    if (iLigneJouer == -1):
+        return False
+    # Sinon, place le pion
+    else:
+        # Supprime les plateaux sauvegardés après le tour jouer 
+        # En supprime autant que de fois où le joueur a utilisé le bouton UNDO
+        for iBoucle in range(iCptUndo):
+            TstatutJeu.pop()
+
+        # Passe au tour suivant et remet à 0 le compteur d'UNDO
+        iTourCourant += 1
+        iCptUndo = 0
+
+        # Crée une copie du plateau de jeu actuel
+        test: list = copy.deepcopy(TstatutJeu[iTourCourant-1])
+        test[0]: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
+            
+        # Ajoute le jeton joué à la copie
+        test[0][iColonneChoisi][iLigneJouer] = iJoueurCourant
+            
+        # Sauvegarde la copie
+        TstatutJeu.append(test)
+        
+        return True
+
+"""
+    @brief  Joue le coup spécial
+    @return False si le coup spécial ne peut pas être joué, True si il a été joué
+"""
+def jouerCoupSpecial() -> bool:
+    global iCptUndo
+    global iTourCourant
+    global TstatutJeu
+    global iNbColonnePlateau
+    global iNbLignePlateau
+
+    # Si c'est la fin du jeu, que le joueur n'a plus de coup spécial ou que c'est le premier tour, renvoie False
+    if (bFinJeu == True or TstatutJeu[iTourCourant][iJoueurCourant] == 0 or iTourCourant == 0):
+        return False
+    # Sinon joue le coup spécial
+    else:
+        # Supprime les plateaux sauvegardés après le tour jouer 
+        # En supprime autant que de fois où le joueur a utilisé le bouton UNDO
+        for iBoucle in range(iCptUndo):
+            TstatutJeu.pop()
+    
+        # Passe au tour suivant et remet à 0 le compteur d'UNDO
+        iTourCourant += 1
+        iCptUndo = 0
+            
+        # Crée une copie du plateau de jeu actuel
+        test: list = copy.deepcopy(TstatutJeu[iTourCourant-1])
+        test[0]: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
+        test[iJoueurCourant] = (TstatutJeu[iTourCourant-1][iJoueurCourant])-1
+        
+        # Met le nouveau plateau dans la copie
+        test[0] = atout(test[0], iNbColonnePlateau, iNbLignePlateau)
+
+        # Sauvegarde la copie
+        TstatutJeu.append(test)
+
+        return True
+       
 ###########################################################
 #            FONCTIONS LIEES A L'AFFICHAGE                #
 ###########################################################
+
+"""
+    @brief Affiche le joueur qui doit jouer, le numéro du tour et le nombre de coup spécial de chaque joueur
+"""
+def afficherInfoJeu():
+    global iTourCourant
+    global TstatutJeu
+    global iJoueurCourant
+    
+    if (iJoueurCourant == 1):
+        strCouleur:str = strCouleurJetonJ1
+    else:
+        strCouleur: str = strCouleurJetonJ2
+
+    frameInfoJeu: tk.Frame = tk.Frame(toplevelFenetreJeu)
+    frameInfoJeu.place(relx=0.2, rely=0.83, width=400, height=200)
+
+    labelTour: tk.Label = tk.Label(frameInfoJeu, text="Tour numéro :", font="{Helvetica} 16 {underline}")
+    labelTour.place(anchor="nw", relx=0, rely=0)
+    labelTourCourant: tk.Label = tk.Label(frameInfoJeu, text=str(iTourCourant+1), font="{Helvetica} 12")
+    labelTourCourant.place(anchor="nw", relx=0.385, rely=0.025)
+
+    labelTourJoueur: tk.Label = tk.Label(frameInfoJeu, text="Tour du joueur :", font="{Helvetica} 16 {underline}")
+    labelTourJoueur.place(anchor="nw", relx=0, rely=0.2)
+    canvaCouleur: tk.Canvas = tk.Canvas(frameInfoJeu)
+    canvaCouleur.configure(height=75, width=75)
+    canvaCouleur.create_oval(33, 33, 5, 5, outline="black", fill=strCouleur)
+    canvaCouleur.place(anchor="nw", relx=0.4, rely=0.185)
+
+    labelCoupSpecial: tk.Label = tk.Label(frameInfoJeu, text="Nombre de coup spécial :", font="{Helvetica} 16 {underline}")
+    labelCoupSpecial.place(anchor="nw", relx=0, rely=0.4)
+    labelCoupSpecialJ1: tk.Label = tk.Label(frameInfoJeu, text="J1 : "+str(TstatutJeu[iTourCourant][1]), font="{Helvetica} 12")
+    labelCoupSpecialJ1.place(anchor="nw", relx=0.62, rely=0.425)
+    labelCoupSpecialJ2: tk.Label = tk.Label(frameInfoJeu, text="J2 : "+str(TstatutJeu[iTourCourant][2]), font="{Helvetica} 12")
+    labelCoupSpecialJ2.place(anchor="nw", relx=0.77, rely=0.425)
+
+
+"""
+    @brief Créé et affiche le bouton qui permet d'utiliser le coup spécial
+"""
+def creerBoutonCoupSpecial():
+    global iTourCourant
+    global iJoueurCourant
+    global TstatutJeu
+    global bFinJeu
+
+    strStateBouton: str = ""
+    # Si le joueur n'a plus de coup spécial, désactive le bouton
+    if (TstatutJeu[iTourCourant][iJoueurCourant] == 0 or bFinJeu == True):
+        strStateBouton = "disabled"
+    else:
+        strStateBouton = "active"
+
+    frameBoutonCoupSpecial: tk.Frame = tk.Frame(toplevelFenetreJeu)
+    frameBoutonCoupSpecial.place(relx=0.67, rely=0.85, width=300, height=125)
+
+    # Créé le bouton UNDO et le lie à la fonction qui gère l'UNDO/REDO
+    buttonCoupSpecial: tk.Button = tk.Button(frameBoutonCoupSpecial)
+    buttonCoupSpecial.configure(cursor="hand2", font="{Arial} 18", width=15, text='Changer la couleur\n des pions', state=strStateBouton,
+                                command= lambda: gererJeu(None))
+    buttonCoupSpecial.place(anchor="nw", relx=0, rely=0)
 
 """
     @brief Affiche l'écran de fin de partie
@@ -172,11 +295,13 @@ def afficherFinJeu(bVerifGagner: bool):
     # Si c'est la fin de la partie
     if (bVerifGagner != 0):
         bFinJeu = True
+        # Met à jour les boutons
+        creerBoutonCoupSpecial()
         # Affiche la fenêtre de victoire du joueur 2
         if (bVerifGagner == 1):
             toplevelFenetreJeu = creerToplevelFenetre(300, 200, False, "Victoire J1")
-            telabelVictoireJ1: tk.Label = tk.Label(toplevelFenetreJeu, text="Le joueur 1 a gagné !", font=("Helvetica", 16))
-            telabelVictoireJ1.pack(pady=60)
+            labelVictoireJ1: tk.Label = tk.Label(toplevelFenetreJeu, text="Le joueur 1 a gagné !", font=("Helvetica", 16))
+            labelVictoireJ1.pack(pady=60)
         # Affiche la fenêtre de victoire du joueur 2
         elif (bVerifGagner == 2):
             toplevelFenetreJeu = creerToplevelFenetre(300, 300, False, "Victoire J2")
@@ -350,6 +475,8 @@ def gererInterfaceJeu(toplevelFenetre: tk.Tk, dictParametre: dict):
     # Créé les widgets qui permettent de jouer
     initialiserPlateau()
     creerBoutonUndoRedo()
+    afficherInfoJeu()
+    creerBoutonCoupSpecial()
 
     # Si c'est l'IA qui joue le premier tour, joue son tour
     if (iDifficulteIA != 0 and iJoueurCourant == 2):
