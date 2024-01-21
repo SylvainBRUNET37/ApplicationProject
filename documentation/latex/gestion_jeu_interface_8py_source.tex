@@ -1,0 +1,141 @@
+\doxysection{gestion\+Jeu\+Interface.\+py}
+\hypertarget{gestion_jeu_interface_8py_source}{}\label{gestion_jeu_interface_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/gestionJeuInterface.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/gestionJeuInterface.py}}
+\mbox{\hyperlink{gestion_jeu_interface_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00001}\mbox{\hyperlink{namespacegestion_jeu_interface}{00001}}\ \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ gestionJeuInterface.py}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ les\ fonctions\ qui\ gère\ la\ création\ des\ interfaces\ et\ des\ passages\ entre\ elles}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Sylvain\ BRUNET}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @version\ 1.0}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00008}00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00010}00010\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceinterface_1_1interface_general}{interface.interfaceGeneral}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00011}00011\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceinterface_1_1interface_principale}{interface.interfacePrincipale}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00012}00012\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceinterface_1_1interface_parametre}{interface.interfaceParametre}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00013}00013\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespaceinterface_1_1interface_jeu}{interface.interfaceJeu}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00016}00016\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ FONCTIONS\ INTERFACE\ PRINCIPALE\ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00019}\mbox{\hyperlink{namespacegestion_jeu_interface_afcbe6bfff40b285ac7fe2924b00895a3}{00019}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_interface_afcbe6bfff40b285ac7fe2924b00895a3}{initInterfacePrincipale}}(dictParametre:\ dict)\ -\/>\ tk.Tk:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00020}00020\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00021}00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Initialise\ la\ page\ principale}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00022}00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ dictParametre\ Contient\ les\ paramètre\ choisis\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00023}00023\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00024}00024\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00025}00025\ \ \ \ \ \textcolor{comment}{\#\ Créé\ la\ fenêtre\ et\ le\ haut\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00026}00026\ \ \ \ \ \textcolor{comment}{\#\ Donne\ 2\ fois\ "{}None"{}\ à\ la\ fonction\ qui\ créé\ le\ bouton\ de\ retour\ car\ on\ ne\ peut\ pas\ retourner\ en\ arriere\ sur\ cette\ page\ et\ qu'elle\ ne\ nécessite\ aucun\ paramètres}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00027}00027\ \ \ \ \ toplevelFenetrePrincipale\ =\ creerToplevelFenetre(768,\ 576,\ \textcolor{keyword}{False},\ \textcolor{stringliteral}{"{}Page\ principale"{}})\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00028}00028\ \ \ \ \ creerFrameHaut(toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00029}00029\ \ \ \ \ creerBoutonRetour(\textcolor{keywordtype}{None},\ \textcolor{keywordtype}{None},\ toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{namespacegestion_jeu_interface_aed683dc7b981797c3a337686eff90f15}{creerFrameChoixAdversaire}}(toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00031}00031\ \ \ \ \ gererInterfacePrincipale(toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00033}\mbox{\hyperlink{namespacegestion_jeu_interface_aed683dc7b981797c3a337686eff90f15}{00033}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_interface_aed683dc7b981797c3a337686eff90f15}{creerFrameChoixAdversaire}}(toplevelFenetre:\ tk.Tk)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00034}00034\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ les\ boutons\ pour\ le\ choix\ d'aversaire\ (Joueur\ vs\ IA\ /\ Joueur\ vs\ Joueur)}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ Fenêtre\ où\ afficher\ les\ boutons\ (fenêtre\ principale)}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00037}00037\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00039}00039\ \ \ \ \ frameChoixAdversaire:\ tk.Frame\ =\ tk.Frame(toplevelFenetre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00040}00040\ \ \ \ \ frameChoixAdversaire.configure(height=200,\ width=750)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00041}00041\ \ \ \ \ frameChoixAdversaire.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ rely=0.23,\ x=10,\ y=5)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00043}00043\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ bouton\ JvsJ,\ active\ la\ fonction\ qui\ lance\ la\ page\ de\ parametre\ en\ lui\ envoyant\ 1\ pour\ indiquer\ que\ le\ bouton\ JvsIA\ à\ été\ cliqué}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00044}00044\ \ \ \ \ buttonJvsIA:\ tk.Button\ =\ tk.Button(frameChoixAdversaire)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00045}00045\ \ \ \ \ buttonJvsIA.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 32\ \{\}"{}},\ text=\textcolor{stringliteral}{'Joueur\ \(\backslash\)nVS\ \(\backslash\)nIA'},\ width=8,\ command\ =\ \textcolor{keyword}{lambda}:\ \mbox{\hyperlink{namespacegestion_jeu_interface_adabbe0d5b405b01b1b2e05995ee82577}{lancerPageParametre}}(toplevelFenetre,\ 1))}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00046}00046\ \ \ \ \ buttonJvsIA.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.6,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00048}00048\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ bouton\ JvsJ,\ active\ la\ fonction\ qui\ lance\ la\ page\ de\ parametre\ en\ lui\ envoyant\ 0\ pour\ indiquer\ que\ le\ bouton\ JvsJ\ à\ été\ cliqué}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00049}00049\ \ \ \ \ buttonJvsJ:\ tk.Button\ =\ tk.Button(frameChoixAdversaire)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00050}00050\ \ \ \ \ buttonJvsJ.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 32\ \{\}"{}},\ text=\textcolor{stringliteral}{'Joueur\ \(\backslash\)nVS\ \(\backslash\)nJoueur'},\ width=8,\ command\ =\ \textcolor{keyword}{lambda}:\ \mbox{\hyperlink{namespacegestion_jeu_interface_adabbe0d5b405b01b1b2e05995ee82577}{lancerPageParametre}}(toplevelFenetre,\ 0))}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00051}00051\ \ \ \ \ buttonJvsJ.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.1,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00053}\mbox{\hyperlink{namespacegestion_jeu_interface_adabbe0d5b405b01b1b2e05995ee82577}{00053}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_interface_adabbe0d5b405b01b1b2e05995ee82577}{lancerPageParametre}}(toplevelFenetre:\ tk.Tk,\ iAdversaireChoisi:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00054}00054\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00055}00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ la\ variable\ global\ qui\ défini\ l'adversaire\ (1\ pour\ IA,\ 0\ pour\ joueur)\ et\ lance\ la\ fenêtre\ de\ paramètre}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00056}00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ toplevelFenetre\ Fenêtre\ à\ détruire}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iAdversaireChoisi\ adversaire\ choisi\ par\ l'utilisateur\ (1\ pour\ IA,\ 0\ pour\ joueur)}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00058}00058\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00060}00060\ \ \ \ \ dictParametre\ :\ dict\ =\ \{\textcolor{stringliteral}{"{}difficulteIA"{}}:\ iAdversaireChoisi,\ \textcolor{stringliteral}{"{}nbColonnePlateau"{}}:\ getNbColonne(),}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}nbLignePlateau"{}}:\ getNbLigne(),\ \textcolor{stringliteral}{"{}nombreJetonVicoire"{}}:\ getNbJetonVictoire(),}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}stateCoupSpecial"{}}:\ getStateCoupSpecial(),\ \textcolor{stringliteral}{"{}stateUndoRedo"{}}:\ getStateUndoRedo()\}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00064}00064\ \ \ \ \ \textcolor{comment}{\#\ Ferme\ la\ fenêtre\ principale\ et\ lance\ la\ fenêtre\ de\ paramètre\ en\ donnant\ les\ paramètres\ déjà\ choisis}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00065}00065\ \ \ \ \ toplevelFenetre.destroy()}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{namespacegestion_jeu_interface_af64a2c9546a2b445c134586ca78e9962}{initInterfaceParametre}}(dictParametre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00069}00069\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ FONCTIONS\ INTERFACE\ PARAMETRES\ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00072}\mbox{\hyperlink{namespacegestion_jeu_interface_af64a2c9546a2b445c134586ca78e9962}{00072}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_interface_af64a2c9546a2b445c134586ca78e9962}{initInterfaceParametre}}(dictParametre:\ dict)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00073}00073\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00074}00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Initialise\ la\ page\ de\ paramètre}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00075}00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ dictParametre\ dictionnaire\ contenant\ les\ paramètres\ déjà\ choisis\ sur\ la\ page\ principale}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00078}00078\ \ \ \ \ \textcolor{comment}{\#\ Créé\ la\ fenêtre\ et\ le\ haut\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00079}00079\ \ \ \ \ \textcolor{comment}{\#\ Donne\ en\ paramètre\ à\ "{}creerBoutonRetour"{}\ la\ fonction\ qui\ initialise\ la\ page\ principale\ pour\ pouvoir\ y\ retourner}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00080}00080\ \ \ \ \ toplevelFenetreParametre\ =\ creerToplevelFenetre(768,\ 563,\ \textcolor{keyword}{False},\ \textcolor{stringliteral}{"{}Paramètres"{}})}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00081}00081\ \ \ \ \ creerFrameHaut(toplevelFenetreParametre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00082}00082\ \ \ \ \ creerBoutonRetour(initInterfacePrincipale,\ \textcolor{keywordtype}{None},\ toplevelFenetreParametre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00083}00083\ \ \ \ \ \mbox{\hyperlink{namespacegestion_jeu_interface_acf7fa2475c53880d9d976da90a4610ec}{creerBoutonLancer}}(toplevelFenetreParametre,\ dictParametre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00084}00084\ \ \ \ \ gererInterfaceParametre(toplevelFenetreParametre,\ dictParametre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00086}\mbox{\hyperlink{namespacegestion_jeu_interface_acf7fa2475c53880d9d976da90a4610ec}{00086}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_interface_acf7fa2475c53880d9d976da90a4610ec}{creerBoutonLancer}}(toplevelFenetre:\ tk.Tk,\ dictParametre:\ dict)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00087}00087\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00088}00088\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Créé\ le\ bouton\ pour\ lancer\ la\ partie}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00089}00089\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ toplevelFenetre\ fenêtre\ où\ afficher\ le\ bouton\ (fenêtre\ paramètre)}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00090}00090\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ dictParametre\ dictionnaire\ contenant\ les\ paramètres\ déjà\ choisis\ sur\ la\ page\ principale}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00091}00091\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00093}00093\ \ \ \ \ frameBoutonLancer\ =\ tk.Frame(toplevelFenetre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00094}00094\ \ \ \ \ frameBoutonLancer.configure(height=200,\ width=400)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00095}00095\ \ \ \ \ frameBoutonLancer.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.3,\ rely=0.81,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00097}00097\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ bouton\ pour\ lancer\ la\ partie}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00098}00098\ \ \ \ \ buttonLancer\ =\ tk.Button(frameBoutonLancer)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00099}00099\ \ \ \ \ buttonLancer.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 26"{}},\ width=15,\ text=\textcolor{stringliteral}{'Lancer\ la\ partie'},\ command=\ \textcolor{keyword}{lambda}:\ \mbox{\hyperlink{namespacegestion_jeu_interface_ad5e23c172538c372cb0d3ff80ca486a0}{lancerPageJeu}}(toplevelFenetre,\ dictParametre))}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00100}00100\ \ \ \ \ buttonLancer.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00102}\mbox{\hyperlink{namespacegestion_jeu_interface_ad5e23c172538c372cb0d3ff80ca486a0}{00102}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_interface_ad5e23c172538c372cb0d3ff80ca486a0}{lancerPageJeu}}(toplevelFenetre:\ tk.Tk,\ dictParametre:\ dict)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00103}00103\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00104}00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ les\ paramètres\ et\ lance\ la\ fenêtre\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ dictParametre\ paramètres\ déjà\ choisis\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00108}00108\ \ \ \ \ \textcolor{comment}{\#\ Ajoute\ et\ met\ à\ jour\ les\ paramètres\ dans\ le\ dictionnaire}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00109}00109\ \ \ \ \ dictParametre.update(\{\textcolor{stringliteral}{"{}couleurJetonJ1"{}}:\ getCouleurJetonJ1(),\ \textcolor{stringliteral}{"{}couleurJetonJ2"{}}:\ getCouleurJetonJ2(),\ \textcolor{stringliteral}{"{}nbCoupSpecial"{}}:\ getNombreCoupSpecial(),}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}joueurCommence"{}}:\ getJoueurCommence(),\ \textcolor{stringliteral}{"{}difficulteIA"{}}:\ getDificulte()\})}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00111}00111\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00112}00112\ \ \ \ \ \textcolor{comment}{\#\ Ferme\ la\ fenêtre\ de\ parametre\ et\ lance\ la\ fenêtre\ de\ jeu\ en\ donnant\ les\ paramètres}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00113}00113\ \ \ \ \ toplevelFenetre.destroy()}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00114}00114\ \ \ \ \ \mbox{\hyperlink{namespacegestion_jeu_interface_a185a53605a3d0a7c1d9ed92a17a92f03}{initInterfaceJeu}}(dictParametre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00117}00117\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FONCTIONS\ INTERFACE\ DE\ JEU\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00120}\mbox{\hyperlink{namespacegestion_jeu_interface_a185a53605a3d0a7c1d9ed92a17a92f03}{00120}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_interface_a185a53605a3d0a7c1d9ed92a17a92f03}{initInterfaceJeu}}(dictParametre:\ dict)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00121}00121\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00122}00122\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Initialise\ la\ page\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00123}00123\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ dictParametre\ paramètres\ choisis\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00124}00124\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00126}00126\ \ \ \ \ \textcolor{comment}{\#\ Créé\ la\ fenêtre\ et\ le\ haut\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00127}00127\ \ \ \ \ \textcolor{comment}{\#\ Donne\ en\ paramètre\ à\ "{}creerBoutonRetour"{}\ la\ fonction\ qui\ initialise\ la\ page\ de\ paramètre\ pour\ pouvoir\ y\ retourner}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00128}00128\ \ \ \ \ toplevelFenetreJeu\ =\ creerToplevelFenetre(768,\ 768,\ \textcolor{keyword}{False},\ \textcolor{stringliteral}{"{}Puissance\ N"{}})}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00129}00129\ \ \ \ \ creerFrameHaut(toplevelFenetreJeu)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00130}00130\ \ \ \ \ creerBoutonRetour(initInterfaceParametre,\ dictParametre,\ toplevelFenetreJeu)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00131}00131\ \ \ \ \ gererInterfaceJeu(toplevelFenetreJeu,\ dictParametre)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00134}00134\ \textcolor{comment}{\#\ Lance\ la\ première\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_interface_8py_source_l00135}00135\ \mbox{\hyperlink{namespacegestion_jeu_interface_afcbe6bfff40b285ac7fe2924b00895a3}{initInterfacePrincipale}}(\textcolor{keywordtype}{None})}
+
+\end{DoxyCode}

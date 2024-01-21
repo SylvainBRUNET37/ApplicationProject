@@ -1,0 +1,85 @@
+\doxysection{gestion\+Jeu\+Console.\+py}
+\hypertarget{gestion_jeu_console_8py_source}{}\label{gestion_jeu_console_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/gestionJeuConsole.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/gestionJeuConsole.py}}
+\mbox{\hyperlink{gestion_jeu_console_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00001}\mbox{\hyperlink{namespacegestion_jeu_console}{00001}}\ \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ gestionJeuConsole.py}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ la\ boucle\ principale\ pour\ le\ jeu\ en\ mode\ console}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Matthieu\ CHARTON}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @version\ 1.0}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00008}00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00010}00010\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespacejeu_1_1affichage}{jeu.affichage}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00011}00011\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespacejeu_1_1min_max}{jeu.minMax}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00013}\mbox{\hyperlink{namespacegestion_jeu_console_a7ef7e0ba4dbb24a9678021d2cf41cfc6}{00013}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacegestion_jeu_console_a7ef7e0ba4dbb24a9678021d2cf41cfc6}{main}}()\ -\/>\ None:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00014}00014\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00015}00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Contient\ la\ boucle\ principale\ du\ jeu\ (en\ mode\ console)\ et\ l'initialisation\ des\ données}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00018}00018\ \ \ \ \ iNbColonne:\ int\ =\ 7}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00019}00019\ \ \ \ \ iNbLigne:\ int\ =\ 6}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00020}00020\ \ \ \ \ TplateauDeJeu:\ list\ =\ [[0\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(iNbLigne)]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(iNbColonne)]}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00021}00021\ \ \ \ \ TstatutJeu:\ list\ =\ [[TplateauDeJeu,\ 1,\ 1,\ 0]]\ \textcolor{comment}{\#\ plateau,\ statut\ de\ l'atout\ du\ J1,\ statut\ de\ l'atout\ du\ J2,\ nombre\ de\ jeton\ dans\ la\ grille}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00022}00022\ \ \ \ \ iNbJetonVictoire:\ int\ =\ 4}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00023}00023\ \ \ \ \ iJoueurCourant:\ int\ =\ 1}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00024}00024\ \ \ \ \ iNbTour:\ int\ =\ 0}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00025}00025\ \ \ \ \ bVictoire:\ bool\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{while}\ bVictoire\ :}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ afficherPlateau(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ TstatutJeu.append(TstatutJeu[iNbTour])\ \textcolor{comment}{\#\ Met\ les\ données\ du\ tour\ précédent\ dans\ le\ tour\ actuelle}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Si\ le\ joueur\ courant\ a\ encore\ son\ coup\ spécial,\ lui\ demande\ si\ il\ veut\ l'utiliser}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ TstatutJeu[iNbTour][3]\ !=\ 0\ \textcolor{keywordflow}{and}\ TstatutJeu[iNbTour][iJoueurCourant]\ !=\ 0\ \textcolor{keywordflow}{and}\ iJoueurCourant\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ bAtout\ =\ int(input(\textcolor{stringliteral}{"{}Saisissez\ si\ vous\ 0\ souhaitez\ utiliser\ votre\ coup\ special\ sinon\ 1\ :"{}}))\ \textcolor{comment}{\#\ 0\ =\ oui,\ 1\ =\ non}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ bAtout\ ==\ 0\ :}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TstatutJeu[iNbTour][0]\ =\ inverserCouleur(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TstatutJeu[iNbTour][iJoueurCourant]\ -\/=\ 1\ \textcolor{comment}{\#\ Retire\ une\ utilisation\ du\ coup\ spécial\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Place\ un\ jeton\ normalement\ et\ met\ à\ jour\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TstatutJeu[iNbTour][0]\ =\ placerJetonJoueur(TstatutJeu[iNbTour][0],\ iJoueurCourant,\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TstatutJeu[iNbTour][3]\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ s'il\ y\ a\ une\ victoire}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iVerif\ =\ verifierFinJeu(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iVerif\ ==\ 1\ \textcolor{keywordflow}{or}\ iVerif\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bVictoire\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ afficherPlateau(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)n\ GG\ Joueur\ "{}},\ iVerif,\ \textcolor{stringliteral}{"{}\ tu\ as\ gagné\ !\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ iVerif\ ==\ 3:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bVictoire\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ afficherPlateau(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)n\ Egalité\ dommage\(\backslash\)n'"{}})}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Tour\ de\ l'IA\ ou\ du\ joueur\ 2}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iJoueurCourant\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Place\ un\ jeton\ normalement\ et\ met\ à\ jour\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TstatutJeu[iNbTour][0]\ =\ placerJetonJoueur(TstatutJeu[iNbTour][0],\ iJoueurCourant,\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TstatutJeu[iNbTour][3]\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ L'IA\ détermine\ le\ meilleur\ coup\ et\ joue}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ colonne\_ia\ =\ trouverMeilleurCoup(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire,\ 4)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ placerJetonIA(TstatutJeu[iNbTour][0],\ colonne\_ia,\ iJoueurCourant)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ s'il\ y\ a\ une\ victoire}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ iVerif\ =\ verifierFinJeu(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iVerif\ ==\ 1\ \textcolor{keywordflow}{or}\ iVerif\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bVictoire\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ afficherPlateau(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)n\ GG\ Joueur\ "{}},\ iVerif,\ \textcolor{stringliteral}{"{}\ tu\ as\ gagné\ !\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ iVerif\ ==\ 3:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bVictoire\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ afficherPlateau(TstatutJeu[iNbTour][0],\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}\(\backslash\)n\ Egalité\ dommage\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Passe\ au\ joueur\ suivant}}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iJoueurCourant\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ iJoueurCourant\ =\ 2}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ iJoueurCourant\ =\ 1}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00077}00077\ \ \ \ \ \ \ \ \ iNbTour\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{gestion_jeu_console_8py_source_l00079}00079\ \mbox{\hyperlink{namespacegestion_jeu_console_a7ef7e0ba4dbb24a9678021d2cf41cfc6}{main}}()}
+
+\end{DoxyCode}

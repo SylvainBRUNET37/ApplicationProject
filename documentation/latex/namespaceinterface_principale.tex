@@ -1,0 +1,316 @@
+\doxysection{interface\+Principale Namespace Reference}
+\hypertarget{namespaceinterface_principale}{}\label{namespaceinterface_principale}\index{interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceinterface_principale_a407462267d01b6cfc1a55318b4706153}{get\+Nb\+Ligne}} ()
+\item 
+int \mbox{\hyperlink{namespaceinterface_principale_aaac86f6908b2f64ca14e01c324217ce8}{get\+Nb\+Colonne}} ()
+\item 
+int \mbox{\hyperlink{namespaceinterface_principale_a2b8c4994f24adfc84ca4b73f157a8870}{get\+Nb\+Jeton\+Victoire}} ()
+\item 
+bool \mbox{\hyperlink{namespaceinterface_principale_a08af783c70619b6389a504336537cea2}{get\+State\+Coup\+Special}} ()
+\item 
+bool \mbox{\hyperlink{namespaceinterface_principale_ac46b9eca01e56d5d9fb4af2ba8f4850d}{get\+State\+Undo\+Redo}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_addcdb7f56eaaa2a9c7fa54a04419056b}{update\+Nb\+Ligne\+Plateau}} (int i\+Nb\+Ligne\+Choisi)
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a7b2928b6acae23ac08111bfec68273a7}{update\+Nb\+Colonne\+Plateau}} (int i\+Nb\+Colonne\+Choisi)
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a27dd7d6471f30f15c495ea826177d456}{update\+Nb\+Jeton\+Vicoire}} (int i\+Nb\+Jeton\+Victoire\+Choisi)
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_af1b4d5bd8e469d435feb4ea9c7c9a061}{update\+Coup\+Special}} (bool b\+Coup\+Special\+Choisi)
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a47165dd05e5880e3bc6de2618d203809}{update\+Undo\+Redo}} (bool b\+Undo\+Redo\+Choisi)
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a9a5c3b96761664444b865a82507ce077}{creer\+Frame\+Nb\+Ligne}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a7c2103ac3c033919625c0673b4540125}{creer\+Frame\+Nb\+Colonne}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a6e1a8ddfe34aa94169df6654af5e6511}{creer\+Frame\+Nombre\+Jeton\+Victoire}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a9ad31e82f8a7c9e7cc4e5fec5df8dd87}{creer\+Frame\+Check\+Button}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_principale_a8f6917b92f7d91404564d7c60d264bc7}{gerer\+Interface\+Principale}} (tk.\+Tk toplevel\+Fenetre)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tk \mbox{\hyperlink{namespaceinterface_principale_a4fa0dbb37054963ceffe9e4d55cc4976}{toplevel\+Fenetre\+Principale}} = None
+\item 
+int \mbox{\hyperlink{namespaceinterface_principale_aafcef772f767832c0bf686c7aef01190}{i\+Nb\+Ligne\+Plateau}} = 6
+\item 
+int \mbox{\hyperlink{namespaceinterface_principale_a55d169471ed613f2de1f3dd2cf16bc82}{i\+Nb\+Colonne\+Plateau}} = 7
+\item 
+int \mbox{\hyperlink{namespaceinterface_principale_a91d356a041e5bea6474b61a53dc7ffd7}{i\+Nb\+Jeton\+Victoire}} = 4
+\item 
+bool \mbox{\hyperlink{namespaceinterface_principale_ad8bfedf5f2a9a0bb0952023dde2ed150}{b\+State\+Coup\+Special}} = True
+\item 
+bool \mbox{\hyperlink{namespaceinterface_principale_acb02b3f300873594f8db190222f8e3ba}{b\+State\+Undo\+Redo}} = True
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @file    interfacePrincipale.py
+    @brief   Contient les éléments de l'interface principale et les fonctions pour gérer celle-ci
+    @author  Sylvain BRUNET
+    @version 1.0
+    @date    2023-2024
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceinterface_principale_a9ad31e82f8a7c9e7cc4e5fec5df8dd87}\label{namespaceinterface_principale_a9ad31e82f8a7c9e7cc4e5fec5df8dd87} 
+\index{interfacePrincipale@{interfacePrincipale}!creerFrameCheckButton@{creerFrameCheckButton}}
+\index{creerFrameCheckButton@{creerFrameCheckButton}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{creerFrameCheckButton()}{creerFrameCheckButton()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Check\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Créé les checkbutton pour l'activation/désactivation de l'UNDO/REDO et du coup spécial
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00204}{204}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a7c2103ac3c033919625c0673b4540125}\label{namespaceinterface_principale_a7c2103ac3c033919625c0673b4540125} 
+\index{interfacePrincipale@{interfacePrincipale}!creerFrameNbColonne@{creerFrameNbColonne}}
+\index{creerFrameNbColonne@{creerFrameNbColonne}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{creerFrameNbColonne()}{creerFrameNbColonne()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Nb\+Colonne (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Créé le widget permettant de choisir le nombre de colonne du plateau
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00152}{152}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a9a5c3b96761664444b865a82507ce077}\label{namespaceinterface_principale_a9a5c3b96761664444b865a82507ce077} 
+\index{interfacePrincipale@{interfacePrincipale}!creerFrameNbLigne@{creerFrameNbLigne}}
+\index{creerFrameNbLigne@{creerFrameNbLigne}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{creerFrameNbLigne()}{creerFrameNbLigne()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Nb\+Ligne (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Créé le widget permettant de choisir la nombre de ligne du plateau
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00126}{126}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a6e1a8ddfe34aa94169df6654af5e6511}\label{namespaceinterface_principale_a6e1a8ddfe34aa94169df6654af5e6511} 
+\index{interfacePrincipale@{interfacePrincipale}!creerFrameNombreJetonVictoire@{creerFrameNombreJetonVictoire}}
+\index{creerFrameNombreJetonVictoire@{creerFrameNombreJetonVictoire}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{creerFrameNombreJetonVictoire()}{creerFrameNombreJetonVictoire()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Nombre\+Jeton\+Victoire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Créé le widget permettant de choisir le nombre de jeton à alligner pour gagner
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00178}{178}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a8f6917b92f7d91404564d7c60d264bc7}\label{namespaceinterface_principale_a8f6917b92f7d91404564d7c60d264bc7} 
+\index{interfacePrincipale@{interfacePrincipale}!gererInterfacePrincipale@{gererInterfacePrincipale}}
+\index{gererInterfacePrincipale@{gererInterfacePrincipale}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{gererInterfacePrincipale()}{gererInterfacePrincipale()}}
+{\footnotesize\ttfamily  None gerer\+Interface\+Principale (\begin{DoxyParamCaption}\item[{tk.\+Tk}]{toplevel\+Fenetre }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Gère l'affichage de la page principale
+    @param toplevelFenetre Fenêtre principale
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00238}{238}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_aaac86f6908b2f64ca14e01c324217ce8}\label{namespaceinterface_principale_aaac86f6908b2f64ca14e01c324217ce8} 
+\index{interfacePrincipale@{interfacePrincipale}!getNbColonne@{getNbColonne}}
+\index{getNbColonne@{getNbColonne}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{getNbColonne()}{getNbColonne()}}
+{\footnotesize\ttfamily  int get\+Nb\+Colonne (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie le nombre de colonne du plateau choisi par le joueur
+    @return le nombre de colonne du plateau choisi par le joueur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00037}{37}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a2b8c4994f24adfc84ca4b73f157a8870}\label{namespaceinterface_principale_a2b8c4994f24adfc84ca4b73f157a8870} 
+\index{interfacePrincipale@{interfacePrincipale}!getNbJetonVictoire@{getNbJetonVictoire}}
+\index{getNbJetonVictoire@{getNbJetonVictoire}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{getNbJetonVictoire()}{getNbJetonVictoire()}}
+{\footnotesize\ttfamily  int get\+Nb\+Jeton\+Victoire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie le nombre de jeton à alligner pour gagner
+    @return le nombre de jeton à alligner pour gagner
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00046}{46}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a407462267d01b6cfc1a55318b4706153}\label{namespaceinterface_principale_a407462267d01b6cfc1a55318b4706153} 
+\index{interfacePrincipale@{interfacePrincipale}!getNbLigne@{getNbLigne}}
+\index{getNbLigne@{getNbLigne}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{getNbLigne()}{getNbLigne()}}
+{\footnotesize\ttfamily  int get\+Nb\+Ligne (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie le nombre de ligne du plateau choisi par le joueur
+    @return le nombre de ligne du plateau choisi par le joueur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00028}{28}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a08af783c70619b6389a504336537cea2}\label{namespaceinterface_principale_a08af783c70619b6389a504336537cea2} 
+\index{interfacePrincipale@{interfacePrincipale}!getStateCoupSpecial@{getStateCoupSpecial}}
+\index{getStateCoupSpecial@{getStateCoupSpecial}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{getStateCoupSpecial()}{getStateCoupSpecial()}}
+{\footnotesize\ttfamily  bool get\+State\+Coup\+Special (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
+    @return le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00055}{55}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_ac46b9eca01e56d5d9fb4af2ba8f4850d}\label{namespaceinterface_principale_ac46b9eca01e56d5d9fb4af2ba8f4850d} 
+\index{interfacePrincipale@{interfacePrincipale}!getStateUndoRedo@{getStateUndoRedo}}
+\index{getStateUndoRedo@{getStateUndoRedo}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{getStateUndoRedo()}{getStateUndoRedo()}}
+{\footnotesize\ttfamily  bool get\+State\+Undo\+Redo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
+    @return le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00064}{64}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_af1b4d5bd8e469d435feb4ea9c7c9a061}\label{namespaceinterface_principale_af1b4d5bd8e469d435feb4ea9c7c9a061} 
+\index{interfacePrincipale@{interfacePrincipale}!updateCoupSpecial@{updateCoupSpecial}}
+\index{updateCoupSpecial@{updateCoupSpecial}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{updateCoupSpecial()}{updateCoupSpecial()}}
+{\footnotesize\ttfamily  None update\+Coup\+Special (\begin{DoxyParamCaption}\item[{bool}]{b\+Coup\+Special\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Met à jour la variable global qui défini si le coup spécial est activé en fonction de l'état de son checkbutton associé
+    @param bCoupSpecialChoisi variable tkinter qui contient l'état du checkbutton coup spécial
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00104}{104}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a7b2928b6acae23ac08111bfec68273a7}\label{namespaceinterface_principale_a7b2928b6acae23ac08111bfec68273a7} 
+\index{interfacePrincipale@{interfacePrincipale}!updateNbColonnePlateau@{updateNbColonnePlateau}}
+\index{updateNbColonnePlateau@{updateNbColonnePlateau}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{updateNbColonnePlateau()}{updateNbColonnePlateau()}}
+{\footnotesize\ttfamily  None update\+Nb\+Colonne\+Plateau (\begin{DoxyParamCaption}\item[{int}]{i\+Nb\+Colonne\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Met à jour la variable global qui défini le nombre de colonne du plateau
+    @param iNbColonneChoisi variable tkinter qui contient le nombre de colonne du plateau
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00086}{86}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a27dd7d6471f30f15c495ea826177d456}\label{namespaceinterface_principale_a27dd7d6471f30f15c495ea826177d456} 
+\index{interfacePrincipale@{interfacePrincipale}!updateNbJetonVicoire@{updateNbJetonVicoire}}
+\index{updateNbJetonVicoire@{updateNbJetonVicoire}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{updateNbJetonVicoire()}{updateNbJetonVicoire()}}
+{\footnotesize\ttfamily  None update\+Nb\+Jeton\+Vicoire (\begin{DoxyParamCaption}\item[{int}]{i\+Nb\+Jeton\+Victoire\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Met à jour la variable global qui défini le nombre de jeton à alligner pour gagner
+    @param iNbJetonVictoireChoisi variable tkinter qui contient le nombre de jeton à alligner pour gagner
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00095}{95}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_addcdb7f56eaaa2a9c7fa54a04419056b}\label{namespaceinterface_principale_addcdb7f56eaaa2a9c7fa54a04419056b} 
+\index{interfacePrincipale@{interfacePrincipale}!updateNbLignePlateau@{updateNbLignePlateau}}
+\index{updateNbLignePlateau@{updateNbLignePlateau}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{updateNbLignePlateau()}{updateNbLignePlateau()}}
+{\footnotesize\ttfamily  None update\+Nb\+Ligne\+Plateau (\begin{DoxyParamCaption}\item[{int}]{i\+Nb\+Ligne\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Met à jour la variable global qui défini le nombre de ligne du plateau
+    @param iNbLigneChoisi variable tkinter qui contient le nombre de ligne du plateau
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00077}{77}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a47165dd05e5880e3bc6de2618d203809}\label{namespaceinterface_principale_a47165dd05e5880e3bc6de2618d203809} 
+\index{interfacePrincipale@{interfacePrincipale}!updateUndoRedo@{updateUndoRedo}}
+\index{updateUndoRedo@{updateUndoRedo}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{updateUndoRedo()}{updateUndoRedo()}}
+{\footnotesize\ttfamily  None update\+Undo\+Redo (\begin{DoxyParamCaption}\item[{bool}]{b\+Undo\+Redo\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Met à jour la variable global qui défini si l'undo redo est activé en fonction de l'état de son checkbutton associé
+    @param bUndoRedoChoisi variable tkinter qui contient l'état du checkbutton undo/redo
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00113}{113}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceinterface_principale_ad8bfedf5f2a9a0bb0952023dde2ed150}\label{namespaceinterface_principale_ad8bfedf5f2a9a0bb0952023dde2ed150} 
+\index{interfacePrincipale@{interfacePrincipale}!bStateCoupSpecial@{bStateCoupSpecial}}
+\index{bStateCoupSpecial@{bStateCoupSpecial}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{bStateCoupSpecial}{bStateCoupSpecial}}
+{\footnotesize\ttfamily bool b\+State\+Coup\+Special = True}
+
+
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00021}{21}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_acb02b3f300873594f8db190222f8e3ba}\label{namespaceinterface_principale_acb02b3f300873594f8db190222f8e3ba} 
+\index{interfacePrincipale@{interfacePrincipale}!bStateUndoRedo@{bStateUndoRedo}}
+\index{bStateUndoRedo@{bStateUndoRedo}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{bStateUndoRedo}{bStateUndoRedo}}
+{\footnotesize\ttfamily bool b\+State\+Undo\+Redo = True}
+
+
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00022}{22}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a55d169471ed613f2de1f3dd2cf16bc82}\label{namespaceinterface_principale_a55d169471ed613f2de1f3dd2cf16bc82} 
+\index{interfacePrincipale@{interfacePrincipale}!iNbColonnePlateau@{iNbColonnePlateau}}
+\index{iNbColonnePlateau@{iNbColonnePlateau}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{iNbColonnePlateau}{iNbColonnePlateau}}
+{\footnotesize\ttfamily int i\+Nb\+Colonne\+Plateau = 7}
+
+
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00019}{19}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a91d356a041e5bea6474b61a53dc7ffd7}\label{namespaceinterface_principale_a91d356a041e5bea6474b61a53dc7ffd7} 
+\index{interfacePrincipale@{interfacePrincipale}!iNbJetonVictoire@{iNbJetonVictoire}}
+\index{iNbJetonVictoire@{iNbJetonVictoire}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{iNbJetonVictoire}{iNbJetonVictoire}}
+{\footnotesize\ttfamily int i\+Nb\+Jeton\+Victoire = 4}
+
+
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00020}{20}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_aafcef772f767832c0bf686c7aef01190}\label{namespaceinterface_principale_aafcef772f767832c0bf686c7aef01190} 
+\index{interfacePrincipale@{interfacePrincipale}!iNbLignePlateau@{iNbLignePlateau}}
+\index{iNbLignePlateau@{iNbLignePlateau}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{iNbLignePlateau}{iNbLignePlateau}}
+{\footnotesize\ttfamily int i\+Nb\+Ligne\+Plateau = 6}
+
+
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00018}{18}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+
+\Hypertarget{namespaceinterface_principale_a4fa0dbb37054963ceffe9e4d55cc4976}\label{namespaceinterface_principale_a4fa0dbb37054963ceffe9e4d55cc4976} 
+\index{interfacePrincipale@{interfacePrincipale}!toplevelFenetrePrincipale@{toplevelFenetrePrincipale}}
+\index{toplevelFenetrePrincipale@{toplevelFenetrePrincipale}!interfacePrincipale@{interfacePrincipale}}
+\doxysubsubsection{\texorpdfstring{toplevelFenetrePrincipale}{toplevelFenetrePrincipale}}
+{\footnotesize\ttfamily tk toplevel\+Fenetre\+Principale = None}
+
+
+
+Definition at line \mbox{\hyperlink{interface_principale_8py_source_l00016}{16}} of file \mbox{\hyperlink{interface_principale_8py_source}{interface\+Principale.\+py}}.
+

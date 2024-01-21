@@ -1,0 +1,107 @@
+\doxysection{min\+Max.\+py}
+\hypertarget{min_max_8py_source}{}\label{min_max_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/jeu/minMax.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/jeu/minMax.py}}
+\mbox{\hyperlink{min_max_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00001}\mbox{\hyperlink{namespacemin_max}{00001}}\ \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ minMax.py}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ les\ fonctions\ pour\ l'IA}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Matthieu\ CHARTON}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @version\ 1.0}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00008}00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00010}00010\ \textcolor{keyword}{import}\ random}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00012}00012\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespacejeu_1_1jeu}{jeu.jeu}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00014}\mbox{\hyperlink{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143}{00014}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143}{gererMinMax}}(TplateauDeJeu:\ list,\ iProfondeur:\ int,\ bMaximisant:\ bool,\ iNbColonne:\ int,\ iNbLigne:\ int,\ iNbJetonVictoire:\ int)\ -\/>\ float:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00015}00015\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Algorithme\ minimax\ pour\ évaluer\ la\ position\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ \ \ \ Le\ tableau\ du\ plateau\ de\ jeu.}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iProfondeur\ \ \ \ \ \ La\ iProfondeur\ de\ recherche\ de\ l'algorithme.}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ bMaximisant\ \ \ \ \ \ True\ si\ bMaximisant\ (joueur\ 2),\ False\ sinon\ (joueur\ 1).}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00020}00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau.}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00021}00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau.}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00022}00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoire\ Le\ nombre\ de\ jetons\ consécutifs\ nécessaires\ pour\ la\ victoire.}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00023}00023\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ la\ valeur\ d'évaluation\ de\ la\ position\ du\ plateau.}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00024}00024\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00025}00025\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00026}00026\ \ \ \ \ iVictoire:\ int\ =\ verifierFinJeu(TplateauDeJeu,\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}\ iProfondeur\ ==\ 0\ \textcolor{keywordflow}{or}\ iVictoire\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Cas\ de\ base\ :\ iProfondeur\ atteinte\ ou\ victoire/défaite/égalité}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iVictoire\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Victoire\ du\ joueur\ 1}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ iScore:\ int\ =\ -\/1000}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ iVictoire\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Victoire\ du\ joueur\ 2\ (IA)}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ iScore:\ int\ =\ 1000}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ iVictoire\ ==\ 3:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Égalité}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ iScore:\ int\ =\ 0}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ iVictoire\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Position\ neutre}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ iScore:\ int\ =\ 0}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iScore}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ bMaximisant:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Joueur\ 2\ (IA)\ cherche\ à\ maximiser\ le\ score}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ fMaxEval:\ float\ =\ float(\textcolor{stringliteral}{'-\/inf'})}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parcourt\ les\ colonnes\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ range(len(TplateauDeJeu)):}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ verifierColonnePleine(TplateauDeJeu,\ iBoucleColonne,\ iNbLigne):}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Copie\ temporaire\ du\ plateau\ avec\ le\ coup\ joué}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TgrilleTemporaire:\ list\ =\ copy.deepcopy(TplateauDeJeu)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ placerJetonIA(TgrilleTemporaire,\ iBoucleColonne,\ 2)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Appel\ récursif\ avec\ le\ plateau\ modifié}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ evaluation\ =\ \mbox{\hyperlink{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143}{gererMinMax}}(TgrilleTemporaire,\ iProfondeur\ -\/\ 1,\ \textcolor{keyword}{False},\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Mise\ à\ jour\ du\ score\ maximal}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fMaxEval\ =\ max(fMaxEval,\ evaluation)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fMaxEval}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Joueur\ 1\ cherche\ à\ minimiser\ le\ score}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ fMinEval:\ float\ =\ float(\textcolor{stringliteral}{'inf'})}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parcourt\ les\ colonnes\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ range(len(TplateauDeJeu)):}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ verifierColonnePleine(TplateauDeJeu,\ iBoucleColonne,\ iNbLigne):}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Copie\ temporaire\ du\ plateau\ avec\ le\ coup\ joué}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TgrilleTemporaire\ =\ copy.deepcopy(TplateauDeJeu)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ placerJetonIA(TgrilleTemporaire,\ iBoucleColonne,\ 1)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Appel\ récursif\ avec\ le\ plateau\ modifié}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ evaluation\ =\ \mbox{\hyperlink{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143}{gererMinMax}}(TgrilleTemporaire,\ iProfondeur\ -\/\ 1,\ \textcolor{keyword}{True},\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Mise\ à\ jour\ du\ score\ minimal}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fMinEval\ =\ min(fMinEval,\ evaluation)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fMinEval}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00072}\mbox{\hyperlink{namespacemin_max_a03b1c2b431f63c3ddaf52deefe837b70}{00072}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemin_max_a03b1c2b431f63c3ddaf52deefe837b70}{trouverMeilleurCoup}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int,\ iNbJetonVictoire:\ int,\ iProfondeur:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00073}00073\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00074}00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Trouve\ le\ meilleur\ coup\ pour\ l'IA\ en\ utilisant\ l'algorithme\ minimax}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00075}00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ \ \ \ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00077}00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00078}00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoire\ Le\ nombre\ de\ jetons\ consécutifs\ nécessaires\ pour\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00079}00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iProfondeur\ \ \ \ \ \ La\ iProfondeur\ de\ recherche\ de\ l'algorithme}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ la\ colonne\ du\ meilleur\ coup\ trouvé\ pas\ l'algorithme\ min-\/max}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00083}00083\ \ \ \ \ fMaxEval:\ float\ =\ float(\textcolor{stringliteral}{'-\/inf'})}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00084}00084\ \ \ \ \ iMeilleurCoup:\ int\ =\ 0}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00085}00085\ \ \ \ \ TplateauMelange:\ list\ =\ list(range(iNbColonne))}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00086}00086\ \ \ \ \ random.shuffle(TplateauMelange)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00088}00088\ \ \ \ \ \textcolor{comment}{\#\ Parcourt\ les\ colonnes\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ TplateauMelange:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ verifierColonnePleine(TplateauDeJeu,\ iBoucleColonne,\ iNbLigne):}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Copie\ temporaire\ du\ plateau\ avec\ le\ coup\ joué}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ TgrilleTemporaire:\ list\ =\ copy.deepcopy(TplateauDeJeu)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ placerJetonIA(TgrilleTemporaire,\ iBoucleColonne,\ 2)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Appel\ de\ l'algorithme\ minimax\ pour\ évaluer\ le\ coup}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ fEvaluation:\ float\ =\ \mbox{\hyperlink{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143}{gererMinMax}}(TgrilleTemporaire,\ iProfondeur,\ \textcolor{keyword}{False},\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Mise\ à\ jour\ de\ la\ colonne\ du\ meilleur\ coup}}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ fEvaluation\ >\ fMaxEval:}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fMaxEval\ =\ fEvaluation}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iMeilleurCoup\ =\ iBoucleColonne}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{return}\ iMeilleurCoup}
+\DoxyCodeLine{\Hypertarget{min_max_8py_source_l00101}00101\ }
+
+\end{DoxyCode}

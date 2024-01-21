@@ -1,0 +1,384 @@
+\doxysection{interface\+Jeu Namespace Reference}
+\hypertarget{namespaceinterface_jeu}{}\label{namespaceinterface_jeu}\index{interfaceJeu@{interfaceJeu}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_aa5e8d266a5f123aa8360c89183fa8404}{gerer\+Undo\+Redo}} (bool b\+Undo\+Or\+Redo)
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_af0e1a43eb17e7cea18be95240ecd14da}{update\+Affichage\+Plateau}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_ac618ce9c6bfd512de5460625a89fbd9a}{gerer\+Jeu}} (int i\+Colonne\+Choisi)
+\item 
+bool \mbox{\hyperlink{namespaceinterface_jeu_af54d3c92f2a0a5f58d88caa7c5bf775a}{placer\+Jeton}} (int i\+Colonne\+Choisi)
+\item 
+bool \mbox{\hyperlink{namespaceinterface_jeu_a5258db962f70ce1634613a1fb4e14e63}{jouer\+Coup\+Special}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_acd7e75424797712c9d4fd3a45c494127}{afficher\+Info\+Jeu}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_a4f94b38bade649fa5bcde61d95475f8f}{creer\+Bouton\+Coup\+Special}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_a14ef53c99fececc1affbc37421481e0d}{afficher\+Fin\+Jeu}} (bool b\+Verif\+Gagner)
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_aa355df625fb141c9da372bfcf010d8f8}{creer\+Bouton\+Undo\+Redo}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_a3927220b79c47aef9df6471be49c3e32}{afficher\+Jeton}} (int i\+Colonne\+Choisi, int i\+Ligne\+Jouer, str s\+Couleur\+Jeton)
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_a202cdaf45b94781592b733564e570f31}{initialiser\+Plateau}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_a958c0c691a8a0264e01f68797b676506}{init\+Var\+Global}} (dict dict\+Parametre)
+\item 
+None \mbox{\hyperlink{namespaceinterface_jeu_abf2faaee6df2e88b443c38f119b76121}{gerer\+Interface\+Jeu}} (tk.\+Tk toplevel\+Fenetre, dict dict\+Parametre)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tk \mbox{\hyperlink{namespaceinterface_jeu_a17d7ca028727d9d3624cce2769a60bdf}{canvas\+Fond\+Plateau}} = None
+\item 
+tk \mbox{\hyperlink{namespaceinterface_jeu_a12c4dd0fb8ca4de61e31d02417e297e1}{toplevel\+Fenetre\+Jeu}} = None
+\item 
+int \mbox{\hyperlink{namespaceinterface_jeu_a55d169471ed613f2de1f3dd2cf16bc82}{i\+Nb\+Colonne\+Plateau}} = 0
+\item 
+int \mbox{\hyperlink{namespaceinterface_jeu_aafcef772f767832c0bf686c7aef01190}{i\+Nb\+Ligne\+Plateau}} = 0
+\item 
+int \mbox{\hyperlink{namespaceinterface_jeu_a91d356a041e5bea6474b61a53dc7ffd7}{i\+Nb\+Jeton\+Victoire}} = 0
+\item 
+str \mbox{\hyperlink{namespaceinterface_jeu_ad8f0fd7339006e42d551d94fc948b58f}{s\+Couleur\+Jeton\+J1}} = "{}"{}
+\item 
+str \mbox{\hyperlink{namespaceinterface_jeu_aaabeccf15ff11ac14e138f2876beb3dd}{s\+Couleur\+Jeton\+J2}} = "{}"{}
+\item 
+int \mbox{\hyperlink{namespaceinterface_jeu_a61095497a6941d1e5e66b86a1ab74434}{i\+Difficulte\+IA}} = 0
+\item 
+bool \mbox{\hyperlink{namespaceinterface_jeu_acb02b3f300873594f8db190222f8e3ba}{b\+State\+Undo\+Redo}} = False
+\item 
+bool \mbox{\hyperlink{namespaceinterface_jeu_af9bb4f81b6253218366dd23a2313f0e8}{b\+Fin\+Jeu}} = False
+\item 
+int \mbox{\hyperlink{namespaceinterface_jeu_ae45bdba456beb95f74858d07c67149db}{i\+Tour\+Courant}} = 0
+\item 
+int \mbox{\hyperlink{namespaceinterface_jeu_ae4db7cff315cc127082592387cad434f}{i\+Joueur\+Courant}} = 0
+\item 
+int \mbox{\hyperlink{namespaceinterface_jeu_a082b9fa5af2320d039f98368ccb95ef7}{i\+Cpt\+Undo}} = 0
+\item 
+list \mbox{\hyperlink{namespaceinterface_jeu_ae7ed860f10cfda28424a6d20284e8ec4}{Tstatut\+Jeu}} = \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @file    interfaceJeu.py
+    @brief   Contient les éléments de l'interface de jeu et les fonctions pour gérer celle-ci
+    @author  Sylvain BRUNET
+    @version 1.0
+    @date    2023-2024
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceinterface_jeu_a14ef53c99fececc1affbc37421481e0d}\label{namespaceinterface_jeu_a14ef53c99fececc1affbc37421481e0d} 
+\index{interfaceJeu@{interfaceJeu}!afficherFinJeu@{afficherFinJeu}}
+\index{afficherFinJeu@{afficherFinJeu}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{afficherFinJeu()}{afficherFinJeu()}}
+{\footnotesize\ttfamily  None afficher\+Fin\+Jeu (\begin{DoxyParamCaption}\item[{bool}]{b\+Verif\+Gagner }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Affiche l'écran de fin de partie
+    @param bVerifGagner 0 si ce n'est pas la fin de la partie, 1 si J1 a gagné, 2 si J2 a gagné 3 si plateau plein
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00294}{294}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_acd7e75424797712c9d4fd3a45c494127}\label{namespaceinterface_jeu_acd7e75424797712c9d4fd3a45c494127} 
+\index{interfaceJeu@{interfaceJeu}!afficherInfoJeu@{afficherInfoJeu}}
+\index{afficherInfoJeu@{afficherInfoJeu}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{afficherInfoJeu()}{afficherInfoJeu()}}
+{\footnotesize\ttfamily  None afficher\+Info\+Jeu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Affiche le joueur qui doit jouer, le numéro du tour et le nombre de coup spécial de chaque joueur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00232}{232}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a3927220b79c47aef9df6471be49c3e32}\label{namespaceinterface_jeu_a3927220b79c47aef9df6471be49c3e32} 
+\index{interfaceJeu@{interfaceJeu}!afficherJeton@{afficherJeton}}
+\index{afficherJeton@{afficherJeton}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{afficherJeton()}{afficherJeton()}}
+{\footnotesize\ttfamily  None afficher\+Jeton (\begin{DoxyParamCaption}\item[{int}]{i\+Colonne\+Choisi,  }\item[{int}]{i\+Ligne\+Jouer,  }\item[{str}]{s\+Couleur\+Jeton }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Affiche un jeton de couleur donnée à la position donnée
+    @param  iColonneChoisi  colonne dans laquel le jeton doit être placé
+    @param  iLigneJouer     ligne dans laquel le jeton doit être placé
+    @param  sCouleurJeton couleur du jeton à placer
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00369}{369}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a4f94b38bade649fa5bcde61d95475f8f}\label{namespaceinterface_jeu_a4f94b38bade649fa5bcde61d95475f8f} 
+\index{interfaceJeu@{interfaceJeu}!creerBoutonCoupSpecial@{creerBoutonCoupSpecial}}
+\index{creerBoutonCoupSpecial@{creerBoutonCoupSpecial}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{creerBoutonCoupSpecial()}{creerBoutonCoupSpecial()}}
+{\footnotesize\ttfamily  None creer\+Bouton\+Coup\+Special (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Créé et affiche le bouton qui permet d'utiliser le coup spécial
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00268}{268}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_aa355df625fb141c9da372bfcf010d8f8}\label{namespaceinterface_jeu_aa355df625fb141c9da372bfcf010d8f8} 
+\index{interfaceJeu@{interfaceJeu}!creerBoutonUndoRedo@{creerBoutonUndoRedo}}
+\index{creerBoutonUndoRedo@{creerBoutonUndoRedo}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{creerBoutonUndoRedo()}{creerBoutonUndoRedo()}}
+{\footnotesize\ttfamily  None creer\+Bouton\+Undo\+Redo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Créé les boutons d'UNDO/REDO
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00323}{323}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_abf2faaee6df2e88b443c38f119b76121}\label{namespaceinterface_jeu_abf2faaee6df2e88b443c38f119b76121} 
+\index{interfaceJeu@{interfaceJeu}!gererInterfaceJeu@{gererInterfaceJeu}}
+\index{gererInterfaceJeu@{gererInterfaceJeu}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{gererInterfaceJeu()}{gererInterfaceJeu()}}
+{\footnotesize\ttfamily  None gerer\+Interface\+Jeu (\begin{DoxyParamCaption}\item[{tk.\+Tk}]{toplevel\+Fenetre,  }\item[{dict}]{dict\+Parametre }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Gère l'affichage de la page de jeu
+    @param toplevelFenetre Fenêtre de jeu
+    @param dictParametre dictionnaire qui contient les paramètres choisis par le joueur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00470}{470}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_ac618ce9c6bfd512de5460625a89fbd9a}\label{namespaceinterface_jeu_ac618ce9c6bfd512de5460625a89fbd9a} 
+\index{interfaceJeu@{interfaceJeu}!gererJeu@{gererJeu}}
+\index{gererJeu@{gererJeu}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{gererJeu()}{gererJeu()}}
+{\footnotesize\ttfamily  None gerer\+Jeu (\begin{DoxyParamCaption}\item[{int}]{i\+Colonne\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Gère le jeu : place le jeton, gère la sauvegarde des statuts de jeu...
+    @param  iColonneChoisi colonne dans laquel le jeton doit être placé (colonne sur laquel le joueur a cliqué)
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00106}{106}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_aa5e8d266a5f123aa8360c89183fa8404}\label{namespaceinterface_jeu_aa5e8d266a5f123aa8360c89183fa8404} 
+\index{interfaceJeu@{interfaceJeu}!gererUndoRedo@{gererUndoRedo}}
+\index{gererUndoRedo@{gererUndoRedo}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{gererUndoRedo()}{gererUndoRedo()}}
+{\footnotesize\ttfamily  None gerer\+Undo\+Redo (\begin{DoxyParamCaption}\item[{bool}]{b\+Undo\+Or\+Redo }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Lance la fonction UNDO ou REDO (dépend de la valeur de bUndoOrRedo) et met à jour les boutons liés à cette fonction 
+    @param  bUndoOrRedo si True fait l'UNDO, si False fait le REDO
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00042}{42}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a202cdaf45b94781592b733564e570f31}\label{namespaceinterface_jeu_a202cdaf45b94781592b733564e570f31} 
+\index{interfaceJeu@{interfaceJeu}!initialiserPlateau@{initialiserPlateau}}
+\index{initialiserPlateau@{initialiserPlateau}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{initialiserPlateau()}{initialiserPlateau()}}
+{\footnotesize\ttfamily  None initialiser\+Plateau (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Initialise et affiche le plateau de jeu
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00399}{399}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a958c0c691a8a0264e01f68797b676506}\label{namespaceinterface_jeu_a958c0c691a8a0264e01f68797b676506} 
+\index{interfaceJeu@{interfaceJeu}!initVarGlobal@{initVarGlobal}}
+\index{initVarGlobal@{initVarGlobal}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{initVarGlobal()}{initVarGlobal()}}
+{\footnotesize\ttfamily  None init\+Var\+Global (\begin{DoxyParamCaption}\item[{dict}]{dict\+Parametre }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Gère l'initialisation des variables globales
+    @param dictParametre contient les paramètres choisis par le joueur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00422}{422}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a5258db962f70ce1634613a1fb4e14e63}\label{namespaceinterface_jeu_a5258db962f70ce1634613a1fb4e14e63} 
+\index{interfaceJeu@{interfaceJeu}!jouerCoupSpecial@{jouerCoupSpecial}}
+\index{jouerCoupSpecial@{jouerCoupSpecial}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{jouerCoupSpecial()}{jouerCoupSpecial()}}
+{\footnotesize\ttfamily  bool jouer\+Coup\+Special (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Inverse les couleurs des jetons
+    @return False si le coup spécial ne peut pas être joué, True si il a été joué
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00189}{189}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_af54d3c92f2a0a5f58d88caa7c5bf775a}\label{namespaceinterface_jeu_af54d3c92f2a0a5f58d88caa7c5bf775a} 
+\index{interfaceJeu@{interfaceJeu}!placerJeton@{placerJeton}}
+\index{placerJeton@{placerJeton}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{placerJeton()}{placerJeton()}}
+{\footnotesize\ttfamily  bool placer\+Jeton (\begin{DoxyParamCaption}\item[{int}]{i\+Colonne\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Place le jeton dans la colonne choisi par le joueur
+    @return False si la colonne est pleine, True si le jeton a été joué
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00152}{152}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_af0e1a43eb17e7cea18be95240ecd14da}\label{namespaceinterface_jeu_af0e1a43eb17e7cea18be95240ecd14da} 
+\index{interfaceJeu@{interfaceJeu}!updateAffichagePlateau@{updateAffichagePlateau}}
+\index{updateAffichagePlateau@{updateAffichagePlateau}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{updateAffichagePlateau()}{updateAffichagePlateau()}}
+{\footnotesize\ttfamily  None update\+Affichage\+Plateau (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Met à jour le plateau en mettant les bons jetons aux bons endroits
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00080}{80}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceinterface_jeu_af9bb4f81b6253218366dd23a2313f0e8}\label{namespaceinterface_jeu_af9bb4f81b6253218366dd23a2313f0e8} 
+\index{interfaceJeu@{interfaceJeu}!bFinJeu@{bFinJeu}}
+\index{bFinJeu@{bFinJeu}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{bFinJeu}{bFinJeu}}
+{\footnotesize\ttfamily bool b\+Fin\+Jeu = False}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00031}{31}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_acb02b3f300873594f8db190222f8e3ba}\label{namespaceinterface_jeu_acb02b3f300873594f8db190222f8e3ba} 
+\index{interfaceJeu@{interfaceJeu}!bStateUndoRedo@{bStateUndoRedo}}
+\index{bStateUndoRedo@{bStateUndoRedo}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{bStateUndoRedo}{bStateUndoRedo}}
+{\footnotesize\ttfamily bool b\+State\+Undo\+Redo = False}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00029}{29}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a17d7ca028727d9d3624cce2769a60bdf}\label{namespaceinterface_jeu_a17d7ca028727d9d3624cce2769a60bdf} 
+\index{interfaceJeu@{interfaceJeu}!canvasFondPlateau@{canvasFondPlateau}}
+\index{canvasFondPlateau@{canvasFondPlateau}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{canvasFondPlateau}{canvasFondPlateau}}
+{\footnotesize\ttfamily tk canvas\+Fond\+Plateau = None}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00020}{20}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a082b9fa5af2320d039f98368ccb95ef7}\label{namespaceinterface_jeu_a082b9fa5af2320d039f98368ccb95ef7} 
+\index{interfaceJeu@{interfaceJeu}!iCptUndo@{iCptUndo}}
+\index{iCptUndo@{iCptUndo}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{iCptUndo}{iCptUndo}}
+{\footnotesize\ttfamily int i\+Cpt\+Undo = 0}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00034}{34}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a61095497a6941d1e5e66b86a1ab74434}\label{namespaceinterface_jeu_a61095497a6941d1e5e66b86a1ab74434} 
+\index{interfaceJeu@{interfaceJeu}!iDifficulteIA@{iDifficulteIA}}
+\index{iDifficulteIA@{iDifficulteIA}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{iDifficulteIA}{iDifficulteIA}}
+{\footnotesize\ttfamily int i\+Difficulte\+IA = 0}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00028}{28}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_ae4db7cff315cc127082592387cad434f}\label{namespaceinterface_jeu_ae4db7cff315cc127082592387cad434f} 
+\index{interfaceJeu@{interfaceJeu}!iJoueurCourant@{iJoueurCourant}}
+\index{iJoueurCourant@{iJoueurCourant}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{iJoueurCourant}{iJoueurCourant}}
+{\footnotesize\ttfamily int i\+Joueur\+Courant = 0}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00033}{33}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a55d169471ed613f2de1f3dd2cf16bc82}\label{namespaceinterface_jeu_a55d169471ed613f2de1f3dd2cf16bc82} 
+\index{interfaceJeu@{interfaceJeu}!iNbColonnePlateau@{iNbColonnePlateau}}
+\index{iNbColonnePlateau@{iNbColonnePlateau}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{iNbColonnePlateau}{iNbColonnePlateau}}
+{\footnotesize\ttfamily int i\+Nb\+Colonne\+Plateau = 0}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00023}{23}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a91d356a041e5bea6474b61a53dc7ffd7}\label{namespaceinterface_jeu_a91d356a041e5bea6474b61a53dc7ffd7} 
+\index{interfaceJeu@{interfaceJeu}!iNbJetonVictoire@{iNbJetonVictoire}}
+\index{iNbJetonVictoire@{iNbJetonVictoire}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{iNbJetonVictoire}{iNbJetonVictoire}}
+{\footnotesize\ttfamily int i\+Nb\+Jeton\+Victoire = 0}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00025}{25}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_aafcef772f767832c0bf686c7aef01190}\label{namespaceinterface_jeu_aafcef772f767832c0bf686c7aef01190} 
+\index{interfaceJeu@{interfaceJeu}!iNbLignePlateau@{iNbLignePlateau}}
+\index{iNbLignePlateau@{iNbLignePlateau}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{iNbLignePlateau}{iNbLignePlateau}}
+{\footnotesize\ttfamily int i\+Nb\+Ligne\+Plateau = 0}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00024}{24}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_ae45bdba456beb95f74858d07c67149db}\label{namespaceinterface_jeu_ae45bdba456beb95f74858d07c67149db} 
+\index{interfaceJeu@{interfaceJeu}!iTourCourant@{iTourCourant}}
+\index{iTourCourant@{iTourCourant}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{iTourCourant}{iTourCourant}}
+{\footnotesize\ttfamily int i\+Tour\+Courant = 0}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00032}{32}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_ad8f0fd7339006e42d551d94fc948b58f}\label{namespaceinterface_jeu_ad8f0fd7339006e42d551d94fc948b58f} 
+\index{interfaceJeu@{interfaceJeu}!sCouleurJetonJ1@{sCouleurJetonJ1}}
+\index{sCouleurJetonJ1@{sCouleurJetonJ1}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{sCouleurJetonJ1}{sCouleurJetonJ1}}
+{\footnotesize\ttfamily str s\+Couleur\+Jeton\+J1 = "{}"{}}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00026}{26}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_aaabeccf15ff11ac14e138f2876beb3dd}\label{namespaceinterface_jeu_aaabeccf15ff11ac14e138f2876beb3dd} 
+\index{interfaceJeu@{interfaceJeu}!sCouleurJetonJ2@{sCouleurJetonJ2}}
+\index{sCouleurJetonJ2@{sCouleurJetonJ2}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{sCouleurJetonJ2}{sCouleurJetonJ2}}
+{\footnotesize\ttfamily str s\+Couleur\+Jeton\+J2 = "{}"{}}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00027}{27}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_a12c4dd0fb8ca4de61e31d02417e297e1}\label{namespaceinterface_jeu_a12c4dd0fb8ca4de61e31d02417e297e1} 
+\index{interfaceJeu@{interfaceJeu}!toplevelFenetreJeu@{toplevelFenetreJeu}}
+\index{toplevelFenetreJeu@{toplevelFenetreJeu}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{toplevelFenetreJeu}{toplevelFenetreJeu}}
+{\footnotesize\ttfamily tk toplevel\+Fenetre\+Jeu = None}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00021}{21}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+
+\Hypertarget{namespaceinterface_jeu_ae7ed860f10cfda28424a6d20284e8ec4}\label{namespaceinterface_jeu_ae7ed860f10cfda28424a6d20284e8ec4} 
+\index{interfaceJeu@{interfaceJeu}!TstatutJeu@{TstatutJeu}}
+\index{TstatutJeu@{TstatutJeu}!interfaceJeu@{interfaceJeu}}
+\doxysubsubsection{\texorpdfstring{TstatutJeu}{TstatutJeu}}
+{\footnotesize\ttfamily list Tstatut\+Jeu = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{interface_jeu_8py_source_l00035}{35}} of file \mbox{\hyperlink{interface_jeu_8py_source}{interface\+Jeu.\+py}}.
+

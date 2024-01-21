@@ -10,8 +10,8 @@
 import tkinter as tk
 
 ###########################################################
-#                 VARIABLES GLOABALES                    #
-##########################################################
+'                 VARIABLES GLOABALES                     '
+###########################################################
 
 toplevelFenetrePrincipale: tk.Tk = None # Fenêtre principale
 
@@ -22,101 +22,112 @@ bStateCoupSpecial : bool = True
 bStateUndoRedo : bool = True
 
 ###########################################################
-#                        GETERS                          #
-##########################################################
+'                        GETERS                           '
+###########################################################
 
-"""
-    @brief Renvoie le nombre de ligne du plateau choisi par le joueur
-    @return le nombre de ligne du plateau choisi par le joueur
-"""
-def getNbLigne():
+def getNbLigne() -> int:
+    """
+        @brief Renvoie le nombre de ligne du plateau choisi par le joueur
+        @return le nombre de ligne du plateau choisi par le joueur
+    """
+
     global iNbLignePlateau
     return iNbLignePlateau
 
-"""
-    @brief Renvoie le nombre de colonne du plateau choisi par le joueur
-    @return le nombre de colonne du plateau choisi par le joueur
-"""
-def getNbColonne():
+def getNbColonne() -> int: 
+    """
+        @brief Renvoie le nombre de colonne du plateau choisi par le joueur
+        @return le nombre de colonne du plateau choisi par le joueur
+    """
+
     global iNbColonnePlateau
     return iNbColonnePlateau
 
-"""
-    @brief Renvoie le nombre de jeton à alligner pour gagner
-    @return le nombre de jeton à alligner pour gagner
-"""
-def getNbJetonVictoire():
+def getNbJetonVictoire() -> int:
+    """
+        @brief Renvoie le nombre de jeton à alligner pour gagner
+        @return le nombre de jeton à alligner pour gagner
+    """
+
     global iNbJetonVictoire
     return iNbJetonVictoire
 
-"""
-    @brief Renvoie le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
-    @return le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
-"""
-def getStateCoupSpecial():
+def getStateCoupSpecial() -> bool:
+    """
+        @brief Renvoie le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
+        @return le booléen qui défini si le coup spécial sera activé (True activé, False pas activé)
+    """
+
     global bStateCoupSpecial
     return bStateCoupSpecial
 
-"""
-    @brief Renvoie le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
-    @return le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
-"""
-def getStateUndoRedo():
+def getStateUndoRedo() -> bool:
+    """
+        @brief Renvoie le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
+        @return le booléen qui défini si l'UNDO/REDO sera activé (True activé, False pas activé)
+    """
+
     global bStateUndoRedo
     return bStateUndoRedo
 
 ###########################################################
-#           FONCTIONS LIEES AUX BOUTONS                  #
-##########################################################
+'           FONCTIONS LIEES AUX BOUTONS                   '
+###########################################################
 
-"""
-    @brief Met à jour la variable global qui défini le nombre de ligne du plateau
-    @param iNbLigneChoisi variable tkinter qui contient le nombre de ligne du plateau
-"""
-def updateNbLignePlateau(iNbLigneChoisi: int):
+def updateNbLignePlateau(iNbLigneChoisi: int) -> None:
+    """
+        @brief Met à jour la variable global qui défini le nombre de ligne du plateau
+        @param iNbLigneChoisi variable tkinter qui contient le nombre de ligne du plateau
+    """
+        
     global iNbLignePlateau
     iNbLignePlateau = int(iNbLigneChoisi)
-    
-"""
-    @brief Met à jour la variable global qui défini le nombre de colonne du plateau
-    @param iNbColonneChoisi variable tkinter qui contient le nombre de colonne du plateau
-"""
-def updateNbColonnePlateau(iNbColonneChoisi: int):
+
+def updateNbColonnePlateau(iNbColonneChoisi: int) -> None:        
+    """
+        @brief Met à jour la variable global qui défini le nombre de colonne du plateau
+        @param iNbColonneChoisi variable tkinter qui contient le nombre de colonne du plateau
+    """
+
     global iNbColonnePlateau
     iNbColonnePlateau = int(iNbColonneChoisi)
 
-"""
-    @brief Met à jour la variable global qui défini le nombre de jeton à alligner pour gagner
-    @param iNbJetonVictoireChoisi variable tkinter qui contient le nombre de jeton à alligner pour gagner
-"""
-def updateNbJetonVicoire(iNbJetonVictoireChoisi: int):
+def updateNbJetonVicoire(iNbJetonVictoireChoisi: int) -> None:
+    """
+        @brief Met à jour la variable global qui défini le nombre de jeton à alligner pour gagner
+        @param iNbJetonVictoireChoisi variable tkinter qui contient le nombre de jeton à alligner pour gagner
+    """
+
     global iNbJetonVictoire
     iNbJetonVictoire = int(iNbJetonVictoireChoisi)
 
-"""
-    @brief Met à jour la variable global qui défini si le coup spécial est activé en fonction de l'état de son checkbutton associé
-    @param bCoupSpecialChoisi variable tkinter qui contient l'état du checkbutton coup spécial
-"""
-def updateCoupSpecial(bCoupSpecialChoisi: bool):
+def updateCoupSpecial(bCoupSpecialChoisi: bool) -> None:
+    """
+        @brief Met à jour la variable global qui défini si le coup spécial est activé en fonction de l'état de son checkbutton associé
+        @param bCoupSpecialChoisi variable tkinter qui contient l'état du checkbutton coup spécial
+    """
+
     global bStateCoupSpecial
     bStateCoupSpecial = bCoupSpecialChoisi
 
-"""
-    @brief Met à jour la variable global qui défini si l'undo redo est activé en fonction de l'état de son checkbutton associé
-    @param bUndoRedoChoisi variable tkinter qui contient l'état du checkbutton undo/redo
-"""
-def updateUndoRedo(bUndoRedoChoisi: bool):
+def updateUndoRedo(bUndoRedoChoisi: bool) -> None:
+    """
+        @brief Met à jour la variable global qui défini si l'undo redo est activé en fonction de l'état de son checkbutton associé
+        @param bUndoRedoChoisi variable tkinter qui contient l'état du checkbutton undo/redo
+    """
+
     global bStateUndoRedo
     bStateUndoRedo = bUndoRedoChoisi
 
 ###########################################################
-#           FONCTIONS LIEES A L'AFFICHAGE                #
-##########################################################
+'             FONCTIONS LIEES A AFFICHAGE                 '
+###########################################################
 
-"""
-    @brief Créé le widget permettant de choisir la nombre de ligne du plateau
-"""
-def creerFrameNbLigne():
+def creerFrameNbLigne() -> None:
+    """
+        @brief Créé le widget permettant de choisir la nombre de ligne du plateau
+    """
+
     global toplevelFenetrePrincipale
     global iNbLignePlateau
 
@@ -138,10 +149,11 @@ def creerFrameNbLigne():
     labelNbLigne.configure(text='Nombre de ligne du plateau', font=20)
     labelNbLigne.place(anchor="nw", relx=0.20, rely=0.4, x=0, y=0)
 
-"""
-    @brief  Créé le widget permettant de choisir le nombre de colonne du plateau
-"""
-def creerFrameNbColonne():
+def creerFrameNbColonne() -> None:
+    """
+        @brief  Créé le widget permettant de choisir le nombre de colonne du plateau
+    """
+
     global toplevelFenetrePrincipale
     global iNbColonnePlateau
 
@@ -163,10 +175,11 @@ def creerFrameNbColonne():
     labelNbColonne.configure(text='Nombre de colonne du plateau', font=20)
     labelNbColonne.place(anchor="nw", relx=0.18, rely=0.4, x=0, y=0) 
 
-"""
-    @brief  Créé le widget permettant de choisir le nombre de jeton à alligner pour gagner
-"""
-def creerFrameNombreJetonVictoire():
+def creerFrameNombreJetonVictoire() -> None:
+    """
+        @brief  Créé le widget permettant de choisir le nombre de jeton à alligner pour gagner
+    """
+
     global toplevelFenetrePrincipale
     global iNbJetonVictoire
 
@@ -188,10 +201,11 @@ def creerFrameNombreJetonVictoire():
     labelNombreJetonVictoire.configure(text='Nombre de jeton à alligner', font=20)
     labelNombreJetonVictoire.place(anchor="nw", relx=0.18, rely=0.37, x=0, y=0)
      
-"""
-    @brief Créé les checkbutton pour l'activation/désactivation de l'UNDO/REDO et du coup spécial
-"""
-def creerFrameCheckButton():
+def creerFrameCheckButton() -> None:
+    """
+        @brief Créé les checkbutton pour l'activation/désactivation de l'UNDO/REDO et du coup spécial
+    """
+
     global toplevelFenetrePrincipale
     global bStateCoupSpecial
     global bStateUndoRedo
@@ -218,14 +232,15 @@ def creerFrameCheckButton():
 
 
 ###########################################################
-#                 GESTION DE LA FENETRE                   #
+'                 GESTION DE LA FENETRE                   '
 ###########################################################
 
-"""
-    @brief Gère l'affichage de la page principale
-    @param toplevelFenetre Fenêtre principale
-"""
-def gererInterfacePrincipale(toplevelFenetre: tk.Tk):
+def gererInterfacePrincipale(toplevelFenetre: tk.Tk) -> None:
+    """
+        @brief Gère l'affichage de la page principale
+        @param toplevelFenetre Fenêtre principale
+    """
+
     global toplevelFenetrePrincipale
 
     toplevelFenetrePrincipale = toplevelFenetre

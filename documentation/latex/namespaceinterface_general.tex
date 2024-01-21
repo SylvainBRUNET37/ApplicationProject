@@ -1,0 +1,68 @@
+\doxysection{interface\+General Namespace Reference}
+\hypertarget{namespaceinterface_general}{}\label{namespaceinterface_general}\index{interfaceGeneral@{interfaceGeneral}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+tk.\+Tk \mbox{\hyperlink{namespaceinterface_general_a189934ec36cf555ae08a82dac08c6c21}{creer\+Toplevel\+Fenetre}} (int i\+Largeur\+Fenetre, int i\+Hauteur\+Fenetre, bool b\+Redimensionnable, str s\+Nom\+Fenetre)
+\item 
+None \mbox{\hyperlink{namespaceinterface_general_ab5acc35fffec8364f98db0749ce05576}{creer\+Frame\+Haut}} (tk.\+Tk toplevel\+Fenetre)
+\item 
+None \mbox{\hyperlink{namespaceinterface_general_a00c4455fc7b9780a9726303206439a1f}{creer\+Bouton\+Retour}} (fonction\+Retour, dict dict\+Parametre, tk.\+Tk toplevel\+Fenetre)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @file    interfaceGeneral.py
+    @brief   Contient les fonctions utilisées par toutes les interfaces
+    @author  Sylvain BRUNET
+    @version 1.0
+    @date    2023-2024
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceinterface_general_a00c4455fc7b9780a9726303206439a1f}\label{namespaceinterface_general_a00c4455fc7b9780a9726303206439a1f} 
+\index{interfaceGeneral@{interfaceGeneral}!creerBoutonRetour@{creerBoutonRetour}}
+\index{creerBoutonRetour@{creerBoutonRetour}!interfaceGeneral@{interfaceGeneral}}
+\doxysubsubsection{\texorpdfstring{creerBoutonRetour()}{creerBoutonRetour()}}
+{\footnotesize\ttfamily  None creer\+Bouton\+Retour (\begin{DoxyParamCaption}\item[{}]{fonction\+Retour,  }\item[{dict}]{dict\+Parametre,  }\item[{tk.\+Tk}]{toplevel\+Fenetre }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Gère la création du bouton de retour : lorsque le bouton est cliqué, détruit la fenêtre actuelle et reviens à la fenêtre d'avant
+    @param  fonctionRetour  la fonction qui initialise la fenêtre où revenir
+    @param  dictParametre   les paramètres à envoyer à la fenêtre où revenir
+    @param  toplevelFenetre la fenêtre à détruire
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_general_8py_source_l00057}{57}} of file \mbox{\hyperlink{interface_general_8py_source}{interface\+General.\+py}}.
+
+\Hypertarget{namespaceinterface_general_ab5acc35fffec8364f98db0749ce05576}\label{namespaceinterface_general_ab5acc35fffec8364f98db0749ce05576} 
+\index{interfaceGeneral@{interfaceGeneral}!creerFrameHaut@{creerFrameHaut}}
+\index{creerFrameHaut@{creerFrameHaut}!interfaceGeneral@{interfaceGeneral}}
+\doxysubsubsection{\texorpdfstring{creerFrameHaut()}{creerFrameHaut()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Haut (\begin{DoxyParamCaption}\item[{tk.\+Tk}]{toplevel\+Fenetre }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Créé le haut des pages : le bouton pour revenir en arrière, le nom du jeu et le bouton quitter
+    @param  toplevelFenetre la fenêtre où placer le haut de page
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_general_8py_source_l00039}{39}} of file \mbox{\hyperlink{interface_general_8py_source}{interface\+General.\+py}}.
+
+\Hypertarget{namespaceinterface_general_a189934ec36cf555ae08a82dac08c6c21}\label{namespaceinterface_general_a189934ec36cf555ae08a82dac08c6c21} 
+\index{interfaceGeneral@{interfaceGeneral}!creerToplevelFenetre@{creerToplevelFenetre}}
+\index{creerToplevelFenetre@{creerToplevelFenetre}!interfaceGeneral@{interfaceGeneral}}
+\doxysubsubsection{\texorpdfstring{creerToplevelFenetre()}{creerToplevelFenetre()}}
+{\footnotesize\ttfamily  tk.\+Tk creer\+Toplevel\+Fenetre (\begin{DoxyParamCaption}\item[{int}]{i\+Largeur\+Fenetre,  }\item[{int}]{i\+Hauteur\+Fenetre,  }\item[{bool}]{b\+Redimensionnable,  }\item[{str}]{s\+Nom\+Fenetre }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Créé une fenêtre à partir d'un nom et de dimmensions donné
+    @param  iLargeurFenetre   largeur de la fenêtre
+    @param  iHauteurFenetre   hauteur de la fenêtre
+    @param  bRedimensionnable si égal a True, la fenêtre sera redimensionnable (et inversement pour False)
+    @param  sNomFenetre       nom de la fenêtre
+    @return la fenêtre créée
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_general_8py_source_l00012}{12}} of file \mbox{\hyperlink{interface_general_8py_source}{interface\+General.\+py}}.
+

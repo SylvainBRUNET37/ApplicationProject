@@ -1,0 +1,83 @@
+\doxysection{interface\+General.\+py}
+\hypertarget{interface_general_8py_source}{}\label{interface_general_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/interface/interfaceGeneral.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/interface/interfaceGeneral.py}}
+\mbox{\hyperlink{interface_general_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00001}\mbox{\hyperlink{namespaceinterface_general}{00001}}\ \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ interfaceGeneral.py}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ les\ fonctions\ utilisées\ par\ toutes\ les\ interfaces}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Sylvain\ BRUNET}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @version\ 1.0}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00008}00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00010}00010\ \textcolor{keyword}{import}\ tkinter\ \textcolor{keyword}{as}\ tk}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00012}\mbox{\hyperlink{namespaceinterface_general_a189934ec36cf555ae08a82dac08c6c21}{00012}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_general_a189934ec36cf555ae08a82dac08c6c21}{creerToplevelFenetre}}(iLargeurFenetre:\ int,\ iHauteurFenetre:\ int,\ bRedimensionnable:\ bool,\ sNomFenetre:\ str)\ -\/>\ tk.Tk:}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00013}00013\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00014}00014\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ une\ fenêtre\ à\ partir\ d'un\ nom\ et\ de\ dimmensions\ donné}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00015}00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iLargeurFenetre\ \ \ largeur\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iHauteurFenetre\ \ \ hauteur\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ bRedimensionnable\ si\ égal\ a\ True,\ la\ fenêtre\ sera\ redimensionnable\ (et\ inversement\ pour\ False)}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ sNomFenetre\ \ \ \ \ \ \ nom\ de\ la\ fenêtre}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ la\ fenêtre\ créée}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00020}00020\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00022}00022\ \ \ \ \ toplevelFenetre:\ tk.Tk\ =\ tk.Tk()}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00024}00024\ \ \ \ \ \textcolor{comment}{\#\ Recupère\ les\ dimensions\ (largeur\ et\ hauteur)\ de\ l'écran\ de\ l'utilisateur}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00025}00025\ \ \ \ \ iLargeurEcran\ :\ int\ =\ toplevelFenetre.winfo\_screenwidth()}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00026}00026\ \ \ \ \ iHauteurEcran\ :\ int\ =\ toplevelFenetre.winfo\_screenheight()}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00027}00027\ \ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00028}00028\ \ \ \ \ \textcolor{comment}{\#\ Calcule\ des\ coodonnées\ où\ devra\ être\ placer\ la\ fenêtre\ pour\ être\ au\ centre\ de\ l'écran}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00029}00029\ \ \ \ \ iCoordonneeFenetreX\ :\ int\ =\ int((iLargeurEcran/2)\ -\/\ (iLargeurFenetre/2))}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00030}00030\ \ \ \ \ iCoordonneeFenetreY\ :\ int\ =\ int((iHauteurEcran/2)\ -\/\ (iHauteurFenetre/2))}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00031}00031\ \ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00032}00032\ \ \ \ \ \textcolor{comment}{\#\ Applique\ les\ dimensions\ à\ la\ fenêtre\ et\ la\ place\ aux\ coodonnées\ calculées\ précédement}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00033}00033\ \ \ \ \ toplevelFenetre.geometry(\textcolor{stringliteral}{"{}\{\}x\{\}+\{\}+\{\}"{}}.format(iLargeurFenetre,\ iHauteurFenetre,\ iCoordonneeFenetreX,\ iCoordonneeFenetreY))}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00034}00034\ \ \ \ \ toplevelFenetre.resizable(bRedimensionnable,\ bRedimensionnable)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00035}00035\ \ \ \ \ toplevelFenetre.title(sNomFenetre)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ toplevelFenetre}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00039}\mbox{\hyperlink{namespaceinterface_general_ab5acc35fffec8364f98db0749ce05576}{00039}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_general_ab5acc35fffec8364f98db0749ce05576}{creerFrameHaut}}(toplevelFenetre:\ tk.Tk)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00040}00040\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00041}00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ le\ haut\ des\ pages\ :\ le\ bouton\ pour\ revenir\ en\ arrière,\ le\ nom\ du\ jeu\ et\ le\ bouton\ quitter}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00042}00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ toplevelFenetre\ la\ fenêtre\ où\ placer\ le\ haut\ de\ page}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00043}00043\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00045}00045\ \ \ \ \ frameHaut:\ tk.Frame\ =\ tk.Frame(toplevelFenetre)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00046}00046\ \ \ \ \ frameHaut.configure(height=100,\ width=750)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00047}00047\ \ \ \ \ frameHaut.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ x=150,\ y=5)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00049}00049\ \ \ \ \ labelNomJeu\ =\ tk.Label(frameHaut)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00050}00050\ \ \ \ \ labelNomJeu.configure(font=\textcolor{stringliteral}{"{}\{Arial\}\ 36\ \{bold\ underline\}"{}},\ text=\textcolor{stringliteral}{'Puissance\ N'})}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00051}00051\ \ \ \ \ labelNomJeu.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.12,\ rely=0.20)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00053}00053\ \ \ \ \ buttonQuitter:\ tk.Button\ =\ tk.Button(frameHaut)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00054}00054\ \ \ \ \ buttonQuitter.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 26\ \{\}"{}},\ width=6,\ text=\textcolor{stringliteral}{'Quitter'},\ command=toplevelFenetre.destroy)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00055}00055\ \ \ \ \ buttonQuitter.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.6,\ rely=0.21)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00057}\mbox{\hyperlink{namespaceinterface_general_a00c4455fc7b9780a9726303206439a1f}{00057}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_general_a00c4455fc7b9780a9726303206439a1f}{creerBoutonRetour}}(fonctionRetour,\ dictParametre:\ dict,\ toplevelFenetre:\ tk.Tk)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00058}00058\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00059}00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Gère\ la\ création\ du\ bouton\ de\ retour\ :\ lorsque\ le\ bouton\ est\ cliqué,\ détruit\ la\ fenêtre\ actuelle\ et\ reviens\ à\ la\ fenêtre\ d'avant}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00060}00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ fonctionRetour\ \ la\ fonction\ qui\ initialise\ la\ fenêtre\ où\ revenir}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00061}00061\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ dictParametre\ \ \ les\ paramètres\ à\ envoyer\ à\ la\ fenêtre\ où\ revenir}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00062}00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ toplevelFenetre\ la\ fenêtre\ à\ détruire}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00063}00063\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00065}00065\ \ \ \ \ frameBoutonRetour:\ tk.Frame\ =\ tk.Frame(toplevelFenetre)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00066}00066\ \ \ \ \ frameBoutonRetour.configure(height=150,\ width=150)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00067}00067\ \ \ \ \ frameBoutonRetour.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ x=10,\ y=5)}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00068}00068\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00069}00069\ \ \ \ \ buttonRetour:\ tk.Button\ =\ tk.Button()}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00070}00070\ \ \ \ \ \textcolor{comment}{\#\ Si\ il\ c'est\ la\ page\ principale,\ désactive\ le\ bouton\ de\ retour\ en\ arrière\ (puisqu'il\ n'y\ a\ rien\ avant)}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (fonctionRetour\ ==\ \textcolor{keywordtype}{None}):}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ buttonRetour.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 26\ \{\}"{}},\ width=6,\ text=\textcolor{stringliteral}{'Retour'},\ state=\textcolor{stringliteral}{"{}disabled"{}})}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00073}00073\ \ \ \ \ \textcolor{comment}{\#\ Sinon,\ active\ le\ bouton\ et\ lie\ la\ fonction\ passée\ en\ paramètre\ avec\ le\ bouton}}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ buttonRetour.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 26\ \{\}"{}},\ width=6,\ text=\textcolor{stringliteral}{'Retour'},}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command=\ \textcolor{keyword}{lambda}:\ [toplevelFenetre.destroy(),\ fonctionRetour(dictParametre)])}
+\DoxyCodeLine{\Hypertarget{interface_general_8py_source_l00077}00077\ \ \ \ \ buttonRetour.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.05,\ rely=0.05)}
+
+\end{DoxyCode}

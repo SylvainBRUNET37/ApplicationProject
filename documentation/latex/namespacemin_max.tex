@@ -1,0 +1,58 @@
+\doxysection{min\+Max Namespace Reference}
+\hypertarget{namespacemin_max}{}\label{namespacemin_max}\index{minMax@{minMax}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143}{gerer\+Min\+Max}} (list Tplateau\+De\+Jeu, int i\+Profondeur, bool b\+Maximisant, int i\+Nb\+Colonne, int i\+Nb\+Ligne, int i\+Nb\+Jeton\+Victoire)
+\item 
+int \mbox{\hyperlink{namespacemin_max_a03b1c2b431f63c3ddaf52deefe837b70}{trouver\+Meilleur\+Coup}} (list Tplateau\+De\+Jeu, int i\+Nb\+Colonne, int i\+Nb\+Ligne, int i\+Nb\+Jeton\+Victoire, int i\+Profondeur)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @file    minMax.py
+    @brief   Contient les fonctions pour l'IA
+    @author  Matthieu CHARTON
+    @version 1.0
+    @date    2023-2024
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143}\label{namespacemin_max_afbc9df253aa403d30d1c21fe9aa42143} 
+\index{minMax@{minMax}!gererMinMax@{gererMinMax}}
+\index{gererMinMax@{gererMinMax}!minMax@{minMax}}
+\doxysubsubsection{\texorpdfstring{gererMinMax()}{gererMinMax()}}
+{\footnotesize\ttfamily  float gerer\+Min\+Max (\begin{DoxyParamCaption}\item[{list}]{Tplateau\+De\+Jeu,  }\item[{int}]{i\+Profondeur,  }\item[{bool}]{b\+Maximisant,  }\item[{int}]{i\+Nb\+Colonne,  }\item[{int}]{i\+Nb\+Ligne,  }\item[{int}]{i\+Nb\+Jeton\+Victoire }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Algorithme minimax pour évaluer la position du plateau de jeu
+    @param TplateauDeJeu    Le tableau du plateau de jeu.
+    @param iProfondeur      La iProfondeur de recherche de l'algorithme.
+    @param bMaximisant      True si bMaximisant (joueur 2), False sinon (joueur 1).
+    @param iNbColonne       Le nombre de colonnes dans le plateau.
+    @param iNbLigne         Le nombre de lignes dans le plateau.
+    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire.
+    @return la valeur d'évaluation de la position du plateau.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{min_max_8py_source_l00014}{14}} of file \mbox{\hyperlink{min_max_8py_source}{min\+Max.\+py}}.
+
+\Hypertarget{namespacemin_max_a03b1c2b431f63c3ddaf52deefe837b70}\label{namespacemin_max_a03b1c2b431f63c3ddaf52deefe837b70} 
+\index{minMax@{minMax}!trouverMeilleurCoup@{trouverMeilleurCoup}}
+\index{trouverMeilleurCoup@{trouverMeilleurCoup}!minMax@{minMax}}
+\doxysubsubsection{\texorpdfstring{trouverMeilleurCoup()}{trouverMeilleurCoup()}}
+{\footnotesize\ttfamily  int trouver\+Meilleur\+Coup (\begin{DoxyParamCaption}\item[{list}]{Tplateau\+De\+Jeu,  }\item[{int}]{i\+Nb\+Colonne,  }\item[{int}]{i\+Nb\+Ligne,  }\item[{int}]{i\+Nb\+Jeton\+Victoire,  }\item[{int}]{i\+Profondeur }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Trouve le meilleur coup pour l'IA en utilisant l'algorithme minimax
+    @param TplateauDeJeu    Le tableau du plateau de jeu
+    @param iNbColonne       Le nombre de colonnes dans le plateau
+    @param iNbLigne         Le nombre de lignes dans le plateau
+    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
+    @param iProfondeur      La iProfondeur de recherche de l'algorithme
+    @return la colonne du meilleur coup trouvé pas l'algorithme min-max
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{min_max_8py_source_l00072}{72}} of file \mbox{\hyperlink{min_max_8py_source}{min\+Max.\+py}}.
+

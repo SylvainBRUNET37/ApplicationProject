@@ -14,7 +14,7 @@ from jeu.minMax import trouverMeilleurCoup
 from interface.interfaceGeneral import creerToplevelFenetre
 
 ###########################################################
-#                  VARIABLES GLOABALES                    #
+'                  VARIABLES GLOABALES                    '
 ###########################################################
 
 canvasFondPlateau: tk.Canvas = None # Fond du plateau de jeu
@@ -36,33 +36,34 @@ TstatutJeu: list = [] # Contient le statut du jeu pour chaque tour (pour le UNDO
                       # le plateau de jeu et le nombre de coup spécial restant de chaque joueur pour chaque tour
 
 ###########################################################
-#             FONCTIONS LIEES AUX BOUTONS                 #
+'             FONCTIONS LIEES AUX BOUTONS                 '
 ###########################################################
 
-"""
-    @brief  Lance la fonction UNDO ou REDO (dépend de la valeur de bUndoOrRedo) et met à jour les boutons liés à cette fonction 
-    @param  bUndoOrRedo si True fait l'UNDO, si False fait le REDO
-"""
-def gererUndoRedo(bUndoOrRedo: bool):
+def gererUndoRedo(bUndoOrRedo: bool) -> None:
+    """
+        @brief  Lance la fonction UNDO ou REDO (dépend de la valeur de bUndoOrRedo) et met à jour les boutons liés à cette fonction 
+        @param  bUndoOrRedo si True fait l'UNDO, si False fait le REDO
+    """
+
     global iTourCourant
     global iCptUndo
     global iJoueurCourant
 
-    # Si c'est du joueur vs IA, ajoute un poid qui doublera le nombre de tours où revenir en arrière/avant
+    # Si c'est du joueur vs IA, créé un poid qui doublera le nombre de tours où revenir en arrière/avant
     if (iDifficulteIA == 0):
-        intStateJvsIA: int = 1
+        iStateJvsIA: int = 1
     else:
-        intStateJvsIA: int = 2
+        iStateJvsIA: int = 2
 
     # Si le joueur à cliqué sur UNDO, reviens au tour d'avant, incrémente le nombre de UNDO utilisé d'affilé et met à jour le plateau
     if (bUndoOrRedo == True):
-        iTourCourant -= 1 * intStateJvsIA
-        iCptUndo += 1 * intStateJvsIA
+        iTourCourant -= 1 * iStateJvsIA
+        iCptUndo += 1 * iStateJvsIA
         updateAffichagePlateau()
     # Si le joueur à cliqué sur REDO, reviens au tour d'après, décrémente le nombre de UNDO utilisé d'affilé et met à jour le plateau
     elif (bUndoOrRedo == False):
-        iTourCourant += 1 * intStateJvsIA
-        iCptUndo -= 1 * intStateJvsIA
+        iTourCourant += 1 * iStateJvsIA
+        iCptUndo -= 1 * iStateJvsIA
         updateAffichagePlateau()
 
     # Met à jour le joueur qui doit jouer
@@ -76,10 +77,11 @@ def gererUndoRedo(bUndoOrRedo: bool):
     afficherInfoJeu()
     creerBoutonCoupSpecial()
 
-"""
-    @brief Met à jour le plateau en mettant les bons jetons aux bons endroits
-"""
-def updateAffichagePlateau():
+def updateAffichagePlateau() -> None:  
+    """
+        @brief Met à jour le plateau en mettant les bons jetons aux bons endroits
+    """
+
     # Supprime toutes les cases du plateau
     canvasFondPlateau.delete("all")
 
@@ -101,11 +103,12 @@ def updateAffichagePlateau():
             # Affiche un emplacement du plateau
             afficherJeton(iColonne, iLigne, sCouleur)
         
-"""
-    @brief  Gère le jeu : place le jeton, gère la sauvegarde des statuts de jeu...
-    @param  iColonneChoisi colonne dans laquel le jeton doit être placé (colonne sur laquel le joueur a cliqué)
-"""
-def gererJeu(iColonneChoisi: int):
+def gererJeu(iColonneChoisi: int) -> None:
+    """
+        @brief  Gère le jeu : place le jeton, gère la sauvegarde des statuts de jeu...
+        @param  iColonneChoisi colonne dans laquel le jeton doit être placé (colonne sur laquel le joueur a cliqué)
+    """
+
     global iTourCourant
     global iJoueurCourant
     global iNbLignePlateau
@@ -146,11 +149,12 @@ def gererJeu(iColonneChoisi: int):
             if (iDifficulteIA != 0 and iJoueurCourant == 2):
                 gererJeu(trouverMeilleurCoup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
 
-"""
-    @brief  Place le jeton dans la colonne choisi par le joueur
-    @return False si la colonne est pleine, True si le jeton a été joué
-"""
 def placerJeton(iColonneChoisi: int) -> bool:
+    """
+        @brief  Place le jeton dans la colonne choisi par le joueur
+        @return False si la colonne est pleine, True si le jeton a été joué
+    """
+
     global iCptUndo
     global iTourCourant
     global TstatutJeu
@@ -182,11 +186,12 @@ def placerJeton(iColonneChoisi: int) -> bool:
         
         return True
 
-"""
-    @brief  Inverse les couleurs des jetons
-    @return False si le coup spécial ne peut pas être joué, True si il a été joué
-"""
 def jouerCoupSpecial() -> bool:
+    """
+        @brief  Inverse les couleurs des jetons
+        @return False si le coup spécial ne peut pas être joué, True si il a été joué
+    """
+
     global iCptUndo
     global iTourCourant
     global TstatutJeu
@@ -221,13 +226,14 @@ def jouerCoupSpecial() -> bool:
         return True
        
 ###########################################################
-#            FONCTIONS LIEES A L'AFFICHAGE                #
+'             FONCTIONS LIEES A AFFICHAGE                 '
 ###########################################################
 
-"""
-    @brief Affiche le joueur qui doit jouer, le numéro du tour et le nombre de coup spécial de chaque joueur
-"""
-def afficherInfoJeu():
+def afficherInfoJeu() -> None:
+    """
+        @brief Affiche le joueur qui doit jouer, le numéro du tour et le nombre de coup spécial de chaque joueur
+    """
+
     global iTourCourant
     global TstatutJeu
     global iJoueurCourant
@@ -259,11 +265,11 @@ def afficherInfoJeu():
     labelCoupSpecialJ2: tk.Label = tk.Label(frameInfoJeu, text="J2 : "+str(TstatutJeu[iTourCourant][2]), font="{Helvetica} 12")
     labelCoupSpecialJ2.place(anchor="nw", relx=0.76, rely=0.425)
 
+def creerBoutonCoupSpecial() -> None:
+    """
+        @brief Créé et affiche le bouton qui permet d'utiliser le coup spécial
+    """
 
-"""
-    @brief Créé et affiche le bouton qui permet d'utiliser le coup spécial
-"""
-def creerBoutonCoupSpecial():
     global iTourCourant
     global iJoueurCourant
     global TstatutJeu
@@ -285,11 +291,12 @@ def creerBoutonCoupSpecial():
                                 command= lambda: gererJeu(None))
     buttonCoupSpecial.place(anchor="nw", relx=0, rely=0)
 
-"""
-    @brief Affiche l'écran de fin de partie
-    @param bVerifGagner 0 si ce n'est pas la fin de la partie, 1 si J1 a gagné, 2 si J2 a gagné 3 si plateau plein
-"""
-def afficherFinJeu(bVerifGagner: bool):
+def afficherFinJeu(bVerifGagner: bool) -> None:
+    """
+        @brief Affiche l'écran de fin de partie
+        @param bVerifGagner 0 si ce n'est pas la fin de la partie, 1 si J1 a gagné, 2 si J2 a gagné 3 si plateau plein
+    """
+
     global bFinJeu
 
     # Si c'est la fin de la partie
@@ -313,10 +320,11 @@ def afficherFinJeu(bVerifGagner: bool):
             labelEgalite: tk.Label = tk.Label(toplevelFenetreJeu, text="Égalité !", font=("Helvetica", 16))
             labelEgalite.pack(pady=60)
 
-"""
-    @brief Créé les boutons d'UNDO/REDO
-"""
-def creerBoutonUndoRedo():
+def creerBoutonUndoRedo() -> None:
+    """
+        @brief Créé les boutons d'UNDO/REDO
+    """
+
     global iCptUndo
     global iTourCourant
     global toplevelFenetreJeu
@@ -358,13 +366,14 @@ def creerBoutonUndoRedo():
                          command= lambda: gererUndoRedo(False))
     buttonRedo.place(anchor="nw", relx=0, rely=0.5)
 
-"""
-    @brief  Affiche un jeton de couleur donnée à la position donnée
-    @param  iColonneChoisi  colonne dans laquel le jeton doit être placé
-    @param  iLigneJouer     ligne dans laquel le jeton doit être placé
-    @param  sCouleurJeton couleur du jeton à placer
-"""
-def afficherJeton(iColonneChoisi: int, iLigneJouer: int, sCouleurJeton: str):
+def afficherJeton(iColonneChoisi: int, iLigneJouer: int, sCouleurJeton: str) -> None:
+    """
+        @brief  Affiche un jeton de couleur donnée à la position donnée
+        @param  iColonneChoisi  colonne dans laquel le jeton doit être placé
+        @param  iLigneJouer     ligne dans laquel le jeton doit être placé
+        @param  sCouleurJeton couleur du jeton à placer
+    """
+
     global iNbLignePlateau
     global canvasFondPlateau
     global toplevelFenetreJeu
@@ -387,10 +396,10 @@ def afficherJeton(iColonneChoisi: int, iLigneJouer: int, sCouleurJeton: str):
     canvasFondPlateau.tag_bind(iCasePlateau, '<Button-1>', lambda event,
                         iColonneChoisi=iColonneChoisi: gererJeu(iColonneChoisi))
 
-"""
-    @brief Initialise et affiche le plateau de jeu
-"""
-def initialiserPlateau():
+def initialiserPlateau() -> None:
+    """
+        @brief Initialise et affiche le plateau de jeu
+    """
     global iNbColonnePlateau
     global iNbLignePlateau
     global canvasFondPlateau
@@ -407,14 +416,14 @@ def initialiserPlateau():
     updateAffichagePlateau()
 
 ###########################################################
-#                 GESTION DE LA FENETRE                   #
+'                 GESTION DE LA FENETRE                   '
 ###########################################################
 
-"""
-    @brief Gère l'initialisation des variables globales
-    @param dictParametre contient les paramètres choisis par le joueur
-"""
-def initVarGlobal(dictParametre: dict):
+def initVarGlobal(dictParametre: dict) -> None:
+    """
+        @brief Gère l'initialisation des variables globales
+        @param dictParametre contient les paramètres choisis par le joueur
+    """
     global toplevelFenetreJeu
     global iJoueurCourant
     global iNbColonnePlateau
@@ -458,12 +467,13 @@ def initVarGlobal(dictParametre: dict):
     # Contient : plateau de jeu, nombre d'atouts restant pour le J1, nombre d'atouts restant pour le J2
     TstatutJeu.append([TplateauDeJeu, dictParametre["nbCoupSpecial"], dictParametre["nbCoupSpecial"]])
 
-"""
-    @brief Gère l'affichage de la page de jeu
-    @param toplevelFenetre Fenêtre de jeu
-    @param dictParametre contient les paramètres choisis par le joueur
-"""
-def gererInterfaceJeu(toplevelFenetre: tk.Tk, dictParametre: dict):
+def gererInterfaceJeu(toplevelFenetre: tk.Tk, dictParametre: dict) -> None:
+    """
+        @brief Gère l'affichage de la page de jeu
+        @param toplevelFenetre Fenêtre de jeu
+        @param dictParametre dictionnaire qui contient les paramètres choisis par le joueur
+    """
+    
     global iDifficulteIA
     global iJoueurCourant
 

@@ -7,15 +7,15 @@
     @date    2023-2024
 """
 
-"""
-    @brief Vérifie s'il y a une victoire dans une colonne
-    @param TplateauDeJeu    Le tableau du plateau de jeu
-    @param iNbColonne       Le nombre de colonnes dans le plateau
-    @param iNbLigne         Le nombre de lignes dans le plateau
-    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
-    @return 0 si aucune victoire, sinon le numéro du joueur gagnant
-"""
 def verifierColonne(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int) -> int:
+    """
+        @brief Vérifie s'il y a une victoire dans une colonne
+        @param TplateauDeJeu    Le tableau du plateau de jeu
+        @param iNbColonne       Le nombre de colonnes dans le plateau
+        @param iNbLigne         Le nombre de lignes dans le plateau
+        @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
+        @return 0 si aucune victoire, sinon le numéro du joueur gagnant
+    """
 
     # Parcours les colonnes
     for iBoucleColonne in range(iNbColonne):        
@@ -40,15 +40,15 @@ def verifierColonne(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJeto
 
     return 0
 
-"""
-    @brief Vérifie s'il y a une victoire dans une ligne
-    @param TplateauDeJeu    Le tableau du plateau de jeu
-    @param iNbColonne       Le nombre de colonnes dans le plateau
-    @param iNbLigne         Le nombre de lignes dans le plateau
-    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
-    @return 0 si aucune victoire, sinon le numéro du joueur gagnant
-"""
 def verifierLigne(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int) -> int:
+    """
+        @brief Vérifie s'il y a une victoire dans une ligne
+        @param TplateauDeJeu    Le tableau du plateau de jeu
+        @param iNbColonne       Le nombre de colonnes dans le plateau
+        @param iNbLigne         Le nombre de lignes dans le plateau
+        @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
+        @return 0 si aucune victoire, sinon le numéro du joueur gagnant
+    """
 
     # Parcours les lignes
     for iBoucleLigne in range(iNbLigne):
@@ -73,15 +73,16 @@ def verifierLigne(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonV
         
     return 0
 
-"""
-    @brief Vérifie s'il y a une victoire dans une diagonale ascendante
-    @param TplateauDeJeu    Le tableau du plateau de jeu
-    @param iNbColonne       Le nombre de colonnes dans le plateau
-    @param iNbLigne         Le nombre de lignes dans le plateau
-    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
-    @return 0 si aucune victoire, sinon le numéro du joueur gagnant
-"""
 def verifierDiagonaleAsc(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int) -> int:
+    """
+        @brief Vérifie s'il y a une victoire dans une diagonale ascendante
+        @param TplateauDeJeu    Le tableau du plateau de jeu
+        @param iNbColonne       Le nombre de colonnes dans le plateau
+        @param iNbLigne         Le nombre de lignes dans le plateau
+        @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
+        @return 0 si aucune victoire, sinon le numéro du joueur gagnant
+    """
+
     # Parcours des colonnes
     for iBoucleColonne in range(iNbColonne - iNbJetonVictoire + 1):
         # Parcours des lignes
@@ -93,15 +94,16 @@ def verifierDiagonaleAsc(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iN
                     return TplateauDeJeu[iBoucleColonne][iBoucleLigne]
     return 0
 
-"""
-    @brief Vérifie s'il y a une victoire dans une diagonale descendante
-    @param TplateauDeJeu    Le tableau du plateau de jeu
-    @param iNbColonne       Le nombre de colonnes dans le plateau
-    @param iNbLigne         Le nombre de lignes dans le plateau
-    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
-    @return 0 si aucune victoire, sinon le numéro du joueur gagnant
-"""
-def verifierDiagonaleDesc(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int) -> int:
+def verifierDiagonaleDesc(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int) -> int:    
+    """
+        @brief Vérifie s'il y a une victoire dans une diagonale descendante
+        @param TplateauDeJeu    Le tableau du plateau de jeu
+        @param iNbColonne       Le nombre de colonnes dans le plateau
+        @param iNbLigne         Le nombre de lignes dans le plateau
+        @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
+        @return 0 si aucune victoire, sinon le numéro du joueur gagnant
+    """
+
     # Parcours des colonnes
     for iBoucleColonne in range(iNbJetonVictoire - 1, iNbColonne):
         # Parcours des lignes
@@ -113,14 +115,15 @@ def verifierDiagonaleDesc(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, i
                     return TplateauDeJeu[iBoucleColonne][iBoucleLigne]
     return 0
 
-"""
-    @brief Vérifie si le plateau de jeu est complètement rempli
-    @param TplateauDeJeu Le tableau du plateau de jeu
-    @param iNbColonne    Le nombre de colonnes dans le plateau
-    @param iNbLigne      Le nombre de lignes dans le plateau
-    @return 0 si le plateau n'est pas complètement rempli, sinon 3 (équivalent à un match nul)
-"""
 def verifierPlateauRempli(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int) -> int:
+    """
+        @brief Vérifie si le plateau de jeu est complètement rempli
+        @param TplateauDeJeu Le tableau du plateau de jeu
+        @param iNbColonne    Le nombre de colonnes dans le plateau
+        @param iNbLigne      Le nombre de lignes dans le plateau
+        @return 0 si le plateau n'est pas complètement rempli, sinon 3 (équivalent à un match nul)
+    """
+
     # Parcours des colonnes
     for iBoucleColonne in range(iNbColonne):
         # Parcours des lignes
@@ -130,15 +133,16 @@ def verifierPlateauRempli(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int) -
                 return(0)
     return(3)
 
-"""
-    @brief Fonction principale de vérification de l'état du jeu
-    @param TplateauDeJeu    Le tableau du plateau de jeu
-    @param iNbColonne       Le nombre de colonnes dans le plateau
-    @param iNbLigne         Le nombre de lignes dans le plateau
-    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
-    @return 0 si aucune victoire, 3 si match nul, sinon le numéro du joueur gagnant
-"""
 def verifierFinJeu(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int) -> int:
+    """
+        @brief Fonction principale de vérification de l'état du jeu
+        @param TplateauDeJeu    Le tableau du plateau de jeu
+        @param iNbColonne       Le nombre de colonnes dans le plateau
+        @param iNbLigne         Le nombre de lignes dans le plateau
+        @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
+        @return 0 si aucune victoire, 3 si match nul, sinon le numéro du joueur gagnant
+    """
+
     iVictoireColonne: int = verifierColonne(TplateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire)
 
     # Vérification de la victoire par colonne

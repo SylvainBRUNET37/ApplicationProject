@@ -10,7 +10,7 @@
 import tkinter as tk
 
 ###########################################################
-#                  VARIABLES GLOABALES                    #
+'                  VARIABLES GLOABALES                    '
 ###########################################################
 
 toplevelFenetreParametre: tk.Tk = None # Fenêtre de paramètre
@@ -22,67 +22,71 @@ iJoueurCommence : int = 1
 iDifficulteIA : int = 1 # 0 si en JvsJ, 1 pour niveau 1, 2 pour niveau 2 et 4 pour niveau 3 (correspond à la profondeur de l'algorithme)
 
 ###########################################################
-#                         GETERS                          #
+'                         GETERS                          '
 ###########################################################
 
-"""
-    @brief Renvoie la couleur du jeton du joueur 1
-    @return la couleur du jeton du joueur 1
-"""
-def getCouleurJetonJ1():
+def getCouleurJetonJ1() -> str: 
+    """
+        @brief Renvoie la couleur du jeton du joueur 1
+        @return la couleur du jeton du joueur 1
+    """
     global sCouleurJetonJ1
     return sCouleurJetonJ1
 
-"""
-    @brief Renvoie la couleur du jeton du joueur 2
-    @return la couleur du jeton du joueur 2
-"""
-def getCouleurJetonJ2():
+def getCouleurJetonJ2() -> str:
+    """
+        @brief Renvoie la couleur du jeton du joueur 2
+        @return la couleur du jeton du joueur 2
+    """
+
     global sCouleurJetonJ2
     return sCouleurJetonJ2
 
-"""
-    @brief Renvoie le nombre de coup spécial choisi par le joueur
-    @return le nombre de coup spécial choisi par le joueur
-"""
-def getNombreCoupSpecial():
+def getNombreCoupSpecial() -> int:
+    """
+        @brief Renvoie le nombre de coup spécial choisi par le joueur
+        @return le nombre de coup spécial choisi par le joueur
+    """
     global iNbCoupSpecial
     return iNbCoupSpecial
 
-"""
-    @brief Renvoie le joueur qui commencera la partie
-    @return le joueur qui commencera la partie
-"""
-def getJoueurCommence():
+def getJoueurCommence() -> int:
+    """
+        @brief Renvoie le joueur qui commencera la partie
+        @return le joueur qui commencera la partie
+    """
     global iJoueurCommence
     return iJoueurCommence
 
-"""
-    @brief Renvoie la difficulté de l'IA ou 0 pour joueur contre joueur
-    @return la difficulté de l'IA ou 0 pour joueur contre joueur
-"""
-def getDificulte():
+def getDificulte() -> int:
+    """
+        @brief Renvoie la difficulté de l'IA ou 0 pour joueur contre joueur
+        @return la difficulté de l'IA ou 0 pour joueur contre joueur
+    """
+
     global iDifficulteIA
     return iDifficulteIA
 
 ###########################################################
-#             FONCTIONS LIEES AUX BOUTONS                 #
+'             FONCTIONS LIEES AUX BOUTONS                 '
 ###########################################################
 
-"""
-    @brief Met à jour la variable global qui défini le nombre de fois que les joueurs pourront utiliser le coup spécial
-    @param iNombreCoupSpecialChoisi nombre de coup spécial choisi par l'utilisateur avec le slider
-"""
-def updateNombreCoupSpecial(iNombreCoupSpecialChoisi: int):
+def updateNombreCoupSpecial(iNombreCoupSpecialChoisi: int) -> None:
+    """
+        @brief Met à jour la variable global qui défini le nombre de fois que les joueurs pourront utiliser le coup spécial
+        @param iNombreCoupSpecialChoisi nombre de coup spécial choisi par l'utilisateur avec le slider
+    """
+
     global iNbCoupSpecial
     iNbCoupSpecial = int(iNombreCoupSpecialChoisi)
 
-"""
-    @brief Ouvre la palette de couleur et stocke la couleur choisi dans la variable du joueur
-    @param canvaCouleur canva où la couleur joueur est affiché
-    @param iJoueur joueur qui a demander un changement de couleur
-"""
-def choisirCouleur(canvaCouleur: tk.Canvas, iJoueur: int):
+def choisirCouleur(canvaCouleur: tk.Canvas, iJoueur: int) -> None:
+    """
+        @brief Ouvre la palette de couleur et stocke la couleur choisi dans la variable du joueur
+        @param canvaCouleur canva où la couleur joueur est affiché
+        @param iJoueur joueur qui a demander un changement de couleur
+    """
+
     global toplevelFenetreParametre
     global sCouleurJetonJ1
     global sCouleurJetonJ2
@@ -96,13 +100,14 @@ def choisirCouleur(canvaCouleur: tk.Canvas, iJoueur: int):
         sCouleurJetonJ2 = toplevelFenetreParametre.tk.call("tk_chooseColor", "-initialcolor", sCouleurJetonJ2, "-title", "Choisi la couleur de ton jeton")
         canvaCouleur.create_oval(33, 33, 5, 5, outline="black", fill=sCouleurJetonJ2)
 
-"""
-    @brief  Met à jour le joueur qui doit commencer
-    @param  buttonCommenceJ1 bouton du J1
-    @param  buttonCommenceJ2 bouton du J2
-    @param  iJoueur joueur lié au bouton cliqué
-"""
-def updateChoixJoueurCommence(buttonCommenceJ1: tk.Button, buttonCommenceJ2: tk.Button, iJoueur: int):
+def updateChoixJoueurCommence(buttonCommenceJ1: tk.Button, buttonCommenceJ2: tk.Button, iJoueur: int) -> None:
+    """
+        @brief  Met à jour le joueur qui doit commencer
+        @param  buttonCommenceJ1 bouton du J1
+        @param  buttonCommenceJ2 bouton du J2
+        @param  iJoueur joueur lié au bouton cliqué
+    """
+
     global iJoueurCommence
 
     iJoueurCommence = iJoueur
@@ -119,14 +124,15 @@ def updateChoixJoueurCommence(buttonCommenceJ1: tk.Button, buttonCommenceJ2: tk.
         buttonCommenceJ2.configure(background="#ffffff", cursor="hand2", text='J2', width=3,
                                    command = lambda : updateChoixJoueurCommence(buttonCommenceJ1, buttonCommenceJ2, 2))
 
-"""
-    @brief  Met à jour la difficulté de l'IA
-    @param  buttonDifficulte1 bouton lié à la difficulté 1
-    @param  buttonDifficulte2 bouton lié à la difficulté 2
-    @param  buttonDifficulte3 bouton lié à la difficulté 3
-    @param  iDifficulteChoisi difficulté lié au bouton cliqué
-"""
-def updateChoixDifficulteIA(buttonDifficulte1: tk.Button, buttonDifficulte2: tk.Button, buttonDifficulte3: tk.Button, iDifficulteChoisi: int):
+def updateChoixDifficulteIA(buttonDifficulte1: tk.Button, buttonDifficulte2: tk.Button, buttonDifficulte3: tk.Button, iDifficulteChoisi: int) -> None:
+    """
+        @brief  Met à jour la difficulté de l'IA
+        @param  buttonDifficulte1 bouton lié à la difficulté 1
+        @param  buttonDifficulte2 bouton lié à la difficulté 2
+        @param  buttonDifficulte3 bouton lié à la difficulté 3
+        @param  iDifficulteChoisi difficulté lié au bouton cliqué
+    """
+
     global iDifficulteIA
 
     iDifficulteIA = iDifficulteChoisi
@@ -154,22 +160,21 @@ def updateChoixDifficulteIA(buttonDifficulte1: tk.Button, buttonDifficulte2: tk.
                                     command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 2))
         buttonDifficulte3.configure(background="#ffffff", cursor="hand2", text='3', width=3,
                                     command = lambda : updateChoixDifficulteIA(buttonDifficulte1, buttonDifficulte2, buttonDifficulte3, 4))
-    
-    # Lie cette fonction avec les boutons
 
 
 ###########################################################
-#             FONCTIONS LIEES A L'AFFICHAGE               #
+'             FONCTIONS LIEES A AFFICHAGE                 '
 ###########################################################
 
-"""
-    @brief  Créé le widget permettants de choisir une couleur et de l'afficher
-    @param  iCoordonneeX coordonnée en abscisse où doit être placer le widget
-    @param  iCoordonneeY coordonnée en ordonnée où doit être placer le widget
-    @param  sNomLabel texte sur le label devant le widget de choix de couleur
-    @param  iJoueur joueur qui a demander un changement de couleur (1 pour J1, 2 pour J2)
-"""
-def creerChoixCouleur(iCoordonneeX: int, iCoordonneeY: int, sNomLabel: str, iJoueur: int):
+def creerChoixCouleur(iCoordonneeX: int, iCoordonneeY: int, sNomLabel: str, iJoueur: int) -> None:
+    """
+        @brief  Créé le widget permettants de choisir une couleur et de l'afficher
+        @param  iCoordonneeX coordonnée en abscisse où doit être placer le widget
+        @param  iCoordonneeY coordonnée en ordonnée où doit être placer le widget
+        @param  sNomLabel texte sur le label devant le widget de choix de couleur
+        @param  iJoueur joueur qui a demander un changement de couleur (1 pour J1, 2 pour J2)
+    """
+
     global toplevelFenetreParametre
     global sCouleurJetonJ1
     global sCouleurJetonJ2
@@ -196,11 +201,12 @@ def creerChoixCouleur(iCoordonneeX: int, iCoordonneeY: int, sNomLabel: str, iJou
     canvaCouleur.bind("<Button-1>", lambda event, canvaCouleur=canvaCouleur, iJoueur=iJoueur: choisirCouleur(canvaCouleur, iJoueur))
     canvaCouleur.place(relx=0.9, rely=0.13, x=0, y=0)
 
-"""
-    @brief  Créé le slider lié au nombre de coup spécial que le joueur veut utiliser
-    @param  bCoupSpecial variable qui défini si le joueur a choisi d'autoriser le coup spécial ou non
-"""
-def creerFrameNombreCoupSpecial(bCoupSpecial : bool):
+def creerFrameNombreCoupSpecial(bCoupSpecial : bool) -> None:
+    """
+        @brief  Créé le slider lié au nombre de coup spécial que le joueur veut utiliser
+        @param  bCoupSpecial variable qui défini si le joueur a choisi d'autoriser le coup spécial ou non
+    """
+
     global toplevelFenetreParametre
     global iNbCoupSpecial
 
@@ -233,10 +239,11 @@ def creerFrameNombreCoupSpecial(bCoupSpecial : bool):
     labelCoupSpecial.place(anchor="nw", relx=0, rely=0.1, x=0, y=0) 
     scaleNombreCoupSpecial.place(anchor="nw", relx=0.5, rely=0, x=0, y=0)
     
-"""
-    @brief Créé les boutons qui permettent de choisir le joueur qui commence
-"""
-def creerFrameJoueurCommence():
+def creerFrameJoueurCommence() -> None:
+    """
+        @brief Créé les boutons qui permettent de choisir le joueur qui commence
+    """
+
     global toplevelFenetreParametre
     global iJoueurCommence
 
@@ -256,10 +263,11 @@ def creerFrameJoueurCommence():
     buttonCommenceJ1.place(anchor="nw", relx=0.5, rely=0.0, x=0, y=0)
     buttonCommenceJ2.place(anchor="nw", relx=0.65, x=0, y=0)
 
-"""
-    @brief  Créé les boutons qui permettent de choisir la difficulté de l'IA
-"""
-def creerFrameDifficulteIA():
+def creerFrameDifficulteIA() -> None:
+    """
+        @brief  Créé les boutons qui permettent de choisir la difficulté de l'IA
+    """
+
     global toplevelFenetreParametre
     global iDifficulteIA
 
@@ -289,15 +297,16 @@ def creerFrameDifficulteIA():
     buttonDifficulte3.place(anchor="nw", relx=0.67, x=0, y=0)
 
 ###########################################################
-#                 GESTION DE LA FENETRE                   #
+'                 GESTION DE LA FENETRE                   '
 ###########################################################
 
-"""
-    @brief Gère l'affichage de la page de paramètre
-    @param toplevelFenetre Fenêtre de paramètre
-    @param dictParametre contient les paramètres déjà choisis par le joueur sur la page principale
-"""
-def gererInterfaceParametre(toplevelFenetre: tk.Tk, dictParametre: dict):
+def gererInterfaceParametre(toplevelFenetre: tk.Tk, dictParametre: dict) -> None:
+    """
+        @brief Gère l'affichage de la page de paramètre
+        @param toplevelFenetre Fenêtre de paramètre
+        @param dictParametre contient les paramètres déjà choisis par le joueur sur la page principale
+    """
+
     global toplevelFenetreParametre
     global iDifficulteIA
 

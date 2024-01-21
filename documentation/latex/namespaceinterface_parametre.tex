@@ -1,0 +1,313 @@
+\doxysection{interface\+Parametre Namespace Reference}
+\hypertarget{namespaceinterface_parametre}{}\label{namespaceinterface_parametre}\index{interfaceParametre@{interfaceParametre}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceinterface_parametre_a0cbd77bc77053378e32c8345dde09158}{get\+Couleur\+Jeton\+J1}} ()
+\item 
+str \mbox{\hyperlink{namespaceinterface_parametre_afb8941b48701c5b47996d112ea9aaab1}{get\+Couleur\+Jeton\+J2}} ()
+\item 
+int \mbox{\hyperlink{namespaceinterface_parametre_abba6c37a92eaa53370d86efff1c3a6c6}{get\+Nombre\+Coup\+Special}} ()
+\item 
+int \mbox{\hyperlink{namespaceinterface_parametre_ac4c9ba2458cc53fd8e1151e345307ace}{get\+Joueur\+Commence}} ()
+\item 
+int \mbox{\hyperlink{namespaceinterface_parametre_a9e4f2ea08ba401b9836164649aaeefcd}{get\+Dificulte}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a3eda818d7628092d0a66aa1f6a9729c5}{update\+Nombre\+Coup\+Special}} (int i\+Nombre\+Coup\+Special\+Choisi)
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a7ac37ada1003685deaac75896b005dd2}{choisir\+Couleur}} (tk.\+Canvas canva\+Couleur, int i\+Joueur)
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{update\+Choix\+Joueur\+Commence}} (tk.\+Button button\+Commence\+J1, tk.\+Button button\+Commence\+J2, int i\+Joueur)
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{update\+Choix\+Difficulte\+IA}} (tk.\+Button button\+Difficulte1, tk.\+Button button\+Difficulte2, tk.\+Button button\+Difficulte3, int i\+Difficulte\+Choisi)
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a8a4133d9be01416512f9ada8cc5c8b4c}{creer\+Choix\+Couleur}} (int i\+CoordonneeX, int i\+CoordonneeY, str s\+Nom\+Label, int i\+Joueur)
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a86f46f7fa929fe924df26f91c576ab05}{creer\+Frame\+Nombre\+Coup\+Special}} (bool b\+Coup\+Special)
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a3aca2a1ce8c0bf9ac916090e53255cdc}{creer\+Frame\+Joueur\+Commence}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a683a3c930f2cf2191f2656a07f1320e5}{creer\+Frame\+Difficulte\+IA}} ()
+\item 
+None \mbox{\hyperlink{namespaceinterface_parametre_a4a560376a43cb550c543049d9a4704d3}{gerer\+Interface\+Parametre}} (tk.\+Tk toplevel\+Fenetre, dict dict\+Parametre)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+tk \mbox{\hyperlink{namespaceinterface_parametre_a5fde993550696226307f7168b3f98b95}{toplevel\+Fenetre\+Parametre}} = None
+\item 
+str \mbox{\hyperlink{namespaceinterface_parametre_ad8f0fd7339006e42d551d94fc948b58f}{s\+Couleur\+Jeton\+J1}} = "{}yellow"{}
+\item 
+str \mbox{\hyperlink{namespaceinterface_parametre_aaabeccf15ff11ac14e138f2876beb3dd}{s\+Couleur\+Jeton\+J2}} = "{}red"{}
+\item 
+int \mbox{\hyperlink{namespaceinterface_parametre_ad0070dfe2d57a70aa3ac9fca89f61f78}{i\+Nb\+Coup\+Special}} = 1
+\item 
+int \mbox{\hyperlink{namespaceinterface_parametre_a79d3e80635775c9a09f13a176844e081}{i\+Joueur\+Commence}} = 1
+\item 
+int \mbox{\hyperlink{namespaceinterface_parametre_a61095497a6941d1e5e66b86a1ab74434}{i\+Difficulte\+IA}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @file    interfaceParametre.py
+    @brief   Contient les éléments de l'interface de paramètre et les fonctions pour gérer celle-ci
+    @author  Sylvain BRUNET
+    @version 1.0
+    @date    2023-2024
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceinterface_parametre_a7ac37ada1003685deaac75896b005dd2}\label{namespaceinterface_parametre_a7ac37ada1003685deaac75896b005dd2} 
+\index{interfaceParametre@{interfaceParametre}!choisirCouleur@{choisirCouleur}}
+\index{choisirCouleur@{choisirCouleur}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{choisirCouleur()}{choisirCouleur()}}
+{\footnotesize\ttfamily  None choisir\+Couleur (\begin{DoxyParamCaption}\item[{tk.\+Canvas}]{canva\+Couleur,  }\item[{int}]{i\+Joueur }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Ouvre la palette de couleur et stocke la couleur choisi dans la variable du joueur
+    @param canvaCouleur canva où la couleur joueur est affiché
+    @param iJoueur joueur qui a demander un changement de couleur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00083}{83}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a8a4133d9be01416512f9ada8cc5c8b4c}\label{namespaceinterface_parametre_a8a4133d9be01416512f9ada8cc5c8b4c} 
+\index{interfaceParametre@{interfaceParametre}!creerChoixCouleur@{creerChoixCouleur}}
+\index{creerChoixCouleur@{creerChoixCouleur}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{creerChoixCouleur()}{creerChoixCouleur()}}
+{\footnotesize\ttfamily  None creer\+Choix\+Couleur (\begin{DoxyParamCaption}\item[{int}]{i\+CoordonneeX,  }\item[{int}]{i\+CoordonneeY,  }\item[{str}]{s\+Nom\+Label,  }\item[{int}]{i\+Joueur }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Créé le widget permettants de choisir une couleur et de l'afficher
+    @param  iCoordonneeX coordonnée en abscisse où doit être placer le widget
+    @param  iCoordonneeY coordonnée en ordonnée où doit être placer le widget
+    @param  sNomLabel texte sur le label devant le widget de choix de couleur
+    @param  iJoueur joueur qui a demander un changement de couleur (1 pour J1, 2 pour J2)
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00169}{169}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a683a3c930f2cf2191f2656a07f1320e5}\label{namespaceinterface_parametre_a683a3c930f2cf2191f2656a07f1320e5} 
+\index{interfaceParametre@{interfaceParametre}!creerFrameDifficulteIA@{creerFrameDifficulteIA}}
+\index{creerFrameDifficulteIA@{creerFrameDifficulteIA}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{creerFrameDifficulteIA()}{creerFrameDifficulteIA()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Difficulte\+IA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Créé les boutons qui permettent de choisir la difficulté de l'IA
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00266}{266}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a3aca2a1ce8c0bf9ac916090e53255cdc}\label{namespaceinterface_parametre_a3aca2a1ce8c0bf9ac916090e53255cdc} 
+\index{interfaceParametre@{interfaceParametre}!creerFrameJoueurCommence@{creerFrameJoueurCommence}}
+\index{creerFrameJoueurCommence@{creerFrameJoueurCommence}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{creerFrameJoueurCommence()}{creerFrameJoueurCommence()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Joueur\+Commence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Créé les boutons qui permettent de choisir le joueur qui commence
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00242}{242}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a86f46f7fa929fe924df26f91c576ab05}\label{namespaceinterface_parametre_a86f46f7fa929fe924df26f91c576ab05} 
+\index{interfaceParametre@{interfaceParametre}!creerFrameNombreCoupSpecial@{creerFrameNombreCoupSpecial}}
+\index{creerFrameNombreCoupSpecial@{creerFrameNombreCoupSpecial}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{creerFrameNombreCoupSpecial()}{creerFrameNombreCoupSpecial()}}
+{\footnotesize\ttfamily  None creer\+Frame\+Nombre\+Coup\+Special (\begin{DoxyParamCaption}\item[{bool}]{b\+Coup\+Special }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Créé le slider lié au nombre de coup spécial que le joueur veut utiliser
+    @param  bCoupSpecial variable qui défini si le joueur a choisi d'autoriser le coup spécial ou non
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00204}{204}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a4a560376a43cb550c543049d9a4704d3}\label{namespaceinterface_parametre_a4a560376a43cb550c543049d9a4704d3} 
+\index{interfaceParametre@{interfaceParametre}!gererInterfaceParametre@{gererInterfaceParametre}}
+\index{gererInterfaceParametre@{gererInterfaceParametre}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{gererInterfaceParametre()}{gererInterfaceParametre()}}
+{\footnotesize\ttfamily  None gerer\+Interface\+Parametre (\begin{DoxyParamCaption}\item[{tk.\+Tk}]{toplevel\+Fenetre,  }\item[{dict}]{dict\+Parametre }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Gère l'affichage de la page de paramètre
+    @param toplevelFenetre Fenêtre de paramètre
+    @param dictParametre contient les paramètres déjà choisis par le joueur sur la page principale
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00303}{303}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a0cbd77bc77053378e32c8345dde09158}\label{namespaceinterface_parametre_a0cbd77bc77053378e32c8345dde09158} 
+\index{interfaceParametre@{interfaceParametre}!getCouleurJetonJ1@{getCouleurJetonJ1}}
+\index{getCouleurJetonJ1@{getCouleurJetonJ1}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{getCouleurJetonJ1()}{getCouleurJetonJ1()}}
+{\footnotesize\ttfamily  str get\+Couleur\+Jeton\+J1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie la couleur du jeton du joueur 1
+    @return la couleur du jeton du joueur 1
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00028}{28}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_afb8941b48701c5b47996d112ea9aaab1}\label{namespaceinterface_parametre_afb8941b48701c5b47996d112ea9aaab1} 
+\index{interfaceParametre@{interfaceParametre}!getCouleurJetonJ2@{getCouleurJetonJ2}}
+\index{getCouleurJetonJ2@{getCouleurJetonJ2}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{getCouleurJetonJ2()}{getCouleurJetonJ2()}}
+{\footnotesize\ttfamily  str get\+Couleur\+Jeton\+J2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie la couleur du jeton du joueur 2
+    @return la couleur du jeton du joueur 2
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00036}{36}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a9e4f2ea08ba401b9836164649aaeefcd}\label{namespaceinterface_parametre_a9e4f2ea08ba401b9836164649aaeefcd} 
+\index{interfaceParametre@{interfaceParametre}!getDificulte@{getDificulte}}
+\index{getDificulte@{getDificulte}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{getDificulte()}{getDificulte()}}
+{\footnotesize\ttfamily  int get\+Dificulte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie la difficulté de l'IA ou 0 pour joueur contre joueur
+    @return la difficulté de l'IA ou 0 pour joueur contre joueur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00061}{61}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_ac4c9ba2458cc53fd8e1151e345307ace}\label{namespaceinterface_parametre_ac4c9ba2458cc53fd8e1151e345307ace} 
+\index{interfaceParametre@{interfaceParametre}!getJoueurCommence@{getJoueurCommence}}
+\index{getJoueurCommence@{getJoueurCommence}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{getJoueurCommence()}{getJoueurCommence()}}
+{\footnotesize\ttfamily  int get\+Joueur\+Commence (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie le joueur qui commencera la partie
+    @return le joueur qui commencera la partie
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00053}{53}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_abba6c37a92eaa53370d86efff1c3a6c6}\label{namespaceinterface_parametre_abba6c37a92eaa53370d86efff1c3a6c6} 
+\index{interfaceParametre@{interfaceParametre}!getNombreCoupSpecial@{getNombreCoupSpecial}}
+\index{getNombreCoupSpecial@{getNombreCoupSpecial}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{getNombreCoupSpecial()}{getNombreCoupSpecial()}}
+{\footnotesize\ttfamily  int get\+Nombre\+Coup\+Special (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Renvoie le nombre de coup spécial choisi par le joueur
+    @return le nombre de coup spécial choisi par le joueur
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00045}{45}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}\label{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693} 
+\index{interfaceParametre@{interfaceParametre}!updateChoixDifficulteIA@{updateChoixDifficulteIA}}
+\index{updateChoixDifficulteIA@{updateChoixDifficulteIA}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{updateChoixDifficulteIA()}{updateChoixDifficulteIA()}}
+{\footnotesize\ttfamily  None update\+Choix\+Difficulte\+IA (\begin{DoxyParamCaption}\item[{tk.\+Button}]{button\+Difficulte1,  }\item[{tk.\+Button}]{button\+Difficulte2,  }\item[{tk.\+Button}]{button\+Difficulte3,  }\item[{int}]{i\+Difficulte\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Met à jour la difficulté de l'IA
+    @param  buttonDifficulte1 bouton lié à la difficulté 1
+    @param  buttonDifficulte2 bouton lié à la difficulté 2
+    @param  buttonDifficulte3 bouton lié à la difficulté 3
+    @param  iDifficulteChoisi difficulté lié au bouton cliqué
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00127}{127}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}\label{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c} 
+\index{interfaceParametre@{interfaceParametre}!updateChoixJoueurCommence@{updateChoixJoueurCommence}}
+\index{updateChoixJoueurCommence@{updateChoixJoueurCommence}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{updateChoixJoueurCommence()}{updateChoixJoueurCommence()}}
+{\footnotesize\ttfamily  None update\+Choix\+Joueur\+Commence (\begin{DoxyParamCaption}\item[{tk.\+Button}]{button\+Commence\+J1,  }\item[{tk.\+Button}]{button\+Commence\+J2,  }\item[{int}]{i\+Joueur }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Met à jour le joueur qui doit commencer
+    @param  buttonCommenceJ1 bouton du J1
+    @param  buttonCommenceJ2 bouton du J2
+    @param  iJoueur joueur lié au bouton cliqué
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00103}{103}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a3eda818d7628092d0a66aa1f6a9729c5}\label{namespaceinterface_parametre_a3eda818d7628092d0a66aa1f6a9729c5} 
+\index{interfaceParametre@{interfaceParametre}!updateNombreCoupSpecial@{updateNombreCoupSpecial}}
+\index{updateNombreCoupSpecial@{updateNombreCoupSpecial}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{updateNombreCoupSpecial()}{updateNombreCoupSpecial()}}
+{\footnotesize\ttfamily  None update\+Nombre\+Coup\+Special (\begin{DoxyParamCaption}\item[{int}]{i\+Nombre\+Coup\+Special\+Choisi }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Met à jour la variable global qui défini le nombre de fois que les joueurs pourront utiliser le coup spécial
+    @param iNombreCoupSpecialChoisi nombre de coup spécial choisi par l'utilisateur avec le slider
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00074}{74}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceinterface_parametre_a61095497a6941d1e5e66b86a1ab74434}\label{namespaceinterface_parametre_a61095497a6941d1e5e66b86a1ab74434} 
+\index{interfaceParametre@{interfaceParametre}!iDifficulteIA@{iDifficulteIA}}
+\index{iDifficulteIA@{iDifficulteIA}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{iDifficulteIA}{iDifficulteIA}}
+{\footnotesize\ttfamily int i\+Difficulte\+IA = 1}
+
+
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00022}{22}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a79d3e80635775c9a09f13a176844e081}\label{namespaceinterface_parametre_a79d3e80635775c9a09f13a176844e081} 
+\index{interfaceParametre@{interfaceParametre}!iJoueurCommence@{iJoueurCommence}}
+\index{iJoueurCommence@{iJoueurCommence}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{iJoueurCommence}{iJoueurCommence}}
+{\footnotesize\ttfamily int i\+Joueur\+Commence = 1}
+
+
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00021}{21}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_ad0070dfe2d57a70aa3ac9fca89f61f78}\label{namespaceinterface_parametre_ad0070dfe2d57a70aa3ac9fca89f61f78} 
+\index{interfaceParametre@{interfaceParametre}!iNbCoupSpecial@{iNbCoupSpecial}}
+\index{iNbCoupSpecial@{iNbCoupSpecial}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{iNbCoupSpecial}{iNbCoupSpecial}}
+{\footnotesize\ttfamily int i\+Nb\+Coup\+Special = 1}
+
+
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00020}{20}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_ad8f0fd7339006e42d551d94fc948b58f}\label{namespaceinterface_parametre_ad8f0fd7339006e42d551d94fc948b58f} 
+\index{interfaceParametre@{interfaceParametre}!sCouleurJetonJ1@{sCouleurJetonJ1}}
+\index{sCouleurJetonJ1@{sCouleurJetonJ1}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{sCouleurJetonJ1}{sCouleurJetonJ1}}
+{\footnotesize\ttfamily str s\+Couleur\+Jeton\+J1 = "{}yellow"{}}
+
+
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00018}{18}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_aaabeccf15ff11ac14e138f2876beb3dd}\label{namespaceinterface_parametre_aaabeccf15ff11ac14e138f2876beb3dd} 
+\index{interfaceParametre@{interfaceParametre}!sCouleurJetonJ2@{sCouleurJetonJ2}}
+\index{sCouleurJetonJ2@{sCouleurJetonJ2}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{sCouleurJetonJ2}{sCouleurJetonJ2}}
+{\footnotesize\ttfamily str s\+Couleur\+Jeton\+J2 = "{}red"{}}
+
+
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00019}{19}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+
+\Hypertarget{namespaceinterface_parametre_a5fde993550696226307f7168b3f98b95}\label{namespaceinterface_parametre_a5fde993550696226307f7168b3f98b95} 
+\index{interfaceParametre@{interfaceParametre}!toplevelFenetreParametre@{toplevelFenetreParametre}}
+\index{toplevelFenetreParametre@{toplevelFenetreParametre}!interfaceParametre@{interfaceParametre}}
+\doxysubsubsection{\texorpdfstring{toplevelFenetreParametre}{toplevelFenetreParametre}}
+{\footnotesize\ttfamily tk toplevel\+Fenetre\+Parametre = None}
+
+
+
+Definition at line \mbox{\hyperlink{interface_parametre_8py_source_l00016}{16}} of file \mbox{\hyperlink{interface_parametre_8py_source}{interface\+Parametre.\+py}}.
+

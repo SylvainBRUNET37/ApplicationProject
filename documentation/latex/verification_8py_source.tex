@@ -1,0 +1,182 @@
+\doxysection{verification.\+py}
+\hypertarget{verification_8py_source}{}\label{verification_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/jeu/verification.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/jeu/verification.py}}
+\mbox{\hyperlink{verification_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00001}\mbox{\hyperlink{namespaceverification}{00001}}\ \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ verification.py}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ les\ fonctions\ permettant\ de\ véirifier\ si\ le\ jeu\ est\ terminé\ (victoire/égalité)}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Matthieu\ CHARTON}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @version\ 1.0}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00008}00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00010}\mbox{\hyperlink{namespaceverification_a38854255c27d78dc37cb292fc29b07a6}{00010}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceverification_a38854255c27d78dc37cb292fc29b07a6}{verifierColonne}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int,\ iNbJetonVictoire:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00011}00011\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00012}00012\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Vérifie\ s'il\ y\ a\ une\ victoire\ dans\ une\ colonne}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00013}00013\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ \ \ \ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00014}00014\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00015}00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoire\ Le\ nombre\ de\ jetons\ consécutifs\ nécessaires\ pour\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ 0\ si\ aucune\ victoire,\ sinon\ le\ numéro\ du\ joueur\ gagnant}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00020}00020\ \ \ \ \ \textcolor{comment}{\#\ Parcours\ les\ colonnes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ range(iNbColonne):\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00022}00022\ \ \ \ \ \ \ \ \ Tverification:\ list\ =\ []}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ lignes\ dans\ la\ colonne}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleLigne\ \textcolor{keywordflow}{in}\ range(iNbLigne):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ iJeton\ =\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Initialisation\ du\ tableau\ de\ vérification\ si\ vide}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ Tverification\ ==\ []:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tverification.append(iJeton)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Ajout\ du\ jeton\ au\ tableau\ si\ identique\ et\ non\ nul}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ iJeton\ ==\ Tverification[0]\ \textcolor{keywordflow}{and}\ iJeton\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tverification.append(iJeton)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérification\ de\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(Tverification)\ ==\ iNbJetonVictoire:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Tverification[0]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Réinitialisation\ du\ tableau\ si\ jeton\ différent}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tverification\ =\ [iJeton]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00041}00041\ \ \ \ \ \textcolor{keywordflow}{return}\ 0}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00043}\mbox{\hyperlink{namespaceverification_a8771b8cba8d61a190b25e86ffbb92ffe}{00043}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceverification_a8771b8cba8d61a190b25e86ffbb92ffe}{verifierLigne}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int,\ iNbJetonVictoire:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00044}00044\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00045}00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Vérifie\ s'il\ y\ a\ une\ victoire\ dans\ une\ ligne}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00046}00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ \ \ \ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00047}00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoire\ Le\ nombre\ de\ jetons\ consécutifs\ nécessaires\ pour\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ 0\ si\ aucune\ victoire,\ sinon\ le\ numéro\ du\ joueur\ gagnant}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00053}00053\ \ \ \ \ \textcolor{comment}{\#\ Parcours\ les\ lignes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleLigne\ \textcolor{keywordflow}{in}\ range(iNbLigne):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ Tverification:\ list\ =\ []}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ colonnes\ dans\ la\ ligne}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ range(iNbColonne):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ iJeton:\ int\ =\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Initialisation\ du\ tableau\ de\ vérification\ si\ vide}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ Tverification\ ==\ []:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tverification.append(iJeton)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Ajout\ du\ jeton\ au\ tableau\ si\ identique\ et\ non\ nul}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ iJeton\ ==\ Tverification[0]\ \textcolor{keywordflow}{and}\ iJeton\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tverification.append(iJeton)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérification\ de\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ len(Tverification)\ ==\ iNbJetonVictoire:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ Tverification[0]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Réinitialisation\ du\ tableau\ si\ jeton\ différent}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Tverification\ =\ [iJeton]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{return}\ 0}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00076}\mbox{\hyperlink{namespaceverification_a07e4ad5b3e5e98bedfbbab6369357d54}{00076}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceverification_a07e4ad5b3e5e98bedfbbab6369357d54}{verifierDiagonaleAsc}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int,\ iNbJetonVictoire:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00077}00077\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00078}00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Vérifie\ s'il\ y\ a\ une\ victoire\ dans\ une\ diagonale\ ascendante}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00079}00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ \ \ \ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoire\ Le\ nombre\ de\ jetons\ consécutifs\ nécessaires\ pour\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ 0\ si\ aucune\ victoire,\ sinon\ le\ numéro\ du\ joueur\ gagnant}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00084}00084\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00086}00086\ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ colonnes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ range(iNbColonne\ -\/\ iNbJetonVictoire\ +\ 1):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ lignes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleLigne\ \textcolor{keywordflow}{in}\ range(iNbLigne\ -\/\ iNbJetonVictoire\ +\ 1):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ si\ le\ premier\ jeton\ n'est\ pas\ nul}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ si\ tous\ les\ jetons\ consécutifs\ dans\ la\ diagonale\ sont\ identiques}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ all(TplateauDeJeu[iBoucleColonne\ +\ i][iBoucleLigne\ +\ i]\ ==\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(iNbJetonVictoire)):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ 0}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00097}\mbox{\hyperlink{namespaceverification_a6b475435449f0a945d69d03c1f9c4454}{00097}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceverification_a6b475435449f0a945d69d03c1f9c4454}{verifierDiagonaleDesc}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int,\ iNbJetonVictoire:\ int)\ -\/>\ int:\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00098}00098\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00099}00099\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Vérifie\ s'il\ y\ a\ une\ victoire\ dans\ une\ diagonale\ descendante}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00100}00100\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ \ \ \ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00101}00101\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00102}00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00103}00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoire\ Le\ nombre\ de\ jetons\ consécutifs\ nécessaires\ pour\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00104}00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ 0\ si\ aucune\ victoire,\ sinon\ le\ numéro\ du\ joueur\ gagnant}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00107}00107\ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ colonnes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ range(iNbJetonVictoire\ -\/\ 1,\ iNbColonne):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ lignes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleLigne\ \textcolor{keywordflow}{in}\ range(iNbLigne\ -\/\ iNbJetonVictoire\ +\ 1):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ si\ le\ premier\ jeton\ n'est\ pas\ nul}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ si\ tous\ les\ jetons\ consécutifs\ dans\ la\ diagonale\ sont\ identiques}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ all(TplateauDeJeu[iBoucleColonne\ -\/\ i][iBoucleLigne\ +\ i]\ ==\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(iNbJetonVictoire)):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00116}00116\ \ \ \ \ \textcolor{keywordflow}{return}\ 0}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00118}\mbox{\hyperlink{namespaceverification_a5b6587ee24b101d93372f2c0f3ed0a14}{00118}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceverification_a5b6587ee24b101d93372f2c0f3ed0a14}{verifierPlateauRempli}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00119}00119\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00120}00120\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Vérifie\ si\ le\ plateau\ de\ jeu\ est\ complètement\ rempli}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00121}00121\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00122}00122\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00123}00123\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00124}00124\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ 0\ si\ le\ plateau\ n'est\ pas\ complètement\ rempli,\ sinon\ 3\ (équivalent\ à\ un\ match\ nul)}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00125}00125\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00127}00127\ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ colonnes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleColonne\ \textcolor{keywordflow}{in}\ range(iNbColonne):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Parcours\ des\ lignes}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleLigne\ \textcolor{keywordflow}{in}\ range(iNbLigne):}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ si\ il\ reste\ des\ emplacements\ vide\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ TplateauDeJeu[iBoucleColonne][iBoucleLigne]\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return(0)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00134}00134\ \ \ \ \ return(3)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00136}\mbox{\hyperlink{namespaceverification_a4453fcb7616bc27a911190258112501d}{00136}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceverification_a4453fcb7616bc27a911190258112501d}{verifierFinJeu}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int,\ iNbJetonVictoire:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00137}00137\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00138}00138\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Fonction\ principale\ de\ vérification\ de\ l'état\ du\ jeu}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00139}00139\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ \ \ \ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00140}00140\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00141}00141\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00142}00142\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoire\ Le\ nombre\ de\ jetons\ consécutifs\ nécessaires\ pour\ la\ victoire}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00143}00143\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ 0\ si\ aucune\ victoire,\ 3\ si\ match\ nul,\ sinon\ le\ numéro\ du\ joueur\ gagnant}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00144}00144\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00146}00146\ \ \ \ \ iVictoireColonne:\ int\ =\ \mbox{\hyperlink{namespaceverification_a38854255c27d78dc37cb292fc29b07a6}{verifierColonne}}(TplateauDeJeu,\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00148}00148\ \ \ \ \ \textcolor{comment}{\#\ Vérification\ de\ la\ victoire\ par\ colonne}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{if}\ iVictoireColonne\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iVictoireColonne}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00152}00152\ \ \ \ \ iVictoireLigne:\ int\ =\ \mbox{\hyperlink{namespaceverification_a8771b8cba8d61a190b25e86ffbb92ffe}{verifierLigne}}(TplateauDeJeu,\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00154}00154\ \ \ \ \ \textcolor{comment}{\#\ Vérification\ de\ la\ victoire\ par\ ligne}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00155}00155\ \ \ \ \ \textcolor{keywordflow}{if}\ iVictoireLigne\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iVictoireLigne}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00158}00158\ \ \ \ \ iVictoireDiagA:\ int\ =\ \mbox{\hyperlink{namespaceverification_a07e4ad5b3e5e98bedfbbab6369357d54}{verifierDiagonaleAsc}}(TplateauDeJeu,\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00160}00160\ \ \ \ \ \textcolor{comment}{\#\ Vérification\ de\ la\ victoire\ par\ diagonale\ ascendante}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{if}\ iVictoireDiagA\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iVictoireDiagA}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00164}00164\ \ \ \ \ iVictoireDiagD:\ int\ =\ \mbox{\hyperlink{namespaceverification_a6b475435449f0a945d69d03c1f9c4454}{verifierDiagonaleDesc}}(TplateauDeJeu,\ iNbColonne,\ iNbLigne,\ iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00166}00166\ \ \ \ \ \textcolor{comment}{\#\ Vérification\ de\ la\ victoire\ par\ diagonale\ descendante}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{if}\ iVictoireDiagD\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iVictoireDiagD}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00170}00170\ \ \ \ \ iRemplie:\ int\ =\ \mbox{\hyperlink{namespaceverification_a5b6587ee24b101d93372f2c0f3ed0a14}{verifierPlateauRempli}}(TplateauDeJeu,\ iNbColonne,\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00172}00172\ \ \ \ \ \textcolor{comment}{\#\ Vérification\ du\ plateau\ complètement\ rempli}}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{if}\ iRemplie\ !=\ 0:}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iRemplie}
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{verification_8py_source_l00176}00176\ \ \ \ \ \textcolor{keywordflow}{return}\ 0}
+
+\end{DoxyCode}

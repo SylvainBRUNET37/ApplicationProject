@@ -10,10 +10,11 @@
 from jeu.affichage import *
 from jeu.minMax import *
 
-"""
-    @brief Contient la boucle principale du jeu (en mode console) et l'initialisation des données
-"""
 def main() -> None:
+    """
+        @brief Contient la boucle principale du jeu (en mode console) et l'initialisation des données
+    """
+
     iNbColonne: int = 7
     iNbLigne: int = 6
     TplateauDeJeu: list = [[0 for i in range(iNbLigne)] for i in range(iNbColonne)]

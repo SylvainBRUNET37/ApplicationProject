@@ -13,14 +13,15 @@ from interface.interfaceParametre import *
 from interface.interfaceJeu import *
 
 ###########################################################
-#             FONCTIONS INTERFACE PRINCIPALE              #
+'             FONCTIONS INTERFACE PRINCIPALE              '
 ###########################################################
 
-"""
-    @brief Initialise la page principale
-    @param dictParametre Contient les paramètre choisis par le joueur
-"""
 def initInterfacePrincipale(dictParametre: dict) -> tk.Tk:
+    """
+        @brief Initialise la page principale
+        @param dictParametre Contient les paramètre choisis par le joueur
+    """
+    
     # Créé la fenêtre et le haut de la fenêtre
     # Donne 2 fois "None" à la fonction qui créé le bouton de retour car on ne peut pas retourner en arriere sur cette page et qu'elle ne nécessite aucun paramètres
     toplevelFenetrePrincipale = creerToplevelFenetre(768, 576, False, "Page principale") 
@@ -29,11 +30,12 @@ def initInterfacePrincipale(dictParametre: dict) -> tk.Tk:
     creerFrameChoixAdversaire(toplevelFenetrePrincipale)
     gererInterfacePrincipale(toplevelFenetrePrincipale)
 
-"""
-    @brief  Créé les boutons pour le choix d'aversaire (Joueur vs IA / Joueur vs Joueur)
-    @param  Fenêtre où afficher les boutons (fenêtre principale)
-"""
-def creerFrameChoixAdversaire(toplevelFenetre: tk.Tk):
+def creerFrameChoixAdversaire(toplevelFenetre: tk.Tk) -> None:
+    """
+        @brief  Créé les boutons pour le choix d'aversaire (Joueur vs IA / Joueur vs Joueur)
+        @param  Fenêtre où afficher les boutons (fenêtre principale)
+    """
+
     frameChoixAdversaire: tk.Frame = tk.Frame(toplevelFenetre)
     frameChoixAdversaire.configure(height=200, width=750)
     frameChoixAdversaire.place(anchor="nw", rely=0.23, x=10, y=5)
@@ -48,12 +50,13 @@ def creerFrameChoixAdversaire(toplevelFenetre: tk.Tk):
     buttonJvsJ.configure(cursor="hand2", font="{Arial} 32 {}", text='Joueur \nVS \nJoueur', width=8, command = lambda: lancerPageParametre(toplevelFenetre, 0))
     buttonJvsJ.place(anchor="nw", relx=0.1, rely=0.0, x=0, y=0)
 
-"""
-    @brief Met à jour la variable global qui défini l'adversaire (1 pour IA, 0 pour joueur) et lance la fenêtre de paramètre
-    @param toplevelFenetre Fenêtre à détruire
-    @param iAdversaireChoisi adversaire choisi par l'utilisateur (1 pour IA, 0 pour joueur)
-"""
-def lancerPageParametre(toplevelFenetre: tk.Tk, iAdversaireChoisi: int):
+def lancerPageParametre(toplevelFenetre: tk.Tk, iAdversaireChoisi: int) -> None:
+    """
+        @brief Met à jour la variable global qui défini l'adversaire (1 pour IA, 0 pour joueur) et lance la fenêtre de paramètre
+        @param toplevelFenetre Fenêtre à détruire
+        @param iAdversaireChoisi adversaire choisi par l'utilisateur (1 pour IA, 0 pour joueur)
+    """
+
     dictParametre : dict = {"difficulteIA": iAdversaireChoisi, "nbColonnePlateau": getNbColonne(),
                              "nbLignePlateau": getNbLigne(), "nombreJetonVicoire": getNbJetonVictoire(),
                              "stateCoupSpecial": getStateCoupSpecial(), "stateUndoRedo": getStateUndoRedo()}
@@ -63,14 +66,15 @@ def lancerPageParametre(toplevelFenetre: tk.Tk, iAdversaireChoisi: int):
     initInterfaceParametre(dictParametre)
 
 ###########################################################
-#             FONCTIONS INTERFACE PARAMETRES              #
+'             FONCTIONS INTERFACE PARAMETRES              '
 ###########################################################
 
-"""
-    @brief Initialise la page de paramètre
-    @param dictParametre dictionnaire contenant les paramètres déjà choisis sur la page principale
-"""
-def initInterfaceParametre(dictParametre: dict) -> tk.Tk:
+def initInterfaceParametre(dictParametre: dict) -> None:
+    """
+        @brief Initialise la page de paramètre
+        @param dictParametre dictionnaire contenant les paramètres déjà choisis sur la page principale
+    """
+
     # Créé la fenêtre et le haut de la fenêtre
     # Donne en paramètre à "creerBoutonRetour" la fonction qui initialise la page principale pour pouvoir y retourner
     toplevelFenetreParametre = creerToplevelFenetre(768, 563, False, "Paramètres")
@@ -79,12 +83,13 @@ def initInterfaceParametre(dictParametre: dict) -> tk.Tk:
     creerBoutonLancer(toplevelFenetreParametre, dictParametre)
     gererInterfaceParametre(toplevelFenetreParametre, dictParametre)
 
-"""
-    @brief Créé le bouton pour lancer la partie
-    @param toplevelFenetre fenêtre où afficher le bouton (fenêtre paramètre)
-    @param dictParametre dictionnaire contenant les paramètres déjà choisis sur la page principale
-"""
-def creerBoutonLancer(toplevelFenetre: tk.Tk, dictParametre: dict):
+def creerBoutonLancer(toplevelFenetre: tk.Tk, dictParametre: dict) -> None:
+    """
+        @brief Créé le bouton pour lancer la partie
+        @param toplevelFenetre fenêtre où afficher le bouton (fenêtre paramètre)
+        @param dictParametre dictionnaire contenant les paramètres déjà choisis sur la page principale
+    """
+
     frameBoutonLancer = tk.Frame(toplevelFenetre)
     frameBoutonLancer.configure(height=200, width=400)
     frameBoutonLancer.place(anchor="nw", relx=0.3, rely=0.81, x=0, y=0)
@@ -94,11 +99,12 @@ def creerBoutonLancer(toplevelFenetre: tk.Tk, dictParametre: dict):
     buttonLancer.configure(cursor="hand2", font="{Arial} 26", width=15, text='Lancer la partie', command= lambda: lancerPageJeu(toplevelFenetre, dictParametre))
     buttonLancer.place(anchor="nw", relx=0, x=0, y=0)
 
-"""
-    @brief Met à jour les paramètres et lance la fenêtre de jeu
-    @param dictParametre paramètres déjà choisis par le joueur
-"""
-def lancerPageJeu(toplevelFenetre: tk.Tk, dictParametre: dict):
+def lancerPageJeu(toplevelFenetre: tk.Tk, dictParametre: dict) -> None:
+    """
+        @brief Met à jour les paramètres et lance la fenêtre de jeu
+        @param dictParametre paramètres déjà choisis par le joueur
+    """
+
     # Ajoute et met à jour les paramètres dans le dictionnaire
     dictParametre.update({"couleurJetonJ1": getCouleurJetonJ1(), "couleurJetonJ2": getCouleurJetonJ2(), "nbCoupSpecial": getNombreCoupSpecial(),
                           "joueurCommence": getJoueurCommence(), "difficulteIA": getDificulte()})
@@ -108,14 +114,15 @@ def lancerPageJeu(toplevelFenetre: tk.Tk, dictParametre: dict):
     initInterfaceJeu(dictParametre)
 
 ###########################################################
-#               FONCTIONS INTERFACE DE JEU                #
+'               FONCTIONS INTERFACE DE JEU                '
 ###########################################################
 
-"""
-    @brief Initialise la page de jeu
-    @param dictParametre paramètres choisis par le joueur
-"""
-def initInterfaceJeu(dictParametre: dict) -> tk.Tk:
+def initInterfaceJeu(dictParametre: dict) -> None:
+    """
+        @brief Initialise la page de jeu
+        @param dictParametre paramètres choisis par le joueur
+    """
+
     # Créé la fenêtre et le haut de la fenêtre
     # Donne en paramètre à "creerBoutonRetour" la fonction qui initialise la page de paramètre pour pouvoir y retourner
     toplevelFenetreJeu = creerToplevelFenetre(768, 768, False, "Puissance N")

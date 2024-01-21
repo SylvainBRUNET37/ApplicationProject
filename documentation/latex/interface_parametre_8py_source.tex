@@ -1,0 +1,335 @@
+\doxysection{interface\+Parametre.\+py}
+\hypertarget{interface_parametre_8py_source}{}\label{interface_parametre_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/interface/interfaceParametre.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/interface/interfaceParametre.py}}
+\mbox{\hyperlink{interface_parametre_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00001}\mbox{\hyperlink{namespaceinterface_parametre}{00001}}\ \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ interfaceParametre.py}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ les\ éléments\ de\ l'interface\ de\ paramètre\ et\ les\ fonctions\ pour\ gérer\ celle-\/ci}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Sylvain\ BRUNET}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @version\ 1.0}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00008}00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00010}00010\ \textcolor{keyword}{import}\ tkinter\ \textcolor{keyword}{as}\ tk}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00013}00013\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VARIABLES\ GLOABALES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00016}\mbox{\hyperlink{namespaceinterface_parametre_a5fde993550696226307f7168b3f98b95}{00016}}\ toplevelFenetreParametre:\ tk.Tk\ =\ \textcolor{keywordtype}{None}\ \textcolor{comment}{\#\ Fenêtre\ de\ paramètre}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00018}\mbox{\hyperlink{namespaceinterface_parametre_ad8f0fd7339006e42d551d94fc948b58f}{00018}}\ sCouleurJetonJ1\ :\ str\ =\ \textcolor{stringliteral}{"{}yellow"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00019}\mbox{\hyperlink{namespaceinterface_parametre_aaabeccf15ff11ac14e138f2876beb3dd}{00019}}\ sCouleurJetonJ2\ :\ str\ =\ \textcolor{stringliteral}{"{}red"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00020}\mbox{\hyperlink{namespaceinterface_parametre_ad0070dfe2d57a70aa3ac9fca89f61f78}{00020}}\ iNbCoupSpecial\ :\ int\ =\ 1}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00021}\mbox{\hyperlink{namespaceinterface_parametre_a79d3e80635775c9a09f13a176844e081}{00021}}\ iJoueurCommence\ :\ int\ =\ 1}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00022}\mbox{\hyperlink{namespaceinterface_parametre_a61095497a6941d1e5e66b86a1ab74434}{00022}}\ iDifficulteIA\ :\ int\ =\ 1\ \textcolor{comment}{\#\ 0\ si\ en\ JvsJ,\ 1\ pour\ niveau\ 1,\ 2\ pour\ niveau\ 2\ et\ 4\ pour\ niveau\ 3\ (correspond\ à\ la\ profondeur\ de\ l'algorithme)}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00025}00025\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GETERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00028}\mbox{\hyperlink{namespaceinterface_parametre_a0cbd77bc77053378e32c8345dde09158}{00028}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a0cbd77bc77053378e32c8345dde09158}{getCouleurJetonJ1}}()\ -\/>\ str:\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00029}00029\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ la\ couleur\ du\ jeton\ du\ joueur\ 1}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ la\ couleur\ du\ jeton\ du\ joueur\ 1}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00033}00033\ \ \ \ \ \textcolor{keyword}{global}\ sCouleurJetonJ1}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{return}\ sCouleurJetonJ1}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00036}\mbox{\hyperlink{namespaceinterface_parametre_afb8941b48701c5b47996d112ea9aaab1}{00036}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_afb8941b48701c5b47996d112ea9aaab1}{getCouleurJetonJ2}}()\ -\/>\ str:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00037}00037\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00038}00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ la\ couleur\ du\ jeton\ du\ joueur\ 2}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ la\ couleur\ du\ jeton\ du\ joueur\ 2}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00042}00042\ \ \ \ \ \textcolor{keyword}{global}\ sCouleurJetonJ2}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{return}\ sCouleurJetonJ2}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00045}\mbox{\hyperlink{namespaceinterface_parametre_abba6c37a92eaa53370d86efff1c3a6c6}{00045}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_abba6c37a92eaa53370d86efff1c3a6c6}{getNombreCoupSpecial}}()\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00046}00046\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00047}00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ le\ nombre\ de\ coup\ spécial\ choisi\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ nombre\ de\ coup\ spécial\ choisi\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00050}00050\ \ \ \ \ \textcolor{keyword}{global}\ iNbCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ iNbCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00053}\mbox{\hyperlink{namespaceinterface_parametre_ac4c9ba2458cc53fd8e1151e345307ace}{00053}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_ac4c9ba2458cc53fd8e1151e345307ace}{getJoueurCommence}}()\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00054}00054\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00055}00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ le\ joueur\ qui\ commencera\ la\ partie}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00056}00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ joueur\ qui\ commencera\ la\ partie}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00058}00058\ \ \ \ \ \textcolor{keyword}{global}\ iJoueurCommence}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{return}\ iJoueurCommence}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00061}\mbox{\hyperlink{namespaceinterface_parametre_a9e4f2ea08ba401b9836164649aaeefcd}{00061}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a9e4f2ea08ba401b9836164649aaeefcd}{getDificulte}}()\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00062}00062\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00063}00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ la\ difficulté\ de\ l'IA\ ou\ 0\ pour\ joueur\ contre\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ la\ difficulté\ de\ l'IA\ ou\ 0\ pour\ joueur\ contre\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00065}00065\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00067}00067\ \ \ \ \ \textcolor{keyword}{global}\ iDifficulteIA}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{return}\ iDifficulteIA}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00071}00071\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ FONCTIONS\ LIEES\ AUX\ BOUTONS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00074}\mbox{\hyperlink{namespaceinterface_parametre_a3eda818d7628092d0a66aa1f6a9729c5}{00074}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a3eda818d7628092d0a66aa1f6a9729c5}{updateNombreCoupSpecial}}(iNombreCoupSpecialChoisi:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00075}00075\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ la\ variable\ global\ qui\ défini\ le\ nombre\ de\ fois\ que\ les\ joueurs\ pourront\ utiliser\ le\ coup\ spécial}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00077}00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNombreCoupSpecialChoisi\ nombre\ de\ coup\ spécial\ choisi\ par\ l'utilisateur\ avec\ le\ slider}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00078}00078\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00080}00080\ \ \ \ \ \textcolor{keyword}{global}\ iNbCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00081}00081\ \ \ \ \ iNbCoupSpecial\ =\ int(iNombreCoupSpecialChoisi)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00083}\mbox{\hyperlink{namespaceinterface_parametre_a7ac37ada1003685deaac75896b005dd2}{00083}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a7ac37ada1003685deaac75896b005dd2}{choisirCouleur}}(canvaCouleur:\ tk.Canvas,\ iJoueur:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00084}00084\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00085}00085\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Ouvre\ la\ palette\ de\ couleur\ et\ stocke\ la\ couleur\ choisi\ dans\ la\ variable\ du\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00086}00086\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ canvaCouleur\ canva\ où\ la\ couleur\ joueur\ est\ affiché}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00087}00087\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iJoueur\ joueur\ qui\ a\ demander\ un\ changement\ de\ couleur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00088}00088\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00090}00090\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetreParametre}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{global}\ sCouleurJetonJ1}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{global}\ sCouleurJetonJ2}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00094}00094\ \ \ \ \ \textcolor{comment}{\#\ Si\ c'est\ le\ joueur\ 1\ qui\ a\ choisi\ de\ changer\ de\ couleur,\ ouvre\ la\ palette\ de\ couleur,\ stocke\ la\ couleur\ choisi\ et\ met\ à\ jour\ la\ couleur\ affiché}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (iJoueur\ ==\ 1):}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ sCouleurJetonJ1\ =\ toplevelFenetreParametre.tk.call(\textcolor{stringliteral}{"{}tk\_chooseColor"{}},\ \textcolor{stringliteral}{"{}-\/initialcolor"{}},\ sCouleurJetonJ1,\ \textcolor{stringliteral}{"{}-\/title"{}},\ \textcolor{stringliteral}{"{}Choisi\ la\ couleur\ de\ ton\ jeton"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00097}00097\ \ \ \ \ \ \ \ \ canvaCouleur.create\_oval(33,\ 33,\ 5,\ 5,\ outline=\textcolor{stringliteral}{"{}black"{}},\ fill=sCouleurJetonJ1)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00098}00098\ \ \ \ \ \textcolor{comment}{\#\ Si\ c'est\ le\ joueur\ 2,\ fait\ la\ même\ chose\ mais\ pour\ lui}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00099}00099\ \ \ \ \ \textcolor{keywordflow}{else}\ :}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00100}00100\ \ \ \ \ \ \ \ \ sCouleurJetonJ2\ =\ toplevelFenetreParametre.tk.call(\textcolor{stringliteral}{"{}tk\_chooseColor"{}},\ \textcolor{stringliteral}{"{}-\/initialcolor"{}},\ sCouleurJetonJ2,\ \textcolor{stringliteral}{"{}-\/title"{}},\ \textcolor{stringliteral}{"{}Choisi\ la\ couleur\ de\ ton\ jeton"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00101}00101\ \ \ \ \ \ \ \ \ canvaCouleur.create\_oval(33,\ 33,\ 5,\ 5,\ outline=\textcolor{stringliteral}{"{}black"{}},\ fill=sCouleurJetonJ2)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00103}\mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{00103}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{updateChoixJoueurCommence}}(buttonCommenceJ1:\ tk.Button,\ buttonCommenceJ2:\ tk.Button,\ iJoueur:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00104}00104\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Met\ à\ jour\ le\ joueur\ qui\ doit\ commencer}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ buttonCommenceJ1\ bouton\ du\ J1}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00107}00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ buttonCommenceJ2\ bouton\ du\ J2}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00108}00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iJoueur\ joueur\ lié\ au\ bouton\ cliqué}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00109}00109\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00111}00111\ \ \ \ \ \textcolor{keyword}{global}\ iJoueurCommence}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00113}00113\ \ \ \ \ iJoueurCommence\ =\ iJoueur}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00114}00114\ \ \ \ \ \textcolor{comment}{\#\ Si\ c'est\ bouton\ lié\ au\ joueur\ 1\ qui\ a\ été\ cliqué,\ le\ dégrise\ et\ grise\ celui\ du\ joueur\ 2}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00115}00115\ \ \ \ \ \textcolor{keywordflow}{if}\ (iJoueur\ ==\ 1):}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ buttonCommenceJ1.configure(background=\textcolor{stringliteral}{"{}\#ffffff"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'J1'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{updateChoixJoueurCommence}}(buttonCommenceJ1,\ buttonCommenceJ2,\ 1))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00118}00118\ \ \ \ \ \ \ \ \ buttonCommenceJ2.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'J2'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{updateChoixJoueurCommence}}(buttonCommenceJ1,\ buttonCommenceJ2,\ 2))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00120}00120\ \ \ \ \ \textcolor{comment}{\#\ Si\ c'est\ celui\ du\ joueur\ 2,\ fait\ la\ même\ chose\ mais\ pour\ lui}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00122}00122\ \ \ \ \ \ \ \ \ buttonCommenceJ1.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'J1'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{updateChoixJoueurCommence}}(buttonCommenceJ1,\ buttonCommenceJ2,\ 1))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00124}00124\ \ \ \ \ \ \ \ \ buttonCommenceJ2.configure(background=\textcolor{stringliteral}{"{}\#ffffff"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'J2'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{updateChoixJoueurCommence}}(buttonCommenceJ1,\ buttonCommenceJ2,\ 2))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00127}\mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{00127}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1:\ tk.Button,\ buttonDifficulte2:\ tk.Button,\ buttonDifficulte3:\ tk.Button,\ iDifficulteChoisi:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00128}00128\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00129}00129\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Met\ à\ jour\ la\ difficulté\ de\ l'IA}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00130}00130\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ buttonDifficulte1\ bouton\ lié\ à\ la\ difficulté\ 1}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00131}00131\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ buttonDifficulte2\ bouton\ lié\ à\ la\ difficulté\ 2}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00132}00132\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ buttonDifficulte3\ bouton\ lié\ à\ la\ difficulté\ 3}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00133}00133\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iDifficulteChoisi\ difficulté\ lié\ au\ bouton\ cliqué}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00134}00134\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00136}00136\ \ \ \ \ \textcolor{keyword}{global}\ iDifficulteIA}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00138}00138\ \ \ \ \ iDifficulteIA\ =\ iDifficulteChoisi}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00139}00139\ \ \ \ \ \textcolor{comment}{\#\ Si\ c'est\ bouton\ lié\ à\ la\ difficulté\ 1\ qui\ a\ été\ cliqué,\ le\ dégrise\ et\ grise\ les\ autres}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00140}00140\ \ \ \ \ \textcolor{keywordflow}{if}\ (iDifficulteChoisi\ ==\ 1):}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00141}00141\ \ \ \ \ \ \ \ \ buttonDifficulte1.configure(background=\textcolor{stringliteral}{"{}\#ffffff"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'1'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 1))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00143}00143\ \ \ \ \ \ \ \ \ buttonDifficulte2.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'2'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 2))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ buttonDifficulte3.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'3'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 4))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00147}00147\ \ \ \ \ \textcolor{comment}{\#\ Si\ c'est\ celui\ de\ la\ difficulté\ 2,\ fait\ la\ même\ chose\ mais\ pour\ lui}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00148}00148\ \ \ \ \ \textcolor{keywordflow}{elif}\ (iDifficulteChoisi\ ==\ 2):}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00149}00149\ \ \ \ \ \ \ \ \ buttonDifficulte1.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'1'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 1))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00151}00151\ \ \ \ \ \ \ \ \ buttonDifficulte2.configure(background=\textcolor{stringliteral}{"{}\#ffffff"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'2'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 2))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00153}00153\ \ \ \ \ \ \ \ \ buttonDifficulte3.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'3'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 4))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00155}00155\ \ \ \ \ \textcolor{comment}{\#\ Si\ c'est\ celui\ de\ la\ difficulté\ 3,\ fait\ la\ même\ chose\ mais\ pour\ lui}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00156}00156\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00157}00157\ \ \ \ \ \ \ \ \ buttonDifficulte1.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'1'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 1))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00159}00159\ \ \ \ \ \ \ \ \ buttonDifficulte2.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'2'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 2))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00161}00161\ \ \ \ \ \ \ \ \ buttonDifficulte3.configure(background=\textcolor{stringliteral}{"{}\#ffffff"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'3'},\ width=3,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ command\ =\ \textcolor{keyword}{lambda}\ :\ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ 4))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00166}00166\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ FONCTIONS\ LIEES\ A\ AFFICHAGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00169}\mbox{\hyperlink{namespaceinterface_parametre_a8a4133d9be01416512f9ada8cc5c8b4c}{00169}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a8a4133d9be01416512f9ada8cc5c8b4c}{creerChoixCouleur}}(iCoordonneeX:\ int,\ iCoordonneeY:\ int,\ sNomLabel:\ str,\ iJoueur:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00170}00170\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00171}00171\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ le\ widget\ permettants\ de\ choisir\ une\ couleur\ et\ de\ l'afficher}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00172}00172\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iCoordonneeX\ coordonnée\ en\ abscisse\ où\ doit\ être\ placer\ le\ widget}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00173}00173\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iCoordonneeY\ coordonnée\ en\ ordonnée\ où\ doit\ être\ placer\ le\ widget}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00174}00174\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ sNomLabel\ texte\ sur\ le\ label\ devant\ le\ widget\ de\ choix\ de\ couleur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00175}00175\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iJoueur\ joueur\ qui\ a\ demander\ un\ changement\ de\ couleur\ (1\ pour\ J1,\ 2\ pour\ J2)}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00176}00176\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00178}00178\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetreParametre}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00179}00179\ \ \ \ \ \textcolor{keyword}{global}\ sCouleurJetonJ1}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00180}00180\ \ \ \ \ \textcolor{keyword}{global}\ sCouleurJetonJ2}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00182}00182\ \ \ \ \ frameCouleur:\ tk.Frame\ =\ tk.Frame(toplevelFenetreParametre)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00183}00183\ \ \ \ \ frameCouleur.configure(height=50,\ width=350)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00184}00184\ \ \ \ \ frameCouleur.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ rely=iCoordonneeX,\ relx=iCoordonneeY)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00186}00186\ \ \ \ \ \textcolor{comment}{\#\ Créé\ le\ label\ qui\ indique\ le\ joueur\ lié\ à\ la\ couleur}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00187}00187\ \ \ \ \ labelCouleur:\ tk.Label\ =\ tk.Label(frameCouleur)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00188}00188\ \ \ \ \ labelCouleur.configure(font=\textcolor{stringliteral}{"{}\{Arial\}\ 16\ \{underline\}"{}},\ text=sNomLabel)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00189}00189\ \ \ \ \ labelCouleur.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.08,\ rely=0.27,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00191}00191\ \ \ \ \ canvaCouleur:\ tk.Canvas\ =\ tk.Canvas(frameCouleur)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00192}00192\ \ \ \ \ canvaCouleur.configure(cursor=\textcolor{stringliteral}{"{}pencil"{}},\ height=75,\ width=75)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00193}00193\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00194}00194\ \ \ \ \ \textcolor{comment}{\#\ Affiche\ la\ couleur\ du\ jeton\ du\ joueur\ qui\ a\ cliqué\ sur\ le\ bouton}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00195}00195\ \ \ \ \ \textcolor{keywordflow}{if}\ (iJoueur\ ==\ 1):}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00196}00196\ \ \ \ \ \ \ \ \ canvaCouleur.create\_oval(33,\ 33,\ 5,\ 5,\ outline=\textcolor{stringliteral}{"{}black"{}},\ fill=sCouleurJetonJ1)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00198}00198\ \ \ \ \ \ \ \ \ canvaCouleur.create\_oval(33,\ 33,\ 5,\ 5,\ outline=\textcolor{stringliteral}{"{}black"{}},\ fill=sCouleurJetonJ2)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00199}00199\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00200}00200\ \ \ \ \ \textcolor{comment}{\#\ Lie\ la\ fonction\ qui\ permet\ de\ choisir\ la\ couleur\ du\ jeton\ avec\ la\ couleur\ affichée}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00201}00201\ \ \ \ \ canvaCouleur.bind(\textcolor{stringliteral}{"{}<Button-\/1>"{}},\ \textcolor{keyword}{lambda}\ event,\ canvaCouleur=canvaCouleur,\ iJoueur=iJoueur:\ \mbox{\hyperlink{namespaceinterface_parametre_a7ac37ada1003685deaac75896b005dd2}{choisirCouleur}}(canvaCouleur,\ iJoueur))}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00202}00202\ \ \ \ \ canvaCouleur.place(relx=0.9,\ rely=0.13,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00203}00203\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00204}\mbox{\hyperlink{namespaceinterface_parametre_a86f46f7fa929fe924df26f91c576ab05}{00204}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a86f46f7fa929fe924df26f91c576ab05}{creerFrameNombreCoupSpecial}}(bCoupSpecial\ :\ bool)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00205}00205\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00206}00206\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ le\ slider\ lié\ au\ nombre\ de\ coup\ spécial\ que\ le\ joueur\ veut\ utiliser}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00207}00207\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ bCoupSpecial\ variable\ qui\ défini\ si\ le\ joueur\ a\ choisi\ d'autoriser\ le\ coup\ spécial\ ou\ non}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00208}00208\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00210}00210\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetreParametre}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00211}00211\ \ \ \ \ \textcolor{keyword}{global}\ iNbCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00213}00213\ \ \ \ \ \textcolor{comment}{\#\ Créé\ la\ variable\ tkinter\ lié\ au\ slider}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00214}00214\ \ \ \ \ iTkNombreCoupSpecial:\ tk.IntVar\ =\ tk.IntVar()}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00215}00215\ \ \ \ \ iTkNombreCoupSpecial.set(iNbCoupSpecial)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00217}00217\ \ \ \ \ frameNombreCoupSpecial:\ tk.Frame\ =\ tk.Frame(toplevelFenetreParametre)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00218}00218\ \ \ \ \ frameNombreCoupSpecial.configure(height=150,\ width=600)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00219}00219\ \ \ \ \ frameNombreCoupSpecial.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.15,\ rely=0.4,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00221}00221\ \ \ \ \ labelCoupSpecial:\ tk.Label\ =\ tk.Label(frameNombreCoupSpecial)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00222}00222\ \ \ \ \ scaleNombreCoupSpecial\ =\ tk.Scale(frameNombreCoupSpecial)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00224}00224\ \ \ \ \ \textcolor{comment}{\#\ Si\ le\ joueur\ ne\ veut\ pas\ activer\ le\ coup\ spécial,\ met\ le\ nombre\ de\ coup\ spécial\ à\ 0,\ désactive\ le\ slider\ et\ le\ grise}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00225}00225\ \ \ \ \ \textcolor{keywordflow}{if}\ (bCoupSpecial\ ==\ \textcolor{keyword}{False}):}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00226}00226\ \ \ \ \ \ \ \ \ iTkNombreCoupSpecial.set(0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00227}00227\ \ \ \ \ \ \ \ \ iNbCoupSpecial\ =\ 0}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00228}00228\ \ \ \ \ \ \ \ \ labelCoupSpecial.configure(text=\textcolor{stringliteral}{'Nombre\ de\ coup\ spécial\ :'},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 16\ \{underline\}"{}},\ background=\textcolor{stringliteral}{"{}grey"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00229}00229\ \ \ \ \ \ \ \ \ scaleNombreCoupSpecial.configure(cursor=\textcolor{stringliteral}{"{}sb\_h\_double\_arrow"{}},\ from\_=0,\ orient=\textcolor{stringliteral}{"{}horizontal"{}},\ to=5,\ length=200,\ width=20,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state=\textcolor{stringliteral}{"{}disabled"{}},\ background=\textcolor{stringliteral}{"{}grey"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00231}00231\ \ \ \ \ \textcolor{comment}{\#\ Si\ le\ joueur\ veut\ activer\ le\ coup\ spécial,\ configure\ et\ affiche\ le\ slider}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00232}00232\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00233}00233\ \ \ \ \ \ \ \ \ iTkNombreCoupSpecial.set(1)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00234}00234\ \ \ \ \ \ \ \ \ iNbCoupSpecial\ =\ 1}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00235}00235\ \ \ \ \ \ \ \ \ labelCoupSpecial.configure(text=\textcolor{stringliteral}{'Nombre\ de\ coup\ spécial\ :'},\ font=\textcolor{stringliteral}{"{}\{Arial\}\ 16\ \{underline\}"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00236}00236\ \ \ \ \ \ \ \ \ scaleNombreCoupSpecial.configure(cursor=\textcolor{stringliteral}{"{}sb\_h\_double\_arrow"{}},\ from\_=1,\ orient=\textcolor{stringliteral}{"{}horizontal"{}},\ to=5,\ length=200,\ width=20,}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable=iTkNombreCoupSpecial,\ command=updateNombreCoupSpecial)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00239}00239\ \ \ \ \ labelCoupSpecial.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0,\ rely=0.1,\ x=0,\ y=0)\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00240}00240\ \ \ \ \ scaleNombreCoupSpecial.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.5,\ rely=0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00241}00241\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00242}\mbox{\hyperlink{namespaceinterface_parametre_a3aca2a1ce8c0bf9ac916090e53255cdc}{00242}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a3aca2a1ce8c0bf9ac916090e53255cdc}{creerFrameJoueurCommence}}()\ -\/>\ None:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00243}00243\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00244}00244\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Créé\ les\ boutons\ qui\ permettent\ de\ choisir\ le\ joueur\ qui\ commence}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00245}00245\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00247}00247\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetreParametre}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00248}00248\ \ \ \ \ \textcolor{keyword}{global}\ iJoueurCommence}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00250}00250\ \ \ \ \ frameCommence\ =\ tk.Frame(toplevelFenetreParametre)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00251}00251\ \ \ \ \ frameCommence.configure(height=100,\ width=600)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00252}00252\ \ \ \ \ frameCommence.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.2,\ rely=0.55,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00254}00254\ \ \ \ \ labelCommence\ =\ tk.Label(frameCommence)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00255}00255\ \ \ \ \ labelCommence.configure(font=\textcolor{stringliteral}{"{}\{Arial\}\ 16\ \{underline\}"{}},\ text=\textcolor{stringliteral}{'Joueur\ qui\ commence\ :'})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00256}00256\ \ \ \ \ labelCommence.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.03,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00257}00257\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00258}00258\ \ \ \ \ \textcolor{comment}{\#\ Créé\ puis\ configure\ les\ boutons}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00259}00259\ \ \ \ \ buttonCommenceJ1\ =\ tk.Button(frameCommence)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00260}00260\ \ \ \ \ buttonCommenceJ2\ =\ tk.Button(frameCommence)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00261}00261\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_parametre_a62c1a6e1614db11e909ffd0c19feff9c}{updateChoixJoueurCommence}}(buttonCommenceJ1,\ buttonCommenceJ2,\ iJoueurCommence)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00262}00262\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00263}00263\ \ \ \ \ buttonCommenceJ1.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.5,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00264}00264\ \ \ \ \ buttonCommenceJ2.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.65,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00265}00265\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00266}\mbox{\hyperlink{namespaceinterface_parametre_a683a3c930f2cf2191f2656a07f1320e5}{00266}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a683a3c930f2cf2191f2656a07f1320e5}{creerFrameDifficulteIA}}()\ -\/>\ None:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00267}00267\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00268}00268\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ les\ boutons\ qui\ permettent\ de\ choisir\ la\ difficulté\ de\ l'IA}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00269}00269\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00271}00271\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetreParametre}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00272}00272\ \ \ \ \ \textcolor{keyword}{global}\ iDifficulteIA}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00273}00273\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00274}00274\ \ \ \ \ frameDifficulte\ =\ tk.Frame(toplevelFenetreParametre)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00275}00275\ \ \ \ \ frameDifficulte.configure(height=30,\ width=600)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00276}00276\ \ \ \ \ frameDifficulte.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.2,\ rely=0.7,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00278}00278\ \ \ \ \ labelDifficulte\ =\ tk.Label(frameDifficulte)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00279}00279\ \ \ \ \ buttonDifficulte1\ =\ tk.Button(frameDifficulte)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00280}00280\ \ \ \ \ buttonDifficulte2\ =\ tk.Button(frameDifficulte)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00281}00281\ \ \ \ \ buttonDifficulte3\ =\ tk.Button(frameDifficulte)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00283}00283\ \ \ \ \ \textcolor{comment}{\#\ Si\ le\ joueur\ veut\ jouer\ contre\ l'IA,\ active\ les\ boutons\ liés\ à\ la\ difficulté\ de\ celle-\/ci}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00284}00284\ \ \ \ \ \textcolor{keywordflow}{if}\ (iDifficulteIA\ !=\ 0):}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00285}00285\ \ \ \ \ \ \ \ \ labelDifficulte.configure(font=\textcolor{stringliteral}{"{}\{Arial\}\ 16\ \{underline\}"{}},\ text=\textcolor{stringliteral}{'Difficultée\ de\ l\(\backslash\)'IA\ :'})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00286}00286\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceinterface_parametre_ad89be30ac09216682866b3f3b7ac6693}{updateChoixDifficulteIA}}(buttonDifficulte1,\ buttonDifficulte2,\ buttonDifficulte3,\ iDifficulteIA)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00287}00287\ \ \ \ \ \textcolor{comment}{\#\ Si\ le\ joueur\ veut\ faire\ du\ JvsJ,\ désactive\ et\ grise\ les\ boutons\ liés\ à\ la\ diffuculté}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00288}00288\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00289}00289\ \ \ \ \ \ \ \ \ labelDifficulte.configure(font=\textcolor{stringliteral}{"{}\{Arial\}\ 16\ \{underline\}"{}},\ text=\textcolor{stringliteral}{'Diffcultée\ de\ l\(\backslash\)'IA\ :'},\ background=\textcolor{stringliteral}{"{}grey"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00290}00290\ \ \ \ \ \ \ \ \ buttonDifficulte1.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'1'},\ width=3,\ state=\textcolor{stringliteral}{"{}disabled"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00291}00291\ \ \ \ \ \ \ \ \ buttonDifficulte2.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'2'},\ width=3,\ state=\textcolor{stringliteral}{"{}disabled"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00292}00292\ \ \ \ \ \ \ \ \ buttonDifficulte3.configure(background=\textcolor{stringliteral}{"{}\#c0c0c0"{}},\ cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'3'},\ width=3,\ state=\textcolor{stringliteral}{"{}disabled"{}})}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00294}00294\ \ \ \ \ labelDifficulte.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.03,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00295}00295\ \ \ \ \ buttonDifficulte1.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.37,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00296}00296\ \ \ \ \ buttonDifficulte2.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.52,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00297}00297\ \ \ \ \ buttonDifficulte3.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.67,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00299}00299\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00300}00300\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GESTION\ DE\ LA\ FENETRE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00302}00302\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00303}\mbox{\hyperlink{namespaceinterface_parametre_a4a560376a43cb550c543049d9a4704d3}{00303}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_parametre_a4a560376a43cb550c543049d9a4704d3}{gererInterfaceParametre}}(toplevelFenetre:\ tk.Tk,\ dictParametre:\ dict)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00304}00304\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00305}00305\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Gère\ l'affichage\ de\ la\ page\ de\ paramètre}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00306}00306\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ toplevelFenetre\ Fenêtre\ de\ paramètre}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00307}00307\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ dictParametre\ contient\ les\ paramètres\ déjà\ choisis\ par\ le\ joueur\ sur\ la\ page\ principale}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00308}00308\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00309}00309\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00310}00310\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetreParametre}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00311}00311\ \ \ \ \ \textcolor{keyword}{global}\ iDifficulteIA}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00313}00313\ \ \ \ \ toplevelFenetreParametre\ =\ toplevelFenetre}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00315}00315\ \ \ \ \ \textcolor{comment}{\#\ Initialise\ la\ difficulté\ de\ l'IA\ en\ fonction\ du\ choisis\ précédement\ fait\ par\ le\ joueur\ sur\ la\ page\ principale}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00316}00316\ \ \ \ \ iDifficulteIA\ =\ dictParametre[\textcolor{stringliteral}{"{}difficulteIA"{}}]}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00317}00317\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00318}00318\ \ \ \ \ \textcolor{comment}{\#\ Créé\ tous\ les\ widgets\ qui\ permettent\ de\ changer\ les\ paramètres}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00319}00319\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_parametre_a8a4133d9be01416512f9ada8cc5c8b4c}{creerChoixCouleur}}(0.25,\ 0.02,\ \textcolor{stringliteral}{"{}Couleur\ de\ jeton\ du\ joueur\ 1\ :"{}},\ 1)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00320}00320\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_parametre_a8a4133d9be01416512f9ada8cc5c8b4c}{creerChoixCouleur}}(0.25,\ 0.48,\ \textcolor{stringliteral}{"{}Couleur\ de\ jeton\ du\ joueur\ 2\ :"{}},\ 2)}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00321}00321\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_parametre_a86f46f7fa929fe924df26f91c576ab05}{creerFrameNombreCoupSpecial}}(dictParametre[\textcolor{stringliteral}{"{}stateCoupSpecial"{}}])}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00322}00322\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_parametre_a3aca2a1ce8c0bf9ac916090e53255cdc}{creerFrameJoueurCommence}}()}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00323}00323\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_parametre_a683a3c930f2cf2191f2656a07f1320e5}{creerFrameDifficulteIA}}()}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00326}00326\ \ \ \ \ \textcolor{comment}{\#\ Affiche\ la\ page\ créée}}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00327}00327\ \ \ \ \ toplevelFenetreParametre.mainloop()}
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{interface_parametre_8py_source_l00329}00329\ }
+
+\end{DoxyCode}

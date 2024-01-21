@@ -1,0 +1,106 @@
+\doxysection{jeu Namespace Reference}
+\hypertarget{namespacejeu}{}\label{namespacejeu}\index{jeu@{jeu}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacejeu_a3140ddc1a3dd3734bb1abda672f7b810}{identifier\+Ligne}} (list i\+Tab\+Colonne, int i\+Nb\+Ligne\+Plateau)
+\item 
+list \mbox{\hyperlink{namespacejeu_a7135ec5064fda4fe4db56141e204bb61}{inverser\+Couleur}} (list Tplateau\+De\+Jeu, int i\+Nb\+Colonne, int i\+Nb\+Ligne)
+\item 
+bool \mbox{\hyperlink{namespacejeu_a2edc7200d0bf1aa87b0598dede020bc2}{verifier\+Colonne\+Pleine}} (list Tplateau\+De\+Jeu, int i\+Colonne, int i\+Nb\+Ligne)
+\item 
+bool \mbox{\hyperlink{namespacejeu_a972d4b483ae46edb88ee1ffe2749e370}{placer\+Jeton\+IA}} (list Tplateau\+De\+Jeu, int i\+Colonne, int i\+Joueur)
+\item 
+int \mbox{\hyperlink{namespacejeu_aaa925452fa424a8a0a56a83c93a5f38e}{placer\+Jeton\+Joueur}} (int i\+Tab\+Plateau\+Jeu, int i\+Joueur, int i\+Nb\+Colonne, int i\+Nb\+Ligne)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}    @file    jeu.py
+    @brief   Contient les fonctions permettant de jouer au jeu
+    @author  Sylvain BRUNET & Matthieu CHARTON
+    @version 0.1
+    @date    2023-2024
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacejeu_a3140ddc1a3dd3734bb1abda672f7b810}\label{namespacejeu_a3140ddc1a3dd3734bb1abda672f7b810} 
+\index{jeu@{jeu}!identifierLigne@{identifierLigne}}
+\index{identifierLigne@{identifierLigne}!jeu@{jeu}}
+\doxysubsubsection{\texorpdfstring{identifierLigne()}{identifierLigne()}}
+{\footnotesize\ttfamily  int identifier\+Ligne (\begin{DoxyParamCaption}\item[{list}]{i\+Tab\+Colonne,  }\item[{int}]{i\+Nb\+Ligne\+Plateau }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Identifie la ligne où devra être posé le jeton à partir de la colonne que le joueur a choisi
+    @param iTabColonne Colonne où le joueur veut placer son jeton
+    @return -1 si la colonne est pleine, l'indice de la ligne où le jeton doit être posé si ce n'est pas le cas
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{jeu_8py_source_l00013}{13}} of file \mbox{\hyperlink{jeu_8py_source}{jeu.\+py}}.
+
+\Hypertarget{namespacejeu_a7135ec5064fda4fe4db56141e204bb61}\label{namespacejeu_a7135ec5064fda4fe4db56141e204bb61} 
+\index{jeu@{jeu}!inverserCouleur@{inverserCouleur}}
+\index{inverserCouleur@{inverserCouleur}!jeu@{jeu}}
+\doxysubsubsection{\texorpdfstring{inverserCouleur()}{inverserCouleur()}}
+{\footnotesize\ttfamily  list inverser\+Couleur (\begin{DoxyParamCaption}\item[{list}]{Tplateau\+De\+Jeu,  }\item[{int}]{i\+Nb\+Colonne,  }\item[{int}]{i\+Nb\+Ligne }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Inverse les jetons du plateau de jeu pour l'effet spécial
+    @param TplateauDeJeu Le tableau du plateau de jeu
+    @param iNbColonne    Le nombre de colonnes dans le plateau
+    @param iNbLigne      Le nombre de lignes dans le plateau
+    @return le plateau modifié
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{jeu_8py_source_l00037}{37}} of file \mbox{\hyperlink{jeu_8py_source}{jeu.\+py}}.
+
+\Hypertarget{namespacejeu_a972d4b483ae46edb88ee1ffe2749e370}\label{namespacejeu_a972d4b483ae46edb88ee1ffe2749e370} 
+\index{jeu@{jeu}!placerJetonIA@{placerJetonIA}}
+\index{placerJetonIA@{placerJetonIA}!jeu@{jeu}}
+\doxysubsubsection{\texorpdfstring{placerJetonIA()}{placerJetonIA()}}
+{\footnotesize\ttfamily  bool placer\+Jeton\+IA (\begin{DoxyParamCaption}\item[{list}]{Tplateau\+De\+Jeu,  }\item[{int}]{i\+Colonne,  }\item[{int}]{i\+Joueur }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Joue un coup en plaçant un jeton dans la colonne spécifiée
+    @param TplateauDeJeu Le tableau du plateau de jeu
+    @param iColonne      La colonne dans laquelle placer le jeton
+    @param iJoueur       Le joueur qui joue le coup
+    @return True si le coup est joué avec succès, False sinon
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{jeu_8py_source_l00078}{78}} of file \mbox{\hyperlink{jeu_8py_source}{jeu.\+py}}.
+
+\Hypertarget{namespacejeu_aaa925452fa424a8a0a56a83c93a5f38e}\label{namespacejeu_aaa925452fa424a8a0a56a83c93a5f38e} 
+\index{jeu@{jeu}!placerJetonJoueur@{placerJetonJoueur}}
+\index{placerJetonJoueur@{placerJetonJoueur}!jeu@{jeu}}
+\doxysubsubsection{\texorpdfstring{placerJetonJoueur()}{placerJetonJoueur()}}
+{\footnotesize\ttfamily  int placer\+Jeton\+Joueur (\begin{DoxyParamCaption}\item[{int}]{i\+Tab\+Plateau\+Jeu,  }\item[{int}]{i\+Joueur,  }\item[{int}]{i\+Nb\+Colonne,  }\item[{int}]{i\+Nb\+Ligne }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief  Demande au joueur la colonne où il veut placer son jeton puis le place
+    @param  iTabPlateauJeu Plateau de jeu dans lequel le jeton doit être placé
+    @param  iJoueur        Joueur qui veut placer le jeton
+    @param  iNbColonne     Nombre de colonne du plateau de jeu
+    @param  iNbLigne       Nombre de ligne du plateau de jeu
+    @return le plateau de jeu avec le jeton posé
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{jeu_8py_source_l00097}{97}} of file \mbox{\hyperlink{jeu_8py_source}{jeu.\+py}}.
+
+\Hypertarget{namespacejeu_a2edc7200d0bf1aa87b0598dede020bc2}\label{namespacejeu_a2edc7200d0bf1aa87b0598dede020bc2} 
+\index{jeu@{jeu}!verifierColonnePleine@{verifierColonnePleine}}
+\index{verifierColonnePleine@{verifierColonnePleine}!jeu@{jeu}}
+\doxysubsubsection{\texorpdfstring{verifierColonnePleine()}{verifierColonnePleine()}}
+{\footnotesize\ttfamily  bool verifier\+Colonne\+Pleine (\begin{DoxyParamCaption}\item[{list}]{Tplateau\+De\+Jeu,  }\item[{int}]{i\+Colonne,  }\item[{int}]{i\+Nb\+Ligne }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}    @brief Vérifie si la colonne spécifiée est valide pour placer un jeton
+    @param TplateauDeJeu Le tableau du plateau de jeu
+    @param iColonne      La colonne à vérifier
+    @param iNbLigne      Le nombre de lignes dans le plateau
+    @return True si la colonne est valide, False sinon
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{jeu_8py_source_l00062}{62}} of file \mbox{\hyperlink{jeu_8py_source}{jeu.\+py}}.
+

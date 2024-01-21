@@ -10,12 +10,13 @@ import copy
 
 from jeu.verification import *
 
-"""
-    @brief Identifie la ligne où devra être posé le jeton à partir de la colonne que le joueur a choisi
-    @param iTabColonne Colonne où le joueur veut placer son jeton
-    @return -1 si la colonne est pleine, l'indice de la ligne où le jeton doit être posé si ce n'est pas le cas
-"""
 def identifierLigne(iTabColonne: list, iNbLignePlateau: int) -> int:
+    """
+        @brief Identifie la ligne où devra être posé le jeton à partir de la colonne que le joueur a choisi
+        @param iTabColonne Colonne où le joueur veut placer son jeton
+        @return -1 si la colonne est pleine, l'indice de la ligne où le jeton doit être posé si ce n'est pas le cas
+    """
+
     iBoucleLigne: int = 0
     bCaseVideTrouve: bool = False
 
@@ -33,14 +34,15 @@ def identifierLigne(iTabColonne: list, iNbLignePlateau: int) -> int:
     else:
         return -1
 
-"""
-    @brief Inverse les jetons du plateau de jeu pour l'effet spécial
-    @param TplateauDeJeu Le tableau du plateau de jeu
-    @param iNbColonne    Le nombre de colonnes dans le plateau
-    @param iNbLigne      Le nombre de lignes dans le plateau
-    @return le plateau modifié
-"""
 def inverserCouleur(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int) -> list:
+    """
+        @brief Inverse les jetons du plateau de jeu pour l'effet spécial
+        @param TplateauDeJeu Le tableau du plateau de jeu
+        @param iNbColonne    Le nombre de colonnes dans le plateau
+        @param iNbLigne      Le nombre de lignes dans le plateau
+        @return le plateau modifié
+    """
+
     TplateauModifie: list = copy.deepcopy(TplateauDeJeu)
     # Parcourt toutes les cellules du plateau
     for iColonne in range(iNbColonne):
@@ -54,17 +56,18 @@ def inverserCouleur(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int) -> list
     return TplateauModifie
 
 ###########################################################
-#                    JEU CONSOLE / IA                     # 
+'                    JEU CONSOLE / IA                     '
 ###########################################################
 
-"""
-    @brief Vérifie si la colonne spécifiée est valide pour placer un jeton
-    @param TplateauDeJeu Le tableau du plateau de jeu
-    @param iColonne      La colonne à vérifier
-    @param iNbLigne      Le nombre de lignes dans le plateau
-    @return True si la colonne est valide, False sinon
-"""
 def verifierColonnePleine(TplateauDeJeu: list, iColonne: int, iNbLigne: int) -> bool:
+    """
+        @brief Vérifie si la colonne spécifiée est valide pour placer un jeton
+        @param TplateauDeJeu Le tableau du plateau de jeu
+        @param iColonne      La colonne à vérifier
+        @param iNbLigne      Le nombre de lignes dans le plateau
+        @return True si la colonne est valide, False sinon
+    """
+
     # Parcourt les lignes de la colonne spécifiée
     for iBoucleLigne in range(iNbLigne):
         # Vérifie si la case est vide (contient un jeton nul)
@@ -72,14 +75,15 @@ def verifierColonnePleine(TplateauDeJeu: list, iColonne: int, iNbLigne: int) -> 
             return True
     return False
 
-"""
-    @brief Joue un coup en plaçant un jeton dans la colonne spécifiée
-    @param TplateauDeJeu Le tableau du plateau de jeu
-    @param iColonne      La colonne dans laquelle placer le jeton
-    @param iJoueur       Le joueur qui joue le coup
-    @return True si le coup est joué avec succès, False sinon
-"""
 def placerJetonIA(TplateauDeJeu: list, iColonne: int, iJoueur: int) -> bool:
+    """
+        @brief Joue un coup en plaçant un jeton dans la colonne spécifiée
+        @param TplateauDeJeu Le tableau du plateau de jeu
+        @param iColonne      La colonne dans laquelle placer le jeton
+        @param iJoueur       Le joueur qui joue le coup
+        @return True si le coup est joué avec succès, False sinon
+    """
+
     # Parcourt les lignes de la colonne spécifiée
     for i in range(len(TplateauDeJeu[0])):
         # Vérifie si la case est vide (contient un jeton nul)
@@ -90,15 +94,16 @@ def placerJetonIA(TplateauDeJeu: list, iColonne: int, iJoueur: int) -> bool:
     # La colonne est pleine, le coup n'a pas pu être joué
     return False
 
-"""
-    @brief  Demande au joueur la colonne où il veut placer son jeton puis le place
-    @param  iTabPlateauJeu Plateau de jeu dans lequel le jeton doit être placé
-    @param  iJoueur        Joueur qui veut placer le jeton
-    @param  iNbColonne     Nombre de colonne du plateau de jeu
-    @param  iNbLigne       Nombre de ligne du plateau de jeu
-    @return le plateau de jeu avec le jeton posé
-"""
 def placerJetonJoueur(iTabPlateauJeu: int, iJoueur: int, iNbColonne: int, iNbLigne: int) -> int:
+    """
+        @brief  Demande au joueur la colonne où il veut placer son jeton puis le place
+        @param  iTabPlateauJeu Plateau de jeu dans lequel le jeton doit être placé
+        @param  iJoueur        Joueur qui veut placer le jeton
+        @param  iNbColonne     Nombre de colonne du plateau de jeu
+        @param  iNbLigne       Nombre de ligne du plateau de jeu
+        @return le plateau de jeu avec le jeton posé
+    """
+
     bColonneValide: bool = True
     while bColonneValide == True :
         iColonneChoisi = int(input("Saisissez le numero de la colonne ou vous voulez jouer :"))-1
@@ -117,15 +122,16 @@ def placerJetonJoueur(iTabPlateauJeu: int, iJoueur: int, iNbColonne: int, iNbLig
 ###########################################################
 
 '''
-"""
-    @brief  Demande au joueur la position d'un jeton et vérifie si il est bien dans le plateau
-    @param  TplateauDeJeu  Plateau de jeu où le jeton doit être trouvé
-    @param  iNbColonne     Nombre de colonne du plateau de jeu
-    @param  iNbLigne       Nombre de ligne du plateau de jeu
-    @return indice de la colonne où doit être posé le jeton
-    @return indice de la ligne où doit être posé le jeton
-"""
 def demanderPositionPlateau(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int) -> int: # revoie 2 int
+    """
+        @brief  Demande au joueur la position d'un jeton et vérifie si il est bien dans le plateau
+        @param  TplateauDeJeu  Plateau de jeu où le jeton doit être trouvé
+        @param  iNbColonne     Nombre de colonne du plateau de jeu
+        @param  iNbLigne       Nombre de ligne du plateau de jeu
+        @return indice de la colonne où doit être posé le jeton
+        @return indice de la ligne où doit être posé le jeton
+    """
+
     bPostionValide: bool = False
     while bPostionValide == False :
         iColonneChoisi = int(input("Saisissez le numero de la colonne ou vous voulez retirer le jeton :"))-1
@@ -139,14 +145,15 @@ def demanderPositionPlateau(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int)
                     bPostionValide = True
     return iColonneChoisi, iLigneChoisi
 
-"""
-    @brief  Retire un pion du plateau de jeu
-    @param  TplateauDeJeu  Plateau de jeu où le jeton doit retiré
-    @param  iNbColonne     Nombre de colonne du plateau de jeu
-    @param  iNbLigne       Nombre de ligne du plateau de jeu
-    @return plateau de jeu avec le jeton retiré
-"""
 def retirerJeton(TplateauDeJeu: int, iNbColonne: int, iNbLigne: int) -> int:
+    """
+        @brief  Retire un pion du plateau de jeu
+        @param  TplateauDeJeu  Plateau de jeu où le jeton doit retiré
+        @param  iNbColonne     Nombre de colonne du plateau de jeu
+        @param  iNbLigne       Nombre de ligne du plateau de jeu
+        @return plateau de jeu avec le jeton retiré
+    """
+
     iColonneChoisi, iLigneChoisi = demanderPositionPlateau(TplateauDeJeu, iNbColonne, iNbLigne)
     # Suprime le jeton à la position donnée
     TplateauDeJeu[iColonneChoisi][iLigneChoisi] = 0

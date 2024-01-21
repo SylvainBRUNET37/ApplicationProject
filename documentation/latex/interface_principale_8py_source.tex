@@ -1,0 +1,261 @@
+\doxysection{interface\+Principale.\+py}
+\hypertarget{interface_principale_8py_source}{}\label{interface_principale_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/interface/interfacePrincipale.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/interface/interfacePrincipale.py}}
+\mbox{\hyperlink{interface_principale_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00001}\mbox{\hyperlink{namespaceinterface_principale}{00001}}\ \textcolor{comment}{\#!/usr/bin/python3}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00002}00002\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ interfacePrincipale.py}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ les\ éléments\ de\ l'interface\ principale\ et\ les\ fonctions\ pour\ gérer\ celle-\/ci}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Sylvain\ BRUNET}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @version\ 1.0}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00008}00008\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00010}00010\ \textcolor{keyword}{import}\ tkinter\ \textcolor{keyword}{as}\ tk}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00013}00013\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VARIABLES\ GLOABALES\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00016}\mbox{\hyperlink{namespaceinterface_principale_a4fa0dbb37054963ceffe9e4d55cc4976}{00016}}\ toplevelFenetrePrincipale:\ tk.Tk\ =\ \textcolor{keywordtype}{None}\ \textcolor{comment}{\#\ Fenêtre\ principale}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00018}\mbox{\hyperlink{namespaceinterface_principale_aafcef772f767832c0bf686c7aef01190}{00018}}\ iNbLignePlateau\ :\ int\ =\ 6}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00019}\mbox{\hyperlink{namespaceinterface_principale_a55d169471ed613f2de1f3dd2cf16bc82}{00019}}\ iNbColonnePlateau\ :\ int\ =\ 7}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00020}\mbox{\hyperlink{namespaceinterface_principale_a91d356a041e5bea6474b61a53dc7ffd7}{00020}}\ iNbJetonVictoire\ :\ int\ =\ 4}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00021}\mbox{\hyperlink{namespaceinterface_principale_ad8bfedf5f2a9a0bb0952023dde2ed150}{00021}}\ bStateCoupSpecial\ :\ bool\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00022}\mbox{\hyperlink{namespaceinterface_principale_acb02b3f300873594f8db190222f8e3ba}{00022}}\ bStateUndoRedo\ :\ bool\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00025}00025\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GETERS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00028}\mbox{\hyperlink{namespaceinterface_principale_a407462267d01b6cfc1a55318b4706153}{00028}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a407462267d01b6cfc1a55318b4706153}{getNbLigne}}()\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00029}00029\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ le\ nombre\ de\ ligne\ du\ plateau\ choisi\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ nombre\ de\ ligne\ du\ plateau\ choisi\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00034}00034\ \ \ \ \ \textcolor{keyword}{global}\ iNbLignePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ iNbLignePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00037}\mbox{\hyperlink{namespaceinterface_principale_aaac86f6908b2f64ca14e01c324217ce8}{00037}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_aaac86f6908b2f64ca14e01c324217ce8}{getNbColonne}}()\ -\/>\ int:\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00038}00038\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ le\ nombre\ de\ colonne\ du\ plateau\ choisi\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ nombre\ de\ colonne\ du\ plateau\ choisi\ par\ le\ joueur}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00041}00041\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{global}\ iNbColonnePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{return}\ iNbColonnePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00046}\mbox{\hyperlink{namespaceinterface_principale_a2b8c4994f24adfc84ca4b73f157a8870}{00046}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a2b8c4994f24adfc84ca4b73f157a8870}{getNbJetonVictoire}}()\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00047}00047\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ le\ nombre\ de\ jeton\ à\ alligner\ pour\ gagner}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ nombre\ de\ jeton\ à\ alligner\ pour\ gagner}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00052}00052\ \ \ \ \ \textcolor{keyword}{global}\ iNbJetonVictoire}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ iNbJetonVictoire}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00055}\mbox{\hyperlink{namespaceinterface_principale_a08af783c70619b6389a504336537cea2}{00055}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a08af783c70619b6389a504336537cea2}{getStateCoupSpecial}}()\ -\/>\ bool:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00056}00056\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ le\ booléen\ qui\ défini\ si\ le\ coup\ spécial\ sera\ activé\ (True\ activé,\ False\ pas\ activé)}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00058}00058\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ booléen\ qui\ défini\ si\ le\ coup\ spécial\ sera\ activé\ (True\ activé,\ False\ pas\ activé)}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00059}00059\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00061}00061\ \ \ \ \ \textcolor{keyword}{global}\ bStateCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{return}\ bStateCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00064}\mbox{\hyperlink{namespaceinterface_principale_ac46b9eca01e56d5d9fb4af2ba8f4850d}{00064}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_ac46b9eca01e56d5d9fb4af2ba8f4850d}{getStateUndoRedo}}()\ -\/>\ bool:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00065}00065\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00066}00066\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Renvoie\ le\ booléen\ qui\ défini\ si\ l'UNDO/REDO\ sera\ activé\ (True\ activé,\ False\ pas\ activé)}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00067}00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ booléen\ qui\ défini\ si\ l'UNDO/REDO\ sera\ activé\ (True\ activé,\ False\ pas\ activé)}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00068}00068\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00070}00070\ \ \ \ \ \textcolor{keyword}{global}\ bStateUndoRedo}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{return}\ bStateUndoRedo}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00074}00074\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ FONCTIONS\ LIEES\ AUX\ BOUTONS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00077}\mbox{\hyperlink{namespaceinterface_principale_addcdb7f56eaaa2a9c7fa54a04419056b}{00077}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_addcdb7f56eaaa2a9c7fa54a04419056b}{updateNbLignePlateau}}(iNbLigneChoisi:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00078}00078\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00079}00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ la\ variable\ global\ qui\ défini\ le\ nombre\ de\ ligne\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigneChoisi\ variable\ tkinter\ qui\ contient\ le\ nombre\ de\ ligne\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00082}00082\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00083}00083\ \ \ \ \ \textcolor{keyword}{global}\ iNbLignePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00084}00084\ \ \ \ \ iNbLignePlateau\ =\ int(iNbLigneChoisi)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00086}\mbox{\hyperlink{namespaceinterface_principale_a7b2928b6acae23ac08111bfec68273a7}{00086}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a7b2928b6acae23ac08111bfec68273a7}{updateNbColonnePlateau}}(iNbColonneChoisi:\ int)\ -\/>\ \textcolor{keywordtype}{None}:\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00087}00087\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00088}00088\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ la\ variable\ global\ qui\ défini\ le\ nombre\ de\ colonne\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00089}00089\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonneChoisi\ variable\ tkinter\ qui\ contient\ le\ nombre\ de\ colonne\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00090}00090\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{global}\ iNbColonnePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00093}00093\ \ \ \ \ iNbColonnePlateau\ =\ int(iNbColonneChoisi)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00095}\mbox{\hyperlink{namespaceinterface_principale_a27dd7d6471f30f15c495ea826177d456}{00095}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a27dd7d6471f30f15c495ea826177d456}{updateNbJetonVicoire}}(iNbJetonVictoireChoisi:\ int)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00096}00096\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00097}00097\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ la\ variable\ global\ qui\ défini\ le\ nombre\ de\ jeton\ à\ alligner\ pour\ gagner}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00098}00098\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbJetonVictoireChoisi\ variable\ tkinter\ qui\ contient\ le\ nombre\ de\ jeton\ à\ alligner\ pour\ gagner}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00099}00099\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00101}00101\ \ \ \ \ \textcolor{keyword}{global}\ iNbJetonVictoire}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00102}00102\ \ \ \ \ iNbJetonVictoire\ =\ int(iNbJetonVictoireChoisi)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00104}\mbox{\hyperlink{namespaceinterface_principale_af1b4d5bd8e469d435feb4ea9c7c9a061}{00104}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_af1b4d5bd8e469d435feb4ea9c7c9a061}{updateCoupSpecial}}(bCoupSpecialChoisi:\ bool)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00105}00105\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ la\ variable\ global\ qui\ défini\ si\ le\ coup\ spécial\ est\ activé\ en\ fonction\ de\ l'état\ de\ son\ checkbutton\ associé}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00107}00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ bCoupSpecialChoisi\ variable\ tkinter\ qui\ contient\ l'état\ du\ checkbutton\ coup\ spécial}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00108}00108\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00110}00110\ \ \ \ \ \textcolor{keyword}{global}\ bStateCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00111}00111\ \ \ \ \ bStateCoupSpecial\ =\ bCoupSpecialChoisi}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00113}\mbox{\hyperlink{namespaceinterface_principale_a47165dd05e5880e3bc6de2618d203809}{00113}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a47165dd05e5880e3bc6de2618d203809}{updateUndoRedo}}(bUndoRedoChoisi:\ bool)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00114}00114\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00115}00115\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Met\ à\ jour\ la\ variable\ global\ qui\ défini\ si\ l'undo\ redo\ est\ activé\ en\ fonction\ de\ l'état\ de\ son\ checkbutton\ associé}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00116}00116\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ bUndoRedoChoisi\ variable\ tkinter\ qui\ contient\ l'état\ du\ checkbutton\ undo/redo}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00117}00117\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00119}00119\ \ \ \ \ \textcolor{keyword}{global}\ bStateUndoRedo}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00120}00120\ \ \ \ \ bStateUndoRedo\ =\ bUndoRedoChoisi}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00123}00123\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ FONCTIONS\ LIEES\ A\ AFFICHAGE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00126}\mbox{\hyperlink{namespaceinterface_principale_a9a5c3b96761664444b865a82507ce077}{00126}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a9a5c3b96761664444b865a82507ce077}{creerFrameNbLigne}}()\ -\/>\ None:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00127}00127\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00128}00128\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Créé\ le\ widget\ permettant\ de\ choisir\ la\ nombre\ de\ ligne\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00129}00129\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00131}00131\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetrePrincipale}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00132}00132\ \ \ \ \ \textcolor{keyword}{global}\ iNbLignePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00134}00134\ \ \ \ \ \textcolor{comment}{\#\ Créé\ la\ variable\ tkinter\ liée\ au\ slider\ et\ l'initialise\ à\ 6}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00135}00135\ \ \ \ \ iTkNbLignePlateau:\ tk.IntVar\ =\ tk.IntVar()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00136}00136\ \ \ \ \ iTkNbLignePlateau.set(iNbLignePlateau)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00138}00138\ \ \ \ \ frameNbLigne:\ tk.Frame\ =\ tk.Frame(toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00139}00139\ \ \ \ \ frameNbLigne.configure(height=150,\ width=400)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00140}00140\ \ \ \ \ frameNbLigne.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ rely=0.55,\ x=10,\ y=5)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00142}00142\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ slider}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00143}00143\ \ \ \ \ scaleNbLigne:\ tk.Scale\ =\ tk.Scale(frameNbLigne)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00144}00144\ \ \ \ \ scaleNbLigne.configure(cursor=\textcolor{stringliteral}{"{}sb\_h\_double\_arrow"{}},\ from\_=5,\ orient=\textcolor{stringliteral}{"{}horizontal"{}},\ relief=\textcolor{stringliteral}{"{}flat"{}},\ to=8,\ length=200,\ width=20,}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable=iTkNbLignePlateau,\ command\ =\ updateNbLignePlateau)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00146}00146\ \ \ \ \ scaleNbLigne.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.2,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00148}00148\ \ \ \ \ labelNbLigne:\ tk.Label\ =\ tk.Label(frameNbLigne)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00149}00149\ \ \ \ \ labelNbLigne.configure(text=\textcolor{stringliteral}{'Nombre\ de\ ligne\ du\ plateau'},\ font=20)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00150}00150\ \ \ \ \ labelNbLigne.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.20,\ rely=0.4,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00152}\mbox{\hyperlink{namespaceinterface_principale_a7c2103ac3c033919625c0673b4540125}{00152}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a7c2103ac3c033919625c0673b4540125}{creerFrameNbColonne}}()\ -\/>\ None:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00153}00153\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00154}00154\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ le\ widget\ permettant\ de\ choisir\ le\ nombre\ de\ colonne\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00155}00155\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00157}00157\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetrePrincipale}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00158}00158\ \ \ \ \ \textcolor{keyword}{global}\ iNbColonnePlateau}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00160}00160\ \ \ \ \ \textcolor{comment}{\#\ Créé\ la\ variable\ tkinter\ liée\ au\ slider\ et\ l'initialise\ à\ 7}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00161}00161\ \ \ \ \ iTkNbColonnePlateau:\ tk.IntVar\ =\ tk.IntVar()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00162}00162\ \ \ \ \ iTkNbColonnePlateau.set(iNbColonnePlateau)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00164}00164\ \ \ \ \ frameNbColonne:\ tk.Frame\ =\ tk.Frame(toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00165}00165\ \ \ \ \ frameNbColonne.configure(height=150,\ width=400)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00166}00166\ \ \ \ \ frameNbColonne.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.5,\ rely=0.55,\ x=10,\ y=5)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00168}00168\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ slider}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00169}00169\ \ \ \ \ scaleNbColonne:\ tk.Scale\ =\ tk.Scale(frameNbColonne)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00170}00170\ \ \ \ \ scaleNbColonne.configure(cursor=\textcolor{stringliteral}{"{}sb\_h\_double\_arrow"{}},\ from\_=5,\ orient=\textcolor{stringliteral}{"{}horizontal"{}},\ relief=\textcolor{stringliteral}{"{}flat"{}},\ to=10,\ length=200,\ width=20,}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable=iTkNbColonnePlateau,\ command\ =\ updateNbColonnePlateau)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00172}00172\ \ \ \ \ scaleNbColonne.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.18,\ rely=0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00174}00174\ \ \ \ \ labelNbColonne:\ tk.Label\ =\ tk.Label(frameNbColonne)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00175}00175\ \ \ \ \ labelNbColonne.configure(text=\textcolor{stringliteral}{'Nombre\ de\ colonne\ du\ plateau'},\ font=20)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00176}00176\ \ \ \ \ labelNbColonne.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.18,\ rely=0.4,\ x=0,\ y=0)\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00178}\mbox{\hyperlink{namespaceinterface_principale_a6e1a8ddfe34aa94169df6654af5e6511}{00178}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a6e1a8ddfe34aa94169df6654af5e6511}{creerFrameNombreJetonVictoire}}()\ -\/>\ None:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00179}00179\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00180}00180\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Créé\ le\ widget\ permettant\ de\ choisir\ le\ nombre\ de\ jeton\ à\ alligner\ pour\ gagner}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00181}00181\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00183}00183\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetrePrincipale}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00184}00184\ \ \ \ \ \textcolor{keyword}{global}\ iNbJetonVictoire}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00186}00186\ \ \ \ \ \textcolor{comment}{\#\ Créé\ la\ variable\ tkinter\ liée\ au\ slider\ et\ l'initialise\ à\ 4}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00187}00187\ \ \ \ \ iTkNbJetonVictoire:\ tk.IntVar\ =\ tk.IntVar()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00188}00188\ \ \ \ \ iTkNbJetonVictoire.set(iNbJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00190}00190\ \ \ \ \ frameNombreJetonVictoire:\ tk.Frame\ =\ tk.Frame(toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00191}00191\ \ \ \ \ frameNombreJetonVictoire.configure(height=150,\ width=400)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00192}00192\ \ \ \ \ frameNombreJetonVictoire.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.0,\ rely=0.75,\ x=10,\ y=5)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00194}00194\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ slider}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00195}00195\ \ \ \ \ scaleNombreJetonVictoire:\ tk.Scale\ =\ tk.Scale(frameNombreJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00196}00196\ \ \ \ \ scaleNombreJetonVictoire.configure(cursor=\textcolor{stringliteral}{"{}sb\_h\_double\_arrow"{}},\ from\_=3,\ orient=\textcolor{stringliteral}{"{}horizontal"{}},\ relief=\textcolor{stringliteral}{"{}flat"{}},\ to=5,\ length=200,\ width=20,\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable=iTkNbJetonVictoire,\ command\ =\ updateNbJetonVicoire)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00198}00198\ \ \ \ \ scaleNombreJetonVictoire.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.2,\ rely=0.0,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00200}00200\ \ \ \ \ labelNombreJetonVictoire:\ tk.Label\ =\ tk.Label(frameNombreJetonVictoire)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00201}00201\ \ \ \ \ labelNombreJetonVictoire.configure(text=\textcolor{stringliteral}{'Nombre\ de\ jeton\ à\ alligner'},\ font=20)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00202}00202\ \ \ \ \ labelNombreJetonVictoire.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.18,\ rely=0.37,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00203}00203\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00204}\mbox{\hyperlink{namespaceinterface_principale_a9ad31e82f8a7c9e7cc4e5fec5df8dd87}{00204}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a9ad31e82f8a7c9e7cc4e5fec5df8dd87}{creerFrameCheckButton}}()\ -\/>\ None:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00205}00205\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00206}00206\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Créé\ les\ checkbutton\ pour\ l'activation/désactivation\ de\ l'UNDO/REDO\ et\ du\ coup\ spécial}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00207}00207\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00209}00209\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetrePrincipale}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00210}00210\ \ \ \ \ \textcolor{keyword}{global}\ bStateCoupSpecial}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00211}00211\ \ \ \ \ \textcolor{keyword}{global}\ bStateUndoRedo}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00213}00213\ \ \ \ \ \textcolor{comment}{\#\ Créé\ les\ variables\ tkinter\ liées\ aux\ checkbuttons}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00214}00214\ \ \ \ \ bTkUndoRedo:\ tk.BooleanVar\ =\ tk.BooleanVar()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00215}00215\ \ \ \ \ bTkCoupSpecial:\ tk.BooleanVar\ =\ tk.BooleanVar()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00216}00216\ \ \ \ \ bTkUndoRedo.set(bStateUndoRedo)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00217}00217\ \ \ \ \ bTkCoupSpecial.set(bStateCoupSpecial)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00219}00219\ \ \ \ \ frameCheckButton:\ tk.Frame\ =\ tk.Frame(toplevelFenetrePrincipale)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00220}00220\ \ \ \ \ frameCheckButton.configure(height=150,\ width=400)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00221}00221\ \ \ \ \ frameCheckButton.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.5,\ rely=0.75,\ x=10,\ y=5)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00223}00223\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ bouton\ lié\ à\ l'activation/désactivation\ du\ coup\ spécial}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00224}00224\ \ \ \ \ checkbuttonCoupSpecial:\ tk.Checkbutton\ =\ tk.Checkbutton(frameCheckButton)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00225}00225\ \ \ \ \ checkbuttonCoupSpecial.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'Coup\ special'},\ font=14,\ variable=bTkCoupSpecial,\ command\ =\ \textcolor{keyword}{lambda}:\mbox{\hyperlink{namespaceinterface_principale_af1b4d5bd8e469d435feb4ea9c7c9a061}{updateCoupSpecial}}(bTkCoupSpecial.get()))}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00226}00226\ \ \ \ \ checkbuttonCoupSpecial.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.2,\ rely=0.1,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00228}00228\ \ \ \ \ \textcolor{comment}{\#\ Créé\ et\ configure\ le\ bouton\ lié\ à\ l'activation/désactivation\ de\ l'UNDO/REDO}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00229}00229\ \ \ \ \ checkbuttonUndoRedo:\ tk.Checkbutton\ =\ tk.Checkbutton(frameCheckButton)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00230}00230\ \ \ \ \ checkbuttonUndoRedo.configure(cursor=\textcolor{stringliteral}{"{}hand2"{}},\ text=\textcolor{stringliteral}{'Undo\ /\ Redo'},\ font=14,\ variable=bTkUndoRedo,\ command\ =\ \textcolor{keyword}{lambda}:\mbox{\hyperlink{namespaceinterface_principale_a47165dd05e5880e3bc6de2618d203809}{updateUndoRedo}}(bTkUndoRedo.get()))}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00231}00231\ \ \ \ \ checkbuttonUndoRedo.place(anchor=\textcolor{stringliteral}{"{}nw"{}},\ relx=0.2,\ rely=0.35,\ x=0,\ y=0)}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00234}00234\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00235}00235\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GESTION\ DE\ LA\ FENETRE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00238}\mbox{\hyperlink{namespaceinterface_principale_a8f6917b92f7d91404564d7c60d264bc7}{00238}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceinterface_principale_a8f6917b92f7d91404564d7c60d264bc7}{gererInterfacePrincipale}}(toplevelFenetre:\ tk.Tk)\ -\/>\ \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00239}00239\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00240}00240\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Gère\ l'affichage\ de\ la\ page\ principale}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00241}00241\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ toplevelFenetre\ Fenêtre\ principale}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00242}00242\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00243}00243\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00244}00244\ \ \ \ \ \textcolor{keyword}{global}\ toplevelFenetrePrincipale}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00246}00246\ \ \ \ \ toplevelFenetrePrincipale\ =\ toplevelFenetre}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00248}00248\ \ \ \ \ \textcolor{comment}{\#\ Créé\ tous\ les\ widgets\ qui\ permettent\ de\ changer\ les\ paramètres}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00249}00249\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_principale_a9a5c3b96761664444b865a82507ce077}{creerFrameNbLigne}}()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00250}00250\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_principale_a7c2103ac3c033919625c0673b4540125}{creerFrameNbColonne}}()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00251}00251\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_principale_a6e1a8ddfe34aa94169df6654af5e6511}{creerFrameNombreJetonVictoire}}()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00252}00252\ \ \ \ \ \mbox{\hyperlink{namespaceinterface_principale_a9ad31e82f8a7c9e7cc4e5fec5df8dd87}{creerFrameCheckButton}}()}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00254}00254\ \ \ \ \ \textcolor{comment}{\#\ Affiche\ la\ page\ créée}}
+\DoxyCodeLine{\Hypertarget{interface_principale_8py_source_l00255}00255\ \ \ \ \ toplevelFenetrePrincipale.mainloop()}
+
+\end{DoxyCode}

@@ -11,17 +11,17 @@ import random
 
 from jeu.jeu import *
 
-"""
-    @brief Algorithme minimax pour évaluer la position du plateau de jeu
-    @param TplateauDeJeu    Le tableau du plateau de jeu.
-    @param iProfondeur      La iProfondeur de recherche de l'algorithme.
-    @param bMaximisant      True si bMaximisant (joueur 2), False sinon (joueur 1).
-    @param iNbColonne       Le nombre de colonnes dans le plateau.
-    @param iNbLigne         Le nombre de lignes dans le plateau.
-    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire.
-    @return la valeur d'évaluation de la position du plateau.
-"""
 def gererMinMax(TplateauDeJeu: list, iProfondeur: int, bMaximisant: bool, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int) -> float:
+    """
+        @brief Algorithme minimax pour évaluer la position du plateau de jeu
+        @param TplateauDeJeu    Le tableau du plateau de jeu.
+        @param iProfondeur      La iProfondeur de recherche de l'algorithme.
+        @param bMaximisant      True si bMaximisant (joueur 2), False sinon (joueur 1).
+        @param iNbColonne       Le nombre de colonnes dans le plateau.
+        @param iNbLigne         Le nombre de lignes dans le plateau.
+        @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire.
+        @return la valeur d'évaluation de la position du plateau.
+    """
     
     iVictoire: int = verifierFinJeu(TplateauDeJeu, iNbColonne, iNbLigne, iNbJetonVictoire)
     if iProfondeur == 0 or iVictoire != 0:
@@ -69,16 +69,16 @@ def gererMinMax(TplateauDeJeu: list, iProfondeur: int, bMaximisant: bool, iNbCol
                 fMinEval = min(fMinEval, evaluation)
         return fMinEval
 
-"""
-    @brief Trouve le meilleur coup pour l'IA en utilisant l'algorithme minimax
-    @param TplateauDeJeu    Le tableau du plateau de jeu
-    @param iNbColonne       Le nombre de colonnes dans le plateau
-    @param iNbLigne         Le nombre de lignes dans le plateau
-    @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
-    @param iProfondeur      La iProfondeur de recherche de l'algorithme
-    @return la colonne du meilleur coup trouvé pas l'algorithme min-max
-"""
 def trouverMeilleurCoup(TplateauDeJeu: list, iNbColonne: int, iNbLigne: int, iNbJetonVictoire: int, iProfondeur: int) -> int:
+    """
+        @brief Trouve le meilleur coup pour l'IA en utilisant l'algorithme minimax
+        @param TplateauDeJeu    Le tableau du plateau de jeu
+        @param iNbColonne       Le nombre de colonnes dans le plateau
+        @param iNbLigne         Le nombre de lignes dans le plateau
+        @param iNbJetonVictoire Le nombre de jetons consécutifs nécessaires pour la victoire
+        @param iProfondeur      La iProfondeur de recherche de l'algorithme
+        @return la colonne du meilleur coup trouvé pas l'algorithme min-max
+    """
 
     fMaxEval: float = float('-inf')
     iMeilleurCoup: int = 0

@@ -1,0 +1,180 @@
+\doxysection{jeu.\+py}
+\hypertarget{jeu_8py_source}{}\label{jeu_8py_source}\index{D:/ECOLE/POLYTECH/Projet Application/puissance4/jeu/jeu.py@{D:/ECOLE/POLYTECH/Projet Application/puissance4/jeu/jeu.py}}
+\mbox{\hyperlink{jeu_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00001}\mbox{\hyperlink{namespacejeu}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00002}00002\ \textcolor{stringliteral}{\ \ \ \ @file\ \ \ \ jeu.py}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00003}00003\ \textcolor{stringliteral}{\ \ \ \ @brief\ \ \ Contient\ les\ fonctions\ permettant\ de\ jouer\ au\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @author\ \ Sylvain\ BRUNET\ \&\ Matthieu\ CHARTON}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @version\ 0.1}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @date\ \ \ \ 2023-\/2024}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00007}00007\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00009}00009\ \textcolor{keyword}{import}\ copy}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00011}00011\ \textcolor{keyword}{from}\ \mbox{\hyperlink{namespacejeu_1_1verification}{jeu.verification}}\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00013}\mbox{\hyperlink{namespacejeu_a3140ddc1a3dd3734bb1abda672f7b810}{00013}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacejeu_a3140ddc1a3dd3734bb1abda672f7b810}{identifierLigne}}(iTabColonne:\ list,\ iNbLignePlateau:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00014}00014\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00015}00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Identifie\ la\ ligne\ où\ devra\ être\ posé\ le\ jeton\ à\ partir\ de\ la\ colonne\ que\ le\ joueur\ a\ choisi}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iTabColonne\ Colonne\ où\ le\ joueur\ veut\ placer\ son\ jeton}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ -\/1\ si\ la\ colonne\ est\ pleine,\ l'indice\ de\ la\ ligne\ où\ le\ jeton\ doit\ être\ posé\ si\ ce\ n'est\ pas\ le\ cas}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00018}00018\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00020}00020\ \ \ \ \ iBoucleLigne:\ int\ =\ 0}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00021}00021\ \ \ \ \ bCaseVideTrouve:\ bool\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00023}00023\ \ \ \ \ \textcolor{comment}{\#\ Parcours\ la\ colonne\ de\ bas\ en\ haut\ et\ s'arrête}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{while}\ (iBoucleLigne\ !=\ iNbLignePlateau\ \textcolor{keywordflow}{and}\ bCaseVideTrouve\ !=\ \textcolor{keyword}{True}):}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Si\ une\ case\ vide\ est\ trouvée,\ renvoie\ met\ fin\ à\ la\ boucle}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iTabColonne[iBoucleLigne]\ ==\ 0\ :}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ bCaseVideTrouve\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00028}00028\ \ \ \ \ \ \ \ \ iBoucleLigne\ +=\ 1}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00030}00030\ \ \ \ \ \textcolor{comment}{\#\ Si\ une\ case\ vide\ a\ été\ trouvée,\ renvoie\ l'indice\ le\ ligne\ de\ celle-\/ci}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}\ (bCaseVideTrouve\ ==\ \textcolor{keyword}{True}):}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ iBoucleLigne-\/1\ \textcolor{comment}{\#\ -\/1\ car\ la\ variable\ est\ ittéré\ avant\ de\ sortir\ de\ la\ boucle}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00033}00033\ \ \ \ \ \textcolor{comment}{\#\ Sinon,\ la\ colonne\ est\ pleine\ et\ renvoie\ donc\ -\/1}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00037}\mbox{\hyperlink{namespacejeu_a7135ec5064fda4fe4db56141e204bb61}{00037}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacejeu_a7135ec5064fda4fe4db56141e204bb61}{inverserCouleur}}(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int)\ -\/>\ list:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00038}00038\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Inverse\ les\ jetons\ du\ plateau\ de\ jeu\ pour\ l'effet\ spécial}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00041}00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbColonne\ \ \ \ Le\ nombre\ de\ colonnes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00042}00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00043}00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ plateau\ modifié}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00044}00044\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00046}00046\ \ \ \ \ TplateauModifie:\ list\ =\ copy.deepcopy(TplateauDeJeu)}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00047}00047\ \ \ \ \ \textcolor{comment}{\#\ Parcourt\ toutes\ les\ cellules\ du\ plateau}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{for}\ iColonne\ \textcolor{keywordflow}{in}\ range(iNbColonne):}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ iLigne\ \textcolor{keywordflow}{in}\ range(iNbLigne):}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ TplateauDeJeu[iColonne][iLigne]\ ==\ 1:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Inverse\ les\ jetons\ du\ joueur\ 1}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TplateauModifie[iColonne][iLigne]\ =\ 2}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ TplateauDeJeu[iColonne][iLigne]\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Inverse\ les\ jetons\ du\ joueur\ 2}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TplateauModifie[iColonne][iLigne]\ =\ 1}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{return}\ TplateauModifie}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00059}00059\ \textcolor{stringliteral}{'\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ JEU\ CONSOLE\ /\ IA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ '}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00062}\mbox{\hyperlink{namespacejeu_a2edc7200d0bf1aa87b0598dede020bc2}{00062}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacejeu_a2edc7200d0bf1aa87b0598dede020bc2}{verifierColonnePleine}}(TplateauDeJeu:\ list,\ iColonne:\ int,\ iNbLigne:\ int)\ -\/>\ bool:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00063}00063\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Vérifie\ si\ la\ colonne\ spécifiée\ est\ valide\ pour\ placer\ un\ jeton}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00065}00065\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00066}00066\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iColonne\ \ \ \ \ \ La\ colonne\ à\ vérifier}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00067}00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iNbLigne\ \ \ \ \ \ Le\ nombre\ de\ lignes\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00068}00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ True\ si\ la\ colonne\ est\ valide,\ False\ sinon}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00069}00069\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00071}00071\ \ \ \ \ \textcolor{comment}{\#\ Parcourt\ les\ lignes\ de\ la\ colonne\ spécifiée}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{for}\ iBoucleLigne\ \textcolor{keywordflow}{in}\ range(iNbLigne):}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ si\ la\ case\ est\ vide\ (contient\ un\ jeton\ nul)}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ TplateauDeJeu[iColonne][iBoucleLigne]\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00078}\mbox{\hyperlink{namespacejeu_a972d4b483ae46edb88ee1ffe2749e370}{00078}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacejeu_a972d4b483ae46edb88ee1ffe2749e370}{placerJetonIA}}(TplateauDeJeu:\ list,\ iColonne:\ int,\ iJoueur:\ int)\ -\/>\ bool:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00079}00079\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ Joue\ un\ coup\ en\ plaçant\ un\ jeton\ dans\ la\ colonne\ spécifiée}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ TplateauDeJeu\ Le\ tableau\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iColonne\ \ \ \ \ \ La\ colonne\ dans\ laquelle\ placer\ le\ jeton}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ iJoueur\ \ \ \ \ \ \ Le\ joueur\ qui\ joue\ le\ coup}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00084}00084\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ True\ si\ le\ coup\ est\ joué\ avec\ succès,\ False\ sinon}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00085}00085\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00087}00087\ \ \ \ \ \textcolor{comment}{\#\ Parcourt\ les\ lignes\ de\ la\ colonne\ spécifiée}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(TplateauDeJeu[0])):}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Vérifie\ si\ la\ case\ est\ vide\ (contient\ un\ jeton\ nul)}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ TplateauDeJeu[iColonne][i]\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Place\ le\ jeton\ du\ joueur\ dans\ la\ case\ vide}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ TplateauDeJeu[iColonne][i]\ =\ iJoueur}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00094}00094\ \ \ \ \ \textcolor{comment}{\#\ La\ colonne\ est\ pleine,\ le\ coup\ n'a\ pas\ pu\ être\ joué}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00097}\mbox{\hyperlink{namespacejeu_aaa925452fa424a8a0a56a83c93a5f38e}{00097}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacejeu_aaa925452fa424a8a0a56a83c93a5f38e}{placerJetonJoueur}}(iTabPlateauJeu:\ int,\ iJoueur:\ int,\ iNbColonne:\ int,\ iNbLigne:\ int)\ -\/>\ int:}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00098}00098\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00099}00099\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Demande\ au\ joueur\ la\ colonne\ où\ il\ veut\ placer\ son\ jeton\ puis\ le\ place}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00100}00100\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iTabPlateauJeu\ Plateau\ de\ jeu\ dans\ lequel\ le\ jeton\ doit\ être\ placé}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00101}00101\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iJoueur\ \ \ \ \ \ \ \ Joueur\ qui\ veut\ placer\ le\ jeton}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00102}00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iNbColonne\ \ \ \ \ Nombre\ de\ colonne\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00103}00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iNbLigne\ \ \ \ \ \ \ Nombre\ de\ ligne\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00104}00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ le\ plateau\ de\ jeu\ avec\ le\ jeton\ posé}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00107}00107\ \ \ \ \ bColonneValide:\ bool\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{while}\ bColonneValide\ ==\ \textcolor{keyword}{True}\ :}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00109}00109\ \ \ \ \ \ \ \ \ iColonneChoisi\ =\ int(input(\textcolor{stringliteral}{"{}Saisissez\ le\ numero\ de\ la\ colonne\ ou\ vous\ voulez\ jouer\ :"{}}))-\/1}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Si\ l'indice\ de\ colonne\ saisi\ correspond\ bien\ a\ une\ ligne\ bien\ dans\ le\ plateau,\ trouve\ la\ ligne\ où\ jouer}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iColonneChoisi\ <=\ iNbColonne\ \textcolor{keywordflow}{and}\ iColonneChoisi\ >=\ 0\ :}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ iLigneJouer\ =\ \mbox{\hyperlink{namespacejeu_a3140ddc1a3dd3734bb1abda672f7b810}{identifierLigne}}(iTabPlateauJeu[iColonneChoisi],\ iNbLigne)}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Si\ la\ colonne\ n'est\ pas\ pleine,\ sort\ de\ la\ boucle\ (sinon,\ repart\ au\ début)}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ iLigneJouer\ !=\ -\/1\ :}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bColonneValide\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00117}00117\ \ \ \ \ iTabPlateauJeu[iColonneChoisi][iLigneJouer]\ =\ iJoueur}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{return}\ iTabPlateauJeu}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00124}00124\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00125}00125\ \textcolor{stringliteral}{def\ demanderPositionPlateau(TplateauDeJeu:\ list,\ iNbColonne:\ int,\ iNbLigne:\ int)\ -\/>\ int:\ \#\ revoie\ 2\ int}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00126}00126\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00127}00127\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Demande\ au\ joueur\ la\ position\ d'un\ jeton\ et\ vérifie\ si\ il\ est\ bien\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00128}00128\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ TplateauDeJeu\ \ Plateau\ de\ jeu\ où\ le\ jeton\ doit\ être\ trouvé}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00129}00129\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iNbColonne\ \ \ \ \ Nombre\ de\ colonne\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00130}00130\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iNbLigne\ \ \ \ \ \ \ Nombre\ de\ ligne\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00131}00131\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ indice\ de\ la\ colonne\ où\ doit\ être\ posé\ le\ jeton}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00132}00132\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ indice\ de\ la\ ligne\ où\ doit\ être\ posé\ le\ jeton}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00133}00133\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00134}00134\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00135}00135\ \textcolor{stringliteral}{\ \ \ \ bPostionValide:\ bool\ =\ False}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00136}00136\ \textcolor{stringliteral}{\ \ \ \ while\ bPostionValide\ ==\ False\ :}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00137}00137\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ iColonneChoisi\ =\ int(input("{}Saisissez\ le\ numero\ de\ la\ colonne\ ou\ vous\ voulez\ retirer\ le\ jeton\ :"{}))-\/1}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00138}00138\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \#\ Si\ l'indice\ de\ colonne\ saisi\ correspond\ bien\ a\ une\ ligne\ bien\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00139}00139\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ if\ iColonneChoisi\ <=\ iNbColonne\ and\ iColonneChoisi\ >=\ 0\ :}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00140}00140\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ iLigneChoisi\ =\ int(input("{}Saisissez\ le\ numero\ de\ la\ ligne\ ou\ vous\ voulez\ retirer\ le\ jeton\ :"{}))-\/1}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00141}00141\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \#\ Si\ l'indice\ de\ ligne\ saisi\ correspond\ bien\ a\ une\ ligne\ bien\ dans\ le\ plateau}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00142}00142\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ if\ iLigneChoisi\ <=\ iNbLigne\ and\ iLigneChoisi\ >=\ 0\ :}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00143}00143\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Si\ la\ position\ du\ jeton\ est\ vide\ (0),\ sort\ de\ la\ boucle\ (sinon,\ repart\ au\ début)}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00144}00144\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if\ (TplateauDeJeu[iColonneChoisi][iLigneChoisi]\ !=\ 0)\ :}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00145}00145\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bPostionValide\ =\ True}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00146}00146\ \textcolor{stringliteral}{\ \ \ \ return\ iColonneChoisi,\ iLigneChoisi}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00147}00147\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00148}00148\ \textcolor{stringliteral}{def\ retirerJeton(TplateauDeJeu:\ int,\ iNbColonne:\ int,\ iNbLigne:\ int)\ -\/>\ int:}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00149}00149\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00150}00150\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @brief\ \ Retire\ un\ pion\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00151}00151\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ TplateauDeJeu\ \ Plateau\ de\ jeu\ où\ le\ jeton\ doit\ retiré}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00152}00152\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iNbColonne\ \ \ \ \ Nombre\ de\ colonne\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00153}00153\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @param\ \ iNbLigne\ \ \ \ \ \ \ Nombre\ de\ ligne\ du\ plateau\ de\ jeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00154}00154\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ @return\ plateau\ de\ jeu\ avec\ le\ jeton\ retiré}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00155}00155\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00156}00156\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00157}00157\ \textcolor{stringliteral}{\ \ \ \ iColonneChoisi,\ iLigneChoisi\ =\ demanderPositionPlateau(TplateauDeJeu,\ iNbColonne,\ iNbLigne)}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00158}00158\ \textcolor{stringliteral}{\ \ \ \ \#\ Suprime\ le\ jeton\ à\ la\ position\ donnée}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00159}00159\ \textcolor{stringliteral}{\ \ \ \ TplateauDeJeu[iColonneChoisi][iLigneChoisi]\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00160}00160\ \textcolor{stringliteral}{\ \ \ \ \#\ Initialise\ la\ boucle\ à\ la\ position\ du\ jeton\ au\ dessus\ du\ jeton\ retiré}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00161}00161\ \textcolor{stringliteral}{\ \ \ \ iBoucleLigne:\ int\ =\ iLigneChoisi+1}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00162}00162\ \textcolor{stringliteral}{\ \ \ \ bFinBoucle:\ bool\ =\ False}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00163}00163\ \textcolor{stringliteral}{\ \ \ \ \#\ Boucle\ tant\ qu'il\ faut\ descendre\ des\ jetons}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00164}00164\ \textcolor{stringliteral}{\ \ \ \ while\ iBoucleLigne\ <\ iNbLigne\ and\ bFinBoucle\ ==\ False:}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00165}00165\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \#\ Si\ il\ n'y\ avait\ pas\ de\ jeton\ au\ dessus,\ sort\ de\ la\ boucle}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00166}00166\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ if\ TplateauDeJeu[iColonneChoisi][iBoucleLigne]\ ==\ 0\ :}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00167}00167\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ bFinBoucle\ =\ True}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00168}00168\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \#\ Sinon,\ déplace/fait\ tomber\ le\ jeton\ en\ dessous}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00169}00169\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ else\ :}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00170}00170\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ TplateauDeJeu[iColonneChoisi][iBoucleLigne-\/1]\ =\ TplateauDeJeu[iColonneChoisi][iBoucleLigne]}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00171}00171\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ TplateauDeJeu[iColonneChoisi][iBoucleLigne]\ =\ 0}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00172}00172\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ iBoucleLigne\ +=\ 1}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00173}00173\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00174}00174\ \textcolor{stringliteral}{\ \ \ \ return\ TplateauDeJeu}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00175}00175\ \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{\Hypertarget{jeu_8py_source_l00176}00176\ }
+
+\end{DoxyCode}
