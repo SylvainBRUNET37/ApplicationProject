@@ -1,27 +1,4 @@
 var searchData=
 [
-  ['icptundo_0',['iCptUndo',['../namespaceinterface_jeu.html#a082b9fa5af2320d039f98368ccb95ef7',1,'interfaceJeu']]],
-  ['identifierligne_1',['identifierLigne',['../namespacejeu.html#a3140ddc1a3dd3734bb1abda672f7b810',1,'jeu']]],
-  ['idifficulteia_2',['iDifficulteIA',['../namespaceinterface_jeu.html#a61095497a6941d1e5e66b86a1ab74434',1,'interfaceJeu.iDifficulteIA'],['../namespaceinterface_parametre.html#a61095497a6941d1e5e66b86a1ab74434',1,'interfaceParametre.iDifficulteIA']]],
-  ['ijoueurcommence_3',['iJoueurCommence',['../namespaceinterface_parametre.html#a79d3e80635775c9a09f13a176844e081',1,'interfaceParametre']]],
-  ['ijoueurcourant_4',['iJoueurCourant',['../namespaceinterface_jeu.html#ae4db7cff315cc127082592387cad434f',1,'interfaceJeu']]],
-  ['inbcolonneplateau_5',['iNbColonnePlateau',['../namespaceinterface_jeu.html#a55d169471ed613f2de1f3dd2cf16bc82',1,'interfaceJeu.iNbColonnePlateau'],['../namespaceinterface_principale.html#a55d169471ed613f2de1f3dd2cf16bc82',1,'interfacePrincipale.iNbColonnePlateau']]],
-  ['inbcoupspecial_6',['iNbCoupSpecial',['../namespaceinterface_parametre.html#ad0070dfe2d57a70aa3ac9fca89f61f78',1,'interfaceParametre']]],
-  ['inbjetonvictoire_7',['iNbJetonVictoire',['../namespaceinterface_jeu.html#a91d356a041e5bea6474b61a53dc7ffd7',1,'interfaceJeu.iNbJetonVictoire'],['../namespaceinterface_principale.html#a91d356a041e5bea6474b61a53dc7ffd7',1,'interfacePrincipale.iNbJetonVictoire']]],
-  ['inbligneplateau_8',['iNbLignePlateau',['../namespaceinterface_jeu.html#aafcef772f767832c0bf686c7aef01190',1,'interfaceJeu.iNbLignePlateau'],['../namespaceinterface_principale.html#aafcef772f767832c0bf686c7aef01190',1,'interfacePrincipale.iNbLignePlateau']]],
-  ['initialiserplateau_9',['initialiserPlateau',['../namespaceinterface_jeu.html#a202cdaf45b94781592b733564e570f31',1,'interfaceJeu']]],
-  ['initinterfacejeu_10',['initInterfaceJeu',['../namespacegestion_jeu_interface.html#a185a53605a3d0a7c1d9ed92a17a92f03',1,'gestionJeuInterface']]],
-  ['initinterfaceparametre_11',['initInterfaceParametre',['../namespacegestion_jeu_interface.html#af64a2c9546a2b445c134586ca78e9962',1,'gestionJeuInterface']]],
-  ['initinterfaceprincipale_12',['initInterfacePrincipale',['../namespacegestion_jeu_interface.html#afcbe6bfff40b285ac7fe2924b00895a3',1,'gestionJeuInterface']]],
-  ['initvarglobal_13',['initVarGlobal',['../namespaceinterface_jeu.html#a958c0c691a8a0264e01f68797b676506',1,'interfaceJeu']]],
-  ['interfacegeneral_14',['interfaceGeneral',['../namespaceinterface_general.html',1,'']]],
-  ['interfacegeneral_2epy_15',['interfaceGeneral.py',['../interface_general_8py.html',1,'']]],
-  ['interfacejeu_16',['interfaceJeu',['../namespaceinterface_jeu.html',1,'']]],
-  ['interfacejeu_2epy_17',['interfaceJeu.py',['../interface_jeu_8py.html',1,'']]],
-  ['interfaceparametre_18',['interfaceParametre',['../namespaceinterface_parametre.html',1,'']]],
-  ['interfaceparametre_2epy_19',['interfaceParametre.py',['../interface_parametre_8py.html',1,'']]],
-  ['interfaceprincipale_20',['interfacePrincipale',['../namespaceinterface_principale.html',1,'']]],
-  ['interfaceprincipale_2epy_21',['interfacePrincipale.py',['../interface_principale_8py.html',1,'']]],
-  ['inversercouleur_22',['inverserCouleur',['../namespacejeu.html#a7135ec5064fda4fe4db56141e204bb61',1,'jeu']]],
-  ['itourcourant_23',['iTourCourant',['../namespaceinterface_jeu.html#ae45bdba456beb95f74858d07c67149db',1,'interfaceJeu']]]
+  ['examples_0',['Examples',['../md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md3',1,'']]]
 ];

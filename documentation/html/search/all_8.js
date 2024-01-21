@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['placerjeton_0',['placerJeton',['../namespaceinterface_jeu.html#af54d3c92f2a0a5f58d88caa7c5bf775a',1,'interfaceJeu']]],
-  ['placerjetonia_1',['placerJetonIA',['../namespacejeu.html#a972d4b483ae46edb88ee1ffe2749e370',1,'jeu']]],
-  ['placerjetonjoueur_2',['placerJetonJoueur',['../namespacejeu.html#aaa925452fa424a8a0a56a83c93a5f38e',1,'jeu']]]
+  ['jeu_0',['jeu',['../namespacejeu.html',1,'']]],
+  ['jeu_2epy_1',['jeu.py',['../jeu_8py.html',1,'']]],
+  ['jouercoupspecial_2',['jouerCoupSpecial',['../namespaceinterface_jeu.html#a5258db962f70ce1634613a1fb4e14e63',1,'interfaceJeu']]]
 ];

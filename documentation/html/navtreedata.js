@@ -25,6 +25,20 @@
 var NAVTREE =
 [
   [ "puissance4", "index.html", [
+    [ "Doxygen Awesome", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html", [
+      [ "Motivation", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Features", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Examples", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md3", null ],
+      [ "Installation", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md4", [
+        [ "Git submodule", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md5", null ],
+        [ "npm/xpm dependency", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md6", null ],
+        [ "System-wide", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md7", null ],
+        [ "Choosing a layout", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md8", null ],
+        [ "Further installation instructions", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md9", null ]
+      ] ],
+      [ "Browser support", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md10", null ],
+      [ "Credits", "md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md11", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

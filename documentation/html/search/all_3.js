@@ -1,23 +1,5 @@
 var searchData=
 [
-  ['gererinterfacejeu_0',['gererInterfaceJeu',['../namespaceinterface_jeu.html#abf2faaee6df2e88b443c38f119b76121',1,'interfaceJeu']]],
-  ['gererinterfaceparametre_1',['gererInterfaceParametre',['../namespaceinterface_parametre.html#a4a560376a43cb550c543049d9a4704d3',1,'interfaceParametre']]],
-  ['gererinterfaceprincipale_2',['gererInterfacePrincipale',['../namespaceinterface_principale.html#a8f6917b92f7d91404564d7c60d264bc7',1,'interfacePrincipale']]],
-  ['gererjeu_3',['gererJeu',['../namespaceinterface_jeu.html#ac618ce9c6bfd512de5460625a89fbd9a',1,'interfaceJeu']]],
-  ['gererminmax_4',['gererMinMax',['../namespacemin_max.html#afbc9df253aa403d30d1c21fe9aa42143',1,'minMax']]],
-  ['gererundoredo_5',['gererUndoRedo',['../namespaceinterface_jeu.html#aa5e8d266a5f123aa8360c89183fa8404',1,'interfaceJeu']]],
-  ['gestionjeuconsole_6',['gestionJeuConsole',['../namespacegestion_jeu_console.html',1,'']]],
-  ['gestionjeuconsole_2epy_7',['gestionJeuConsole.py',['../gestion_jeu_console_8py.html',1,'']]],
-  ['gestionjeuinterface_8',['gestionJeuInterface',['../namespacegestion_jeu_interface.html',1,'']]],
-  ['gestionjeuinterface_2epy_9',['gestionJeuInterface.py',['../gestion_jeu_interface_8py.html',1,'']]],
-  ['getcouleurjetonj1_10',['getCouleurJetonJ1',['../namespaceinterface_parametre.html#a0cbd77bc77053378e32c8345dde09158',1,'interfaceParametre']]],
-  ['getcouleurjetonj2_11',['getCouleurJetonJ2',['../namespaceinterface_parametre.html#afb8941b48701c5b47996d112ea9aaab1',1,'interfaceParametre']]],
-  ['getdificulte_12',['getDificulte',['../namespaceinterface_parametre.html#a9e4f2ea08ba401b9836164649aaeefcd',1,'interfaceParametre']]],
-  ['getjoueurcommence_13',['getJoueurCommence',['../namespaceinterface_parametre.html#ac4c9ba2458cc53fd8e1151e345307ace',1,'interfaceParametre']]],
-  ['getnbcolonne_14',['getNbColonne',['../namespaceinterface_principale.html#aaac86f6908b2f64ca14e01c324217ce8',1,'interfacePrincipale']]],
-  ['getnbjetonvictoire_15',['getNbJetonVictoire',['../namespaceinterface_principale.html#a2b8c4994f24adfc84ca4b73f157a8870',1,'interfacePrincipale']]],
-  ['getnbligne_16',['getNbLigne',['../namespaceinterface_principale.html#a407462267d01b6cfc1a55318b4706153',1,'interfacePrincipale']]],
-  ['getnombrecoupspecial_17',['getNombreCoupSpecial',['../namespaceinterface_parametre.html#abba6c37a92eaa53370d86efff1c3a6c6',1,'interfaceParametre']]],
-  ['getstatecoupspecial_18',['getStateCoupSpecial',['../namespaceinterface_principale.html#a08af783c70619b6389a504336537cea2',1,'interfacePrincipale']]],
-  ['getstateundoredo_19',['getStateUndoRedo',['../namespaceinterface_principale.html#ac46b9eca01e56d5d9fb4af2ba8f4850d',1,'interfacePrincipale']]]
+  ['dependency_0',['npm/xpm dependency',['../md_doxygen-awesome-css_2_r_e_a_d_m_e.html#autotoc_md6',1,'']]],
+  ['doxygen_20awesome_1',['Doxygen Awesome',['../md_doxygen-awesome-css_2_r_e_a_d_m_e.html',1,'']]]
 ];
