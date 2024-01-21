@@ -136,7 +136,7 @@ def creerFrameNbLigne():
 
     labelNbLigne: tk.Label = tk.Label(frameNbLigne)
     labelNbLigne.configure(text='Nombre de ligne du plateau', font=20)
-    labelNbLigne.place(anchor="nw", relx=0.25, rely=0.4, x=0, y=0)
+    labelNbLigne.place(anchor="nw", relx=0.20, rely=0.4, x=0, y=0)
 
 """
     @brief  Créé le widget permettant de choisir le nombre de colonne du plateau
@@ -161,7 +161,7 @@ def creerFrameNbColonne():
 
     labelNbColonne: tk.Label = tk.Label(frameNbColonne)
     labelNbColonne.configure(text='Nombre de colonne du plateau', font=20)
-    labelNbColonne.place(anchor="nw", relx=0.23, rely=0.4, x=0, y=0) 
+    labelNbColonne.place(anchor="nw", relx=0.18, rely=0.4, x=0, y=0) 
 
 """
     @brief  Créé le widget permettant de choisir le nombre de jeton à alligner pour gagner

@@ -257,7 +257,7 @@ def afficherInfoJeu():
     labelCoupSpecialJ1: tk.Label = tk.Label(frameInfoJeu, text="J1 : "+str(TstatutJeu[iTourCourant][1]), font="{Helvetica} 12")
     labelCoupSpecialJ1.place(anchor="nw", relx=0.62, rely=0.425)
     labelCoupSpecialJ2: tk.Label = tk.Label(frameInfoJeu, text="J2 : "+str(TstatutJeu[iTourCourant][2]), font="{Helvetica} 12")
-    labelCoupSpecialJ2.place(anchor="nw", relx=0.77, rely=0.425)
+    labelCoupSpecialJ2.place(anchor="nw", relx=0.76, rely=0.425)
 
 
 """
