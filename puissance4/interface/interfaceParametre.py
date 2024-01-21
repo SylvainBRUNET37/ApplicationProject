@@ -2,7 +2,7 @@
 """
     @file    interfaceParametre.py
     @brief   Contient les éléments de l'interface de paramètre et les fonctions pour gérer celle-ci
-    @author  Sylvain BRUNET & Matthieu CHARTON
+    @author  Sylvain BRUNET
     @version 1.0
     @date    2023-2024
 """
@@ -17,7 +17,7 @@ toplevelFenetreParametre: tk.Tk = None # Fenêtre de paramètre
 
 sCouleurJetonJ1 : str = "yellow"
 sCouleurJetonJ2 : str = "red"
-iNombreCoupSpecial : int = 1
+iNbCoupSpecial : int = 1
 iJoueurCommence : int = 1
 iDifficulteIA : int = 1 # 0 si en JvsJ, 1 pour niveau 1, 2 pour niveau 2 et 4 pour niveau 3 (correspond à la profondeur de l'algorithme)
 
@@ -46,8 +46,8 @@ def getCouleurJetonJ2():
     @return le nombre de coup spécial choisi par le joueur
 """
 def getNombreCoupSpecial():
-    global iNombreCoupSpecial
-    return iNombreCoupSpecial
+    global iNbCoupSpecial
+    return iNbCoupSpecial
 
 """
     @brief Renvoie le joueur qui commencera la partie
@@ -74,8 +74,8 @@ def getDificulte():
     @param iNombreCoupSpecialChoisi nombre de coup spécial choisi par l'utilisateur avec le slider
 """
 def updateNombreCoupSpecial(iNombreCoupSpecialChoisi: int):
-    global iNombreCoupSpecial
-    iNombreCoupSpecial = int(iNombreCoupSpecialChoisi)
+    global iNbCoupSpecial
+    iNbCoupSpecial = int(iNombreCoupSpecialChoisi)
 
 """
     @brief Ouvre la palette de couleur et stocke la couleur choisi dans la variable du joueur
@@ -202,11 +202,11 @@ def creerChoixCouleur(iCoordonneeX: int, iCoordonneeY: int, sNomLabel: str, iJou
 """
 def creerFrameNombreCoupSpecial(bCoupSpecial : bool):
     global toplevelFenetreParametre
-    global iNombreCoupSpecial
+    global iNbCoupSpecial
 
     # Créé la variable tkinter lié au slider
     iTkNombreCoupSpecial: tk.IntVar = tk.IntVar()
-    iTkNombreCoupSpecial.set(iNombreCoupSpecial)
+    iTkNombreCoupSpecial.set(iNbCoupSpecial)
 
     frameNombreCoupSpecial: tk.Frame = tk.Frame(toplevelFenetreParametre)
     frameNombreCoupSpecial.configure(height=150, width=600)
@@ -218,14 +218,14 @@ def creerFrameNombreCoupSpecial(bCoupSpecial : bool):
     # Si le joueur ne veut pas activer le coup spécial, met le nombre de coup spécial à 0, désactive le slider et le grise
     if (bCoupSpecial == False):
         iTkNombreCoupSpecial.set(0)
-        iNombreCoupSpecial = 0
+        iNbCoupSpecial = 0
         labelCoupSpecial.configure(text='Nombre de coup spécial :', font="{Arial} 16 {underline}", background="grey")
         scaleNombreCoupSpecial.configure(cursor="sb_h_double_arrow", from_=0, orient="horizontal", to=5, length=200, width=20,
                                          state="disabled", background="grey")
     # Si le joueur veut activer le coup spécial, configure et affiche le slider
     else:
         iTkNombreCoupSpecial.set(1)
-        iNombreCoupSpecial = 1
+        iNbCoupSpecial = 1
         labelCoupSpecial.configure(text='Nombre de coup spécial :', font="{Arial} 16 {underline}")
         scaleNombreCoupSpecial.configure(cursor="sb_h_double_arrow", from_=1, orient="horizontal", to=5, length=200, width=20,
                                          variable=iTkNombreCoupSpecial, command=updateNombreCoupSpecial)

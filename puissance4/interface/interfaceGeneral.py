@@ -2,12 +2,11 @@
 """
     @file    interfaceGeneral.py
     @brief   Contient les fonctions utilisées par toutes les interfaces
-    @author  Sylvain BRUNET & Matthieu CHARTON
+    @author  Sylvain BRUNET
     @version 1.0
     @date    2023-2024
 """
 
-from interfaceGeneral import *
 import tkinter as tk
 
 """
@@ -54,7 +53,7 @@ def creerFrameHaut(toplevelFenetre: tk.Tk):
     buttonQuitter.place(anchor="nw", relx=0.6, rely=0.21)
 
 """
-    @brief Gère la création du bouton de retour ; lorsque le bouton est cliqué, détruit la fenêtre actuelle et reviens à l'interface d'avant
+    @brief Gère la création du bouton de retour : lorsque le bouton est cliqué, détruit la fenêtre actuelle et reviens à l'interface d'avant
 """
 def creerBoutonRetour(fonctionRetour, dictParametre: dict, toplevelFenetre: tk.Tk):
     frameBoutonRetour: tk.Frame = tk.Frame(toplevelFenetre)

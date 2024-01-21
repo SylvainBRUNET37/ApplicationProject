@@ -1,17 +1,16 @@
 #!/usr/bin/python3
 """
-    @file    interfaceGestion.py
+    @file    gestionJeuInterface.py
     @brief   Contient les fonctions qui gère la création des interfaces et des passages entre elles
-             Les fonctions misent dans ce fichier sont là pour éviter les importations circulaires
-    @author  Sylvain BRUNET & Matthieu CHARTON
+    @author  Sylvain BRUNET
     @version 1.0
     @date    2023-2024
 """
 
-from interfaceGeneral import *
-from interfacePrincipale import *
-from interfaceParametre import *
-from interfaceJeu import *
+from interface.interfaceGeneral import *
+from interface.interfacePrincipale import *
+from interface.interfaceParametre import *
+from interface.interfaceJeu import *
 
 ###########################################################
 #             FONCTIONS INTERFACE PRINCIPALE              #
@@ -101,7 +100,7 @@ def creerBoutonLancer(toplevelFenetre: tk.Tk, dictParametre: dict):
 """
 def lancerPageJeu(toplevelFenetre: tk.Tk, dictParametre: dict):
     # Ajoute et met à jour les paramètres dans le dictionnaire
-    dictParametre.update({"couleurJetonJ1": getCouleurJetonJ1(), "couleurJetonJ2": getCouleurJetonJ2(), "nombreCoupSpecial": getNombreCoupSpecial(),
+    dictParametre.update({"couleurJetonJ1": getCouleurJetonJ1(), "couleurJetonJ2": getCouleurJetonJ2(), "nbCoupSpecial": getNombreCoupSpecial(),
                           "joueurCommence": getJoueurCommence(), "difficulteIA": getDificulte()})
     
     # Ferme la fenêtre de parametre et lance la fenêtre de jeu en donnant les paramètres

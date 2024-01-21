@@ -2,16 +2,16 @@
 """
     @file    interfaceJeu.py
     @brief   Contient les éléments de l'interface de jeu et les fonctions pour gérer celle-ci
-    @author  Sylvain BRUNET & Matthieu CHARTON
+    @author  Sylvain BRUNET
     @version 1.0
     @date    2023-2024
 """
 
 import tkinter as tk
 
-import copy
-from jeu import *
-from interfaceGeneral import creerToplevelFenetre
+from jeu.jeu import *
+from jeu.minMax import trouverMeilleurCoup
+from interface.interfaceGeneral import creerToplevelFenetre
 
 ###########################################################
 #                  VARIABLES GLOABALES                    #
@@ -23,8 +23,8 @@ toplevelFenetreJeu: tk.Tk = None # Fenêtre de jeu
 iNbColonnePlateau: int = 0
 iNbLignePlateau: int = 0
 iNbJetonVictoire: int = 0 # Nombre de jeton à alligner pour gagner
-strCouleurJetonJ1: str = ""
-strCouleurJetonJ2: str = ""
+sCouleurJetonJ1: str = ""
+sCouleurJetonJ2: str = ""
 iDifficulteIA: int = 0 # 0 si en JvsJ, 1 pour niveau 1, 2 pour niveau 2 et 4 pour niveau 3 (correspond à la profondeur de l'algorithme)
 bStateUndoRedo: bool = False # False si l'UNDO/REDO est désactivé, True si activé
 
@@ -83,23 +83,23 @@ def updateAffichagePlateau():
     # Supprime toutes les cases du plateau
     canvasFondPlateau.delete("all")
 
-    strCouleurJeton: str = "white"
+    sCouleur: str = "white"
     # Boucle autant de fois qu'il y a de case dans le plateau pour mettre à jour chaque case
     for iLigne in range(iNbLignePlateau-1, -1, -1): # Part de la fin du plateau pour ne pas afficher le plateau à l'envers
         for iColonne in range(iNbColonnePlateau):
 
             # Si il n'y a pas de jeton, affiche une case vide
             if (TstatutJeu[iTourCourant][0][iColonne][iLigne] == 0):
-                strCouleurJeton = "white"
+                sCouleur = "white"
             # Si c'est un jeton du joueur 1, affiche son jeton
             elif (TstatutJeu[iTourCourant][0][iColonne][iLigne] == 1):
-                strCouleurJeton = strCouleurJetonJ1
+                sCouleur = sCouleurJetonJ1
             # Si c'est un jeton du joueur 2, affiche son jeton
             else:
-                strCouleurJeton = strCouleurJetonJ2
+                sCouleur = sCouleurJetonJ2
 
             # Affiche un emplacement du plateau
-            afficherJeton(iColonne, iLigne, strCouleurJeton)
+            afficherJeton(iColonne, iLigne, sCouleur)
         
 """
     @brief  Gère le jeu : place le jeton, gère la sauvegarde des statuts de jeu...
@@ -139,12 +139,12 @@ def gererJeu(iColonneChoisi: int):
             creerBoutonCoupSpecial()
 
             # Vérifie si c'est la fin du jeu (plateau plein ou joueur qui gagne) et affiche l'écran de fin de partie
-            afficherFinJeu(Verif(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire))
+            afficherFinJeu(verifierFinJeu(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire))
 
             # Si le mode de jeu est JvsIA et que c'est au tour de l'IA,
             # relance la fonction en donnant en paramètre le coup qu'elle estime être le meilleur pour gagner
             if (iDifficulteIA != 0 and iJoueurCourant == 2):
-                gererJeu(meilleur_coup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
+                gererJeu(trouverMeilleurCoup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
 
 """
     @brief  Place le jeton dans la colonne choisi par le joueur
@@ -171,19 +171,19 @@ def placerJeton(iColonneChoisi: int) -> bool:
         iCptUndo = 0
 
         # Crée une copie du plateau de jeu actuel
-        test: list = copy.deepcopy(TstatutJeu[iTourCourant-1])
-        test[0]: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
+        TplateauCopie: list = copy.deepcopy(TstatutJeu[iTourCourant-1])
+        TplateauCopie[0]: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
             
         # Ajoute le jeton joué à la copie
-        test[0][iColonneChoisi][iLigneJouer] = iJoueurCourant
+        TplateauCopie[0][iColonneChoisi][iLigneJouer] = iJoueurCourant
             
         # Sauvegarde la copie
-        TstatutJeu.append(test)
+        TstatutJeu.append(TplateauCopie)
         
         return True
 
 """
-    @brief  Joue le coup spécial
+    @brief  Inverse les couleurs des jetons
     @return False si le coup spécial ne peut pas être joué, True si il a été joué
 """
 def jouerCoupSpecial() -> bool:
@@ -208,15 +208,15 @@ def jouerCoupSpecial() -> bool:
         iCptUndo = 0
             
         # Crée une copie du plateau de jeu actuel
-        test: list = copy.deepcopy(TstatutJeu[iTourCourant-1])
-        test[0]: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
-        test[iJoueurCourant] = (TstatutJeu[iTourCourant-1][iJoueurCourant])-1
+        TplateauCopie: list = copy.deepcopy(TstatutJeu[iTourCourant-1])
+        TplateauCopie[0]: list = [ligne.copy() for ligne in TstatutJeu[iTourCourant-1][0]]
+        TplateauCopie[iJoueurCourant] = (TstatutJeu[iTourCourant-1][iJoueurCourant])-1
         
-        # Met le nouveau plateau dans la copie
-        test[0] = atout(test[0], iNbColonnePlateau, iNbLignePlateau)
+        # Met le nouveau plateau dans la copie (avec les couleurs inversées)
+        TplateauCopie[0] = inverserCouleur(TplateauCopie[0], iNbColonnePlateau, iNbLignePlateau)
 
         # Sauvegarde la copie
-        TstatutJeu.append(test)
+        TstatutJeu.append(TplateauCopie)
 
         return True
        
@@ -233,9 +233,9 @@ def afficherInfoJeu():
     global iJoueurCourant
     
     if (iJoueurCourant == 1):
-        strCouleur:str = strCouleurJetonJ1
+        sCouleur:str = sCouleurJetonJ1
     else:
-        strCouleur: str = strCouleurJetonJ2
+        sCouleur: str = sCouleurJetonJ2
 
     frameInfoJeu: tk.Frame = tk.Frame(toplevelFenetreJeu)
     frameInfoJeu.place(relx=0.2, rely=0.83, width=400, height=200)
@@ -249,7 +249,7 @@ def afficherInfoJeu():
     labelTourJoueur.place(anchor="nw", relx=0, rely=0.2)
     canvaCouleur: tk.Canvas = tk.Canvas(frameInfoJeu)
     canvaCouleur.configure(height=75, width=75)
-    canvaCouleur.create_oval(33, 33, 5, 5, outline="black", fill=strCouleur)
+    canvaCouleur.create_oval(33, 33, 5, 5, outline="black", fill=sCouleur)
     canvaCouleur.place(anchor="nw", relx=0.4, rely=0.185)
 
     labelCoupSpecial: tk.Label = tk.Label(frameInfoJeu, text="Nombre de coup spécial :", font="{Helvetica} 16 {underline}")
@@ -269,19 +269,19 @@ def creerBoutonCoupSpecial():
     global TstatutJeu
     global bFinJeu
 
-    strStateBouton: str = ""
-    # Si le joueur n'a plus de coup spécial, désactive le bouton
-    if (TstatutJeu[iTourCourant][iJoueurCourant] == 0 or bFinJeu == True):
-        strStateBouton = "disabled"
+    sStateBouton: str = ""
+    # Si le joueur ne remplie pas les conditions pour utiliser le coup spécial, désactive le bouton
+    if (TstatutJeu[iTourCourant][iJoueurCourant] == 0 or bFinJeu == True or iTourCourant == 0):
+        sStateBouton = "disabled"
     else:
-        strStateBouton = "active"
+        sStateBouton = "active"
 
     frameBoutonCoupSpecial: tk.Frame = tk.Frame(toplevelFenetreJeu)
     frameBoutonCoupSpecial.place(relx=0.67, rely=0.85, width=300, height=125)
 
     # Créé le bouton UNDO et le lie à la fonction qui gère l'UNDO/REDO
     buttonCoupSpecial: tk.Button = tk.Button(frameBoutonCoupSpecial)
-    buttonCoupSpecial.configure(cursor="hand2", font="{Arial} 18", width=15, text='Changer la couleur\n des pions', state=strStateBouton,
+    buttonCoupSpecial.configure(cursor="hand2", font="{Arial} 16", width=18, text='Échanger la couleur\n des pions', state=sStateBouton,
                                 command= lambda: gererJeu(None))
     buttonCoupSpecial.place(anchor="nw", relx=0, rely=0)
 
@@ -326,35 +326,35 @@ def creerBoutonUndoRedo():
     frameUndoRedo: tk.Frame = tk.Frame(toplevelFenetreJeu)
     frameUndoRedo.place(relx=0.04, rely=0.83, width=125, height=125)
 
-    strStateUndo: str = ""
-    strStateRedo: str = ""
+    sStateUndo: str = ""
+    sStateRedo: str = ""
     # Si le joueur à désactivé l'undo/redo, bloque les boutons liés à cette fonction (sinon active/désactive les boutons)
     if (bStateUndoRedo == False):
-        strStateUndo = "disabled"
-        strStateRedo = "disabled"
+        sStateUndo = "disabled"
+        sStateRedo = "disabled"
     else:
         # Si c'est le premier tour, bloque le bouton UNDO (sinon l'active)
         # Si l'IA joue en premier, le premier tour du joueur est le 1. Dans ce cas désactive aussi l'UNDO
         if (iTourCourant == 0 or (iTourCourant == 1 and iDifficulteIA != 0)):
-            strStateUndo = "disabled"
+            sStateUndo = "disabled"
         else:
-            strStateUndo = "active"
+            sStateUndo = "active"
 
         # Si l'UNDO n'a pas été utilisé, bloque le bouton de REDO (sinon l'active)
         if (iCptUndo == 0):
-            strStateRedo = "disabled"
+            sStateRedo = "disabled"
         else:
-            strStateRedo = "active"
+            sStateRedo = "active"
 
     # Créé le bouton UNDO et le lie à la fonction qui gère l'UNDO/REDO
     buttonUndo: tk.Button = tk.Button(frameUndoRedo)
-    buttonUndo.configure(cursor="hand2", font="{Arial} 18", width=5, text='Undo', state=strStateUndo,
+    buttonUndo.configure(cursor="hand2", font="{Arial} 16", width=5, text='Undo', state=sStateUndo,
                          command= lambda: gererUndoRedo(True))
     buttonUndo.place(anchor="nw", relx=0, rely=0)
 
     # Créé le bouton REDO et le lie à la fonction qui gère l'UNDO/REDO
     buttonRedo: tk.Button = tk.Button(frameUndoRedo)
-    buttonRedo.configure(cursor="hand2", font="{Arial} 18", width=5, text='Redo', state=strStateRedo,
+    buttonRedo.configure(cursor="hand2", font="{Arial} 16", width=5, text='Redo', state=sStateRedo,
                          command= lambda: gererUndoRedo(False))
     buttonRedo.place(anchor="nw", relx=0, rely=0.5)
 
@@ -362,9 +362,9 @@ def creerBoutonUndoRedo():
     @brief  Affiche un jeton de couleur donnée à la position donnée
     @param  iColonneChoisi  colonne dans laquel le jeton doit être placé
     @param  iLigneJouer     ligne dans laquel le jeton doit être placé
-    @param  strCouleurJeton couleur du jeton à placer
+    @param  sCouleurJeton couleur du jeton à placer
 """
-def afficherJeton(iColonneChoisi: int, iLigneJouer: int, strCouleurJeton: str):
+def afficherJeton(iColonneChoisi: int, iLigneJouer: int, sCouleurJeton: str):
     global iNbLignePlateau
     global canvasFondPlateau
     global toplevelFenetreJeu
@@ -380,7 +380,7 @@ def afficherJeton(iColonneChoisi: int, iLigneJouer: int, strCouleurJeton: str):
     canvasFondPlateau.create_rectangle(iX1, iY1, iX2, iY2, outline="black", fill="blue")
 
     # Met la couleur du joueur à l'emplacement du jeton (dans le trou de la grille)
-    iCasePlateau : int = canvasFondPlateau.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill=strCouleurJeton)
+    iCasePlateau : int = canvasFondPlateau.create_oval(iX1+5, iY1+5, iX2-5, iY2-5, fill=sCouleurJeton)
         
     # Relie la fonction qui gère le jeu au canva, elle s'activera quand le joueur cliquera sur une case
     # Passe à la fonction la numéro de la colonne de la case cliqué
@@ -419,8 +419,8 @@ def initVarGlobal(dictParametre: dict):
     global iJoueurCourant
     global iNbColonnePlateau
     global iNbLignePlateau
-    global strCouleurJetonJ1
-    global strCouleurJetonJ2
+    global sCouleurJetonJ1
+    global sCouleurJetonJ2
     global iNbJetonVictoire
     global iDifficulteIA
     global bStateUndoRedo
@@ -432,8 +432,8 @@ def initVarGlobal(dictParametre: dict):
     global TstatutJeu
 
     # Met les paramèteres chosis par l'utilisateur dans des variables globales
-    strCouleurJetonJ1 = dictParametre["couleurJetonJ1"]
-    strCouleurJetonJ2 = dictParametre["couleurJetonJ2"]
+    sCouleurJetonJ1 = dictParametre["couleurJetonJ1"]
+    sCouleurJetonJ2 = dictParametre["couleurJetonJ2"]
     iJoueurCourant = dictParametre["joueurCommence"]
     iNbColonnePlateau = dictParametre["nbColonnePlateau"]
     iNbLignePlateau = dictParametre["nbLignePlateau"]
@@ -456,7 +456,7 @@ def initVarGlobal(dictParametre: dict):
 
     # Sauvegarde l'état du jeu du premier tour
     # Contient : plateau de jeu, nombre d'atouts restant pour le J1, nombre d'atouts restant pour le J2
-    TstatutJeu.append([TplateauDeJeu, dictParametre["nombreCoupSpecial"], dictParametre["nombreCoupSpecial"]])
+    TstatutJeu.append([TplateauDeJeu, dictParametre["nbCoupSpecial"], dictParametre["nbCoupSpecial"]])
 
 """
     @brief Gère l'affichage de la page de jeu
@@ -480,7 +480,7 @@ def gererInterfaceJeu(toplevelFenetre: tk.Tk, dictParametre: dict):
 
     # Si c'est l'IA qui joue le premier tour, joue son tour
     if (iDifficulteIA != 0 and iJoueurCourant == 2):
-        gererJeu(meilleur_coup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
+        gererJeu(trouverMeilleurCoup(TstatutJeu[iTourCourant][0], iNbColonnePlateau, iNbLignePlateau, iNbJetonVictoire, iDifficulteIA))
 
     # Affiche la page créée
     toplevelFenetreJeu.mainloop()
